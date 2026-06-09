@@ -41,11 +41,11 @@ export default function HomeNav() {
               ))}
             </ul>
           </div>
-          <a className="cursor-pointer">
+          <a className="shrink-0 cursor-pointer">
             <img
               src="/logo.png"
               alt="Guardmaster Institute"
-              className="h-24 w-auto md:h-24"
+              className="h-16 w-auto shrink-0 object-contain md:h-24"
             />
           </a>
         </div>
