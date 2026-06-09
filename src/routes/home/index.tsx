@@ -106,7 +106,7 @@ function RouteComponent() {
         </div>
       </section>
 
-      <section data-theme="" className="px-6 py-20 md:px-16 mx-auto container">
+      <section data-theme="" className="py-20  mx-auto container">
         <div className="mb-12">
           <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-base-content/60 uppercase">
             The Guardmaster Advantage
