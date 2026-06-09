@@ -85,7 +85,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative z-10 overflow-hidden bg-secondary/85 py-3 backdrop-blur-sm">
+        {/*<div className="relative z-10 overflow-hidden bg-secondary/85 py-3 backdrop-blur-sm">
           <div className="ticker-track flex w-max whitespace-nowrap">
             {[...tickerItems, ...tickerItems].map((item, i) => (
               <span
@@ -97,7 +97,7 @@ export default function Hero() {
               </span>
             ))}
           </div>
-        </div>
+        </div>*/}
       </section>
     </>
   );
