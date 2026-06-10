@@ -29,7 +29,7 @@ export default function Courses() {
               Our Programs
             </span>
             <h2 className="max-w-xl text-4xl leading-tight font-light text-secondary md:text-5xl">
-              Programs built for
+              Browse Courses by Category
               <br />
               <em className="italic font-light">real-world impact.</em>
             </h2>
