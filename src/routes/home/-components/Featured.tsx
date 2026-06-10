@@ -30,14 +30,6 @@ const programs = [
   },
 ];
 
-const advantages = [
-  "Immersive learning and real case analysis",
-  "Distinguished faculty and course leaders",
-  "Interactive webinars and workshop sessions",
-  "Integrative training programs",
-  "ISO global standards integration",
-];
-
 export default function Featured() {
   return (
     <section data-theme="guard">
@@ -94,56 +86,6 @@ export default function Featured() {
                 </button>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Forefront / advantage */}
-      <div className="bg-accent px-6 py-20 text-accent-content md:px-16">
-        <div className="container mx-auto grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <span className="mb-6 inline-block rounded-full border border-white/25 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-white/70 uppercase">
-              Level Up
-            </span>
-            <h2 className="mb-6 text-4xl leading-tight font-light text-white md:text-5xl">
-              At the forefront of corporate security{" "}
-              <em className="italic text-primary">since day one.</em>
-            </h2>
-            <p className="mb-8 max-w-lg text-sm leading-relaxed text-white/60">
-              Our faculty and training facilitators are subject matter experts —
-              among the leading trainers in their fields globally. The result:
-              professionals who lead, not follow.
-            </p>
-
-            <ul className="mb-10 flex flex-col divide-y divide-white/10 border-y border-white/10">
-              {advantages.map((item, i) => (
-                <li key={item} className="flex items-center gap-4 py-3.5">
-                  <span className="text-xs font-medium tracking-widest text-primary">
-                    — {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-sm text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <button className="btn gap-2 rounded-md bg-white px-6 text-black hover:bg-white/90">
-              Browse all programs
-              <ArrowUpRight className="h-4 w-4" />
-            </button>
-          </div>
-
-          <div className="relative overflow-hidden rounded-2xl">
-            <img
-              src="/features/mba.png"
-              alt="Faculty leading a session"
-              className="h-full max-h-[520px] w-full object-cover"
-            />
-            <div className="absolute bottom-5 left-5 rounded-xl bg-secondary px-6 py-4 text-secondary-content shadow-xl">
-              <div className="text-3xl font-bold text-white">250+</div>
-              <div className="mt-1 text-[10px] font-medium tracking-widest text-white/60 uppercase">
-                Active Learners
-              </div>
-            </div>
           </div>
         </div>
       </div>

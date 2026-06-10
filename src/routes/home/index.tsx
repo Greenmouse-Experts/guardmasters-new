@@ -11,6 +11,8 @@ import HomeNav from "./-components/HomeNav";
 import Hero from "./-components/Hero";
 import Courses from "./-components/Courses";
 import Featured from "./-components/Featured";
+import ForeFront from "./-components/ForeFront";
+import Accredition from "./-components/Accredition";
 import Footer from "./-components/Footer";
 
 export const Route = createFileRoute("/home/")({
@@ -146,6 +148,8 @@ function RouteComponent() {
 
       <Courses />
       <Featured />
+      <ForeFront />
+      <Accredition />
       <Footer />
     </>
   );
