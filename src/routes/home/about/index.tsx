@@ -5,6 +5,7 @@ import FlexSkeleton from "../-components/FlexSkeleton";
 import Principles from "../-components/Principles";
 import Stats from "../-components/Stats";
 import FacultyProfile from "../-components/FacultyProfile";
+import Cta from "../-components/Cta";
 
 export const Route = createFileRoute("/home/about/")({
   component: RouteComponent,
@@ -39,6 +40,7 @@ function RouteComponent() {
       />
       <Stats />
       <FacultyProfile />
+      <Cta />
     </>
   );
 }

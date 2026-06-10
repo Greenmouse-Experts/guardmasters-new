@@ -25,7 +25,7 @@ export default function FacultyProfile() {
         </div>
 
         <div>
-          <span className="mb-5 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-accent uppercase">
+          <span className="mb-5 inline-block rounded-full border border-base-content/20 px-4 py-1.5  text-secondary uppercase">
             Lead Faculty &amp; Programs Director
           </span>
           <h2 className="text-4xl font-semibold text-base-content md:text-5xl">
