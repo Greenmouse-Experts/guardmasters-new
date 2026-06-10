@@ -32,7 +32,7 @@ export default function Experience() {
   const next = () => setIndex((i) => (i + 1) % testimonials.length);
 
   return (
-    <section data-theme="guard" className="bg-base-200 px-6 py-20 md:px-16">
+    <section data-theme="guard" className="bg-base-200 px-6 py-8 md:px-16">
       <div className="container mx-auto">
         <div className="mb-12 flex items-start justify-between gap-6">
           <div>

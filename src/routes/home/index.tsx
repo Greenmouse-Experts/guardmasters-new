@@ -66,7 +66,7 @@ function RouteComponent() {
       <HomeNav />
       <Hero />
 
-      <section className="container mx-auto py-20">
+      <section className="container mx-auto py-8">
         <div className="container mx-auto flex flex-col gap-12 md:flex-row md:items-start md:gap-20">
           <div className="md:w-1/2">
             <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-base-content/60 uppercase">
@@ -111,10 +111,10 @@ function RouteComponent() {
         </div>
       </section>
 
-      <div className="bg-base-200 py-20">
+      <div className="bg-base-200 py-8">
         <section
           data-theme=""
-          className="py-20  mx-auto container bg-transparent"
+          className="py-8  mx-auto container bg-transparent"
         >
           <div className="mb-12 ">
             <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent font-medium tracking-[0.18em] uppercase">

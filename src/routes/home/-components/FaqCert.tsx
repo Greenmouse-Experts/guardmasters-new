@@ -29,7 +29,7 @@ const faqs = [
 
 export default function FaqCert() {
   return (
-    <section data-theme="guard" className="px-6 py-20 text-white md:px-16">
+    <section data-theme="guard" className="px-6 py-8 text-white md:px-16">
       <div className="container mx-auto">
         {/* FAQ header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
@@ -75,11 +75,21 @@ export default function FaqCert() {
               <span className="mb-6 inline-block text-[11px] font-medium tracking-[0.18em] text-white/50 uppercase">
                 Cohort Opens Monthly
               </span>
-              <h3 className="mb-8 max-w-md text-4xl leading-[1.1] font-light text-white md:text-5xl">
+              <h3 className="max-w-md text-4xl leading-[1.1] font-light text-white md:text-5xl">
                 Start your path to a rewarding career in corporate security
                 today.
               </h3>
-              <div className="flex flex-wrap gap-4">
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-lg shadow-2xl">
+                <img
+                  src="/certificate.png"
+                  alt="Guardmaster Institute certificate"
+                  className="w-full object-cover"
+                />
+              </div>
+              <div className="mt-6 flex flex-wrap justify-end gap-4">
                 <button className="btn gap-2 rounded-none border-none bg-white px-6 font-medium text-black hover:bg-white/90">
                   Apply Now
                   <ArrowUpRight className="h-4 w-4" />
@@ -88,14 +98,6 @@ export default function FaqCert() {
                   Talk to us
                 </button>
               </div>
-            </div>
-
-            <div className="overflow-hidden rounded-lg shadow-2xl">
-              <img
-                src="/certificate.png"
-                alt="Guardmaster Institute certificate"
-                className="w-full object-cover"
-              />
             </div>
           </div>
         </div>

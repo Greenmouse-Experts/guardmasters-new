@@ -33,7 +33,7 @@ const accreditations = [
 
 export default function Accredition() {
   return (
-    <section data-theme="guard" className="bg-base-100 px-6 py-20 md:px-16">
+    <section data-theme="guard" className="bg-base-100 px-6 py-8 md:px-16">
       <div className="container mx-auto">
         <div className="mb-14 text-center">
           <span className="mb-8 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-secondary uppercase">
