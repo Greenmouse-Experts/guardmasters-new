@@ -26,7 +26,7 @@ export default function Hero() {
         <img
           src="/home/hero.png"
           alt="hero"
-          className="absolute inset-0 w-full h-full object-cover   blur-[6px] brightness-75"
+          className="absolute inset-0 w-full h-full object-cover   blur-[2px] brightness-75"
         />
         {/*<div className="absolute inset-0 bg-black/65" />*/}
 

@@ -13,6 +13,8 @@ import Courses from "./-components/Courses";
 import Featured from "./-components/Featured";
 import ForeFront from "./-components/ForeFront";
 import Accredition from "./-components/Accredition";
+import Experience from "./-components/Experience";
+import FaqCert from "./-components/FaqCert";
 import Footer from "./-components/Footer";
 
 export const Route = createFileRoute("/home/")({
@@ -150,6 +152,8 @@ function RouteComponent() {
       <Featured />
       <ForeFront />
       <Accredition />
+      <Experience />
+      <FaqCert />
       <Footer />
     </>
   );
