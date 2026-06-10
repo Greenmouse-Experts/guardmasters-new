@@ -5,7 +5,7 @@ const programs = [
     number: "01",
     category: "MINI-MBA",
     hours: "60 HRS",
-    image: "/features/mini-mba.png",
+    image: "/features/mba.png",
     title: "Mini-MBA (Security Project Management)",
     description:
       "This program equips professionals to plan, execute, and oversee complex security projects with precision.",
@@ -23,7 +23,7 @@ const programs = [
     number: "03",
     category: "MINI-MBA",
     hours: "32 HRS",
-    image: "/features/mba.png",
+    image: "/features/mini-mba.png",
     title: "Mini-MBA (Business Interruption and Emergency Management)",
     description:
       "Implement, audit, and lead BCM programs aligned with ISO international standards.",
