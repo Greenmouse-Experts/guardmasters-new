@@ -1,7 +1,12 @@
 import type { ComponentType, SVGProps } from "react";
 import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 
-const exploreLinks = ["Home", "About Us", "Training Programs", "News & Insights"];
+const exploreLinks = [
+  "Home",
+  "About Us",
+  "Training Programs",
+  "News & Insights",
+];
 const resourceLinks = ["Accreditations", "Faculty", "Contact", "Sign in"];
 
 type IconProps = SVGProps<SVGSVGElement>;
@@ -40,7 +45,10 @@ const socials: { Icon: ComponentType<IconProps>; label: string }[] = [
 const contacts = [
   { Icon: Phone, content: "+1 437-545-1684" },
   { Icon: Mail, content: "info@guardmasterinstitute.ca" },
-  { Icon: MapPin, content: "405 Victoria Avenue, Windsor,\nOntario N9A 4N1, Canada" },
+  {
+    Icon: MapPin,
+    content: "405 Victoria Avenue, Windsor,\nOntario N9A 4N1, Canada",
+  },
 ];
 
 function FooterColumn({ title, links }: { title: string; links: string[] }) {
@@ -64,7 +72,7 @@ function FooterColumn({ title, links }: { title: string; links: string[] }) {
 
 export default function Footer() {
   return (
-    <footer data-theme="guard" className="bg-secondary text-secondary-content">
+    <footer data-theme="guard" className="bg-accent text-secondary-content">
       <div className="container mx-auto px-6 py-16 md:px-12">
         {/* Top CTA */}
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
@@ -148,8 +156,12 @@ export default function Footer() {
         <div className="flex flex-col gap-4 pt-8 text-xs tracking-wider text-white/50 uppercase md:flex-row md:items-center md:justify-between">
           <span>© 2026 Guardmaster Institute. All Rights Reserved</span>
           <div className="flex gap-8">
-            <a className="cursor-pointer transition-colors hover:text-white">Terms</a>
-            <a className="cursor-pointer transition-colors hover:text-white">Privacy</a>
+            <a className="cursor-pointer transition-colors hover:text-white">
+              Terms
+            </a>
+            <a className="cursor-pointer transition-colors hover:text-white">
+              Privacy
+            </a>
           </div>
         </div>
       </div>

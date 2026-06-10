@@ -69,7 +69,7 @@ export default function FaqCert() {
         </div>
 
         {/* CTA card */}
-        <div className="mt-16 overflow-hidden rounded-2xl bg-secondary px-8 py-12 md:px-12 md:py-14">
+        <div className="mt-16 overflow-hidden rounded-2xl bg-accent px-8 py-12 md:px-12 md:py-14">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div>
               <span className="mb-6 inline-block text-[11px] font-medium tracking-[0.18em] text-white/50 uppercase">
