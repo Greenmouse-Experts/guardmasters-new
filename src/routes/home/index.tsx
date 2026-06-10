@@ -10,6 +10,7 @@ import {
 import HomeNav from "./-components/HomeNav";
 import Hero from "./-components/Hero";
 import Courses from "./-components/Courses";
+import Featured from "./-components/Featured";
 import Footer from "./-components/Footer";
 
 export const Route = createFileRoute("/home/")({
@@ -106,39 +107,45 @@ function RouteComponent() {
         </div>
       </section>
 
-      <section data-theme="" className="py-20  mx-auto container">
-        <div className="mb-12">
-          <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-base-content/60 uppercase">
-            The Guardmaster Advantage
-          </span>
-          <h2 className="max-w-2xl text-4xl leading-tight font-light text-secondary md:text-5xl">
-            Empowering the Next Generation
-            <br />
-            of Security Leaders
-          </h2>
-        </div>
+      <div className="bg-base-200 py-20">
+        <section
+          data-theme=""
+          className="py-20  mx-auto container bg-transparent"
+        >
+          <div className="mb-12 ">
+            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-base-content/60 uppercase">
+              The Guardmaster Advantage
+            </span>
+            <h2 className="max-w-5xl text-4xl leading-tight font-light  md:text-5xl">
+              Empowering the Next Generation
+              <br />
+              of Security Leaders
+            </h2>
+          </div>
 
-        <div className="grid grid-cols-1 border-t border-l border-base-300 md:grid-cols-3">
-          {features.map(({ icon: Icon, title, description }) => (
-            <div
-              key={title}
-              className="border-r border-b border-base-300 bg-base-200 p-10"
-            >
-              <div className="mb-8 inline-flex items-center justify-center rounded border border-base-300 bg-base-100 p-2.5">
-                <Icon className="h-5 w-5 text-secondary" strokeWidth={1.5} />
+          <div className="grid grid-cols-1 border-t border-l border-base-300 md:grid-cols-3">
+            {features.map(({ icon: Icon, title, description }) => (
+              <div
+                key={title}
+                className="border-r border-b border-base-300 bg-base-100 p-10"
+              >
+                <div className="mb-8 inline-flex items-center justify-center rounded border border-base-300 bg-base-100 p-2.5">
+                  <Icon className="h-5 w-5 text-secondary" strokeWidth={1.5} />
+                </div>
+                <h3 className="mb-3 text-xl font-semibold text-secondary">
+                  {title}
+                </h3>
+                <p className="text-sm leading-relaxed text-base-content/60">
+                  {description}
+                </p>
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-secondary">
-                {title}
-              </h3>
-              <p className="text-sm leading-relaxed text-base-content/60">
-                {description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </div>
 
       <Courses />
+      <Featured />
       <Footer />
     </>
   );

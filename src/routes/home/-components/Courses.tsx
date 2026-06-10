@@ -28,10 +28,8 @@ export default function Courses() {
             <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-base-content/60 uppercase">
               Our Programs
             </span>
-            <h2 className="max-w-xl text-4xl leading-tight font-light text-secondary md:text-5xl">
+            <h2 className="max-w-3xl text-4xl leading-tight font-light  md:text-5xl">
               Browse Courses by Category
-              <br />
-              <em className="italic font-light">real-world impact.</em>
             </h2>
           </div>
           <button className="btn btn-outline border-secondary text-secondary hover:bg-secondary hover:text-secondary-content self-start rounded-full px-6 md:self-auto">
@@ -53,7 +51,7 @@ export default function Courses() {
                   className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <h3 className="py-8 text-center text-2xl font-bold text-secondary">
+              <h3 className="py-8 text-center text-2xl font-bold ">
                 {course.title}
               </h3>
             </div>
