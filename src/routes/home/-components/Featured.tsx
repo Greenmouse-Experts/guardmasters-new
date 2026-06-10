@@ -38,7 +38,7 @@ export default function Featured() {
         <div className="container mx-auto">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
-              <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-base-content/60 uppercase">
+              <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent font-medium tracking-[0.18em]  uppercase">
                 Featured Programs
               </span>
               <h2 className="text-4xl leading-tight font-light text-accent md:text-5xl">
@@ -80,7 +80,7 @@ export default function Featured() {
                   {program.description}
                 </p>
 
-                <button className="btn btn-block mt-auto gap-2 rounded-md bg-accent text-accent-content hover:bg-accent/90">
+                <button className="btn btn-block mt-auto gap-2 rounded-md bg-secondary text-accent-content hover:bg-accent/90">
                   Enroll
                   <ArrowUpRight className="h-4 w-4" />
                 </button>

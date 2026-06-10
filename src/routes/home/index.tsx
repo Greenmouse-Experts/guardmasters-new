@@ -117,7 +117,7 @@ function RouteComponent() {
           className="py-20  mx-auto container bg-transparent"
         >
           <div className="mb-12 ">
-            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-base-content/60 uppercase">
+            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent font-medium tracking-[0.18em] uppercase">
               The Guardmaster Advantage
             </span>
             <h2 className="max-w-5xl text-4xl leading-tight font-light  md:text-5xl">
