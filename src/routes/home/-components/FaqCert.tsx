@@ -42,7 +42,7 @@ export default function FaqCert() {
               <span className="text-accent">We've Got Answers</span>
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-white/50">
+          <p className="max-w-sm text-lg leading-relaxed text-black/80">
             Find answers to common questions about our courses, certifications,
             enrollment process, and learning experience.
           </p>
