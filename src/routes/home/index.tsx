@@ -133,12 +133,10 @@ function RouteComponent() {
                 key={title}
                 className="border-r border-b border-base-300 bg-base-100 p-10"
               >
-                <div className="mb-8 inline-flex items-center justify-center rounded border border-base-300 bg-base-100 p-2.5">
-                  <Icon className="h-5 w-5 text-secondary" strokeWidth={1.5} />
+                <div className="mb-8 inline-flex bg-primary items-center justify-center rounded border border-base-300 p-2.5">
+                  <Icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-secondary">
-                  {title}
-                </h3>
+                <h3 className="mb-3 text-xl font-semibold ">{title}</h3>
                 <p className="text-sm leading-relaxed text-base-content/60">
                   {description}
                 </p>

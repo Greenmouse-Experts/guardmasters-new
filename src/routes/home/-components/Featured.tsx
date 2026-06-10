@@ -41,9 +41,8 @@ export default function Featured() {
               <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-base-content/60 uppercase">
                 Featured Programs
               </span>
-              <h2 className="text-4xl leading-tight font-light text-secondary md:text-5xl">
-                Start here.{" "}
-                <em className="italic text-secondary">Go places.</em>
+              <h2 className="text-4xl leading-tight font-light text-accent md:text-5xl">
+                Start here. <em className="italic text-accent">Go places.</em>
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-base-content/60">
@@ -74,14 +73,14 @@ export default function Featured() {
                   />
                 </div>
 
-                <h3 className="mb-3 text-xl font-semibold text-secondary">
+                <h3 className="mb-3 text-xl font-semibold text-accent">
                   {program.title}
                 </h3>
                 <p className="mb-6 text-sm leading-relaxed text-base-content/60">
                   {program.description}
                 </p>
 
-                <button className="btn btn-block mt-auto gap-2 rounded-md bg-secondary text-secondary-content hover:bg-secondary/90">
+                <button className="btn btn-block mt-auto gap-2 rounded-md bg-accent text-accent-content hover:bg-accent/90">
                   Enroll
                   <ArrowUpRight className="h-4 w-4" />
                 </button>
