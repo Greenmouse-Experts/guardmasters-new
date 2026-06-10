@@ -20,10 +20,10 @@ export default function ImageHeader({ badge, title, image }: ImageHeaderProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black" />
 
       <div className="relative container mx-auto">
-        <span className="mb-6 inline-block rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-white/70 uppercase backdrop-blur-sm">
+        <span className="bg-white text-secondary p-2 rounded-full px-4  uppercase ">
           {badge}
         </span>
-        <h1 className="max-w-3xl text-4xl leading-tight font-light text-white md:text-6xl">
+        <h1 className="max-w-3xl text-4xl leading-tight font-light text-white mt-4 md:text-6xl">
           {title}
         </h1>
       </div>

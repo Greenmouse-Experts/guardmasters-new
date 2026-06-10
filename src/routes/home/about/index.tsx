@@ -3,6 +3,7 @@ import ImagelessHeader from "../-components/headers/ImagelessHeader";
 import ImageHeader from "../-components/headers/ImageHeader";
 import FlexSkeleton from "../-components/FlexSkeleton";
 import Principles from "../-components/Principles";
+import Stats from "../-components/Stats";
 import FacultyProfile from "../-components/FacultyProfile";
 
 export const Route = createFileRoute("/home/about/")({
@@ -36,6 +37,7 @@ function RouteComponent() {
           </>
         }
       />
+      <Stats />
       <FacultyProfile />
     </>
   );

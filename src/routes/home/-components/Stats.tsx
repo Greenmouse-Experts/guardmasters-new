@@ -14,10 +14,10 @@ export default function Stats() {
             key={stat.label}
             className="flex flex-col items-center justify-center border-r border-b border-base-300 px-6 py-12 text-center"
           >
-            <span className="text-5xl font-semibold text-info md:text-6xl">
+            <span className="text-5xl font-semibold text-secondary md:text-6xl">
               {stat.value}
             </span>
-            <span className="mt-4 text-xs font-medium tracking-[0.18em] text-base-content/60 uppercase">
+            <span className="mt-4 font-medium tracking-[0.18em]  uppercase">
               {stat.label}
             </span>
           </div>
