@@ -69,7 +69,7 @@ function RouteComponent() {
       <section className="container mx-auto py-8">
         <div className="container mx-auto flex flex-col gap-12 md:flex-row md:items-start md:gap-20">
           <div className="md:w-1/2">
-            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-base-content/60 uppercase">
+            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-medium tracking-[0.18em] text-accent uppercase">
               Our Mission
             </span>
             <h2 className="text-4xl leading-tight font-light  md:text-5xl">
