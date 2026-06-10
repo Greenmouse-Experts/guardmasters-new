@@ -1,4 +1,12 @@
-const navLinks = ["Home", "About", "Programs", "Accreditations", "Contact"];
+import { Link } from "@tanstack/react-router";
+
+const navLinks = [
+  { name: "Home", path: "" },
+  { name: "About", path: "/home/about" },
+  { name: "Programs", path: "/home/programs" },
+  { name: "Accreditations", path: "/home/accreditations" },
+  { name: "Contact", path: "/home/contact" },
+] as const;
 
 export default function HomeNav() {
   return (
@@ -20,10 +28,13 @@ export default function HomeNav() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal gap-2 px-1">
             {navLinks.map((link) => (
-              <li key={link}>
-                <a className="text-lg font-medium text-white/60 transition-colors hover:bg-transparent hover:text-white">
-                  {link}
-                </a>
+              <li key={link.name}>
+                <Link
+                  className="text-lg font-medium text-white/60 transition-colors hover:bg-transparent hover:text-white"
+                  to={link.path}
+                >
+                  {link.name}
+                </Link>
               </li>
             ))}
           </ul>

@@ -20,7 +20,7 @@ export default function ImagelessHeader({
       <div className="absolute inset-0  from-accent via-accent/80 to-transparent" />
 
       <div className="relative container mx-auto">
-        <span className="mb-6 inline-block rounded-full border border-white/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-white/60 uppercase">
+        <span className="mb-6 inline-block rounded-full border border-white/20 px-4 py-1.5 font-medium tracking-[0.18em] text-white/60 uppercase bg-white/20 text-sm">
           {badge}
         </span>
         <h1 className="max-w-3xl text-4xl leading-tight font-light text-white md:text-6xl">
