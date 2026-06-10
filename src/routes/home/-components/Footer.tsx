@@ -109,7 +109,7 @@ export default function Footer() {
             <img
               src="/logo.png"
               alt="Guardmaster Institute"
-              className="mb-6 h-16 w-auto brightness-0 invert"
+              className="mb-6 h-16 w-auto "
             />
             <p className="mb-8 max-w-xs text-[15px] leading-relaxed text-white/55">
               An accredited professional certification training and consulting
