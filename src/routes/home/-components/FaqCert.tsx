@@ -37,7 +37,7 @@ export default function FaqCert() {
             <span className="mb-6 inline-block rounded-full border border-white/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-info uppercase">
               FAQs
             </span>
-            <h2 className="text-4xl leading-tight font-light md:text-5xl">
+            <h2 className="text-4xl text-black md:text-5xl">
               Got Questions?{" "}
               <span className="text-info">We've Got Answers</span>
             </h2>
