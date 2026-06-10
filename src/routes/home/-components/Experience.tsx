@@ -40,7 +40,7 @@ export default function Experience() {
               Our Mission
             </span>
             <h2 className="text-4xl leading-tight font-light text-base-content md:text-5xl">
-              Hear From <span className="text-secondary">Our Graduates</span>
+              Hear From <span className="text-accent">Our Graduates</span>
             </h2>
           </div>
 

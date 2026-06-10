@@ -1,10 +1,34 @@
 const accreditations = [
-  { image: "/accredition/asis.png", name: "ASIS International", role: "Preferred CPE Provider" },
-  { image: "/accredition/ifpo.png", name: "IFPO — USA", role: "Approved Training Centre" },
-  { image: "/accredition/chlps.png", name: "ChLPS Canada", role: "Accredited Provider" },
-  { image: "/accredition/actd.png", name: "ACTD — USA", role: "Accredited Institution" },
-  { image: "/accredition/csi.png", name: "CSI Spain", role: "Approved Training Centre" },
-  { image: "/accredition/iso.png", name: "ISO Standards", role: "Accredited Trainer" },
+  {
+    image: "/accredition/asis.png",
+    name: "ASIS International",
+    role: "Preferred CPE Provider",
+  },
+  {
+    image: "/accredition/ifpo.png",
+    name: "IFPO — USA",
+    role: "Approved Training Centre",
+  },
+  {
+    image: "/accredition/chlps.png",
+    name: "ChLPS Canada",
+    role: "Accredited Provider",
+  },
+  {
+    image: "/accredition/actd.png",
+    name: "ACTD — USA",
+    role: "Accredited Institution",
+  },
+  {
+    image: "/accredition/csi.png",
+    name: "CSI Spain",
+    role: "Approved Training Centre",
+  },
+  {
+    image: "/accredition/iso.png",
+    name: "ISO Standards",
+    role: "Accredited Trainer",
+  },
 ];
 
 export default function Accredition() {
@@ -18,7 +42,7 @@ export default function Accredition() {
           <h2 className="text-4xl leading-tight font-light text-base-content md:text-5xl">
             Accredited by the bodies that
             <br />
-            <em className="italic text-secondary">matter most.</em>
+            <em className="italic text-accent">matter most.</em>
           </h2>
         </div>
 
@@ -35,7 +59,9 @@ export default function Accredition() {
                   className="max-h-full w-auto object-contain"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-base-content">{item.name}</h3>
+              <h3 className="text-xl font-semibold text-base-content">
+                {item.name}
+              </h3>
               <p className="mt-2 text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase">
                 {item.role}
               </p>

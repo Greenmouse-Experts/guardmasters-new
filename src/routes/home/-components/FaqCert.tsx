@@ -39,7 +39,7 @@ export default function FaqCert() {
             </span>
             <h2 className="text-4xl text-black md:text-5xl">
               Got Questions?{" "}
-              <span className="text-info">We've Got Answers</span>
+              <span className="text-accent">We've Got Answers</span>
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-white/50">
