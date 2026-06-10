@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as HomeRouteRouteImport } from './routes/home/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HomeIndexRouteImport } from './routes/home/index'
+import { Route as HomeFacultyIndexRouteImport } from './routes/home/faculty/index'
+import { Route as HomeAboutIndexRouteImport } from './routes/home/about/index'
 
 const HomeRouteRoute = HomeRouteRouteImport.update({
   id: '/home',
@@ -28,28 +30,44 @@ const HomeIndexRoute = HomeIndexRouteImport.update({
   path: '/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
+const HomeFacultyIndexRoute = HomeFacultyIndexRouteImport.update({
+  id: '/faculty/',
+  path: '/faculty/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeAboutIndexRoute = HomeAboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/home': typeof HomeRouteRouteWithChildren
   '/home/': typeof HomeIndexRoute
+  '/home/about/': typeof HomeAboutIndexRoute
+  '/home/faculty/': typeof HomeFacultyIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeIndexRoute
+  '/home/about': typeof HomeAboutIndexRoute
+  '/home/faculty': typeof HomeFacultyIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/home': typeof HomeRouteRouteWithChildren
   '/home/': typeof HomeIndexRoute
+  '/home/about/': typeof HomeAboutIndexRoute
+  '/home/faculty/': typeof HomeFacultyIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/home/'
+  fullPaths: '/' | '/home' | '/home/' | '/home/about/' | '/home/faculty/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home'
-  id: '__root__' | '/' | '/home' | '/home/'
+  to: '/' | '/home' | '/home/about' | '/home/faculty'
+  id: '__root__' | '/' | '/home' | '/home/' | '/home/about/' | '/home/faculty/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -80,15 +98,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
+    '/home/faculty/': {
+      id: '/home/faculty/'
+      path: '/faculty'
+      fullPath: '/home/faculty/'
+      preLoaderRoute: typeof HomeFacultyIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/about/': {
+      id: '/home/about/'
+      path: '/about'
+      fullPath: '/home/about/'
+      preLoaderRoute: typeof HomeAboutIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
   }
 }
 
 interface HomeRouteRouteChildren {
   HomeIndexRoute: typeof HomeIndexRoute
+  HomeAboutIndexRoute: typeof HomeAboutIndexRoute
+  HomeFacultyIndexRoute: typeof HomeFacultyIndexRoute
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeIndexRoute: HomeIndexRoute,
+  HomeAboutIndexRoute: HomeAboutIndexRoute,
+  HomeFacultyIndexRoute: HomeFacultyIndexRoute,
 }
 
 const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(

@@ -1,4 +1,6 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
+import Footer from "./-components/Footer";
+import HomeNav from "./-components/HomeNav";
 
 const navLinks = ["Home", "About", "Programs", "Accreditations", "Contact"];
 
@@ -12,7 +14,11 @@ function RouteComponent() {
       <input id="home-drawer" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content">
-        <Outlet />
+        <HomeNav />
+        <main className="min-h-120">
+          <Outlet />
+        </main>
+        <Footer />
       </div>
 
       <div className="drawer-side z-100">
