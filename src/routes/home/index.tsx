@@ -101,7 +101,7 @@ function RouteComponent() {
               ].map((badge) => (
                 <span
                   key={badge}
-                  className="rounded-full bg-secondary px-4 py-2 text-sm font-medium text-secondary-content"
+                  className=" bg-secondary px-4 py-2 text-sm font-medium text-secondary-content"
                 >
                   {badge}
                 </span>

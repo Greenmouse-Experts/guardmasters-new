@@ -38,9 +38,7 @@ export default function Hero() {
           <h1 className="mb-6 max-w-3xl text-5xl leading-[1.1] font-light text-white md:text-7xl">
             Master the craft of
             <br />
-            <em className="text-primary not-italic italic">
-              corporate security.
-            </em>
+            <em className="text-primary italic">corporate security.</em>
           </h1>
 
           <p className="mb-10 max-w-xl text-lg leading-relaxed text-white/70">
