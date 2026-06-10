@@ -42,7 +42,8 @@ export default function Featured() {
                 Featured Programs
               </span>
               <h2 className="text-4xl leading-tight font-light text-secondary md:text-5xl">
-                Start here. <em className="italic text-secondary">Go places.</em>
+                Start here.{" "}
+                <em className="italic text-secondary">Go places.</em>
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-base-content/60">
@@ -69,7 +70,7 @@ export default function Featured() {
                   <img
                     src={program.image}
                     alt={program.title}
-                    className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
 

@@ -44,11 +44,11 @@ export default function Courses() {
               key={course.title}
               className="group cursor-pointer rounded-2xl bg-base-300/60 p-4 transition-colors hover:bg-base-300"
             >
-              <div className="overflow-hidden rounded-xl">
+              <div className="overflow-hidden rounded-xl aspect-square">
                 <img
                   src={course.image}
                   alt={course.title}
-                  className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full object-cover transition-transform duration-500 group-hover:scale-105 aspect-square"
                 />
               </div>
               <h3 className="py-8 text-center text-2xl font-bold ">
