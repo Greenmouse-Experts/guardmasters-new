@@ -69,18 +69,17 @@ export default function FacultyProfile() {
               </strong>
             </p>
           </div>
-
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {certifications.map((cert) => (
-              <span
-                key={cert}
-                className="flex items-center bg-accent px-4 py-3 text-sm font-medium text-secondary-content"
-              >
-                {cert}
-              </span>
-            ))}
-          </div>
         </div>
+      </div>
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {certifications.map((cert) => (
+          <span
+            key={cert}
+            className="flex items-center bg-accent px-4 py-3 text-sm font-medium text-secondary-content"
+          >
+            {cert}
+          </span>
+        ))}
       </div>
     </section>
   );

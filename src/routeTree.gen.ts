@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as HomeIndexRouteImport } from './routes/home/index'
 import { Route as HomeProgramsIndexRouteImport } from './routes/home/programs/index'
 import { Route as HomeAboutIndexRouteImport } from './routes/home/about/index'
+import { Route as HomeProgramsIdIndexRouteImport } from './routes/home/programs/$id/index'
 
 const HomeRouteRoute = HomeRouteRouteImport.update({
   id: '/home',
@@ -40,6 +41,11 @@ const HomeAboutIndexRoute = HomeAboutIndexRouteImport.update({
   path: '/about/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
+const HomeProgramsIdIndexRoute = HomeProgramsIdIndexRouteImport.update({
+  id: '/programs/$id/',
+  path: '/programs/$id/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,12 +53,14 @@ export interface FileRoutesByFullPath {
   '/home/': typeof HomeIndexRoute
   '/home/about/': typeof HomeAboutIndexRoute
   '/home/programs/': typeof HomeProgramsIndexRoute
+  '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeIndexRoute
   '/home/about': typeof HomeAboutIndexRoute
   '/home/programs': typeof HomeProgramsIndexRoute
+  '/home/programs/$id': typeof HomeProgramsIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,13 +69,27 @@ export interface FileRoutesById {
   '/home/': typeof HomeIndexRoute
   '/home/about/': typeof HomeAboutIndexRoute
   '/home/programs/': typeof HomeProgramsIndexRoute
+  '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/home/' | '/home/about/' | '/home/programs/'
+  fullPaths:
+    | '/'
+    | '/home'
+    | '/home/'
+    | '/home/about/'
+    | '/home/programs/'
+    | '/home/programs/$id/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/home/about' | '/home/programs'
-  id: '__root__' | '/' | '/home' | '/home/' | '/home/about/' | '/home/programs/'
+  to: '/' | '/home' | '/home/about' | '/home/programs' | '/home/programs/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/home'
+    | '/home/'
+    | '/home/about/'
+    | '/home/programs/'
+    | '/home/programs/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -112,6 +134,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeAboutIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
+    '/home/programs/$id/': {
+      id: '/home/programs/$id/'
+      path: '/programs/$id'
+      fullPath: '/home/programs/$id/'
+      preLoaderRoute: typeof HomeProgramsIdIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
   }
 }
 
@@ -119,12 +148,14 @@ interface HomeRouteRouteChildren {
   HomeIndexRoute: typeof HomeIndexRoute
   HomeAboutIndexRoute: typeof HomeAboutIndexRoute
   HomeProgramsIndexRoute: typeof HomeProgramsIndexRoute
+  HomeProgramsIdIndexRoute: typeof HomeProgramsIdIndexRoute
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeIndexRoute: HomeIndexRoute,
   HomeAboutIndexRoute: HomeAboutIndexRoute,
   HomeProgramsIndexRoute: HomeProgramsIndexRoute,
+  HomeProgramsIdIndexRoute: HomeProgramsIdIndexRoute,
 }
 
 const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(
