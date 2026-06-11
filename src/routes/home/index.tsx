@@ -152,7 +152,7 @@ function RouteComponent() {
       <Accredition />
       <Experience />
       <FaqCert />
-      <Footer />
+      {/*<Footer />*/}
     </>
   );
 }
