@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import type { ReactNode } from "react";
+import { default_outcomes } from "../-info/programs";
 
 interface ProgramInfoProps {
   badge: string;
@@ -35,17 +36,37 @@ export default function ProgramInfo({
         </div>
 
         <div className="grid grid-cols-1 gap-x-12 md:col-span-2 md:grid-cols-2">
-          {outcomes.map((outcome) => (
-            <div
-              key={outcome}
-              className="flex items-start gap-4 border-t border-base-300 py-6"
-            >
-              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-primary/40">
-                <Check className="h-4 w-4 text-secondary" strokeWidth={3} />
-              </span>
-              <p className="leading-relaxed text-base-content/80">{outcome}</p>
-            </div>
-          ))}
+          {outcomes.length > 0 ? (
+            outcomes.map((outcome) => (
+              <div
+                key={outcome}
+                className="flex items-start gap-4 border-t border-base-300 py-6"
+              >
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-primary/40">
+                  <Check className="h-4 w-4 text-secondary" strokeWidth={3} />
+                </span>
+                <p className="leading-relaxed text-base-content/80">
+                  {outcome}
+                </p>
+              </div>
+            ))
+          ) : (
+            <>
+              {default_outcomes.map((outcome) => (
+                <div
+                  key={outcome}
+                  className="flex items-start gap-4 border-t border-base-300 py-6"
+                >
+                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-primary/40">
+                    <Check className="h-4 w-4 text-secondary" strokeWidth={3} />
+                  </span>
+                  <p className="leading-relaxed text-base-content/80">
+                    {outcome}
+                  </p>
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
     </section>

@@ -49,8 +49,19 @@ export function toProgramSlug(number: string, title: string): string {
     .replace(/^-+|-+$/g, "");
   return `${number}-${name}`;
 }
-const default_stats: ProgramStat[] = [];
-const default_outcomes: string[] = [];
+export const default_stats: ProgramStat[] = [
+  { icon: Clock, label: "Duration", value: "60 hrs" },
+  { icon: GraduationCap, label: "Level", value: "Advanced" },
+  { icon: Award, label: "CPE Credits", value: "40" },
+];
+export const default_outcomes: string[] = [
+  "Plan, budget, and deliver complex security projects on time and on scope.",
+  "Up to 40 ASIS-International CPE credits toward your recertification.",
+  "Apply modern project-management frameworks aligned to global best practice.",
+  "Build the strategic vocabulary expected by executives and boards.",
+  "Translate theory into real-world organizational outcomes.",
+  "Join a global cohort of practitioner-led peers.",
+];
 
 export const programs: Record<string, Program> = {
   "01-mini-mba-security-project-management": {
@@ -187,12 +198,7 @@ export const programs: Record<string, Program> = {
       "Become a Certified Protection Officer with IFPO-accredited training. Master asset protection, emergency response, security operations, and professional ethics — the global gold standard for protection professionals",
     formattedPrice: "",
     priceNote: "",
-    stats: [
-      {
-        label: "du",
-        value: "",
-      },
-    ],
+    stats: [],
     includes: [],
     outcomes: [],
     modules: [

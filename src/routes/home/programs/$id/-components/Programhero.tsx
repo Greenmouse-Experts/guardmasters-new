@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, ChevronRight, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
+import { default_stats } from "../-info/programs";
 
 interface ProgramStat {
   icon: LucideIcon;
@@ -71,9 +72,23 @@ export default function ProgramHero({
               </button>
             </div>
 
-            {stats.length > 0 && (
+            {stats.length > 0 ? (
               <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
                 {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <stat.icon className="mb-2 h-5 w-5 text-primary" />
+                    <div className="text-[10px] font-medium tracking-[0.15em] text-white/50 uppercase">
+                      {stat.label}
+                    </div>
+                    <div className="mt-1 text-xl font-semibold">
+                      {stat.value}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
+                {default_stats.map((stat) => (
                   <div key={stat.label}>
                     <stat.icon className="mb-2 h-5 w-5 text-primary" />
                     <div className="text-[10px] font-medium tracking-[0.15em] text-white/50 uppercase">
