@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 const navLinks = [
-  { name: "Home", path: "" },
+  { name: "Home", path: "/home" },
   { name: "About", path: "/home/about" },
   { name: "Programs", path: "/home/programs" },
   { name: "Accreditations", path: "/home/accreditations" },

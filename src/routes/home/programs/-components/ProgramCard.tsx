@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 interface ProgramCardProps {
   id: string;
   title: string;
@@ -15,8 +17,14 @@ export default function ProgramCard({
   imageUrl,
   category,
 }: ProgramCardProps) {
+  const url = encodeURI(title);
+  const link = `/home/programs/${url}`;
+
   return (
-    <div className="flex h-full max-w-[400px] flex-col border border-gray-200 rounded-sm p-6 font-sans">
+    <Link
+      to={link}
+      className="flex h-full max-w-[400px] flex-col border border-gray-200 rounded-sm p-6 font-sans"
+    >
       <div className="flex justify-between items-center text-sm tracking-widest text-gray-600 mb-4">
         <span>
           {id} / {category.toUpperCase()}
@@ -58,6 +66,6 @@ export default function ProgramCard({
           <polyline points="7 7 17 7 17 17"></polyline>
         </svg>
       </button>
-    </div>
+    </Link>
   );
 }
