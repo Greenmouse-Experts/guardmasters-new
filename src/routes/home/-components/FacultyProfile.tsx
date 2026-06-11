@@ -75,7 +75,7 @@ export default function FacultyProfile() {
         {certifications.map((cert) => (
           <span
             key={cert}
-            className="flex items-center bg-accent px-4 py-3 text-sm font-medium text-secondary-content"
+            className="flex items-center bg-secondary px-4 rounded-xl py-5 text-sm font-medium text-secondary-content"
           >
             {cert}
           </span>
