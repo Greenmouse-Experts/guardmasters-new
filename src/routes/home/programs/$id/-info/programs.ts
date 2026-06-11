@@ -49,6 +49,8 @@ export function toProgramSlug(number: string, title: string): string {
     .replace(/^-+|-+$/g, "");
   return `${number}-${name}`;
 }
+const default_stats: ProgramStat[] = [];
+const default_outcomes: string[] = [];
 
 export const programs: Record<string, Program> = {
   "01-mini-mba-security-project-management": {
@@ -175,6 +177,110 @@ export const programs: Record<string, Program> = {
         price: "CA$595",
       },
     ],
+  },
+  "02-certified-protection-officer-cpo": {
+    image: "/programs/cpo.png",
+    imageAlt: "",
+    number: "",
+    fullTitle: "Certified Protection Officer (CPO)",
+    description:
+      "Become a Certified Protection Officer with IFPO-accredited training. Master asset protection, emergency response, security operations, and professional ethics — the global gold standard for protection professionals",
+    formattedPrice: "",
+    priceNote: "",
+    stats: [
+      {
+        label: "du",
+        value: "",
+      },
+    ],
+    includes: [],
+    outcomes: [],
+    modules: [
+      {
+        title: "Module 1 — Foundations of Asset and Protection Principles",
+        description:
+          "Business fundamentals, principles of management and leadership, organizational behaviour, and financial literacy for security managers.",
+        topics: [
+          "Asset Protection Concepts and Evolution",
+          "The Protection Officer as a Leader",
+          "The Role of the Professional Protection Officer",
+          "Career Planning for Protection Officers",
+          "The Security Officer of the 21st Century",
+          "Professional Ethics and Conduct in Security Operations",
+        ],
+      },
+      {
+        title: "Module 2 — Communications",
+        description:
+          "This module focuses on effective communication as a critical operational skill for Protection Officers. It covers verbal and non-verbal communication, report writing, radio procedures, incident briefings, and professional interaction with clients, colleagues",
+      },
+      {
+        title: "Module 3 — Protection Officer Functions",
+        description:
+          "This module examines the core duties and responsibilities of the Protection Officer in operational environments.",
+      },
+      {
+        title: "Module 4 — Crime Prevention and Physical Security",
+        description:
+          "This module introduces crime prevention principles and practical physical security measures used to deter, detect, and respond to threats.",
+      },
+      {
+        title: "Module 5 — Safety and Fire Protection",
+        description:
+          "This module addresses workplace safety responsibilities and fire protection fundamentals relevant to Protection Officers.",
+      },
+      {
+        title: "Module 6 — Information Protection",
+        description:
+          "This module introduces the fundamentals of protecting sensitive information in operational settings.",
+      },
+      {
+        title: "Module 7 — Deviance Crime and Violence",
+        description:
+          "This module examines deviant behaviour, criminal activity, and workplace violence from a security operations perspective.",
+      },
+      {
+        title: "Module 8 — Risk and Threat Management",
+        description:
+          "This module introduces the principles of risk and threat management within security operations.",
+      },
+      {
+        title: "Module 9 — Investigation Concepts and Practices",
+        description:
+          "This module introduces the investigative role of the Protection Officer within organizational and legal boundaries.",
+      },
+      {
+        title: "Module 10 — Legal Aspects of Security",
+        description:
+          "This module examines the legal framework governing security operations.",
+      },
+      {
+        title: "Module 11 — Officer Safety and Use of Force",
+        description:
+          "This module focuses on personal safety and lawful use of force in security operations.",
+      },
+      {
+        title: "Module 12 — Contraband Detection Technology",
+        description:
+          "This module introduces modern technologies used in contraband detection and aerial surveillance.",
+      },
+      {
+        title: "Module 13 — Relations with Others",
+        description:
+          "This module emphasizes professional relationships as a cornerstone of effective security work.",
+      },
+      {
+        title: "Module 14 — Your Career As A Security/Protection Officer",
+        description:
+          "This module focuses on professional growth and long term career development in the security industry.",
+      },
+      {
+        title: "Module 15 — CPO Final Mock Test",
+        description:
+          "This module prepares candidates for the Certified Protection Officer examination through a structured mock assessment.",
+      },
+    ],
+    relatedCourses: [],
   },
 };
 

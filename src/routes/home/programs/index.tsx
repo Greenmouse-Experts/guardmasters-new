@@ -11,6 +11,7 @@ const programs = [
     id: "01",
     category: "Mini-MBA",
     duration: "60 hrs",
+    image: "mini-mba.png",
     title: "Mini-MBA (Security Project Management)",
     description:
       "This program equips professionals to plan, execute, and oversee complex security projects with precision.",
@@ -19,6 +20,7 @@ const programs = [
     id: "02",
     category: "Masterclass",
     duration: "40 hrs",
+    image: "cpo.png",
     title: "Certified Protection Officer (CPO)",
     description:
       "The globally recognized IFPO certification — the gold standard for protection professionals.",
@@ -27,6 +29,7 @@ const programs = [
     id: "03",
     category: "Mini-MBA",
     duration: "32 hrs",
+    image: "",
     title: "Mini-MBA (Business Interruption and Emergency Management)",
     description:
       "This Mini-MBA equips professionals with the skills to plan for and manage business interruptions and emergencies.",
@@ -35,6 +38,7 @@ const programs = [
     id: "04",
     category: "Masterclass",
     duration: "60 hrs",
+    image: "",
     title:
       "Certified in Security Supervision and Management (CSSM) - Masterclass",
     description:
@@ -44,6 +48,7 @@ const programs = [
     id: "05",
     category: "Mini-MBA",
     duration: "40 hrs",
+    image: "",
     title: "Mini-MBA (Private Security Business Management)",
     description:
       "This Mini-MBA in Private Security Business Management delivers essential training for running a private security business.",
@@ -52,6 +57,7 @@ const programs = [
     id: "06",
     category: "Mini-MBA",
     duration: "32 hrs",
+    image: "",
     title: "Mini-MBA (Loss Prevention Management)",
     description:
       "Implement, audit, and lead BCM programs aligned with ISO international standards.",
@@ -60,6 +66,7 @@ const programs = [
     id: "07",
     category: "Masterclass",
     duration: "60 hrs",
+    image: "",
     title: "Professional Security Officer Certification - Masterclass",
     description:
       "The Professional Security Officer Program (PSOP) is an advanced IFPO certification designed for security officers.",
@@ -68,6 +75,7 @@ const programs = [
     id: "08",
     category: "Mini-MBA",
     duration: "40 hrs",
+    image: "",
     title: "Mini-MBA (Business Continuity Management)",
     description:
       "This Mini-MBA in Business Continuity Management provides comprehensive training in business continuity.",
@@ -76,6 +84,7 @@ const programs = [
     id: "09",
     category: "Masterclass",
     duration: "32 hrs",
+    image: "",
     title: "Initial Security Officer Certification - Masterclass",
     description:
       "The Initial Security Officer Program (ISOP) Certification is awarded by the International Foundation for Protection Officers.",
@@ -84,6 +93,7 @@ const programs = [
     id: "10",
     category: "Mini-MBA",
     duration: "60 hrs",
+    image: "",
     title: "Mini-MBA (Security Audit and Assessment)",
     description:
       "This Mini-MBA in Security Audit and Assessment delivers comprehensive training in security audit and assessment.",
@@ -92,6 +102,7 @@ const programs = [
     id: "11",
     category: "Mini-MBA",
     duration: "40 hrs",
+    image: "",
     title: "Mini-MBA (Information Security Management)",
     description:
       "This Mini-MBA in Information Security Management delivers advanced training in information security management.",
@@ -100,6 +111,7 @@ const programs = [
     id: "12",
     category: "Mini-MBA",
     duration: "32 hrs",
+    image: "",
     title: "Mini-MBA (Strategic Security and Investigation Management)",
     description:
       "Master the art and science of investigative leadership in today's high-risk environments.",
@@ -108,6 +120,7 @@ const programs = [
     id: "13",
     category: "Masterclass",
     duration: "60 hrs",
+    image: "",
     title:
       "Certified Transportation & Trucking Security Specialist (CTTSS™) Certification - Masterclass",
     description:
@@ -117,6 +130,7 @@ const programs = [
     id: "14",
     category: "Mini-MBA",
     duration: "40 hrs",
+    image: "",
     title: "Mini-MBA (Corporate Security Management)™",
     description:
       "The Mini-MBA (Corporate Security Management)™ is an executive program combining business leadership with security strategy.",
@@ -125,6 +139,7 @@ const programs = [
     id: "15",
     category: "Mini-MBA",
     duration: "32 hrs",
+    image: "",
     title: "Mini-MBA (Security Supervision & Management)™",
     description:
       "The Mini-MBA (Security Supervision & Management)™ is an executive program combining business leadership principles.",
@@ -157,6 +172,7 @@ function RouteComponent() {
               duration={program.duration}
               title={program.title}
               description={program.description}
+              image={program.image}
             />
           ))}
         </div>

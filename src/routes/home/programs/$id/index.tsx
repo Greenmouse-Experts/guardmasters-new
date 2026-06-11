@@ -4,6 +4,7 @@ import ProgramCertificate from "./-components/ProgramCertificate";
 import EnrollMore from "./-components/EnrollMore";
 import ProgramInfo from "./-components/ProgramInfo";
 import Modules from "./-components/Modules";
+import Curriculum from "./-components/Curriculum";
 import { defaultProgramId, programs } from "./-info/programs";
 
 export const Route = createFileRoute("/home/programs/$id/")({
@@ -25,6 +26,20 @@ function RouteComponent() {
         imageAlt={program.imageAlt}
         stats={program.stats}
       />
+
+      <ProgramInfo
+        badge="Outcomes"
+        title={
+          <>
+            What you'll{" "}
+            <em className="text-secondary italic">walk away with.</em>
+          </>
+        }
+        description="Practical, board-ready competencies — not just theory. Designed for direct application the day you return to your organization."
+        outcomes={program.outcomes}
+      />
+      <Curriculum />
+      <Modules modules={program.modules} />
       <ProgramCertificate
         badge="Credentials"
         title={
@@ -57,18 +72,6 @@ function RouteComponent() {
         image="/students.jpg"
         imageAlt="Students learning together"
       />
-      <ProgramInfo
-        badge="Outcomes"
-        title={
-          <>
-            What you'll{" "}
-            <em className="text-secondary italic">walk away with.</em>
-          </>
-        }
-        description="Practical, board-ready competencies — not just theory. Designed for direct application the day you return to your organization."
-        outcomes={program.outcomes}
-      />
-      <Modules modules={program.modules} />
       <EnrollMore
         badge="Enroll"
         title={

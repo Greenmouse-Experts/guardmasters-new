@@ -6,7 +6,7 @@ interface ProgramCardProps {
   title: string;
   description: string;
   duration: string;
-  imageUrl?: string;
+  image?: string;
   category: string;
 }
 
@@ -15,7 +15,7 @@ export default function ProgramCard({
   title,
   description,
   duration,
-  imageUrl,
+  image,
   category,
 }: ProgramCardProps) {
   const slug = toProgramSlug(id, title);
@@ -34,9 +34,9 @@ export default function ProgramCard({
       </div>
 
       <div className="mb-6 h-48 overflow-hidden rounded-xl bg-gray-100">
-        {imageUrl && (
+        {image && (
           <img
-            src={imageUrl}
+            src={`/programs/${image}`}
             alt={title}
             className="h-full w-full object-cover"
           />
