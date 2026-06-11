@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { toProgramSlug } from "../$id/-info/programs";
 
 interface ProgramCardProps {
   id: string;
@@ -17,12 +18,12 @@ export default function ProgramCard({
   imageUrl,
   category,
 }: ProgramCardProps) {
-  const url = encodeURI(title);
-  const link = `/home/programs/${url}`;
+  const slug = toProgramSlug(id, title);
 
   return (
     <Link
-      to={link}
+      to="/home/programs/$id"
+      params={{ id: slug }}
       className="flex h-full max-w-[400px] flex-col border border-gray-200 rounded-sm p-6 font-sans"
     >
       <div className="flex justify-between items-center text-sm tracking-widest text-gray-600 mb-4">
