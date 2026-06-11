@@ -77,7 +77,7 @@ function RouteComponent() {
               <br />
               you need for the
               <br />
-              <em className="italic font-light text-secondary">
+              <em className="italic font-light text-accent">
                 career you want.
               </em>
             </h2>
