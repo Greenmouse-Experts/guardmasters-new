@@ -1,8 +1,14 @@
-import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import Footer from "./-components/Footer";
 import HomeNav from "./-components/HomeNav";
 
-const navLinks = ["Home", "About", "Programs", "Accreditations", "Contact"];
+const navLinks = [
+  { name: "Home", path: "/home" },
+  { name: "About", path: "/home/about" },
+  { name: "Programs", path: "/home/programs" },
+  { name: "Accreditations", path: "/home/accreditations" },
+  { name: "Contact", path: "/home/contact" },
+] as const;
 
 export const Route = createFileRoute("/home")({
   component: RouteComponent,
@@ -58,17 +64,23 @@ function RouteComponent() {
 
           <ul className="menu flex-1 gap-1 p-0">
             {navLinks.map((link) => (
-              <li key={link}>
-                <a className="text-base font-medium text-secondary-content/80 hover:bg-white/10 hover:text-white">
-                  {link}
-                </a>
+              <li key={link.name}>
+                <Link
+                  to={link.path}
+                  className="text-base font-medium text-secondary-content/80 hover:bg-white/10 hover:text-white"
+                >
+                  {link.name}
+                </Link>
               </li>
             ))}
           </ul>
 
-          <button className="btn btn-primary mt-6 rounded-md font-semibold text-primary-content">
+          <Link
+            to="/home/auth/signup"
+            className="btn btn-primary mt-6 rounded-md font-semibold text-primary-content"
+          >
             Enroll Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

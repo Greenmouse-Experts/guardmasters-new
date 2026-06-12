@@ -58,9 +58,14 @@ export default function HomeNav() {
               className="w-full bg-transparent text-sm text-white placeholder:text-white/40 focus:outline-none"
             />
           </label>
-          <button className="btn btn-primary hidden rounded-md px-6 font-semibold text-primary-content shadow-md lg:inline-flex">
+
+          <Link
+            to="/home/auth/signup"
+            className="btn btn-primary hidden rounded-md px-6 font-semibold text-primary-content shadow-md lg:inline-flex"
+          >
             Enroll Now
-          </button>
+          </Link>
+
           <label
             htmlFor="home-drawer"
             aria-label="open sidebar"
