@@ -16,6 +16,8 @@ import { Route as HomeProgramsIndexRouteImport } from './routes/home/programs/in
 import { Route as HomeContactIndexRouteImport } from './routes/home/contact/index'
 import { Route as HomeAccreditationsIndexRouteImport } from './routes/home/accreditations/index'
 import { Route as HomeAboutIndexRouteImport } from './routes/home/about/index'
+import { Route as HomeAuthSignupRouteImport } from './routes/home/auth/signup'
+import { Route as HomeAuthLoginRouteImport } from './routes/home/auth/login'
 import { Route as HomeProgramsIdIndexRouteImport } from './routes/home/programs/$id/index'
 
 const HomeRouteRoute = HomeRouteRouteImport.update({
@@ -53,6 +55,16 @@ const HomeAboutIndexRoute = HomeAboutIndexRouteImport.update({
   path: '/about/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
+const HomeAuthSignupRoute = HomeAuthSignupRouteImport.update({
+  id: '/auth/signup',
+  path: '/auth/signup',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeAuthLoginRoute = HomeAuthLoginRouteImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 const HomeProgramsIdIndexRoute = HomeProgramsIdIndexRouteImport.update({
   id: '/programs/$id/',
   path: '/programs/$id/',
@@ -63,6 +75,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/home': typeof HomeRouteRouteWithChildren
   '/home/': typeof HomeIndexRoute
+  '/home/auth/login': typeof HomeAuthLoginRoute
+  '/home/auth/signup': typeof HomeAuthSignupRoute
   '/home/about/': typeof HomeAboutIndexRoute
   '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
@@ -72,6 +86,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeIndexRoute
+  '/home/auth/login': typeof HomeAuthLoginRoute
+  '/home/auth/signup': typeof HomeAuthSignupRoute
   '/home/about': typeof HomeAboutIndexRoute
   '/home/accreditations': typeof HomeAccreditationsIndexRoute
   '/home/contact': typeof HomeContactIndexRoute
@@ -83,6 +99,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/home': typeof HomeRouteRouteWithChildren
   '/home/': typeof HomeIndexRoute
+  '/home/auth/login': typeof HomeAuthLoginRoute
+  '/home/auth/signup': typeof HomeAuthSignupRoute
   '/home/about/': typeof HomeAboutIndexRoute
   '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
@@ -95,6 +113,8 @@ export interface FileRouteTypes {
     | '/'
     | '/home'
     | '/home/'
+    | '/home/auth/login'
+    | '/home/auth/signup'
     | '/home/about/'
     | '/home/accreditations/'
     | '/home/contact/'
@@ -104,6 +124,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/home'
+    | '/home/auth/login'
+    | '/home/auth/signup'
     | '/home/about'
     | '/home/accreditations'
     | '/home/contact'
@@ -114,6 +136,8 @@ export interface FileRouteTypes {
     | '/'
     | '/home'
     | '/home/'
+    | '/home/auth/login'
+    | '/home/auth/signup'
     | '/home/about/'
     | '/home/accreditations/'
     | '/home/contact/'
@@ -177,6 +201,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeAboutIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
+    '/home/auth/signup': {
+      id: '/home/auth/signup'
+      path: '/auth/signup'
+      fullPath: '/home/auth/signup'
+      preLoaderRoute: typeof HomeAuthSignupRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/auth/login': {
+      id: '/home/auth/login'
+      path: '/auth/login'
+      fullPath: '/home/auth/login'
+      preLoaderRoute: typeof HomeAuthLoginRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
     '/home/programs/$id/': {
       id: '/home/programs/$id/'
       path: '/programs/$id'
@@ -189,6 +227,8 @@ declare module '@tanstack/react-router' {
 
 interface HomeRouteRouteChildren {
   HomeIndexRoute: typeof HomeIndexRoute
+  HomeAuthLoginRoute: typeof HomeAuthLoginRoute
+  HomeAuthSignupRoute: typeof HomeAuthSignupRoute
   HomeAboutIndexRoute: typeof HomeAboutIndexRoute
   HomeAccreditationsIndexRoute: typeof HomeAccreditationsIndexRoute
   HomeContactIndexRoute: typeof HomeContactIndexRoute
@@ -198,6 +238,8 @@ interface HomeRouteRouteChildren {
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeIndexRoute: HomeIndexRoute,
+  HomeAuthLoginRoute: HomeAuthLoginRoute,
+  HomeAuthSignupRoute: HomeAuthSignupRoute,
   HomeAboutIndexRoute: HomeAboutIndexRoute,
   HomeAccreditationsIndexRoute: HomeAccreditationsIndexRoute,
   HomeContactIndexRoute: HomeContactIndexRoute,
