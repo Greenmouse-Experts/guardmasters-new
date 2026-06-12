@@ -48,7 +48,7 @@ const programs = [
     id: "05",
     category: "Mini-MBA",
     duration: "40 hrs",
-    image: "",
+    image: "private-business.png",
     title: "Mini-MBA (Private Security Business Management)",
     description:
       "This Mini-MBA in Private Security Business Management delivers essential training for running a private security business.",
