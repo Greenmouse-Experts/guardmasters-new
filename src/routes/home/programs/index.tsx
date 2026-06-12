@@ -57,7 +57,7 @@ const programs = [
     id: "06",
     category: "Mini-MBA",
     duration: "32 hrs",
-    image: "",
+    image: "loss-prevention.png",
     title: "Mini-MBA (Loss Prevention Management)",
     description:
       "Implement, audit, and lead BCM programs aligned with ISO international standards.",
@@ -66,7 +66,7 @@ const programs = [
     id: "07",
     category: "Masterclass",
     duration: "60 hrs",
-    image: "",
+    image: "security-officer.png",
     title: "Professional Security Officer Certification - Masterclass",
     description:
       "The Professional Security Officer Program (PSOP) is an advanced IFPO certification designed for security officers.",

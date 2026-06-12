@@ -410,77 +410,72 @@ export const programs: Record<string, Program> = {
     ],
     modules: [
       {
-        title: "Module 1 — Foundations of Business & Management",
+        title: "Module 1 — Introduction to the Private Security Industry",
         description:
-          "Business fundamentals, principles of management and leadership, organizational behaviour, and financial literacy for security managers.",
+          "Gain a comprehensive understanding of the private security industry, its evolution, market structure, regulatory framework, and growing role in public safety.",
         topics: [
-          "Understanding business fundamentals",
-          "Principles of management and leadership",
-          "Organizational behaviour & corporate culture",
-          "Business environment and corporate governance",
-          "Financial and management accounting essentials",
+          "Introduction to the Private Security Industry",
+          "Ethics, and the Future of the Private Security Industry",
+          "The Evolution, Significance of the Private Security Industry",
+          "Public-Private Security Relationships",
+          "Private Security Industry Oversight in Canada",
         ],
       },
       {
-        title:
-          "Module 2 — Introduction to Private Security Business Management",
+        title: "Module 2 — Foundations of Business and Management",
         description:
-          "Explore the structure, regulatory landscape, and business models that define the private security industry, from contract guarding to specialized protective services.",
-      },
-      {
-        title: "Module 3 — Business Planning and Market Positioning",
-        description:
-          "Develop a business plan, identify target markets, and position your security firm against local and national competitors.",
+          "Develop essential business and management knowledge required for effective security leadership.",
       },
       {
         title:
-          "Module 4 — Licensing, Regulatory Compliance, and Risk Management",
+          "Module 3 — Private Security Business Planning and Corporate Structuring",
         description:
-          "Navigate licensing requirements, insurance, bonding, and liability considerations specific to operating a private security company.",
+          "Learn how to establish, structure, and manage a successful private security business.",
       },
       {
-        title: "Module 5 — Service Design and Operational Planning",
+        title:
+          "Module 4 — Security Service Design and Operational Excellence",
         description:
-          "Design guarding, patrol, and protective service offerings, and build the operational plans needed to deliver them reliably.",
+          "Discover how to design and deliver effective security services that meet client needs and industry standards.",
+      },
+      {
+        title:
+          "Module 5 — Accounting and Financial Management for Security Companies",
+        description:
+          "Build the financial management skills necessary to operate profitable and sustainable security organizations.",
       },
       {
         title:
           "Module 6 — Introduction to Financial and Management Accounting for Security Managers",
         description:
-          "Build financial literacy skills essential for security leaders and decision-makers. Learn how to interpret financial statements, manage budgets, and price services profitably.",
-      },
-      {
-        title: "Module 7 — Security Management and Delivering Value",
-        description:
-          "Examine how security functions contribute to client outcomes. Learn to measure performance, communicate value, and align services with client objectives.",
+          "Develop financial fluency and decision-making skills that enable security leaders to communicate effectively with executives and stakeholders.",
       },
       {
         title:
-          "Module 8 — Security Leadership, Culture, and Workforce Engagement",
+          "Module 7 — Security Leadership, Culture, and Workforce Engagement",
         description:
-          "Discover the leadership principles that foster strong security cultures and engaged frontline teams across multiple client sites.",
-      },
-      {
-        title: "Module 9 — Sales, Marketing, and Client Acquisition",
-        description:
-          "Develop a sales and marketing strategy for winning new contracts, building referral networks, and growing your client base.",
+          "Explore leadership principles that foster accountability, trust, and a strong security culture.",
       },
       {
         title:
-          "Module 10 — Contract Management and Service Level Agreements",
+          "Module 8 — Human Capital Management and Workforce Development",
         description:
-          "Negotiate, structure, and manage client contracts and SLAs that protect your business while meeting client expectations.",
+          "Examine strategies for attracting, developing, and retaining high-performing security professionals.",
       },
       {
-        title:
-          "Module 11 — Human Resources, Recruitment, and Workforce Scheduling",
+        title: "Module 9 — Sales, Marketing, and Client Relations",
         description:
-          "Recruit, train, and schedule security personnel across multiple sites while maintaining compliance and service quality.",
+          "Learn how to position security services competitively in the marketplace and build lasting client relationships.",
       },
       {
-        title: "Module 12 — Capstone: Business Growth Strategy",
+        title: "Module 10 — Legal, Ethical, and Regulatory Compliance",
         description:
-          "Apply the concepts and frameworks learned throughout the program to develop a growth strategy for a private security business.",
+          "Gain a practical understanding of the legal and regulatory responsibilities governing private security operations.",
+      },
+      {
+        title: "Module 11 — Capstone Project and Business Case Study",
+        description:
+          "Apply the knowledge and skills gained throughout the program to a comprehensive business case study.",
       },
     ],
     relatedCourses: [
@@ -504,6 +499,130 @@ export const programs: Record<string, Program> = {
         level: "Intermediate",
         title: "Mini-MBA Security Supervision & Management",
         price: "CA$595",
+      },
+    ],
+  },
+  "07-professional-security-officer-certification-masterclass": {
+    number: "07/ Masterclass",
+    fullTitle: "Professional Security Officer Program (PSOP)",
+    description:
+      "An advanced IFPO certification that sharpens the core competencies of working security officers — communications, patrol, access control, emergency response, and the legal authority that governs the job.",
+    formattedPrice: "CA$125",
+    priceNote: "One-time tuition",
+    image: "/programs/security-officer.png",
+    imageAlt: "Professional Security Officer Program (PSOP)",
+    stats: [
+      { icon: Clock, label: "Duration", value: "60 hrs" },
+      { icon: GraduationCap, label: "Level", value: "Advanced" },
+      { icon: Award, label: "CPE Credits", value: "40" },
+    ],
+    includes: [
+      "60 hrs of immersive content",
+      "IFPO-accredited certification",
+      "Lifetime access to materials",
+      "Certificate on successful completion",
+      "Practitioner-led faculty",
+    ],
+    outcomes: [
+      "Demonstrate professional, ethical conduct as a security officer.",
+      "Apply effective communication and report-writing skills on the job.",
+      "Execute patrol, access control, and emergency response procedures with confidence.",
+      "Understand legal authority, use-of-force, and liability considerations.",
+      "Earn an IFPO-recognized credential respected by employers worldwide.",
+      "Join a global cohort of practitioner-led peers.",
+    ],
+    modules: [
+      {
+        title:
+          "Module 1 — General Overview and Introduction to the Security Industry",
+        description:
+          "Gain a foundational understanding of the security industry, its history, evolution, and significance in modern society.",
+        topics: [
+          "Introduction to Security Roles and Responsibilities",
+          "Duties And Responsibilities of Security Officers",
+          "Key Terminology in the Security Industry",
+          "The Evolution of Security Practices",
+        ],
+      },
+      {
+        title:
+          "Module 2 — Private Security Legislation, Regulation, and Code of Conduct",
+        description:
+          "Explore the legal and regulatory framework governing private security operations.",
+      },
+      {
+        title: "Module 3 — Basic Security Operations and Procedures",
+        description:
+          "Develop practical skills in patrol operations, access control, crowd management, incident reporting, and emergency response.",
+      },
+      {
+        title: "Module 4 — Evidence Collection, Note Taking, and Report Writing",
+        description:
+          "Learn how to accurately document incidents, collect and preserve evidence, and prepare professional reports.",
+      },
+      {
+        title: "Module 5 — Health and Safety",
+        description:
+          "Understand the principles of workplace health and safety, risk management, and hazard identification.",
+      },
+      {
+        title: "Module 6 — Fire, Emergency Preparedness, and Response",
+        description:
+          "Gain practical knowledge of fire safety, emergency preparedness, and incident response procedures.",
+      },
+      {
+        title: "Module 7 — Physical and Preventive Security",
+        description:
+          "Explore the principles, systems, and practices used to protect people, property, and assets.",
+      },
+      {
+        title: "Module 8 — Legal and Regulatory Authorities",
+        description:
+          "Develop an understanding of the legal authorities and limitations applicable to security officers.",
+      },
+      {
+        title:
+          "Module 9 — Effective Communication Skills for Security Officers",
+        description:
+          "Build strong verbal, non-verbal, and interpersonal communication skills essential for security professionals.",
+      },
+      {
+        title: "Module 10 — Sensitivity Training for Security Officers",
+        description:
+          "Examine the importance of cultural awareness, professionalism, and respectful engagement in diverse environments.",
+      },
+      {
+        title: "Module 11 — Use of Force Theory and the Security Officer",
+        description:
+          "Understand the principles, legal considerations, and decision-making processes surrounding the use of force.",
+      },
+      {
+        title: "Module 12 — Emergency First Aid and Response Procedures",
+        description:
+          "Learn how to recognize medical emergencies and provide basic first aid assistance.",
+      },
+    ],
+    relatedCourses: [
+      {
+        id: "certified-protection-officer-cpo",
+        category: "Masterclass",
+        level: "Advanced",
+        title: "Certified Protection Officer (CPO)",
+        price: "CA$125",
+      },
+      {
+        id: "initial-security-officer-certification-masterclass",
+        category: "Masterclass",
+        level: "Beginner",
+        title: "Initial Security Officer Certification - Masterclass",
+        price: "CA$125",
+      },
+      {
+        id: "certified-in-security-supervision-and-management-cssm-masterclass",
+        category: "Masterclass",
+        level: "Advanced",
+        title: "Certified in Security Supervision and Management (CSSM)",
+        price: "CA$125",
       },
     ],
   },
