@@ -16,11 +16,11 @@ export default function FacultyProfile() {
   return (
     <section data-theme="guard" className="bg-base-200 px-6 py-20 md:px-16">
       <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,560px)_1fr] lg:gap-16">
-        <div className="bg-red-500">
+        <div className="overflow-hidden rounded-2xl">
           <img
             src="/dr.png"
             alt="Dr. Adegbenga William Koko"
-            className="size-full w-full"
+            className="h-full w-full object-cover"
           />
         </div>
 

@@ -29,7 +29,7 @@ const programs = [
     id: "03",
     category: "Mini-MBA",
     duration: "32 hrs",
-    image: "",
+    image: "business.png",
     title: "Mini-MBA (Business Interruption and Emergency Management)",
     description:
       "This Mini-MBA equips professionals with the skills to plan for and manage business interruptions and emergencies.",
@@ -152,10 +152,8 @@ function RouteComponent() {
       <ImagelessHeader
         title={
           <>
-            <h2>
-              Start here. Get certified.{" "}
-              <span className="text-primary italic">Go places.</span>
-            </h2>
+            Start here. Get certified.{" "}
+            <span className="text-primary italic">Go places.</span>
           </>
         }
         description="Programs aligned with IFPO, ASIS, ChLPS, and ISO frameworks — developed for

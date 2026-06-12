@@ -288,6 +288,25 @@ export const programs: Record<string, Program> = {
     ],
     relatedCourses: [],
   },
+  "03-mini-mba-business-interruption-and-emergency-management": {
+    number: "03/ Mini-MBA",
+    fullTitle: "Mini-MBA (Business Interruption and Emergency Management)",
+    description:
+      "Lead through crisis. Master business interruption response, emergency preparedness, incident command, and corporate crisis communications.",
+    formattedPrice: "CA$595",
+    priceNote: "One-time tuition",
+    image: "/programs/business.png",
+    imageAlt: "Mini-MBA (Business Interruption and Emergency Management)",
+    stats: [
+      { icon: Clock, label: "Duration", value: "50 hrs" },
+      { icon: GraduationCap, label: "Level", value: "Advanced" },
+      { icon: Award, label: "CPE Credits", value: "40" },
+    ],
+    includes: [],
+    outcomes: [],
+    modules: [],
+    relatedCourses: [],
+  },
 };
 
 export const defaultProgramId = "01-mini-mba-security-project-management";
