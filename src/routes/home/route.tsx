@@ -15,6 +15,13 @@ export const Route = createFileRoute("/home")({
 });
 
 function RouteComponent() {
+  const closeDrawer = () => {
+    const drawer = document.getElementById(
+      "home-drawer",
+    ) as HTMLInputElement | null;
+    if (drawer) drawer.checked = false;
+  };
+
   return (
     <div data-theme="guard" className="drawer">
       <input id="home-drawer" type="checkbox" className="drawer-toggle" />
@@ -67,6 +74,7 @@ function RouteComponent() {
               <li key={link.name}>
                 <Link
                   to={link.path}
+                  onClick={closeDrawer}
                   className="text-base font-medium text-secondary-content/80 hover:bg-white/10 hover:text-white"
                 >
                   {link.name}
@@ -77,6 +85,7 @@ function RouteComponent() {
 
           <Link
             to="/home/auth/signup"
+            onClick={closeDrawer}
             className="btn btn-primary mt-6 rounded-md font-semibold text-primary-content"
           >
             Enroll Now
