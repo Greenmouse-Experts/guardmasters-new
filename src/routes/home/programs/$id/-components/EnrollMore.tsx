@@ -71,10 +71,13 @@ export default function EnrollMore({
               ))}
             </ul>
 
-            <button className="btn btn-block h-auto gap-2 rounded-md border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90">
+            <Link
+              to="/home/auth/signup"
+              className="btn btn-block h-auto gap-2 rounded-md border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90"
+            >
               Enroll now
               <ArrowUpRight className="h-4 w-4" />
-            </button>
+            </Link>
             <button className="btn btn-ghost btn-block mt-3 gap-2 font-medium text-base-content/60 hover:bg-transparent hover:text-base-content">
               Or speak to an advisor
               <ArrowRight className="h-4 w-4" />
