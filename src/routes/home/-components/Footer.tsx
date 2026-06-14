@@ -1,13 +1,24 @@
 import type { ComponentType, SVGProps } from "react";
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 
-const exploreLinks = [
-  "Home",
-  "About Us",
-  "Training Programs",
-  "News & Insights",
+interface FooterLink {
+  name: string;
+  path?: string;
+}
+
+const exploreLinks: FooterLink[] = [
+  { name: "Home", path: "/home" },
+  { name: "About Us", path: "/home/about" },
+  { name: "Training Programs", path: "/home/programs" },
+  { name: "News & Insights" },
 ];
-const resourceLinks = ["Accreditations", "Faculty", "Contact", "Sign in"];
+const resourceLinks: FooterLink[] = [
+  { name: "Accreditations", path: "/home/accreditations" },
+  { name: "Faculty", path: "/home/about" },
+  { name: "Contact", path: "/home/contact" },
+  { name: "Sign in", path: "/home/auth/login" },
+];
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -51,7 +62,13 @@ const contacts = [
   },
 ];
 
-function FooterColumn({ title, links }: { title: string; links: string[] }) {
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: FooterLink[];
+}) {
   return (
     <div>
       <h3 className="mb-5 text-xs font-semibold tracking-[0.18em] text-white/50 uppercase">
@@ -59,10 +76,17 @@ function FooterColumn({ title, links }: { title: string; links: string[] }) {
       </h3>
       <ul className="space-y-3">
         {links.map((link) => (
-          <li key={link}>
-            <a className="cursor-pointer text-[15px] text-white/85 transition-colors hover:text-primary">
-              {link}
-            </a>
+          <li key={link.name}>
+            {link.path ? (
+              <Link
+                to={link.path}
+                className="text-[15px] text-white/85 transition-colors hover:text-primary"
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <span className="text-[15px] text-white/40">{link.name}</span>
+            )}
           </li>
         ))}
       </ul>
