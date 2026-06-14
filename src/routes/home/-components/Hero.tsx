@@ -64,11 +64,11 @@ export default function Hero() {
             <button className="btn btn-lg">Enroll Now</button>
           </div>
 
-          <div className="absolute right-4 bottom-16 flex overflow-hidden  bg-white shadow-2xl md:right-16">
+          <div className="mt-12 flex flex-wrap overflow-hidden self-start bg-white shadow-2xl md:absolute md:right-16 md:bottom-16 md:mt-0 md:flex-nowrap md:self-auto">
             {stats.map((stat, i) => (
               <div
                 key={stat.value}
-                className={`px-8 py-5 text-center ${i < stats.length - 1 ? "border-r border-base-300" : ""}`}
+                className={`px-6 py-5 text-center sm:px-8 ${i < stats.length - 1 ? "border-r border-base-300" : ""}`}
               >
                 <div className="text-3xl font-bold text-secondary">
                   {stat.value}
