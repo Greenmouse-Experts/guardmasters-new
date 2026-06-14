@@ -50,7 +50,10 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <button className="btn btn-primary btn-lg  gap-2 px-6">
+            <Link
+              to="/home/programs"
+              className="btn btn-primary btn-lg  gap-2 px-6"
+            >
               Explore Programs
               <svg
                 className="h-4 w-4"
@@ -62,7 +65,7 @@ export default function Hero() {
                 <line x1="7" y1="17" x2="17" y2="7" />
                 <polyline points="7 7 17 7 17 17" />
               </svg>
-            </button>
+            </Link>
             <Link to="/home/auth/signup" className="btn btn-lg">
               Enroll Now
             </Link>

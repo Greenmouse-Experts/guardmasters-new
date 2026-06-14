@@ -113,10 +113,13 @@ export default function Footer() {
               accredited certifications and Mini-MBA programs.
             </p>
             <div className="flex flex-wrap gap-3">
-              <button className="btn rounded-none border-none bg-white px-6 font-semibold text-accent gap-2 hover:bg-white/90">
+              <Link
+                className="btn rounded-none border-none bg-white px-6 font-semibold text-accent gap-2 hover:bg-white/90"
+                to="/home/programs"
+              >
                 Explore Programs
                 <ArrowUpRight className="h-4 w-4" />
-              </button>
+              </Link>
               <button className="btn rounded-none border border-white/40 bg-transparent px-6 font-semibold text-white hover:bg-white/10">
                 Talk to Admissions
               </button>

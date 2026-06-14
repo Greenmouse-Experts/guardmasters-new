@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Cta() {
@@ -10,10 +11,13 @@ export default function Cta() {
           next chapter?
         </h2>
 
-        <button className="btn h-auto gap-2 rounded-md border-none bg-secondary px-8 py-4 font-medium text-secondary-content hover:bg-secondary/90">
+        <Link
+          to="/home/programs"
+          className="btn h-auto gap-2 rounded-md border-none bg-secondary px-8 py-4 font-medium text-secondary-content hover:bg-secondary/90"
+        >
           Explore programs
           <ArrowUpRight className="h-4 w-4" />
-        </button>
+        </Link>
       </div>
     </section>
   );
