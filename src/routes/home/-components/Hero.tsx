@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 const stats = [
   { value: "236+", lines: ["HOURS OF", "CONTENT"] },
   { value: "250+", lines: ["ACTIVE", "LEARNERS"] },
@@ -61,7 +63,9 @@ export default function Hero() {
                 <polyline points="7 7 17 7 17 17" />
               </svg>
             </button>
-            <button className="btn btn-lg">Enroll Now</button>
+            <Link to="/home/auth/signup" className="btn btn-lg">
+              Enroll Now
+            </Link>
           </div>
 
           <div className="mt-12 flex flex-wrap overflow-hidden self-start bg-white shadow-2xl md:absolute md:right-16 md:bottom-16 md:mt-0 md:flex-nowrap md:self-auto">
