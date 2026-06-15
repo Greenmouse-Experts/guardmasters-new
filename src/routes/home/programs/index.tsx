@@ -75,7 +75,7 @@ const programs = [
     id: "08",
     category: "Mini-MBA",
     duration: "40 hrs",
-    image: "",
+    image: "business-continuity.png",
     title: "Mini-MBA (Business Continuity Management)",
     description:
       "This Mini-MBA in Business Continuity Management provides comprehensive training in business continuity.",
@@ -84,7 +84,7 @@ const programs = [
     id: "09",
     category: "Masterclass",
     duration: "32 hrs",
-    image: "",
+    image: "isop.png",
     title: "Initial Security Officer Certification - Masterclass",
     description:
       "The Initial Security Officer Program (ISOP) Certification is awarded by the International Foundation for Protection Officers.",
@@ -93,7 +93,7 @@ const programs = [
     id: "10",
     category: "Mini-MBA",
     duration: "60 hrs",
-    image: "",
+    image: "security-audit.png",
     title: "Mini-MBA (Security Audit and Assessment)",
     description:
       "This Mini-MBA in Security Audit and Assessment delivers comprehensive training in security audit and assessment.",
@@ -102,7 +102,7 @@ const programs = [
     id: "11",
     category: "Mini-MBA",
     duration: "40 hrs",
-    image: "",
+    image: "information-securtiy.png",
     title: "Mini-MBA (Information Security Management)",
     description:
       "This Mini-MBA in Information Security Management delivers advanced training in information security management.",
