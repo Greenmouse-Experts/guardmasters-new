@@ -1,42 +1,35 @@
 import { Link } from "@tanstack/react-router";
 import { toProgramSlug } from "../$id/-info/programs";
+import type { Course, CourseProgram } from "#/types/courses.ts";
 
-interface ProgramCardProps {
-  id: string;
-  title: string;
-  description: string;
-  duration: string;
-  image?: string;
-  category: string;
+interface ProgramCardProps extends CourseProgram {
+  // id: string;
+  // title: string;
+  // description: string;
+  // duration: string;
+  // image?: string;
+  // category: string;
 }
 
-export default function ProgramCard({
-  id,
-  title,
-  description,
-  duration,
-  image,
-  category,
-}: ProgramCardProps) {
+export default function ProgramCard(props: ProgramCardProps) {
+  const { id, title, courses } = props;
   const slug = toProgramSlug(id, title);
-
+  // const category =
   return (
     <Link
       to="/home/programs/$id"
-      params={{ id: slug }}
+      params={{ id: courses[0].id }}
       className="flex h-full max-w-[400px] flex-col border border-gray-200 rounded-sm p-6 font-sans"
     >
       <div className="flex justify-between items-center text-sm tracking-widest text-gray-600 mb-4">
-        <span>
-          {id} / {category.toUpperCase()}
-        </span>
-        <span>{duration.toUpperCase()}</span>
+        {/*<span>{id}</span>*/}
+        {/*<span>{duration.toUpperCase()}</span>*/}
       </div>
 
       <div className="mb-6 h-48 overflow-hidden rounded-xl bg-gray-100">
-        {image && (
+        {courses[0]?.coverImage && (
           <img
-            src={`/programs/${image}`}
+            src={`${courses[0]?.coverImage}`}
             alt={title}
             className="h-full w-full object-cover"
           />
@@ -47,8 +40,8 @@ export default function ProgramCard({
         {title}
       </h2>
 
-      <p className="text-gray-600 text-lg leading-relaxed mb-8 flex-1">
-        {description}
+      <p className="text-gray-600 text-lg line-clamp-3 leading-relaxed mb-8 flex-1">
+        {props.courses[0].shortDesc}
       </p>
 
       <button className="w-full bg-[#004aad] hover:bg-[#003a8c] text-white py-4 rounded-lg flex items-center justify-center gap-2 font-medium transition-colors line-clamp-3">

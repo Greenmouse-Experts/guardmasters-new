@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronRight, Play } from "lucide-react";
+import { BookOpen, ChevronDown, ChevronRight, Play } from "lucide-react";
 import { useState } from "react";
 
 interface Module {
@@ -17,17 +17,32 @@ export default function Modules({ modules }: ModulesProps) {
   return (
     <section data-theme="guard" className="bg-base-100 px-6 md:px-16">
       <div className="container mx-auto">
-        {modules.map((module, index) => (
-          <ModuleAccordion
-            key={module.title}
-            number={String(index + 1).padStart(2, "0")}
-            module={module}
-            isOpen={openIndex === index}
-            onToggle={() =>
-              setOpenIndex((current) => (current === index ? -1 : index))
-            }
-          />
-        ))}
+        {modules.length < 1 ? (
+          <div className="flex flex-col items-center justify-center gap-4 border-b border-base-300 py-20 text-center">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-base-200">
+              <BookOpen className="h-6 w-6 text-base-content/40" />
+            </span>
+            <h3 className="text-xl font-medium text-accent">
+              No modules available yet
+            </h3>
+            <p className="max-w-md leading-relaxed text-base-content/55">
+              The curriculum for this program is being finalized. Check back
+              soon or contact admissions for the full module breakdown.
+            </p>
+          </div>
+        ) : (
+          modules.map((module, index) => (
+            <ModuleAccordion
+              key={module.title}
+              number={String(index + 1).padStart(2, "0")}
+              module={module}
+              isOpen={openIndex === index}
+              onToggle={() =>
+                setOpenIndex((current) => (current === index ? -1 : index))
+              }
+            />
+          ))
+        )}
       </div>
     </section>
   );

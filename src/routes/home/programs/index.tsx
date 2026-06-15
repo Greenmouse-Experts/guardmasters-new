@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
 import type { ApiResponseV2 } from "#/types/api.js";
-import type { Course } from "#/types/courses.ts";
+import type { Course, CourseProgram } from "#/types/courses.ts";
 
 export const Route = createFileRoute("/home/programs/")({
   component: RouteComponent,
@@ -152,7 +152,7 @@ const programs = [
 ];
 
 function RouteComponent() {
-  const query = useQuery<ApiResponseV2<Course[]>>({
+  const query = useQuery<ApiResponseV2<CourseProgram[]>>({
     queryKey: ["programs"],
     queryFn: async () => {
       let resp = await apiClient.get("/programs/public?page=1");
@@ -178,16 +178,20 @@ function RouteComponent() {
             <>
               <section className="container mx-auto px-6 py-16 md:px-16">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {programs.map((program) => (
-                    <ProgramCard
-                      key={program.id}
-                      id={program.id}
-                      category={program.category}
-                      duration={program.duration}
-                      title={program.title}
-                      description={program.description}
-                      image={program.image}
-                    />
+                  {resp.data.map((program) => (
+                    <>
+                      {/*{JSON.stringify(program)}*/}
+                      <ProgramCard
+                        key={program.id}
+                        {...program}
+                        // id={program.id}
+                        // category={program.category}
+                        // duration={program.duration}
+                        // title={program.title}
+                        // description={program.description}
+                        // image={program.image}
+                      />
+                    </>
                   ))}
                 </div>
               </section>
