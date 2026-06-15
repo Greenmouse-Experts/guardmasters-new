@@ -38,7 +38,7 @@ const programs = [
     id: "04",
     category: "Masterclass",
     duration: "60 hrs",
-    image: "",
+    image: "cssm_card.png",
     title:
       "Certified in Security Supervision and Management (CSSM) - Masterclass",
     description:
