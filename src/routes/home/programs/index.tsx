@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ImagelessHeader from "../-components/headers/ImagelessHeader";
 import ProgramCard from "./-components/ProgramCard";
+import { useQuery } from "@tanstack/react-query";
+import apiClient from "#/client/api.ts";
+import PageLoader from "#/components/layout/PageLoader.tsx";
+import type { ApiResponseV2 } from "#/types/api.js";
+import type { Course } from "#/types/courses.ts";
 
 export const Route = createFileRoute("/home/programs/")({
   component: RouteComponent,
@@ -147,6 +152,13 @@ const programs = [
 ];
 
 function RouteComponent() {
+  const query = useQuery<ApiResponseV2<Course[]>>({
+    queryKey: ["programs"],
+    queryFn: async () => {
+      let resp = await apiClient.get("/programs/public?page=1");
+      return resp.data;
+    },
+  });
   return (
     <>
       <ImagelessHeader
@@ -160,21 +172,29 @@ function RouteComponent() {
         relevance, credibility, and career advancement."
         badge="training & certification"
       />
-      <section className="container mx-auto px-6 py-16 md:px-16">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {programs.map((program) => (
-            <ProgramCard
-              key={program.id}
-              id={program.id}
-              category={program.category}
-              duration={program.duration}
-              title={program.title}
-              description={program.description}
-              image={program.image}
-            />
-          ))}
-        </div>
-      </section>
+      <PageLoader query={query}>
+        {(resp) => {
+          return (
+            <>
+              <section className="container mx-auto px-6 py-16 md:px-16">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {programs.map((program) => (
+                    <ProgramCard
+                      key={program.id}
+                      id={program.id}
+                      category={program.category}
+                      duration={program.duration}
+                      title={program.title}
+                      description={program.description}
+                      image={program.image}
+                    />
+                  ))}
+                </div>
+              </section>
+            </>
+          );
+        }}
+      </PageLoader>
     </>
   );
 }

@@ -6,6 +6,7 @@ import ProgramInfo from "./-components/ProgramInfo";
 import Modules from "./-components/Modules";
 import Curriculum from "./-components/Curriculum";
 import { defaultProgramId, programs } from "./-info/programs";
+import { useQuery } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/home/programs/$id/")({
   component: RouteComponent,
@@ -14,7 +15,9 @@ export const Route = createFileRoute("/home/programs/$id/")({
 function RouteComponent() {
   const { id } = Route.useParams();
   const program = programs[id] ?? programs[defaultProgramId];
-
+  const query = useQuery({
+    queryKey: ["course"],
+  });
   return (
     <>
       <ProgramHero

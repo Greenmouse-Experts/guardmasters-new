@@ -626,6 +626,199 @@ export const programs: Record<string, Program> = {
       },
     ],
   },
+  "08-mini-mba-in-business-continuity-management": {
+    number: "08/ Mini-MBA",
+    fullTitle: "Mini-MBA in Business Continuity Management",
+    description:
+      "Design, implement, and audit a Business Continuity program aligned with ISO 22301. Disaster recovery, BIA, and organizational resilience.",
+    formattedPrice: "CA$595",
+    priceNote: "One-time tuition",
+    image: "/programs/business-card.png",
+    imageAlt: "Mini-MBA in Business Continuity Management",
+    stats: [
+      { icon: Clock, label: "Duration", value: "55 hrs" },
+      { icon: GraduationCap, label: "Level", value: "Advanced" },
+      { icon: Award, label: "CPE Credits", value: "40" },
+    ],
+    includes: [
+      "55 hrs of immersive content",
+      "ISO 22301-aligned curriculum",
+      "Lifetime access to materials",
+      "Certificate on successful completion",
+      "Practitioner-led faculty",
+    ],
+    outcomes: [
+      "Design and implement a Business Continuity program aligned with ISO 22301.",
+      "Conduct a Business Impact Analysis to prioritize critical functions.",
+      "Assess and model threats that could disrupt operations.",
+      "Develop, document, and maintain effective Business Continuity Plans.",
+      "Lead crisis management and stakeholder communication during disruptions.",
+      "Test, train, and continually improve organizational resilience.",
+    ],
+    modules: [
+      {
+        title:
+          "Module 1 — Foundations of Business Continuity Management (BCM)",
+        description:
+          "This module introduces the core principles, concepts, and frameworks that underpin Business Continuity Management.",
+        topics: [
+          "Introduction to BCM: Concepts, Evolution, and Relevance",
+          "The Role of BCM in Organizational Resilience",
+          "BCM vs. Disaster Recovery vs. Emergency Management",
+          "Importance of Business Continuity",
+          "BCM Terminology and Definitions",
+        ],
+      },
+      {
+        title: "Module 2 — BCM Policy, Governance, and Program Management",
+        description:
+          "This module focuses on the frameworks and structures that guide Business Continuity Management.",
+      },
+      {
+        title: "Module 3 — Business Impact Analysis (BIA)",
+        description:
+          "This module explores the systematic process of identifying and evaluating the potential effects of disruptions on critical business functions.",
+      },
+      {
+        title: "Module 4 — Risk Assessment and Threat Modelling",
+        description:
+          "This module examines how organizations identify, analyze, and prioritize risks that could disrupt operations.",
+      },
+      {
+        title:
+          "Module 5 — Business Continuity Strategy Development and Implementation",
+        description:
+          "This module focuses on designing and executing effective strategies to ensure organizational resilience during disruptions.",
+      },
+      {
+        title: "Module 6 — Business Continuity Plans (BCP) and Procedures",
+        description:
+          "This module provides a structured approach to developing, documenting, and maintaining Business Continuity Plans.",
+      },
+      {
+        title:
+          "Module 7 — Testing, Training, and Continual Improvement of Business Continuity Plans",
+        description:
+          "This module emphasizes the importance of validating, strengthening, and sustaining Business Continuity Plans (BCPs).",
+      },
+      {
+        title: "Module 8 — Crisis Management and Communication",
+        description:
+          "This module explores the frameworks and practices for managing crises effectively and ensuring timely, accurate communication.",
+      },
+      {
+        title: "Module 9 — Capstone Project and Strategic Integration",
+        description:
+          "This module prepares candidates for the CSSM final certification examinations through structured review, practice questions, and exam strategy guidance.",
+      },
+    ],
+    relatedCourses: [],
+  },
+  "09-initial-security-officer-program-isop": {
+    number: "09/ Masterclass",
+    fullTitle: "Initial Security Officer Program (ISOP)",
+    description:
+      "Foundational IFPO certification for individuals entering the security profession. Aligned with ASIS International's Private Security Officer Guidelines and global standards.",
+    formattedPrice: "CA$75",
+    priceNote: "One-time tuition",
+    image: "/programs/cpo.png",
+    imageAlt: "Initial Security Officer Program (ISOP)",
+    stats: [
+      { icon: Clock, label: "Duration", value: "12 hrs" },
+      { icon: GraduationCap, label: "Level", value: "Advanced" },
+      { icon: Award, label: "CPE Credits", value: "10" },
+    ],
+    includes: [
+      "12 hrs of foundational content",
+      "IFPO-accredited certification",
+      "Lifetime access to materials",
+      "Certificate on successful completion",
+      "Practitioner-led faculty",
+    ],
+    outcomes: [
+      "Understand the security industry, its history, and professional standards.",
+      "Apply core security procedures, observation, and incident reporting skills.",
+      "Demonstrate effective communication and information-safeguarding practices.",
+      "Recognize and respond to workplace violence and emergency situations.",
+      "Understand use-of-force theory and emergency response procedures.",
+      "Earn an entry-level IFPO credential recognized by employers worldwide.",
+    ],
+    modules: [
+      {
+        title:
+          "Module 1 — General Overview and Introduction to the Security Industry",
+        description:
+          "Gain a foundational understanding of the security industry, its history, evolution, and significance in modern society.",
+        topics: [
+          "Introduction to Security Roles and Responsibilities",
+          "Duties And Responsibilities of Security Officers",
+          "Key Terminology in the Security Industry",
+          "The Evolution of Security Practices",
+        ],
+      },
+      {
+        title: "Module 2 — Nature and Role of Private Security Officers",
+        description:
+          "Examine the core duties, responsibilities, and professional expectations of private security officers.",
+      },
+      {
+        title: "Module 3 — Basic Security Procedures",
+        description:
+          "Develop practical knowledge of essential security procedures used in daily operations.",
+      },
+      {
+        title: "Module 4 — Observation and Incident Reporting",
+        description:
+          "Build effective observation, patrolling, and reporting skills critical to security operations.",
+      },
+      {
+        title: "Module 5 — Health and Safety",
+        description:
+          "Understand workplace health and safety principles, hazard recognition, and risk mitigation strategies.",
+      },
+      {
+        title: "Module 6 — Principles of Communication",
+        description:
+          "Develop the communication skills necessary for effective security operations and public interaction.",
+      },
+      {
+        title: "Module 7 — Principles of Safeguarding Information",
+        description:
+          "Explore the importance of information security and data protection in modern security operations.",
+      },
+      {
+        title: "Module 8 — Life Safety Awareness",
+        description:
+          "Gain an understanding of life safety principles, workplace threats, emergency planning, and basic first aid awareness.",
+      },
+      {
+        title: "Module 9 — Sensitivity Training and Workplace Violence",
+        description:
+          "Learn how to recognize, prevent, and respond to workplace violence and conflict situations.",
+      },
+      {
+        title: "Module 10 — Use of Force Theory",
+        description:
+          "Examine the principles, legal considerations, and decision-making processes surrounding the use of force.",
+      },
+      {
+        title: "Module 11 — Emergency Response Procedures",
+        description:
+          "Develop the skills needed to respond effectively during emergencies and critical incidents.",
+      },
+      {
+        title: "Module 12 — Your Career as a Security Guard/Officer",
+        description:
+          "Explore strategies for career development, professional growth, and long-term success within the security industry.",
+      },
+      {
+        title: "Module 13 — Certificate of Completion",
+        description:
+          "Upon successful completion of the program and final assessments, participants will receive a Certificate of Completion recognizing their knowledge, skills, and readiness to perform professional security duties.",
+      },
+    ],
+    relatedCourses: [],
+  },
 };
 
 export const defaultProgramId = "01-mini-mba-security-project-management";
