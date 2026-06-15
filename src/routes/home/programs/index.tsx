@@ -74,18 +74,18 @@ const programs = [
   {
     id: "08",
     category: "Mini-MBA",
-    duration: "40 hrs",
-    image: "business-continuity.png",
-    title: "Mini-MBA (Business Continuity Management)",
+    duration: "55 hrs",
+    image: "business-card.png",
+    title: "Mini-MBA in Business Continuity Management",
     description:
       "This Mini-MBA in Business Continuity Management provides comprehensive training in business continuity.",
   },
   {
     id: "09",
     category: "Masterclass",
-    duration: "32 hrs",
-    image: "isop.png",
-    title: "Initial Security Officer Certification - Masterclass",
+    duration: "12 hrs",
+    image: "cpo.png",
+    title: "Initial Security Officer Program (ISOP)",
     description:
       "The Initial Security Officer Program (ISOP) Certification is awarded by the International Foundation for Protection Officers.",
   },
@@ -111,7 +111,7 @@ const programs = [
     id: "12",
     category: "Mini-MBA",
     duration: "32 hrs",
-    image: "",
+    image: "security-investigator_card.png",
     title: "Mini-MBA (Strategic Security and Investigation Management)",
     description:
       "Master the art and science of investigative leadership in today's high-risk environments.",
@@ -120,7 +120,7 @@ const programs = [
     id: "13",
     category: "Masterclass",
     duration: "60 hrs",
-    image: "",
+    image: "cttss_card.png",
     title:
       "Certified Transportation & Trucking Security Specialist (CTTSS™) Certification - Masterclass",
     description:
@@ -130,7 +130,7 @@ const programs = [
     id: "14",
     category: "Mini-MBA",
     duration: "40 hrs",
-    image: "",
+    image: "csm_card.png",
     title: "Mini-MBA (Corporate Security Management)™",
     description:
       "The Mini-MBA (Corporate Security Management)™ is an executive program combining business leadership with security strategy.",
@@ -139,7 +139,7 @@ const programs = [
     id: "15",
     category: "Mini-MBA",
     duration: "32 hrs",
-    image: "",
+    image: "security-supervisor_card.png",
     title: "Mini-MBA (Security Supervision & Management)™",
     description:
       "The Mini-MBA (Security Supervision & Management)™ is an executive program combining business leadership principles.",
