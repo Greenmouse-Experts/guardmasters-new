@@ -66,7 +66,7 @@ const programs = [
     id: "07",
     category: "Masterclass",
     duration: "60 hrs",
-    image: "security-officer.png",
+    image: "psop_card.png",
     title: "Professional Security Officer Certification - Masterclass",
     description:
       "The Professional Security Officer Program (PSOP) is an advanced IFPO certification designed for security officers.",
