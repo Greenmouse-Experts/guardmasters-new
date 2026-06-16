@@ -79,7 +79,9 @@ function RouteComponent() {
 
           <div className="my-4 border-t border-white/10" />
 
-          <SidebarItem link={{ label: "Settings", icon: Settings }} />
+          <SidebarItem
+            link={{ label: "Settings", icon: Settings, to: "/user/settings" }}
+          />
           <button
             type="button"
             onClick={handleLogout}
