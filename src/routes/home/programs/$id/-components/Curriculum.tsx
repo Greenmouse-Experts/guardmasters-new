@@ -16,7 +16,7 @@ interface CurriculumProps {
   sections: CourseContentSection[];
 }
 
-export default function Curriculum({ sections }: CurriculumProps) {
+export default function Curriculum({ sections = [] }: CurriculumProps) {
   const [openIndex, setOpenIndex] = useState(0);
   const [preview, setPreview] = useState<CourseContentSub | null>(null);
   const modalRef = useRef<ModalHandle>(null);
