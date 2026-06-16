@@ -58,12 +58,28 @@ export interface SingleCourse {
   discountedPrice: string | null;
   discountFormat: string | null;
 }
+export type CourseContentMediaType = "video" | "image" | "document" | "assessment";
+
+export interface CourseContentSub {
+  title: string;
+  duration: number;
+  previewUrl: string | null;
+  mediaType: CourseContentMediaType;
+}
+
+export interface CourseContentSection {
+  title: string;
+  courseContentSubs: CourseContentSub[];
+}
+
+export interface CourseContents {
+  data: CourseContentSection[];
+  total: number;
+  totalDuration: number;
+}
+
 export interface CourseProgramSingle {
-  contents: {
-    data: Course[];
-    total: number;
-    duration: number;
-  };
+  contents: CourseContents;
   course: SingleCourse;
 }
 

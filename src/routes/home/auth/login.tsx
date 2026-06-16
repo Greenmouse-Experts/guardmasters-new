@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
-import { set_user_value } from "#/store/authStore.ts";
-import type { AuthUser } from "#/store/authStore.ts";
+import { set_profile_value, set_user_value } from "#/store/authStore.ts";
+import type { AuthUser, ProfileData } from "#/store/authStore.ts";
 
 export const Route = createFileRoute("/home/auth/login")({
   component: RouteComponent,
@@ -25,11 +25,20 @@ function RouteComponent() {
 
   async function onSubmit(values: LoginFields) {
     try {
-      const { data } = await apiClient.post<{ data: AuthUser }>("auth/signin", values);
+      const { data } = await apiClient.post<{ data: AuthUser }>(
+        "auth/signin",
+        values,
+      );
       set_user_value(data.data);
+
+      const profile = await apiClient.get<{ data: ProfileData }>(
+        "auth/profile",
+      );
+      set_profile_value(profile.data.data);
       navigate({ to: "/home" });
     } catch (err: any) {
-      const message = err?.response?.data?.message ?? "Invalid email or password.";
+      const message =
+        err?.response?.data?.message ?? "Invalid email or password.";
       toast.error(message);
     }
   }
@@ -84,7 +93,9 @@ function RouteComponent() {
                 className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
               />
               {errors.email && (
-                <p className="mt-1 text-xs text-error">{errors.email.message}</p>
+                <p className="mt-1 text-xs text-error">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
@@ -102,7 +113,9 @@ function RouteComponent() {
                 className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
               />
               {errors.password && (
-                <p className="mt-1 text-xs text-error">{errors.password.message}</p>
+                <p className="mt-1 text-xs text-error">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 

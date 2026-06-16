@@ -100,12 +100,14 @@ function RouteComponent() {
             course.discountPriceFormat ?? course.originalPriceFormat;
           const modules = resp.contents.data.map((content) => ({
             title: content.title,
-            description: content.shortDesc,
+            description: content.courseContentSubs
+              .map((s) => s.title)
+              .join(", "),
           }));
           return (
             <>
               <ProgramHero
-                badge={program.number}
+                badge={course.program.title}
                 title={course.title}
                 description={course.shortDesc}
                 price={price}
@@ -125,7 +127,7 @@ function RouteComponent() {
                 description="Practical, board-ready competencies — not just theory. Designed for direct application the day you return to your organization."
                 outcomes={program.outcomes}
               />
-              <Curriculum />
+              <Curriculum sections={resp.contents.data} />
               <Modules modules={modules} />
               <ProgramCertificate
                 badge="Credentials"

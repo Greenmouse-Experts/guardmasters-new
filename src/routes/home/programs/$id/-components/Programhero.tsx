@@ -31,7 +31,7 @@ export default function ProgramHero({
   return (
     <section
       data-theme="guard"
-      className="relative overflow-hidden bg-black px-6 pt-32 pb-16 text-white md:px-16 md:pt-40 md:pb-20"
+      className="relative overflow-hidden bg-primary px-6 pt-32 pb-16 text-white md:px-16 md:pt-40 md:pb-20"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)] bg-size-[28px_28px]" />
 
