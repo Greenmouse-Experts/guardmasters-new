@@ -10,7 +10,7 @@ function RouteComponent() {
       {/* Hero */}
       <section className="bg-black px-6 pt-20 pb-16 md:px-16">
         <div className="container mx-auto">
-          <span className="mb-6 inline-block rounded-md bg-white/15 px-3 py-1 text-xs font-medium tracking-[0.18em] text-white/80 uppercase">
+          <span className="mb-6 inline-block mt-12 rounded-md bg-white/15 px-3 py-1 text-xs font-medium tracking-[0.18em] text-white/80 uppercase">
             Sign up
           </span>
           <h1 className="text-4xl leading-tight font-light text-white md:text-6xl">

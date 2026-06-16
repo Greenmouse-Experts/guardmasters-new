@@ -7,3 +7,15 @@ Before substantial work:
 - Monorepos: when working across packages, run the skill check from the workspace root and prefer the local skill for the package being changed.
 - Multiple matches: prefer the most specific local skill for the package or concern you are changing; load additional skills only when the task spans multiple packages or concerns.
 <!-- intent-skills:end -->
+
+## Conventions
+
+### API & Data Fetching
+- Use **@tanstack/react-query** (`useQuery` / `useMutation`) for all API calls.
+- Surface errors and success feedback with **sonner** toasts.
+
+### Forms
+- Use **react-hook-form** (`useForm`, `register`, `handleSubmit`, `formState`) for all forms — no `useState`-based controlled inputs.
+
+### Tooling
+- Typecheck with `npx tsgo --noEmit` (not `tsc`).

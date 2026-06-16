@@ -1,11 +1,39 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import apiClient from "#/client/api.ts";
+import { set_user_value } from "#/store/authStore.ts";
+import type { AuthUser } from "#/store/authStore.ts";
 
 export const Route = createFileRoute("/home/auth/login")({
   component: RouteComponent,
 });
 
+interface LoginFields {
+  email: string;
+  password: string;
+}
+
 function RouteComponent() {
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginFields>();
+
+  async function onSubmit(values: LoginFields) {
+    try {
+      const { data } = await apiClient.post<{ data: AuthUser }>("auth/signin", values);
+      set_user_value(data.data);
+      navigate({ to: "/home" });
+    } catch (err: any) {
+      const message = err?.response?.data?.message ?? "Invalid email or password.";
+      toast.error(message);
+    }
+  }
+
   return (
     <div data-theme="guard" className="min-h-screen bg-base-100">
       {/* Hero */}
@@ -41,18 +69,49 @@ function RouteComponent() {
             </h2>
           </div>
 
-          <form
-            className="space-y-6"
-            onSubmit={(event) => event.preventDefault()}
-          >
-            <Field label="Email" name="email" type="email" />
-            <Field label="Password" name="password" type="password" />
+          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <label
+                htmlFor="email"
+                className="mb-2 block text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                {...register("email", { required: "Email is required" })}
+                className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
+              />
+              {errors.email && (
+                <p className="mt-1 text-xs text-error">{errors.email.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label
+                htmlFor="password"
+                className="mb-2 block text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase"
+              >
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                {...register("password", { required: "Password is required" })}
+                className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
+              />
+              {errors.password && (
+                <p className="mt-1 text-xs text-error">{errors.password.message}</p>
+              )}
+            </div>
 
             <button
               type="submit"
-              className="btn btn-block h-auto gap-2 rounded-none border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90"
+              disabled={isSubmitting}
+              className="btn btn-block h-auto gap-2 rounded-none border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90 disabled:opacity-60"
             >
-              Sign In
+              {isSubmitting ? "Signing in…" : "Sign In"}
               <ArrowRight className="h-4 w-4" />
             </button>
           </form>
@@ -68,33 +127,6 @@ function RouteComponent() {
           </p>
         </div>
       </section>
-    </div>
-  );
-}
-
-interface FieldProps {
-  label: string;
-  name: string;
-  type?: string;
-  placeholder?: string;
-}
-
-function Field({ label, name, type = "text", placeholder }: FieldProps) {
-  return (
-    <div>
-      <label
-        htmlFor={name}
-        className="mb-2 block text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase"
-      >
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
-      />
     </div>
   );
 }
