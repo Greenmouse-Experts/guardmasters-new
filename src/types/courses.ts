@@ -11,6 +11,12 @@ export interface Course {
   updatedDate: string;
 }
 
+export interface PurchaseItem {
+  id: string;
+  status?: string;
+  course: Course;
+}
+
 export interface CourseProgram {
   id: string;
   title: string;
@@ -58,7 +64,11 @@ export interface SingleCourse {
   discountedPrice: string | null;
   discountFormat: string | null;
 }
-export type CourseContentMediaType = "video" | "image" | "document" | "assessment";
+export type CourseContentMediaType =
+  | "video"
+  | "image"
+  | "document"
+  | "assessment";
 
 export interface CourseContentSub {
   title: string;
@@ -91,4 +101,32 @@ export interface CourseComment {
   rating: number;
   body: string;
   date: string;
+}
+
+export interface Assesmnt {
+  id: string;
+  price: number;
+  course: {
+    id: string;
+    title: string;
+    shortDesc: string;
+    fullDesc: string;
+    price: number;
+    discount: number;
+    isPublished: boolean;
+    coverImage: string;
+    createdDate: string;
+    updatedDate: string;
+    totalContent: number;
+    assessment: {
+      total: number;
+      done: number;
+    };
+  };
+  order: {
+    id: string;
+    number: string;
+    status: string;
+    createdDate: string;
+  };
 }

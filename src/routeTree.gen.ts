@@ -16,12 +16,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as UserIndexRouteImport } from './routes/user/index'
 import { Route as HomeIndexRouteImport } from './routes/home/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
-import { Route as UserCoursesRouteImport } from './routes/user/courses'
 import { Route as UserSupportIndexRouteImport } from './routes/user/support/index'
 import { Route as UserSettingsIndexRouteImport } from './routes/user/settings/index'
+import { Route as UserPurchaseHistoryIndexRouteImport } from './routes/user/purchase-history/index'
 import { Route as UserProgressIndexRouteImport } from './routes/user/progress/index'
 import { Route as UserNotificationsIndexRouteImport } from './routes/user/notifications/index'
-import { Route as UserHistoryIndexRouteImport } from './routes/user/history/index'
+import { Route as UserCoursesIndexRouteImport } from './routes/user/courses/index'
 import { Route as HomeProgramsIndexRouteImport } from './routes/home/programs/index'
 import { Route as HomeContactIndexRouteImport } from './routes/home/contact/index'
 import { Route as HomeAccreditationsIndexRouteImport } from './routes/home/accreditations/index'
@@ -29,6 +29,7 @@ import { Route as HomeAboutIndexRouteImport } from './routes/home/about/index'
 import { Route as HomeAuthSignupRouteImport } from './routes/home/auth/signup'
 import { Route as HomeAuthLoginRouteImport } from './routes/home/auth/login'
 import { Route as HomeProgramsIdIndexRouteImport } from './routes/home/programs/$id/index'
+import { Route as HomeAuthVerifyIndexRouteImport } from './routes/home/auth/verify/index'
 
 const UserRouteRoute = UserRouteRouteImport.update({
   id: '/user',
@@ -65,11 +66,6 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRouteRoute,
 } as any)
-const UserCoursesRoute = UserCoursesRouteImport.update({
-  id: '/courses',
-  path: '/courses',
-  getParentRoute: () => UserRouteRoute,
-} as any)
 const UserSupportIndexRoute = UserSupportIndexRouteImport.update({
   id: '/support/',
   path: '/support/',
@@ -80,6 +76,12 @@ const UserSettingsIndexRoute = UserSettingsIndexRouteImport.update({
   path: '/settings/',
   getParentRoute: () => UserRouteRoute,
 } as any)
+const UserPurchaseHistoryIndexRoute =
+  UserPurchaseHistoryIndexRouteImport.update({
+    id: '/purchase-history/',
+    path: '/purchase-history/',
+    getParentRoute: () => UserRouteRoute,
+  } as any)
 const UserProgressIndexRoute = UserProgressIndexRouteImport.update({
   id: '/progress/',
   path: '/progress/',
@@ -90,9 +92,9 @@ const UserNotificationsIndexRoute = UserNotificationsIndexRouteImport.update({
   path: '/notifications/',
   getParentRoute: () => UserRouteRoute,
 } as any)
-const UserHistoryIndexRoute = UserHistoryIndexRouteImport.update({
-  id: '/history/',
-  path: '/history/',
+const UserCoursesIndexRoute = UserCoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
   getParentRoute: () => UserRouteRoute,
 } as any)
 const HomeProgramsIndexRoute = HomeProgramsIndexRouteImport.update({
@@ -130,13 +132,17 @@ const HomeProgramsIdIndexRoute = HomeProgramsIdIndexRouteImport.update({
   path: '/programs/$id/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
+const HomeAuthVerifyIndexRoute = HomeAuthVerifyIndexRouteImport.update({
+  id: '/auth/verify/',
+  path: '/auth/verify/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
   '/home': typeof HomeRouteRouteWithChildren
   '/user': typeof UserRouteRouteWithChildren
-  '/user/courses': typeof UserCoursesRoute
   '/admin/': typeof AdminIndexRoute
   '/home/': typeof HomeIndexRoute
   '/user/': typeof UserIndexRoute
@@ -146,16 +152,17 @@ export interface FileRoutesByFullPath {
   '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
   '/home/programs/': typeof HomeProgramsIndexRoute
-  '/user/history/': typeof UserHistoryIndexRoute
+  '/user/courses/': typeof UserCoursesIndexRoute
   '/user/notifications/': typeof UserNotificationsIndexRoute
   '/user/progress/': typeof UserProgressIndexRoute
+  '/user/purchase-history/': typeof UserPurchaseHistoryIndexRoute
   '/user/settings/': typeof UserSettingsIndexRoute
   '/user/support/': typeof UserSupportIndexRoute
+  '/home/auth/verify/': typeof HomeAuthVerifyIndexRoute
   '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/user/courses': typeof UserCoursesRoute
   '/admin': typeof AdminIndexRoute
   '/home': typeof HomeIndexRoute
   '/user': typeof UserIndexRoute
@@ -165,11 +172,13 @@ export interface FileRoutesByTo {
   '/home/accreditations': typeof HomeAccreditationsIndexRoute
   '/home/contact': typeof HomeContactIndexRoute
   '/home/programs': typeof HomeProgramsIndexRoute
-  '/user/history': typeof UserHistoryIndexRoute
+  '/user/courses': typeof UserCoursesIndexRoute
   '/user/notifications': typeof UserNotificationsIndexRoute
   '/user/progress': typeof UserProgressIndexRoute
+  '/user/purchase-history': typeof UserPurchaseHistoryIndexRoute
   '/user/settings': typeof UserSettingsIndexRoute
   '/user/support': typeof UserSupportIndexRoute
+  '/home/auth/verify': typeof HomeAuthVerifyIndexRoute
   '/home/programs/$id': typeof HomeProgramsIdIndexRoute
 }
 export interface FileRoutesById {
@@ -178,7 +187,6 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteRouteWithChildren
   '/home': typeof HomeRouteRouteWithChildren
   '/user': typeof UserRouteRouteWithChildren
-  '/user/courses': typeof UserCoursesRoute
   '/admin/': typeof AdminIndexRoute
   '/home/': typeof HomeIndexRoute
   '/user/': typeof UserIndexRoute
@@ -188,11 +196,13 @@ export interface FileRoutesById {
   '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
   '/home/programs/': typeof HomeProgramsIndexRoute
-  '/user/history/': typeof UserHistoryIndexRoute
+  '/user/courses/': typeof UserCoursesIndexRoute
   '/user/notifications/': typeof UserNotificationsIndexRoute
   '/user/progress/': typeof UserProgressIndexRoute
+  '/user/purchase-history/': typeof UserPurchaseHistoryIndexRoute
   '/user/settings/': typeof UserSettingsIndexRoute
   '/user/support/': typeof UserSupportIndexRoute
+  '/home/auth/verify/': typeof HomeAuthVerifyIndexRoute
   '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -202,7 +212,6 @@ export interface FileRouteTypes {
     | '/admin'
     | '/home'
     | '/user'
-    | '/user/courses'
     | '/admin/'
     | '/home/'
     | '/user/'
@@ -212,16 +221,17 @@ export interface FileRouteTypes {
     | '/home/accreditations/'
     | '/home/contact/'
     | '/home/programs/'
-    | '/user/history/'
+    | '/user/courses/'
     | '/user/notifications/'
     | '/user/progress/'
+    | '/user/purchase-history/'
     | '/user/settings/'
     | '/user/support/'
+    | '/home/auth/verify/'
     | '/home/programs/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/user/courses'
     | '/admin'
     | '/home'
     | '/user'
@@ -231,11 +241,13 @@ export interface FileRouteTypes {
     | '/home/accreditations'
     | '/home/contact'
     | '/home/programs'
-    | '/user/history'
+    | '/user/courses'
     | '/user/notifications'
     | '/user/progress'
+    | '/user/purchase-history'
     | '/user/settings'
     | '/user/support'
+    | '/home/auth/verify'
     | '/home/programs/$id'
   id:
     | '__root__'
@@ -243,7 +255,6 @@ export interface FileRouteTypes {
     | '/admin'
     | '/home'
     | '/user'
-    | '/user/courses'
     | '/admin/'
     | '/home/'
     | '/user/'
@@ -253,11 +264,13 @@ export interface FileRouteTypes {
     | '/home/accreditations/'
     | '/home/contact/'
     | '/home/programs/'
-    | '/user/history/'
+    | '/user/courses/'
     | '/user/notifications/'
     | '/user/progress/'
+    | '/user/purchase-history/'
     | '/user/settings/'
     | '/user/support/'
+    | '/home/auth/verify/'
     | '/home/programs/$id/'
   fileRoutesById: FileRoutesById
 }
@@ -319,13 +332,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRouteRoute
     }
-    '/user/courses': {
-      id: '/user/courses'
-      path: '/courses'
-      fullPath: '/user/courses'
-      preLoaderRoute: typeof UserCoursesRouteImport
-      parentRoute: typeof UserRouteRoute
-    }
     '/user/support/': {
       id: '/user/support/'
       path: '/support'
@@ -338,6 +344,13 @@ declare module '@tanstack/react-router' {
       path: '/settings'
       fullPath: '/user/settings/'
       preLoaderRoute: typeof UserSettingsIndexRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/user/purchase-history/': {
+      id: '/user/purchase-history/'
+      path: '/purchase-history'
+      fullPath: '/user/purchase-history/'
+      preLoaderRoute: typeof UserPurchaseHistoryIndexRouteImport
       parentRoute: typeof UserRouteRoute
     }
     '/user/progress/': {
@@ -354,11 +367,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UserNotificationsIndexRouteImport
       parentRoute: typeof UserRouteRoute
     }
-    '/user/history/': {
-      id: '/user/history/'
-      path: '/history'
-      fullPath: '/user/history/'
-      preLoaderRoute: typeof UserHistoryIndexRouteImport
+    '/user/courses/': {
+      id: '/user/courses/'
+      path: '/courses'
+      fullPath: '/user/courses/'
+      preLoaderRoute: typeof UserCoursesIndexRouteImport
       parentRoute: typeof UserRouteRoute
     }
     '/home/programs/': {
@@ -410,6 +423,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeProgramsIdIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
+    '/home/auth/verify/': {
+      id: '/home/auth/verify/'
+      path: '/auth/verify'
+      fullPath: '/home/auth/verify/'
+      preLoaderRoute: typeof HomeAuthVerifyIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
   }
 }
 
@@ -433,6 +453,7 @@ interface HomeRouteRouteChildren {
   HomeAccreditationsIndexRoute: typeof HomeAccreditationsIndexRoute
   HomeContactIndexRoute: typeof HomeContactIndexRoute
   HomeProgramsIndexRoute: typeof HomeProgramsIndexRoute
+  HomeAuthVerifyIndexRoute: typeof HomeAuthVerifyIndexRoute
   HomeProgramsIdIndexRoute: typeof HomeProgramsIdIndexRoute
 }
 
@@ -444,6 +465,7 @@ const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeAccreditationsIndexRoute: HomeAccreditationsIndexRoute,
   HomeContactIndexRoute: HomeContactIndexRoute,
   HomeProgramsIndexRoute: HomeProgramsIndexRoute,
+  HomeAuthVerifyIndexRoute: HomeAuthVerifyIndexRoute,
   HomeProgramsIdIndexRoute: HomeProgramsIdIndexRoute,
 }
 
@@ -452,21 +474,21 @@ const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(
 )
 
 interface UserRouteRouteChildren {
-  UserCoursesRoute: typeof UserCoursesRoute
   UserIndexRoute: typeof UserIndexRoute
-  UserHistoryIndexRoute: typeof UserHistoryIndexRoute
+  UserCoursesIndexRoute: typeof UserCoursesIndexRoute
   UserNotificationsIndexRoute: typeof UserNotificationsIndexRoute
   UserProgressIndexRoute: typeof UserProgressIndexRoute
+  UserPurchaseHistoryIndexRoute: typeof UserPurchaseHistoryIndexRoute
   UserSettingsIndexRoute: typeof UserSettingsIndexRoute
   UserSupportIndexRoute: typeof UserSupportIndexRoute
 }
 
 const UserRouteRouteChildren: UserRouteRouteChildren = {
-  UserCoursesRoute: UserCoursesRoute,
   UserIndexRoute: UserIndexRoute,
-  UserHistoryIndexRoute: UserHistoryIndexRoute,
+  UserCoursesIndexRoute: UserCoursesIndexRoute,
   UserNotificationsIndexRoute: UserNotificationsIndexRoute,
   UserProgressIndexRoute: UserProgressIndexRoute,
+  UserPurchaseHistoryIndexRoute: UserPurchaseHistoryIndexRoute,
   UserSettingsIndexRoute: UserSettingsIndexRoute,
   UserSupportIndexRoute: UserSupportIndexRoute,
 }
