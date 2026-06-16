@@ -1,47 +1,33 @@
 import { Link } from "@tanstack/react-router";
-import { toProgramSlug } from "../$id/-info/programs";
-import type { Course, CourseProgram } from "#/types/courses.ts";
+import type { Course } from "#/types/courses.ts";
 
-interface ProgramCardProps extends CourseProgram {
-  // id: string;
-  // title: string;
-  // description: string;
-  // duration: string;
-  // image?: string;
-  // category: string;
+interface ProgramCardProps {
+  course: Course;
 }
 
-export default function ProgramCard(props: ProgramCardProps) {
-  const { id, title, courses } = props;
-  const slug = toProgramSlug(id, title);
-  // const category =
+export default function ProgramCard({ course }: ProgramCardProps) {
   return (
     <Link
       to="/home/programs/$id"
-      params={{ id: courses[0].id }}
+      params={{ id: course.id }}
       className="flex h-full max-w-[400px] flex-col border border-gray-200 rounded-sm p-6 font-sans"
     >
-      <div className="flex justify-between items-center text-sm tracking-widest text-gray-600 mb-4">
-        {/*<span>{id}</span>*/}
-        {/*<span>{duration.toUpperCase()}</span>*/}
-      </div>
-
       <div className="mb-6 h-48 overflow-hidden rounded-xl bg-gray-100">
-        {courses[0]?.coverImage && (
+        {course.coverImage && (
           <img
-            src={`${courses[0]?.coverImage}`}
-            alt={title}
+            src={`${course.coverImage}`}
+            alt={course.title}
             className="h-full w-full object-cover"
           />
         )}
       </div>
 
       <h2 className="text-3xl font-medium leading-tight mb-4 text-gray-900 line-clamp-2">
-        {title}
+        {course.title}
       </h2>
 
       <p className="text-gray-600 text-lg line-clamp-3 leading-relaxed mb-8 flex-1">
-        {props.courses[0].shortDesc}
+        {course.shortDesc}
       </p>
 
       <button className="w-full bg-[#004aad] hover:bg-[#003a8c] text-white py-4 rounded-lg flex items-center justify-center gap-2 font-medium transition-colors line-clamp-3">
