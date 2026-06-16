@@ -9,11 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UserRouteRouteImport } from './routes/user/route'
 import { Route as HomeRouteRouteImport } from './routes/home/route'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UserIndexRouteImport } from './routes/user/index'
 import { Route as HomeIndexRouteImport } from './routes/home/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as UserCoursesRouteImport } from './routes/user/courses'
+import { Route as UserSupportIndexRouteImport } from './routes/user/support/index'
+import { Route as UserSettingsIndexRouteImport } from './routes/user/settings/index'
+import { Route as UserProgressIndexRouteImport } from './routes/user/progress/index'
+import { Route as UserNotificationsIndexRouteImport } from './routes/user/notifications/index'
+import { Route as UserHistoryIndexRouteImport } from './routes/user/history/index'
 import { Route as HomeProgramsIndexRouteImport } from './routes/home/programs/index'
 import { Route as HomeContactIndexRouteImport } from './routes/home/contact/index'
 import { Route as HomeAccreditationsIndexRouteImport } from './routes/home/accreditations/index'
@@ -22,9 +30,19 @@ import { Route as HomeAuthSignupRouteImport } from './routes/home/auth/signup'
 import { Route as HomeAuthLoginRouteImport } from './routes/home/auth/login'
 import { Route as HomeProgramsIdIndexRouteImport } from './routes/home/programs/$id/index'
 
+const UserRouteRoute = UserRouteRouteImport.update({
+  id: '/user',
+  path: '/user',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRouteRoute = HomeRouteRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -33,9 +51,9 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const UserIndexRoute = UserIndexRouteImport.update({
-  id: '/user/',
-  path: '/user/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => UserRouteRoute,
 } as any)
 const HomeIndexRoute = HomeIndexRouteImport.update({
   id: '/',
@@ -43,9 +61,39 @@ const HomeIndexRoute = HomeIndexRouteImport.update({
   getParentRoute: () => HomeRouteRoute,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
-  id: '/admin/',
-  path: '/admin/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const UserCoursesRoute = UserCoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserSupportIndexRoute = UserSupportIndexRouteImport.update({
+  id: '/support/',
+  path: '/support/',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserSettingsIndexRoute = UserSettingsIndexRouteImport.update({
+  id: '/settings/',
+  path: '/settings/',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserProgressIndexRoute = UserProgressIndexRouteImport.update({
+  id: '/progress/',
+  path: '/progress/',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserNotificationsIndexRoute = UserNotificationsIndexRouteImport.update({
+  id: '/notifications/',
+  path: '/notifications/',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserHistoryIndexRoute = UserHistoryIndexRouteImport.update({
+  id: '/history/',
+  path: '/history/',
+  getParentRoute: () => UserRouteRoute,
 } as any)
 const HomeProgramsIndexRoute = HomeProgramsIndexRouteImport.update({
   id: '/programs/',
@@ -85,7 +133,10 @@ const HomeProgramsIdIndexRoute = HomeProgramsIdIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
   '/home': typeof HomeRouteRouteWithChildren
+  '/user': typeof UserRouteRouteWithChildren
+  '/user/courses': typeof UserCoursesRoute
   '/admin/': typeof AdminIndexRoute
   '/home/': typeof HomeIndexRoute
   '/user/': typeof UserIndexRoute
@@ -95,10 +146,16 @@ export interface FileRoutesByFullPath {
   '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
   '/home/programs/': typeof HomeProgramsIndexRoute
+  '/user/history/': typeof UserHistoryIndexRoute
+  '/user/notifications/': typeof UserNotificationsIndexRoute
+  '/user/progress/': typeof UserProgressIndexRoute
+  '/user/settings/': typeof UserSettingsIndexRoute
+  '/user/support/': typeof UserSupportIndexRoute
   '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/user/courses': typeof UserCoursesRoute
   '/admin': typeof AdminIndexRoute
   '/home': typeof HomeIndexRoute
   '/user': typeof UserIndexRoute
@@ -108,12 +165,20 @@ export interface FileRoutesByTo {
   '/home/accreditations': typeof HomeAccreditationsIndexRoute
   '/home/contact': typeof HomeContactIndexRoute
   '/home/programs': typeof HomeProgramsIndexRoute
+  '/user/history': typeof UserHistoryIndexRoute
+  '/user/notifications': typeof UserNotificationsIndexRoute
+  '/user/progress': typeof UserProgressIndexRoute
+  '/user/settings': typeof UserSettingsIndexRoute
+  '/user/support': typeof UserSupportIndexRoute
   '/home/programs/$id': typeof HomeProgramsIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
   '/home': typeof HomeRouteRouteWithChildren
+  '/user': typeof UserRouteRouteWithChildren
+  '/user/courses': typeof UserCoursesRoute
   '/admin/': typeof AdminIndexRoute
   '/home/': typeof HomeIndexRoute
   '/user/': typeof UserIndexRoute
@@ -123,13 +188,21 @@ export interface FileRoutesById {
   '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
   '/home/programs/': typeof HomeProgramsIndexRoute
+  '/user/history/': typeof UserHistoryIndexRoute
+  '/user/notifications/': typeof UserNotificationsIndexRoute
+  '/user/progress/': typeof UserProgressIndexRoute
+  '/user/settings/': typeof UserSettingsIndexRoute
+  '/user/support/': typeof UserSupportIndexRoute
   '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/home'
+    | '/user'
+    | '/user/courses'
     | '/admin/'
     | '/home/'
     | '/user/'
@@ -139,10 +212,16 @@ export interface FileRouteTypes {
     | '/home/accreditations/'
     | '/home/contact/'
     | '/home/programs/'
+    | '/user/history/'
+    | '/user/notifications/'
+    | '/user/progress/'
+    | '/user/settings/'
+    | '/user/support/'
     | '/home/programs/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/user/courses'
     | '/admin'
     | '/home'
     | '/user'
@@ -152,11 +231,19 @@ export interface FileRouteTypes {
     | '/home/accreditations'
     | '/home/contact'
     | '/home/programs'
+    | '/user/history'
+    | '/user/notifications'
+    | '/user/progress'
+    | '/user/settings'
+    | '/user/support'
     | '/home/programs/$id'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/home'
+    | '/user'
+    | '/user/courses'
     | '/admin/'
     | '/home/'
     | '/user/'
@@ -166,23 +253,42 @@ export interface FileRouteTypes {
     | '/home/accreditations/'
     | '/home/contact/'
     | '/home/programs/'
+    | '/user/history/'
+    | '/user/notifications/'
+    | '/user/progress/'
+    | '/user/settings/'
+    | '/user/support/'
     | '/home/programs/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
   HomeRouteRoute: typeof HomeRouteRouteWithChildren
-  AdminIndexRoute: typeof AdminIndexRoute
-  UserIndexRoute: typeof UserIndexRoute
+  UserRouteRoute: typeof UserRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/user': {
+      id: '/user'
+      path: '/user'
+      fullPath: '/user'
+      preLoaderRoute: typeof UserRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -194,10 +300,10 @@ declare module '@tanstack/react-router' {
     }
     '/user/': {
       id: '/user/'
-      path: '/user'
+      path: '/'
       fullPath: '/user/'
       preLoaderRoute: typeof UserIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof UserRouteRoute
     }
     '/home/': {
       id: '/home/'
@@ -208,10 +314,52 @@ declare module '@tanstack/react-router' {
     }
     '/admin/': {
       id: '/admin/'
-      path: '/admin'
+      path: '/'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/user/courses': {
+      id: '/user/courses'
+      path: '/courses'
+      fullPath: '/user/courses'
+      preLoaderRoute: typeof UserCoursesRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/user/support/': {
+      id: '/user/support/'
+      path: '/support'
+      fullPath: '/user/support/'
+      preLoaderRoute: typeof UserSupportIndexRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/user/settings/': {
+      id: '/user/settings/'
+      path: '/settings'
+      fullPath: '/user/settings/'
+      preLoaderRoute: typeof UserSettingsIndexRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/user/progress/': {
+      id: '/user/progress/'
+      path: '/progress'
+      fullPath: '/user/progress/'
+      preLoaderRoute: typeof UserProgressIndexRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/user/notifications/': {
+      id: '/user/notifications/'
+      path: '/notifications'
+      fullPath: '/user/notifications/'
+      preLoaderRoute: typeof UserNotificationsIndexRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/user/history/': {
+      id: '/user/history/'
+      path: '/history'
+      fullPath: '/user/history/'
+      preLoaderRoute: typeof UserHistoryIndexRouteImport
+      parentRoute: typeof UserRouteRoute
     }
     '/home/programs/': {
       id: '/home/programs/'
@@ -265,6 +413,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
 interface HomeRouteRouteChildren {
   HomeIndexRoute: typeof HomeIndexRoute
   HomeAuthLoginRoute: typeof HomeAuthLoginRoute
@@ -291,11 +451,35 @@ const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(
   HomeRouteRouteChildren,
 )
 
+interface UserRouteRouteChildren {
+  UserCoursesRoute: typeof UserCoursesRoute
+  UserIndexRoute: typeof UserIndexRoute
+  UserHistoryIndexRoute: typeof UserHistoryIndexRoute
+  UserNotificationsIndexRoute: typeof UserNotificationsIndexRoute
+  UserProgressIndexRoute: typeof UserProgressIndexRoute
+  UserSettingsIndexRoute: typeof UserSettingsIndexRoute
+  UserSupportIndexRoute: typeof UserSupportIndexRoute
+}
+
+const UserRouteRouteChildren: UserRouteRouteChildren = {
+  UserCoursesRoute: UserCoursesRoute,
+  UserIndexRoute: UserIndexRoute,
+  UserHistoryIndexRoute: UserHistoryIndexRoute,
+  UserNotificationsIndexRoute: UserNotificationsIndexRoute,
+  UserProgressIndexRoute: UserProgressIndexRoute,
+  UserSettingsIndexRoute: UserSettingsIndexRoute,
+  UserSupportIndexRoute: UserSupportIndexRoute,
+}
+
+const UserRouteRouteWithChildren = UserRouteRoute._addFileChildren(
+  UserRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
   HomeRouteRoute: HomeRouteRouteWithChildren,
-  AdminIndexRoute: AdminIndexRoute,
-  UserIndexRoute: UserIndexRoute,
+  UserRouteRoute: UserRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
