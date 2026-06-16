@@ -3,13 +3,22 @@ import { useAtom } from "jotai/react";
 import { getDefaultStore } from "jotai/vanilla";
 interface UserData {
   id: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  companyName: string;
-  isOnboarded: boolean;
-  userType: string | "admin" | "staff";
+  phone?: string;
+  companyName?: string;
+  role: "admin" | "staff" | string;
+  picture?: string;
+  address?: string | null;
+  facebookUrl?: string | null;
+  twitterUrl?: string | null;
+  linkedinUrl?: string | null;
+  bio?: string | null;
+  createdDate?: string;
 }
 
-export interface ProfileData {
+export interface ProfileData extends UserData {
   sub: string;
   email: string;
   companyName: string;
@@ -26,16 +35,24 @@ export interface AuthUser {
   profile?: ProfileData;
 }
 
-const stored = localStorage.getItem("user");
+function safeParse<T>(key: string): T | null {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw || raw === "undefined" || raw === "null") return null;
+    return JSON.parse(raw) as T;
+  } catch {
+    return null;
+  }
+}
+
 export const user_atom = atomWithStorage<AuthUser | null>(
   "user",
-  stored ? JSON.parse(stored) : null,
+  safeParse<AuthUser>("user"),
 );
 
-const storedProfile = localStorage.getItem("profile");
 export const profile_atom = atomWithStorage<ProfileData | null>(
   "profile",
-  storedProfile ? JSON.parse(storedProfile) : null,
+  safeParse<ProfileData>("profile"),
 );
 
 export const useAuth = () => {

@@ -2,9 +2,10 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import apiClient from "#/client/api.ts";
+import apiClient, { new_url } from "#/client/api.ts";
 import { set_profile_value, set_user_value } from "#/store/authStore.ts";
 import type { AuthUser, ProfileData } from "#/store/authStore.ts";
+import axios from "axios";
 
 export const Route = createFileRoute("/home/auth/login")({
   component: RouteComponent,
@@ -25,17 +26,16 @@ function RouteComponent() {
 
   async function onSubmit(values: LoginFields) {
     try {
-      const { data } = await apiClient.post<{ data: AuthUser }>(
-        "auth/signin",
-        values,
-      );
-      set_user_value(data.data);
-
-      const profile = await apiClient.get<{ data: ProfileData }>(
-        "auth/profile",
-      );
-      set_profile_value(profile.data.data);
-      navigate({ to: "/home" });
+      const { data } = await axios.post<any>(new_url + "auth/signin", values);
+      set_user_value(data as AuthUser);
+      const profile = await apiClient.get<ProfileData>("auth/profile");
+      // console.log("user_data", data.data);
+      set_profile_value(profile.data);
+      // console.log("profile", profile.data, data.user);
+      if (data.data.role === "admin") {
+        return navigate({ to: "/admin" });
+      }
+      navigate({ to: "/user" });
     } catch (err: any) {
       const message =
         err?.response?.data?.message ?? "Invalid email or password.";
