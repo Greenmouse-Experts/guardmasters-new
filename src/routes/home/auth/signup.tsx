@@ -1,7 +1,9 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight, MailCheck } from "lucide-react";
 import { useRef, useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
 import SimpleInput from "#/components/inputs/SimpleInput.tsx";
@@ -17,8 +19,7 @@ interface SignupFields {
   firstName: string;
   lastName: string;
   email: string;
-  countryCode: string;
-  phoneNumber: string;
+  phone: string;
   password: string;
   confirmPassword: string;
   agree: boolean;
@@ -28,11 +29,10 @@ function RouteComponent() {
   const navigate = useNavigate();
   const modalRef = useRef<ModalHandle>(null);
   const [submittedEmail, setSubmittedEmail] = useState("");
-  const methods = useForm<SignupFields>({
-    defaultValues: { countryCode: "+234" },
-  });
+  const methods = useForm<SignupFields>();
   const {
     register,
+    control,
     handleSubmit,
     watch,
     formState: { errors, isSubmitting },
@@ -44,7 +44,7 @@ function RouteComponent() {
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
-        phone: `${values.countryCode}${values.phoneNumber}`,
+        phone: values.phone,
         password: values.password,
       });
       setSubmittedEmail(values.email);
@@ -123,34 +123,34 @@ function RouteComponent() {
               <div className="fieldset-label font-semibold">
                 <span className="text-sm">Phone number</span>
               </div>
-              <div
-                className={`input input-md input-bordered flex w-full items-center gap-2 p-0 text-sm ${
-                  errors.phoneNumber ? "input-error" : ""
-                }`}
-              >
-                <select
-                  aria-label="Country code"
-                  {...register("countryCode")}
-                  className="select select-ghost h-full rounded-r-none border-0 border-r border-base-300 bg-transparent pl-3 focus:outline-none"
-                >
-                  <option value="+1">🇺🇸 +1</option>
-                  <option value="+1">🇨🇦 +1</option>
-                  <option value="+44">🇬🇧 +44</option>
-                  <option value="+234">🇳🇬 +234</option>
-                </select>
-                <input
-                  id="phoneNumber"
-                  type="tel"
-                  placeholder="8012345678"
-                  {...register("phoneNumber", {
-                    required: "Phone number is required",
-                  })}
-                  className="grow bg-transparent pr-3 focus:outline-none"
-                />
-              </div>
-              {errors.phoneNumber && (
+              <Controller
+                control={control}
+                name="phone"
+                rules={{
+                  required: "Phone number is required",
+                  validate: (v) =>
+                    (v && isValidPhoneNumber(v)) || "Enter a valid phone number",
+                }}
+                render={({ field }) => (
+                  <PhoneInput
+                    value={field.value}
+                    onChange={(v) => field.onChange(v ?? "")}
+                    onBlur={field.onBlur}
+                    defaultCountry="NG"
+                    international
+                    placeholder="Enter phone number"
+                    numberInputProps={{
+                      className: "grow bg-transparent focus:outline-none",
+                    }}
+                    className={`input input-md input-bordered flex w-full items-center gap-2 text-sm ${
+                      errors.phone ? "input-error" : ""
+                    }`}
+                  />
+                )}
+              />
+              {errors.phone && (
                 <p className="mt-1 text-sm text-error">
-                  {errors.phoneNumber.message}
+                  {errors.phone.message}
                 </p>
               )}
             </div>
