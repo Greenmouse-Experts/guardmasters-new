@@ -16,6 +16,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as UserIndexRouteImport } from './routes/user/index'
 import { Route as HomeIndexRouteImport } from './routes/home/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as PaymentCallbackRouteImport } from './routes/payment/callback'
 import { Route as UserSupportIndexRouteImport } from './routes/user/support/index'
 import { Route as UserSettingsIndexRouteImport } from './routes/user/settings/index'
 import { Route as UserPurchaseHistoryIndexRouteImport } from './routes/user/purchase-history/index'
@@ -68,6 +69,11 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AdminRouteRoute,
+} as any)
+const PaymentCallbackRoute = PaymentCallbackRouteImport.update({
+  id: '/payment/callback',
+  path: '/payment/callback',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const UserSupportIndexRoute = UserSupportIndexRouteImport.update({
   id: '/support/',
@@ -161,6 +167,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteRouteWithChildren
   '/home': typeof HomeRouteRouteWithChildren
   '/user': typeof UserRouteRouteWithChildren
+  '/payment/callback': typeof PaymentCallbackRoute
   '/admin/': typeof AdminIndexRoute
   '/home/': typeof HomeIndexRoute
   '/user/': typeof UserIndexRoute
@@ -184,6 +191,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/payment/callback': typeof PaymentCallbackRoute
   '/admin': typeof AdminIndexRoute
   '/home': typeof HomeIndexRoute
   '/user': typeof UserIndexRoute
@@ -210,6 +218,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteRouteWithChildren
   '/home': typeof HomeRouteRouteWithChildren
   '/user': typeof UserRouteRouteWithChildren
+  '/payment/callback': typeof PaymentCallbackRoute
   '/admin/': typeof AdminIndexRoute
   '/home/': typeof HomeIndexRoute
   '/user/': typeof UserIndexRoute
@@ -238,6 +247,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/home'
     | '/user'
+    | '/payment/callback'
     | '/admin/'
     | '/home/'
     | '/user/'
@@ -261,6 +271,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/payment/callback'
     | '/admin'
     | '/home'
     | '/user'
@@ -286,6 +297,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/home'
     | '/user'
+    | '/payment/callback'
     | '/admin/'
     | '/home/'
     | '/user/'
@@ -313,6 +325,7 @@ export interface RootRouteChildren {
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   HomeRouteRoute: typeof HomeRouteRouteWithChildren
   UserRouteRoute: typeof UserRouteRouteWithChildren
+  PaymentCallbackRoute: typeof PaymentCallbackRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -365,6 +378,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRouteRoute
+    }
+    '/payment/callback': {
+      id: '/payment/callback'
+      path: '/payment/callback'
+      fullPath: '/payment/callback'
+      preLoaderRoute: typeof PaymentCallbackRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/user/support/': {
       id: '/user/support/'
@@ -572,6 +592,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRouteRoute: AdminRouteRouteWithChildren,
   HomeRouteRoute: HomeRouteRouteWithChildren,
   UserRouteRoute: UserRouteRouteWithChildren,
+  PaymentCallbackRoute: PaymentCallbackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
