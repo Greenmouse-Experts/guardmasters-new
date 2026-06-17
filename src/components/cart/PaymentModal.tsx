@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { CreditCard, Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -26,6 +26,14 @@ const PaymentModal = forwardRef<ModalHandle, PaymentModalProps>(
   ({ items, amount }, ref) => {
     const clearCart = useCartStore((s) => s.clearCart);
 
+    // Keep an internal handle so we can close this dialog ourselves — its
+    // top-layer backdrop would otherwise sit over the Paystack popup.
+    const modalRef = useRef<ModalHandle>(null);
+    useImperativeHandle(ref, () => ({
+      open: () => modalRef.current?.open(),
+      close: () => modalRef.current?.close(),
+    }));
+
     const mutation = useMutation({
       mutationFn: async () => {
         const { data } = await apiClient.post<CreateOrderResponse>(
@@ -50,6 +58,9 @@ const PaymentModal = forwardRef<ModalHandle, PaymentModalProps>(
           return;
         }
 
+        // Close our dialog first so it doesn't cover the Paystack popup.
+        modalRef.current?.close();
+
         const paystack = new PaystackPop();
         paystack.resumeTransaction(accessCode, {
           onSuccess: (trx) => {
@@ -69,7 +80,7 @@ const PaymentModal = forwardRef<ModalHandle, PaymentModalProps>(
     });
 
     return (
-      <Modal ref={ref} title="Checkout">
+      <Modal ref={modalRef} title="Checkout">
         <div className="flex flex-col items-center gap-2 text-center">
           <span className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary/10 text-secondary">
             <CreditCard className="h-7 w-7" />

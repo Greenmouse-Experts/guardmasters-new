@@ -62,13 +62,13 @@ function RouteComponent() {
     <div className="flex min-h-screen bg-base-200 text-base-content">
       {/* Sidebar */}
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col bg-accent text-accent-content lg:flex">
-        <div className="flex h-20 items-center px-6">
+        <Link to="/" className="flex h-20 items-center px-6">
           <img
             src="/logo.png"
             alt="Guardmaster Institute"
             className="h-10 w-auto object-contain"
           />
-        </div>
+        </Link>
 
         <nav className="mt-4 flex flex-1 flex-col gap-1 px-3">
           {mainLinks.map((link) => (
