@@ -1,5 +1,6 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import CartSidebar from "#/components/CartSidebar.tsx";
+import { useAuth, useProfile } from "#/store/authStore.ts";
 import { useCartStore } from "#/store/cartStore.ts";
 import Footer from "./-components/Footer";
 import HomeNav from "./-components/HomeNav";
@@ -20,6 +21,11 @@ function RouteComponent() {
   const cartOpen = useCartStore((s) => s.isOpen);
   const openCart = useCartStore((s) => s.openCart);
   const closeCart = useCartStore((s) => s.closeCart);
+  const [user] = useAuth();
+  const [profile] = useProfile();
+  const isLoggedIn = !!user?.accessToken;
+  const dashboardPath =
+    profile?.role === "admin" ? "/admin" : ("/user" as const);
 
   const closeDrawer = () => {
     const drawer = document.getElementById(
@@ -112,11 +118,11 @@ function RouteComponent() {
           </ul>
 
           <Link
-            to="/home/auth/signup"
+            to={isLoggedIn ? dashboardPath : "/home/auth/signup"}
             onClick={closeDrawer}
             className="btn btn-primary mt-6 rounded-md font-semibold text-primary-content"
           >
-            Enroll Now
+            {isLoggedIn ? "Dashboard" : "Enroll Now"}
           </Link>
         </div>
       </div>

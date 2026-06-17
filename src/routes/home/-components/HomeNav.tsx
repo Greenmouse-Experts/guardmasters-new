@@ -87,10 +87,10 @@ export default function HomeNav() {
 
           <div className="flex items-center gap-4">
             <Link
-              to="/home/auth/login"
+              to={isLoggedIn ? dashboardPath : "/home/auth/login"}
               className="font-medium hover:opacity-70"
             >
-              Student Login
+              {isLoggedIn ? "Dashboard" : "Student Login"}
             </Link>
             <span className="text-neutral/30">|</span>
             <Link to="/home/contact" className="font-medium hover:opacity-70">

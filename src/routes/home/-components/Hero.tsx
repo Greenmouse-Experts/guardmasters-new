@@ -29,7 +29,7 @@ export default function Hero() {
         />
         {/*<div className="absolute inset-0 bg-black/65" />*/}
 
-        <div className="relative z-10 container mx-auto flex flex-1 flex-col justify-center px-6 pt-36 pb-28 md:px-12 md:py-28">
+        <div className="relative z-10 container mx-auto flex flex-1 flex-col justify-center px-6 pt-36 pb-28 md:px-12 md:py-28 mt-18">
           <span className="mb-8 self-start rounded-full border border-white/30 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-white/75 uppercase bg-base-100/20">
             Certified Center for Learning
           </span>
