@@ -1,9 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight, MailCheck } from "lucide-react";
 import { useRef, useState } from "react";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
+import SimpleInput from "#/components/inputs/SimpleInput.tsx";
 import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
 import { extract_message } from "#/helpers/auth.ts";
 import type { AxiosError } from "axios";
@@ -27,12 +28,15 @@ function RouteComponent() {
   const navigate = useNavigate();
   const modalRef = useRef<ModalHandle>(null);
   const [submittedEmail, setSubmittedEmail] = useState("");
+  const methods = useForm<SignupFields>({
+    defaultValues: { countryCode: "+234" },
+  });
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm<SignupFields>({ defaultValues: { countryCode: "+234" } });
+  } = methods;
 
   async function onSubmit(values: SignupFields) {
     try {
@@ -87,59 +91,47 @@ function RouteComponent() {
             </h2>
           </div>
 
+          <FormProvider {...methods}>
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <div>
-                <Label htmlFor="firstName">First name</Label>
-                <input
-                  id="firstName"
-                  type="text"
-                  placeholder="Enter First name"
-                  {...register("firstName", {
-                    required: "First name is required",
-                  })}
-                  className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
-                />
-                {errors.firstName && (
-                  <FieldError message={errors.firstName.message} />
-                )}
-              </div>
-              <div>
-                <Label htmlFor="lastName">Last name</Label>
-                <input
-                  id="lastName"
-                  type="text"
-                  placeholder="Enter Last name"
-                  {...register("lastName", {
-                    required: "Last name is required",
-                  })}
-                  className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
-                />
-                {errors.lastName && (
-                  <FieldError message={errors.lastName.message} />
-                )}
-              </div>
-            </div>
-
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Enter Email"
-                {...register("email", { required: "Email is required" })}
-                className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
+              <SimpleInput
+                label="First name"
+                type="text"
+                placeholder="Enter First name"
+                {...register("firstName", {
+                  required: "First name is required",
+                })}
               />
-              {errors.email && <FieldError message={errors.email.message} />}
+              <SimpleInput
+                label="Last name"
+                type="text"
+                placeholder="Enter Last name"
+                {...register("lastName", {
+                  required: "Last name is required",
+                })}
+              />
             </div>
 
-            <div>
-              <Label htmlFor="phoneNumber">Phone number</Label>
-              <div className="flex items-stretch border border-base-300 bg-base-100 focus-within:border-secondary">
+            <SimpleInput
+              label="Email"
+              type="email"
+              placeholder="Enter Email"
+              {...register("email", { required: "Email is required" })}
+            />
+
+            <div className="w-full space-y-2">
+              <div className="fieldset-label font-semibold">
+                <span className="text-sm">Phone number</span>
+              </div>
+              <div
+                className={`input input-md input-bordered flex w-full items-center gap-2 p-0 text-sm ${
+                  errors.phoneNumber ? "input-error" : ""
+                }`}
+              >
                 <select
                   aria-label="Country code"
                   {...register("countryCode")}
-                  className="border-r border-base-300 bg-transparent px-3 text-base-content focus:outline-none"
+                  className="select select-ghost h-full rounded-r-none border-0 border-r border-base-300 bg-transparent pl-3 focus:outline-none"
                 >
                   <option value="+1">🇺🇸 +1</option>
                   <option value="+1">🇨🇦 +1</option>
@@ -153,48 +145,36 @@ function RouteComponent() {
                   {...register("phoneNumber", {
                     required: "Phone number is required",
                   })}
-                  className="w-full bg-transparent px-4 py-3 text-base-content focus:outline-none"
+                  className="grow bg-transparent pr-3 focus:outline-none"
                 />
               </div>
               {errors.phoneNumber && (
-                <FieldError message={errors.phoneNumber.message} />
+                <p className="mt-1 text-sm text-error">
+                  {errors.phoneNumber.message}
+                </p>
               )}
             </div>
 
-            <div>
-              <Label htmlFor="password">Password</Label>
-              <input
-                id="password"
-                type="password"
-                placeholder="Enter Password"
-                {...register("password", {
-                  required: "Password is required",
-                  minLength: { value: 6, message: "Minimum 6 characters" },
-                })}
-                className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
-              />
-              {errors.password && (
-                <FieldError message={errors.password.message} />
-              )}
-            </div>
+            <SimpleInput
+              label="Password"
+              type="password"
+              placeholder="Enter Password"
+              {...register("password", {
+                required: "Password is required",
+                minLength: { value: 6, message: "Minimum 6 characters" },
+              })}
+            />
 
-            <div>
-              <Label htmlFor="confirmPassword">Confirm password</Label>
-              <input
-                id="confirmPassword"
-                type="password"
-                placeholder="Confirm Password"
-                {...register("confirmPassword", {
-                  required: "Please confirm your password",
-                  validate: (v) =>
-                    v === watch("password") || "Passwords do not match",
-                })}
-                className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
-              />
-              {errors.confirmPassword && (
-                <FieldError message={errors.confirmPassword.message} />
-              )}
-            </div>
+            <SimpleInput
+              label="Confirm password"
+              type="password"
+              placeholder="Confirm Password"
+              {...register("confirmPassword", {
+                required: "Please confirm your password",
+                validate: (v) =>
+                  v === watch("password") || "Passwords do not match",
+              })}
+            />
 
             <div>
               <label className="flex items-start gap-3 text-sm text-base-content/70">
@@ -222,6 +202,7 @@ function RouteComponent() {
               <ArrowRight className="h-4 w-4" />
             </button>
           </form>
+          </FormProvider>
 
           <p className="mt-8 text-center text-sm text-base-content/60">
             Already have an account?{" "}
@@ -262,23 +243,6 @@ function RouteComponent() {
         </div>
       </Modal>
     </div>
-  );
-}
-
-function Label({
-  htmlFor,
-  children,
-}: {
-  htmlFor: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <label
-      htmlFor={htmlFor}
-      className="mb-2 block text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase"
-    >
-      {children}
-    </label>
   );
 }
 
