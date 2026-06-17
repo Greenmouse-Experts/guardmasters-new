@@ -175,6 +175,8 @@ function RouteComponent() {
               />
               <EnrollMore
                 badge="Enroll"
+                programId={resp.course.program.id}
+                currentCourseId={String(resp.course.id)}
                 title={
                   <>
                     One investment.{" "}
@@ -188,7 +190,6 @@ function RouteComponent() {
                 includes={program.includes}
                 relatedBadge="More courses"
                 relatedTitle="Continue your pathway."
-                relatedCourses={program.relatedCourses}
               />
             </>
           );

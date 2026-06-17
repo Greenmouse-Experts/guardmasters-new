@@ -4,6 +4,7 @@ import {
   ChevronDown,
   ChevronRight,
   Clock,
+  Eye,
   FileText,
   Image,
   Play,
@@ -81,14 +82,7 @@ export default function Curriculum({ sections = [] }: CurriculumProps) {
       </section>
 
       <Modal ref={modalRef} title={preview?.title}>
-        {preview?.mediaType === "video" && preview.previewUrl && (
-          <video
-            src={preview.previewUrl}
-            controls
-            autoPlay
-            className="w-full rounded"
-          />
-        )}
+        {preview?.previewUrl && <PreviewMedia sub={preview} />}
       </Modal>
     </>
   );
@@ -168,17 +162,41 @@ function SubItem({
           {sub.duration}m
         </span>
       )}
-      {sub.mediaType === "video" && sub.previewUrl && (
+      {sub.previewUrl && (
         <button
           type="button"
           onClick={() => onPreview(sub)}
           className="flex items-center gap-1.5 rounded-sm border border-secondary px-3 py-1.5 text-xs font-medium text-secondary hover:bg-secondary hover:text-secondary-content transition-colors"
         >
-          <Play className="h-3 w-3" />
+          <Eye className="h-3 w-3" />
           Preview
         </button>
       )}
     </li>
+  );
+}
+
+function PreviewMedia({ sub }: { sub: CourseContentSub }) {
+  const src = sub.previewUrl;
+  if (!src) return null;
+
+  if (sub.mediaType === "video") {
+    return <video src={src} controls autoPlay className="w-full rounded" />;
+  }
+
+  if (sub.mediaType === "image") {
+    return (
+      <img src={src} alt={sub.title} className="w-full rounded object-contain" />
+    );
+  }
+
+  // document (PDF and other embeddable files)
+  return (
+    <iframe
+      src={src}
+      title={sub.title}
+      className="h-[70vh] w-full rounded border border-base-300"
+    />
   );
 }
 

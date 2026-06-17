@@ -1,13 +1,25 @@
+import apiClient from "#/client/api.ts";
+import QueryCompLayout from "#/components/layout/QueryCompLayout.tsx";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import type { ReactNode } from "react";
 
 interface RelatedCourse {
   id: string;
-  category: string;
-  level: string;
   title: string;
-  price: string;
+  coverImage: string;
+  originalPriceFormat: string;
+  discountPriceFormat: string | null;
+  program: {
+    id: string;
+    title: string;
+  };
+}
+
+interface RelatedResponse {
+  data: RelatedCourse[];
+  count: number;
 }
 
 interface EnrollMoreProps {
@@ -19,7 +31,8 @@ interface EnrollMoreProps {
   includes: string[];
   relatedBadge: string;
   relatedTitle: string;
-  relatedCourses: RelatedCourse[];
+  programId: string;
+  currentCourseId?: string;
 }
 
 export default function EnrollMore({
@@ -31,8 +44,18 @@ export default function EnrollMore({
   includes,
   relatedBadge,
   relatedTitle,
-  relatedCourses,
+  programId,
+  currentCourseId,
 }: EnrollMoreProps) {
+  const related = useQuery<RelatedResponse>({
+    queryKey: ["related", programId],
+    queryFn: async () => {
+      const resp = await apiClient.get("/courses/public", {
+        params: { programId },
+      });
+      return resp.data;
+    },
+  });
   return (
     <section data-theme="guard">
       {/* Enroll / pricing */}
@@ -108,34 +131,65 @@ export default function EnrollMore({
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {relatedCourses.map((course) => (
-              <Link
-                key={course.id}
-                to="/home/programs/$id"
-                params={{ id: course.id }}
-                className="group flex flex-col border border-base-300 bg-base-100 p-6 transition-shadow hover:shadow-lg"
-              >
-                <div className="mb-4 text-[11px] font-medium tracking-[0.15em] text-base-content/50 uppercase">
-                  {course.category} · {course.level}
-                </div>
+          <QueryCompLayout query={related}>
+            {(resp) => {
+              const courses = (resp.data ?? []).filter(
+                (course) => course.id !== currentCourseId,
+              );
 
-                <h3 className="mb-6 text-xl font-medium text-accent">
-                  {course.title}
-                </h3>
+              if (courses.length === 0) {
+                return (
+                  <p className="py-10 text-center text-base-content/50">
+                    No related courses available.
+                  </p>
+                );
+              }
 
-                <div className="mt-auto flex items-center justify-between border-t border-base-300 pt-5">
-                  <span className="font-medium text-base-content/70">
-                    {course.price}
-                  </span>
-                  <span className="flex items-center gap-1 text-sm font-medium text-secondary group-hover:underline">
-                    View
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
+              return (
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                  {courses.map((course) => (
+                    <Link
+                      key={course.id}
+                      to="/home/programs/$id"
+                      params={{ id: course.id }}
+                      className="group flex flex-col overflow-hidden border border-base-300 bg-base-100 transition-shadow hover:shadow-lg"
+                    >
+                      <div className="h-40 w-full overflow-hidden bg-base-200">
+                        {course.coverImage && (
+                          <img
+                            src={course.coverImage}
+                            alt={course.title}
+                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        )}
+                      </div>
+
+                      <div className="flex flex-1 flex-col p-6">
+                        <div className="mb-4 text-[11px] font-medium tracking-[0.15em] text-base-content/50 uppercase">
+                          {course.program?.title}
+                        </div>
+
+                        <h3 className="mb-6 line-clamp-2 text-xl font-medium text-accent">
+                          {course.title}
+                        </h3>
+
+                        <div className="mt-auto flex items-center justify-between border-t border-base-300 pt-5">
+                          <span className="font-medium text-base-content/70">
+                            {course.discountPriceFormat ??
+                              course.originalPriceFormat}
+                          </span>
+                          <span className="flex items-center gap-1 text-sm font-medium text-secondary group-hover:underline">
+                            View
+                            <ArrowUpRight className="h-4 w-4" />
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </Link>
-            ))}
-          </div>
+              );
+            }}
+          </QueryCompLayout>
         </div>
       </div>
     </section>
