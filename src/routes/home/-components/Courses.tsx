@@ -1,3 +1,9 @@
+import apiClient from "#/client/api.ts";
+import QueryCompLayout from "#/components/layout/QueryCompLayout.tsx";
+import type { ApiResponseV2 } from "#/types/api.js";
+import type { CourseProgram } from "#/types/courses.ts";
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 
 const courses = [
@@ -20,6 +26,13 @@ const courses = [
 ];
 
 export default function Courses() {
+  const query = useQuery<ApiResponseV2<CourseProgram[]>>({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      let resp = await apiClient.get("/programs/public?page=1");
+      return resp.data;
+    },
+  });
   return (
     <section data-theme="guard" className="bg-base-200 px-6 py-8 md:px-16">
       <div className="container mx-auto">
@@ -38,25 +51,34 @@ export default function Courses() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          {courses.map((course) => (
-            <div
-              key={course.title}
-              className="group cursor-pointer rounded-2xl bg-base-300/60 p-4 transition-colors hover:bg-base-300"
-            >
-              <div className="overflow-hidden rounded-xl aspect-square">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full object-cover transition-transform duration-500 group-hover:scale-105 aspect-square"
-                />
-              </div>
-              <h3 className="py-8 text-center text-2xl font-bold ">
-                {course.title}
-              </h3>
-            </div>
-          ))}
-        </div>
+        <QueryCompLayout query={query}>
+          {(data) => {
+            return (
+              <>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  {data.data.map((course) => (
+                    <Link
+                      key={course.title}
+                      to={`/home/programs/`}
+                      className="group cursor-pointer rounded-2xl bg-base-300/60 p-4 transition-colors hover:bg-base-300"
+                    >
+                      <div className="overflow-hidden rounded-xl aspect-square">
+                        <img
+                          src={course.courses[0].coverImage}
+                          alt={course.title}
+                          className="w-full object-cover transition-transform duration-500 group-hover:scale-105 aspect-square"
+                        />
+                      </div>
+                      <h3 className="py-8 text-center text-2xl font-bold ">
+                        {course.title}
+                      </h3>
+                    </Link>
+                  ))}
+                </div>
+              </>
+            );
+          }}
+        </QueryCompLayout>
       </div>
     </section>
   );

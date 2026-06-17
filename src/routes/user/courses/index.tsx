@@ -108,7 +108,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
           {item.course.title}
         </h2>
         <Link
-          to="/home/programs/$id"
+          to="/user/courses/$id"
           params={{ id: item.course.id }}
           className="mt-4 block rounded-sm bg-secondary py-3 text-center text-sm font-medium text-secondary-content transition-colors hover:bg-secondary/90"
         >

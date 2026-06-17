@@ -14,6 +14,7 @@ import {
   Settings,
   LogOut,
   ChevronDown,
+  Home,
   type LucideIcon,
 } from "lucide-react";
 import { clear_user, useProfile } from "#/store/authStore.ts";
@@ -96,13 +97,55 @@ function RouteComponent() {
       {/* Main */}
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="flex h-20 items-center justify-end gap-3 px-6 md:px-10">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full border border-base-300 bg-base-100 text-xs font-semibold text-accent">
-            {initials}
+          <div className="dropdown dropdown-end">
+            <button
+              type="button"
+              tabIndex={0}
+              className="flex cursor-pointer items-center gap-3"
+            >
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-base-300 bg-base-100 text-xs font-semibold text-accent">
+                {initials}
+              </div>
+              <span className="text-sm font-semibold tracking-wide text-accent uppercase">
+                {name}
+              </span>
+              <ChevronDown className="h-4 w-4 text-base-content/50" />
+            </button>
+
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu z-50 mt-2 w-44 rounded-lg border border-base-300 bg-base-100 p-1 shadow-lg"
+            >
+              <li>
+                <Link
+                  to="/home"
+                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-base-content hover:bg-base-200"
+                >
+                  <Home className="h-4 w-4" />
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/user/settings"
+                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-base-content hover:bg-base-200"
+                >
+                  <Settings className="h-4 w-4" />
+                  Settings
+                </Link>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-error hover:bg-error/10"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Logout
+                </button>
+              </li>
+            </ul>
           </div>
-          <span className="text-sm font-semibold tracking-wide text-accent uppercase">
-            {name}
-          </span>
-          <ChevronDown className="h-4 w-4 text-base-content/50" />
         </header>
 
         <main className="flex-1 px-6 pb-12 md:px-10">
