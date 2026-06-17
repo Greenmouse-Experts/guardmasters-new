@@ -128,7 +128,7 @@ function RouteComponent() {
                 outcomes={program.outcomes}
               />
               <Curriculum sections={resp.contents.data} />
-              <Modules modules={modules} />
+              {/*<Modules modules={modules} />*/}
               <ProgramCertificate
                 badge="Credentials"
                 title={

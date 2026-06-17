@@ -10,7 +10,10 @@ import {
   ClipboardList,
 } from "lucide-react";
 import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
-import type { CourseContentSection, CourseContentSub } from "#/types/courses.ts";
+import type {
+  CourseContentSection,
+  CourseContentSub,
+} from "#/types/courses.ts";
 
 interface CurriculumProps {
   sections: CourseContentSection[];
