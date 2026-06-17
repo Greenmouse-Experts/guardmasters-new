@@ -8,10 +8,7 @@ interface ImageHeaderProps {
 
 export default function ImageHeader({ badge, title, image }: ImageHeaderProps) {
   return (
-    <section
-      data-theme="guard"
-      className="relative overflow-hidden bg-black px-6 pt-32 pb-40 md:px-16 md:pt-40 md:pb-56"
-    >
+    <section className="relative overflow-hidden bg-black px-6 pt-32 pb-40 md:px-16 md:pt-40 md:pb-56">
       <img
         src={image}
         alt=""

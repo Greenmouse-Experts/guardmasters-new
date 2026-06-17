@@ -114,6 +114,13 @@ function RouteComponent() {
                 image={course.coverImage || program.image}
                 imageAlt={course.title}
                 stats={program.stats}
+                cartItem={{
+                  id: String(course.id),
+                  coverImg: course.coverImage,
+                  title: course.title,
+                  price: course.price,
+                  fmprice: course.originalPriceFormat,
+                }}
               />
 
               <ProgramInfo

@@ -57,7 +57,7 @@ export default function EnrollMore({
     },
   });
   return (
-    <section data-theme="guard">
+    <section>
       {/* Enroll / pricing */}
       <div className="bg-base-100 px-6 py-20 md:px-16 md:py-28">
         <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">

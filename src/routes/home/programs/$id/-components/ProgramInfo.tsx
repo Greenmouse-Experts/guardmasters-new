@@ -16,10 +16,7 @@ export default function ProgramInfo({
   outcomes,
 }: ProgramInfoProps) {
   return (
-    <section
-      data-theme="guard"
-      className="bg-base-100 px-6 py-20 md:px-16 md:py-28"
-    >
+    <section className="bg-base-100 px-6 py-20 md:px-16 md:py-28">
       <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-3">
         <div>
           <span className="mb-8 inline-block rounded-full border border-base-content/15 px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-secondary uppercase">

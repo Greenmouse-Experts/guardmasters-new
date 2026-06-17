@@ -1,7 +1,13 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, ChevronRight, type LucideIcon } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  ChevronRight,
+  type LucideIcon,
+} from "lucide-react";
 import type { ReactNode } from "react";
 import { default_stats } from "../-info/programs";
+import { useCartStore, useIsInCart, type CartItem } from "#/store/cartStore.ts";
 
 interface ProgramStat {
   icon: LucideIcon;
@@ -17,6 +23,7 @@ interface ProgramHeroProps {
   image: string;
   imageAlt?: string;
   stats: ProgramStat[];
+  cartItem?: CartItem;
 }
 
 export default function ProgramHero({
@@ -27,12 +34,23 @@ export default function ProgramHero({
   image,
   imageAlt,
   stats,
+  cartItem,
 }: ProgramHeroProps) {
+  const addItem = useCartStore((s) => s.addItem);
+  const openCart = useCartStore((s) => s.openCart);
+  const inCart = useIsInCart(cartItem?.id ?? "");
+
+  function handleEnroll() {
+    if (!cartItem) return;
+    if (inCart) {
+      openCart();
+      return;
+    }
+    addItem(cartItem);
+  }
+
   return (
-    <section
-      data-theme="guard"
-      className="relative overflow-hidden bg-accent px-6 pt-32 pb-16 text-white md:px-16 md:pt-40 md:pb-20"
-    >
+    <section className="relative overflow-hidden bg-accent px-6 pt-32 pb-16 text-white md:px-16 md:pt-40 md:pb-20">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)] bg-size-[28px_28px]" />
 
       <div className="relative container mx-auto">
@@ -63,9 +81,22 @@ export default function ProgramHero({
             </p>
 
             <div className="mb-12 flex flex-wrap gap-4">
-              <button className="btn h-auto gap-2 rounded-md border-none bg-primary px-6 py-4 font-medium text-primary-content hover:bg-primary/90">
-                {price ? `Enroll — ${price}` : "Enroll"}
-                <ArrowUpRight className="h-4 w-4" />
+              <button
+                type="button"
+                onClick={handleEnroll}
+                className="btn h-auto gap-2 rounded-md border-none bg-primary px-6 py-4 font-medium text-primary-content hover:bg-primary/90"
+              >
+                {inCart ? (
+                  <>
+                    Added to cart
+                    <Check className="h-4 w-4" />
+                  </>
+                ) : (
+                  <>
+                    {price ? `Enroll — ${price}` : "Enroll"}
+                    <ArrowUpRight className="h-4 w-4" />
+                  </>
+                )}
               </button>
               <button className="btn h-auto gap-2 rounded-md border border-white/20 bg-transparent px-6 py-4 font-medium text-white hover:bg-white/10">
                 Explore curriculum

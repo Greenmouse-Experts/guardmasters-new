@@ -32,7 +32,7 @@ export default function Curriculum({ sections = [] }: CurriculumProps) {
 
   return (
     <>
-      <section data-theme="guard" className="bg-base-100 px-6 md:px-16 pb-8">
+      <section className="bg-base-100 px-6 md:px-16 pb-8">
         <div className="container mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-end">
           <div>
             <span className="mb-8 inline-block rounded-full border border-base-content/15 px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-secondary uppercase">
@@ -186,7 +186,11 @@ function PreviewMedia({ sub }: { sub: CourseContentSub }) {
 
   if (sub.mediaType === "image") {
     return (
-      <img src={src} alt={sub.title} className="w-full rounded object-contain" />
+      <img
+        src={src}
+        alt={sub.title}
+        className="w-full rounded object-contain"
+      />
     );
   }
 

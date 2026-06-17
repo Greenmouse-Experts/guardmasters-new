@@ -1,8 +1,9 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import apiClient, { new_url } from "#/client/api.ts";
+import SimpleInput from "#/components/inputs/SimpleInput.tsx";
 import { set_profile_value, set_user_value } from "#/store/authStore.ts";
 import type { AuthUser, ProfileData } from "#/store/authStore.ts";
 import axios from "axios";
@@ -18,11 +19,12 @@ interface LoginFields {
 
 function RouteComponent() {
   const navigate = useNavigate();
+  const methods = useForm<LoginFields>();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<LoginFields>();
+  } = methods;
 
   async function onSubmit(values: LoginFields) {
     try {
@@ -44,7 +46,7 @@ function RouteComponent() {
   }
 
   return (
-    <div data-theme="guard" className="min-h-screen bg-base-100">
+    <div className="min-h-screen bg-base-100">
       {/* Hero */}
       <section className="bg-black px-6 pt-20 pb-16 md:px-16">
         <div className="container mx-auto">
@@ -78,56 +80,45 @@ function RouteComponent() {
             </h2>
           </div>
 
-          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <label
-                htmlFor="email"
-                className="mb-2 block text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                {...register("email", { required: "Email is required" })}
-                className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
-              />
-              {errors.email && (
-                <p className="mt-1 text-xs text-error">
-                  {errors.email.message}
-                </p>
-              )}
-            </div>
+          <FormProvider {...methods}>
+            <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="mb-2 block text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase"
+                >
+                  Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  {...register("email", { required: "Email is required" })}
+                  className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
+                />
+                {errors.email && (
+                  <p className="mt-1 text-xs text-error">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
 
-            <div>
-              <label
-                htmlFor="password"
-                className="mb-2 block text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase"
-              >
-                Password
-              </label>
-              <input
-                id="password"
+              <SimpleInput
+                label="Password"
                 type="password"
+                placeholder="Enter Password"
                 {...register("password", { required: "Password is required" })}
-                className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
               />
-              {errors.password && (
-                <p className="mt-1 text-xs text-error">
-                  {errors.password.message}
-                </p>
-              )}
-            </div>
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="btn btn-block h-auto gap-2 rounded-none border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90 disabled:opacity-60"
-            >
-              {isSubmitting ? "Signing in…" : "Sign In"}
-              <ArrowRight className="h-4 w-4" />
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn btn-block h-auto gap-2 rounded-none border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90 disabled:opacity-60"
+              >
+                {isSubmitting ? "Signing in…" : "Sign In"}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </form>
+          </FormProvider>
 
           <p className="mt-8 text-center text-sm text-base-content/60">
             Don&apos;t have an account?{" "}

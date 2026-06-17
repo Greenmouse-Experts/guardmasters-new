@@ -29,7 +29,7 @@ const faqs = [
 
 export default function FaqCert() {
   return (
-    <section data-theme="guard" className="px-6 py-8 text-white md:px-16">
+    <section className="px-6 py-8 text-white md:px-16">
       <div className="container mx-auto">
         {/* FAQ header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">

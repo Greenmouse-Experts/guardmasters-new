@@ -37,10 +37,7 @@ function RouteComponent() {
   }, [query.isSuccess, navigate]);
 
   return (
-    <div
-      data-theme="guard"
-      className="flex min-h-screen items-center justify-center bg-black px-6"
-    >
+    <div className="flex min-h-screen items-center justify-center bg-black px-6">
       <div className="w-full max-w-md border border-base-300 bg-base-200 p-8 text-center md:p-12">
         <div className="mb-10 flex justify-center">
           <div className="flex items-center justify-center bg-accent px-8 py-5">

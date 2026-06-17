@@ -13,6 +13,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@paystack/inline-js": "^2.23.0",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-devtools": "latest",
     "@tanstack/react-query": "^5.101.0",

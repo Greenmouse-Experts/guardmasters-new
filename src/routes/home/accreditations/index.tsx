@@ -64,17 +64,13 @@ function RouteComponent() {
         badge="Trust & Recognition"
         title={
           <>
-            Our global{" "}
-            <em className="text-primary italic">accreditations.</em>
+            Our global <em className="text-primary italic">accreditations.</em>
           </>
         }
         description="Recognized and accredited by leading professional regulatory and certification bodies in the global security industry — affirming our commitment to excellence and international standards."
       />
 
-      <section
-        data-theme="guard"
-        className="bg-base-200 px-6 py-16 md:px-16 md:py-20"
-      >
+      <section className="bg-base-200 px-6 py-16 md:px-16 md:py-20">
         <div className="container mx-auto overflow-hidden border border-base-300 bg-base-100">
           {accreditations.map((item) => (
             <div

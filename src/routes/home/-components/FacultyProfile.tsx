@@ -14,7 +14,7 @@ const certifications = [
 
 export default function FacultyProfile() {
   return (
-    <section data-theme="guard" className="bg-base-200 px-6 py-20 md:px-16">
+    <section className="bg-base-200 px-6 py-20 md:px-16">
       <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,560px)_1fr] lg:gap-16">
         <div className="overflow-hidden rounded-2xl">
           <img

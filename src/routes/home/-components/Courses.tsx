@@ -34,7 +34,7 @@ export default function Courses() {
     },
   });
   return (
-    <section data-theme="guard" className="bg-base-200 px-6 py-8 md:px-16">
+    <section className="bg-base-200 px-6 py-8 md:px-16">
       <div className="container mx-auto">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>

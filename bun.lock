@@ -5,6 +5,7 @@
     "": {
       "name": "guard-master",
       "dependencies": {
+        "@paystack/inline-js": "^2.23.0",
         "@tailwindcss/vite": "^4.1.18",
         "@tanstack/react-devtools": "latest",
         "@tanstack/react-query": "^5.101.0",
@@ -163,6 +164,8 @@
     "@oxc-parser/binding-win32-x64-msvc": ["@oxc-parser/binding-win32-x64-msvc@0.120.0", "", { "os": "win32", "cpu": "x64" }, "sha512-ys+upfqNtSu58huAhJMBKl3XCkGzyVFBlMlGPzHeFKgpFF/OdgNs1MMf8oaJIbgMH8ZxgGF7qfue39eJohmKIg=="],
 
     "@oxc-project/types": ["@oxc-project/types@0.120.0", "", {}, "sha512-k1YNu55DuvAip/MGE1FTsIuU3FUCn6v/ujG9V7Nq5Df/kX2CWb13hhwD0lmJGMGqE+bE1MXvv9SZVnMzEXlWcg=="],
+
+    "@paystack/inline-js": ["@paystack/inline-js@2.23.0", "", {}, "sha512-lFjOnP7qJK0MeU5L//9dFbDa6yEeFLgxLPkiIGhYrlaSWF2aFMFEyvQ93qI0Z5lQgOUHSrBgRiMUs/TBKma6RQ=="],
 
     "@popperjs/core": ["@popperjs/core@2.11.8", "", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
 

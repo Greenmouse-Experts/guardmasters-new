@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Cta() {
   return (
-    <section data-theme="guard" className=" bg-black py-16  ">
+    <section className=" bg-black py-16  ">
       <div className="container mx-auto flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
         <h2 className="text-4xl leading-tight font-light text-primary md:text-5xl">
           Ready to write the

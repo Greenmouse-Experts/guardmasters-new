@@ -96,7 +96,7 @@ function FooterColumn({
 
 export default function Footer() {
   return (
-    <footer data-theme="guard" className="bg-accent text-secondary-content">
+    <footer className="bg-accent text-secondary-content">
       <div className="container mx-auto px-6 py-16 md:px-12">
         {/* Top CTA */}
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">

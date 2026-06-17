@@ -29,7 +29,7 @@ const principles = [
 
 export default function Principles() {
   return (
-    <section data-theme="guard" className="bg-base-200 px-6 py-20 md:px-16">
+    <section className="bg-base-200 px-6 py-20 md:px-16">
       <div className="container mx-auto">
         <div className="mb-12">
           <span className="mb-6 inline-block rounded-full border border-current/20 px-4 py-1.5  font-medium tracking-[0.18em] text-secondary uppercase">

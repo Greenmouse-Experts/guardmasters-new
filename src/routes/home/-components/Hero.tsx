@@ -21,10 +21,7 @@ export default function Hero() {
         .ticker-track { animation: ticker 30s linear infinite; }
       `}</style>
 
-      <section
-        data-theme="guard"
-        className="relative flex min-h-screen flex-col  bg-black"
-      >
+      <section className="relative flex min-h-screen flex-col  bg-black">
         <img
           src="/home/hero.png"
           alt="hero"

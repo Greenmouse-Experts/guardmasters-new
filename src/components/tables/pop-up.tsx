@@ -72,7 +72,7 @@ export default function PopUp(props: {
   return (
     <>
       <div
-        data-theme="nord"
+        // data-theme="nord"
         ref={setReferenceElement}
         onClick={openPopup}
         className="btn btn-circle btn-ghost "

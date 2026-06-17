@@ -17,5 +17,10 @@ Before substantial work:
 ### Forms
 - Use **react-hook-form** (`useForm`, `register`, `handleSubmit`, `formState`) for all forms — no `useState`-based controlled inputs.
 
+### Payments
+- Checkout posts to `orders/create` with `{ courses: [{ id, price }], amount, callback_url }` (callback_url = `${window.location.origin}/payment/callback`) via a react-query `useMutation` on `apiClient` (it attaches the bearer token); surface failures with sonner.
+- The server initializes the transaction and returns `data.authorization_url` / `data.access_code`. Resume it **inline with the Paystack popup** (`@paystack/inline-js` → `new PaystackPop().resumeTransaction(accessCode, { onSuccess, onCancel, onError })`); the access code is `data.access_code` or the last path segment of `authorization_url`.
+- On `onSuccess`: **clear the cart** and send the user to `/payment/callback?reference=…`.
+
 ### Tooling
 - Typecheck with `npx tsgo --noEmit` (not `tsc`).

@@ -37,10 +37,7 @@ function RouteComponent() {
         description="Admissions, partnerships, faculty inquiries, corporate training — we read every message."
       />
 
-      <section
-        data-theme="guard"
-        className="bg-base-100 px-6 py-16 md:px-16 md:py-24"
-      >
+      <section className="bg-base-100 px-6 py-16 md:px-16 md:py-24">
         <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Contact details */}
           <div>

@@ -15,7 +15,7 @@ export default function Modules({ modules }: ModulesProps) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section data-theme="guard" className="bg-base-100 px-6 md:px-16">
+    <section className="bg-base-100 px-6 md:px-16">
       <div className="container mx-auto">
         {modules.length < 1 ? (
           <div className="flex flex-col items-center justify-center gap-4 border-b border-base-300 py-20 text-center">
