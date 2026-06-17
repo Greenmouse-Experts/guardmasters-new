@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
 import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
+import { extract_message } from "#/helpers/auth.ts";
+import type { AxiosError } from "axios";
 
 export const Route = createFileRoute("/home/auth/signup")({
   component: RouteComponent,
@@ -43,9 +45,9 @@ function RouteComponent() {
       });
       setSubmittedEmail(values.email);
       modalRef.current?.open();
-    } catch (err: any) {
-      const message =
-        err?.response?.data?.message ?? "Something went wrong. Try again.";
+    } catch (err: AxiosError) {
+      const axios_message = err.response?.data?.message;
+      const message = axios_message ?? extract_message(err);
       toast.error(message);
     }
   }
@@ -93,10 +95,14 @@ function RouteComponent() {
                   id="firstName"
                   type="text"
                   placeholder="Enter First name"
-                  {...register("firstName", { required: "First name is required" })}
+                  {...register("firstName", {
+                    required: "First name is required",
+                  })}
                   className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
                 />
-                {errors.firstName && <FieldError message={errors.firstName.message} />}
+                {errors.firstName && (
+                  <FieldError message={errors.firstName.message} />
+                )}
               </div>
               <div>
                 <Label htmlFor="lastName">Last name</Label>
@@ -104,10 +110,14 @@ function RouteComponent() {
                   id="lastName"
                   type="text"
                   placeholder="Enter Last name"
-                  {...register("lastName", { required: "Last name is required" })}
+                  {...register("lastName", {
+                    required: "Last name is required",
+                  })}
                   className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
                 />
-                {errors.lastName && <FieldError message={errors.lastName.message} />}
+                {errors.lastName && (
+                  <FieldError message={errors.lastName.message} />
+                )}
               </div>
             </div>
 
@@ -140,11 +150,15 @@ function RouteComponent() {
                   id="phoneNumber"
                   type="tel"
                   placeholder="8012345678"
-                  {...register("phoneNumber", { required: "Phone number is required" })}
+                  {...register("phoneNumber", {
+                    required: "Phone number is required",
+                  })}
                   className="w-full bg-transparent px-4 py-3 text-base-content focus:outline-none"
                 />
               </div>
-              {errors.phoneNumber && <FieldError message={errors.phoneNumber.message} />}
+              {errors.phoneNumber && (
+                <FieldError message={errors.phoneNumber.message} />
+              )}
             </div>
 
             <div>
@@ -153,10 +167,15 @@ function RouteComponent() {
                 id="password"
                 type="password"
                 placeholder="Enter Password"
-                {...register("password", { required: "Password is required", minLength: { value: 6, message: "Minimum 6 characters" } })}
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: { value: 6, message: "Minimum 6 characters" },
+                })}
                 className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
               />
-              {errors.password && <FieldError message={errors.password.message} />}
+              {errors.password && (
+                <FieldError message={errors.password.message} />
+              )}
             </div>
 
             <div>
@@ -167,18 +186,23 @@ function RouteComponent() {
                 placeholder="Confirm Password"
                 {...register("confirmPassword", {
                   required: "Please confirm your password",
-                  validate: (v) => v === watch("password") || "Passwords do not match",
+                  validate: (v) =>
+                    v === watch("password") || "Passwords do not match",
                 })}
                 className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
               />
-              {errors.confirmPassword && <FieldError message={errors.confirmPassword.message} />}
+              {errors.confirmPassword && (
+                <FieldError message={errors.confirmPassword.message} />
+              )}
             </div>
 
             <div>
               <label className="flex items-start gap-3 text-sm text-base-content/70">
                 <input
                   type="checkbox"
-                  {...register("agree", { required: "You must agree to continue" })}
+                  {...register("agree", {
+                    required: "You must agree to continue",
+                  })}
                   className="checkbox checkbox-sm mt-0.5 rounded-none"
                 />
                 <span>
@@ -241,7 +265,13 @@ function RouteComponent() {
   );
 }
 
-function Label({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) {
+function Label({
+  htmlFor,
+  children,
+}: {
+  htmlFor: string;
+  children: React.ReactNode;
+}) {
   return (
     <label
       htmlFor={htmlFor}

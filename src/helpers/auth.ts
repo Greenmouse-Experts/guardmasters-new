@@ -1,7 +1,6 @@
-import type { ApiResponse } from "@/client/api";
+import type { ApiResponse } from "#/types/api.js";
 import apiClient from "@/client/api";
 import { useAuth, useProfile } from "@/store/authStore";
-import { useOnboardingStore } from "@/store/onboarding-store";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import type { AxiosError } from "axios";
@@ -18,7 +17,7 @@ export const extract_message = (data: AxiosError<ApiResponse>) => {
 export const useLogout = (logoutFn?: () => Promise<any>) => {
   const [, setUser] = useAuth();
   const [, setProfile] = useProfile();
-  const resetOnboarding = useOnboardingStore((state) => state.reset);
+  // const resetOnboarding = useOnboardingStore((state) => state.reset);
   const nav = useNavigate();
   const { mutateAsync } = useMutation({
     mutationFn:
@@ -30,9 +29,9 @@ export const useLogout = (logoutFn?: () => Promise<any>) => {
     onSuccess: () => {
       setUser(null);
       setProfile(null);
-      resetOnboarding();
+      // resetOnboarding();
       nav({
-        to: "/auth/login",
+        to: "/home/auth/login",
         search: { email: "" },
       });
     },

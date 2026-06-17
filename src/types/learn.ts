@@ -29,6 +29,31 @@ export interface AssessmentResult {
   courseContentSub: LessonSub;
 }
 
+export interface AttemptQuestion {
+  question: string;
+  options: string[];
+  correctOption: number;
+  point: number;
+}
+
+export interface AttemptAnswer {
+  id: string;
+  choice: number;
+  assessmentQuestion: AttemptQuestion;
+}
+
+export interface AttemptResponse {
+  data: {
+    result: {
+      score: number;
+      total: number;
+      percent: number;
+    };
+    attempt: AttemptAnswer[];
+  };
+  count: number;
+}
+
 export interface CourseLearnResponse {
   course: SingleCourse;
   contents: {
