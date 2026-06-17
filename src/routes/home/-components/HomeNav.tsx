@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useAuth, useProfile } from "#/store/authStore.ts";
 
 const navLinks = [
   { name: "Home", path: "/home" },
@@ -9,6 +10,12 @@ const navLinks = [
 ] as const;
 
 export default function HomeNav() {
+  const [user] = useAuth();
+  const [profile] = useProfile();
+  const isLoggedIn = !!user?.accessToken;
+  const dashboardPath =
+    profile?.role === "admin" ? "/admin" : ("/user" as const);
+
   return (
     <div
       data-theme="guard"
@@ -59,12 +66,21 @@ export default function HomeNav() {
             />
           </label>
 
-          <Link
-            to="/home/auth/signup"
-            className="btn btn-primary hidden rounded-md px-6 font-semibold text-primary-content shadow-md lg:inline-flex"
-          >
-            Enroll Now
-          </Link>
+          {isLoggedIn ? (
+            <Link
+              to={dashboardPath}
+              className="btn btn-primary hidden rounded-md px-6 font-semibold text-primary-content shadow-md lg:inline-flex"
+            >
+              Dashboard
+            </Link>
+          ) : (
+            <Link
+              to="/home/auth/signup"
+              className="btn btn-primary hidden rounded-md px-6 font-semibold text-primary-content shadow-md lg:inline-flex"
+            >
+              Enroll Now
+            </Link>
+          )}
 
           <label
             htmlFor="home-drawer"
