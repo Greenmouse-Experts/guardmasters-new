@@ -40,6 +40,11 @@ function Learn({ data }: { data: CourseLearnResponse }) {
     [data.reads],
   );
 
+  const doneIds = useMemo(
+    () => new Set(data.assessmentResults.map((r) => r.courseContentSub.id)),
+    [data.assessmentResults],
+  );
+
   // First playable lesson across all sections, used as the default selection.
   const firstLesson = useMemo<LessonSub | undefined>(
     () => data.contents.data.flatMap((s) => s.courseContentSubs).find(Boolean),
@@ -78,7 +83,12 @@ function Learn({ data }: { data: CourseLearnResponse }) {
           </span>
         </div>
 
-        <CourseContentList sections={contents.data} readIds={readIds} />
+        <CourseContentList
+          sections={contents.data}
+          readIds={readIds}
+          doneIds={doneIds}
+          courseId={String(course.id)}
+        />
       </div>
 
       {/* Hidden anchor for title context on small screens */}

@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { CheckSquare, ChevronDown, ChevronUp, Square } from "lucide-react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
+import { CheckSquare, ChevronDown, ChevronUp, Loader2, Square } from "lucide-react";
+import { toast } from "sonner";
+import apiClient from "#/client/api.ts";
 import { useCurrentLesson } from "#/store/playerStore.ts";
 import type { LessonSection, LessonSub } from "#/types/learn.ts";
 import { MediaIcon } from "./CoursePlayer";
@@ -7,9 +11,16 @@ import { MediaIcon } from "./CoursePlayer";
 interface Props {
   sections: LessonSection[];
   readIds: Set<string>;
+  doneIds: Set<string>;
+  courseId: string;
 }
 
-export default function CourseContentList({ sections, readIds }: Props) {
+export default function CourseContentList({
+  sections,
+  readIds,
+  doneIds,
+  courseId,
+}: Props) {
   // Open the first section that actually has lessons.
   const firstWithLessons = sections.findIndex(
     (s) => s.courseContentSubs.length > 0,
@@ -30,6 +41,8 @@ export default function CourseContentList({ sections, readIds }: Props) {
             key={section.title}
             section={section}
             readIds={readIds}
+            doneIds={doneIds}
+            courseId={courseId}
             isOpen={openIndex === index}
             onToggle={() =>
               setOpenIndex((cur) => (cur === index ? -1 : index))
@@ -44,11 +57,15 @@ export default function CourseContentList({ sections, readIds }: Props) {
 function Section({
   section,
   readIds,
+  doneIds,
+  courseId,
   isOpen,
   onToggle,
 }: {
   section: LessonSection;
   readIds: Set<string>;
+  doneIds: Set<string>;
+  courseId: string;
   isOpen: boolean;
   onToggle: () => void;
 }) {
@@ -69,9 +86,23 @@ function Section({
 
       {isOpen && section.courseContentSubs.length > 0 && (
         <ul className="bg-base-200/40">
-          {section.courseContentSubs.map((sub) => (
-            <LessonRow key={sub.id} sub={sub} read={readIds.has(sub.id)} />
-          ))}
+          {section.courseContentSubs.map((sub) =>
+            sub.mediaType === "assessment" ? (
+              <AssessmentRow
+                key={sub.id}
+                sub={sub}
+                done={doneIds.has(sub.id)}
+                courseId={courseId}
+              />
+            ) : (
+              <LessonRow
+                key={sub.id}
+                sub={sub}
+                read={readIds.has(sub.id)}
+                courseId={courseId}
+              />
+            ),
+          )}
         </ul>
       )}
 
@@ -84,21 +115,104 @@ function Section({
   );
 }
 
-function LessonRow({ sub, read }: { sub: LessonSub; read: boolean }) {
+function LessonRow({
+  sub,
+  read,
+  courseId,
+}: {
+  sub: LessonSub;
+  read: boolean;
+  courseId: string;
+}) {
   const [current, setCurrent] = useCurrentLesson();
+  const queryClient = useQueryClient();
   const active = current?.id === sub.id;
 
+  const markRead = useMutation({
+    mutationFn: async () => {
+      await apiClient.post(
+        "/orders/record-course-read",
+        { courseContentSub: sub.id },
+        { headers: { "Course-Request-Id": courseId } },
+      );
+    },
+    onSuccess: () => {
+      toast.success("Marked as completed.");
+      queryClient.invalidateQueries({ queryKey: ["my-course", courseId] });
+    },
+    onError: (err: any) => {
+      toast.error(
+        err?.response?.data?.message ?? "Could not update progress.",
+      );
+    },
+  });
+
   return (
-    <li>
+    <li
+      className={`flex items-start gap-3 px-5 py-3 transition-colors ${
+        active ? "bg-secondary/10" : "hover:bg-base-200"
+      }`}
+    >
+      <button
+        type="button"
+        onClick={() => !read && markRead.mutate()}
+        disabled={read || markRead.isPending}
+        aria-label={read ? "Completed" : "Mark as completed"}
+        className="mt-0.5 text-secondary disabled:cursor-default"
+      >
+        {markRead.isPending ? (
+          <Loader2 className="h-4 w-4 animate-spin" />
+        ) : read ? (
+          <CheckSquare className="h-4 w-4" />
+        ) : (
+          <Square className="h-4 w-4 text-base-content/30 transition-colors hover:text-secondary" />
+        )}
+      </button>
+
       <button
         type="button"
         onClick={() => setCurrent(sub)}
-        className={`flex w-full items-start gap-3 px-5 py-3 text-left transition-colors ${
-          active ? "bg-secondary/10" : "hover:bg-base-200"
-        }`}
+        className="flex flex-1 items-center gap-2 text-left"
+      >
+        <MediaIcon type={sub.mediaType} />
+        <span
+          className={`flex-1 text-sm ${
+            active ? "font-medium text-accent" : "text-base-content/80"
+          }`}
+        >
+          {sub.title}
+        </span>
+      </button>
+
+      {sub.duration > 0 && (
+        <span className="mt-0.5 shrink-0 text-xs text-base-content/40">
+          {sub.duration} Min(s)
+        </span>
+      )}
+    </li>
+  );
+}
+
+// Assessments aren't played inline — link out to the assessment page where the
+// learner can take or review the attempt.
+function AssessmentRow({
+  sub,
+  done,
+  courseId,
+}: {
+  sub: LessonSub;
+  done: boolean;
+  courseId: string;
+}) {
+  return (
+    <li>
+      <Link
+        to="/user/courses/$id/assessment"
+        params={{ id: courseId }}
+        className="flex w-full items-start gap-3 px-5 py-3 text-left transition-colors hover:bg-base-200"
       >
         <span className="mt-0.5 text-secondary">
-          {read ? (
+          {done ? (
             <CheckSquare className="h-4 w-4" />
           ) : (
             <Square className="h-4 w-4 text-base-content/30" />
@@ -106,20 +220,14 @@ function LessonRow({ sub, read }: { sub: LessonSub; read: boolean }) {
         </span>
         <span className="flex flex-1 items-center gap-2">
           <MediaIcon type={sub.mediaType} />
-          <span
-            className={`flex-1 text-sm ${
-              active ? "font-medium text-accent" : "text-base-content/80"
-            }`}
-          >
+          <span className="flex-1 text-sm text-base-content/80">
             {sub.title}
           </span>
         </span>
-        {sub.duration > 0 && (
-          <span className="shrink-0 text-xs text-base-content/40">
-            {sub.duration} Min(s)
-          </span>
-        )}
-      </button>
+        <span className="shrink-0 rounded-full bg-secondary/10 px-2 py-0.5 text-[10px] font-medium tracking-wide text-secondary uppercase">
+          {done ? "Done" : "Assessment"}
+        </span>
+      </Link>
     </li>
   );
 }
