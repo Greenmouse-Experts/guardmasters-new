@@ -184,7 +184,7 @@ function RouteComponent() {
                     {...register("agree", {
                       required: "You must agree to continue",
                     })}
-                    className="checkbox checkbox-sm mt-0.5 rounded-none"
+                    className="checkbox checkbox-secondary checkbox-sm mt-0.5"
                   />
                   <span>
                     I have read and agreed to GuardMaster Institute Privacy
