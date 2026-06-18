@@ -9,14 +9,17 @@ export interface Course {
   coverImage: string;
   createdDate: string;
   updatedDate: string;
+  totalContent?: number;
+  assessment?: {
+    total: number;
+    done: number;
+  };
 }
 
 export interface PurchaseItem {
   id: string;
   status?: string;
   course: Course;
-  readCount?: number;
-  totalCount?: number;
 }
 
 export interface CourseProgram {

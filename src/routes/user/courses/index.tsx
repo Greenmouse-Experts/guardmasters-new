@@ -92,9 +92,8 @@ function RouteComponent() {
 }
 
 function CourseCard({ item }: { item: PurchaseItem }) {
-  const total = item.totalCount ?? 0;
-  const read = item.readCount ?? 0;
-  const pct = total > 0 ? Math.round((read / total) * 100) : 0;
+  const { total = 0, done = 0 } = item.course.assessment ?? {};
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
 
   return (
     <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
@@ -125,7 +124,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
           </div>
           {total > 0 && (
             <p className="text-xs text-base-content/40">
-              {read} of {total} lessons completed
+              {done} of {total} assessments completed
             </p>
           )}
         </div>
