@@ -92,6 +92,10 @@ function RouteComponent() {
 }
 
 function CourseCard({ item }: { item: PurchaseItem }) {
+  const total = item.totalCount ?? 0;
+  const read = item.readCount ?? 0;
+  const pct = total > 0 ? Math.round((read / total) * 100) : 0;
+
   return (
     <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
       <div className="h-40 w-full overflow-hidden bg-base-200">
@@ -107,6 +111,25 @@ function CourseCard({ item }: { item: PurchaseItem }) {
         <h2 className="line-clamp-2 min-h-[3rem] font-medium text-accent">
           {item.course.title}
         </h2>
+
+        <div className="mt-4 space-y-1">
+          <div className="flex items-center justify-between text-xs text-base-content/50">
+            <span>Progress</span>
+            <span>{pct}%</span>
+          </div>
+          <div className="h-1.5 w-full overflow-hidden rounded-full bg-base-200">
+            <div
+              className="h-full rounded-full bg-secondary transition-all"
+              style={{ width: `${pct}%` }}
+            />
+          </div>
+          {total > 0 && (
+            <p className="text-xs text-base-content/40">
+              {read} of {total} lessons completed
+            </p>
+          )}
+        </div>
+
         <Link
           to="/user/courses/$id"
           params={{ id: item.course.id }}

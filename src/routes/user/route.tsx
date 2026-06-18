@@ -7,7 +7,6 @@ import {
 import {
   LayoutGrid,
   Users,
-  GitBranch,
   Bell,
   ShoppingCart,
   Headphones,
@@ -32,7 +31,6 @@ interface NavLink {
 const mainLinks: NavLink[] = [
   { label: "Dashboard", icon: LayoutGrid, to: "/user" },
   { label: "My Courses", icon: Users, to: "/user/courses" },
-  { label: "Progress", icon: GitBranch, to: "/user/progress" },
   { label: "Notifications", icon: Bell, to: "/user/notifications" },
   {
     label: "Purchase History",

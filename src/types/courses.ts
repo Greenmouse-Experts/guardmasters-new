@@ -15,6 +15,8 @@ export interface PurchaseItem {
   id: string;
   status?: string;
   course: Course;
+  readCount?: number;
+  totalCount?: number;
 }
 
 export interface CourseProgram {
