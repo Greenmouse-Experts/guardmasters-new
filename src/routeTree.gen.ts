@@ -33,7 +33,6 @@ import { Route as UserCoursesIdRouteRouteImport } from './routes/user/courses/$i
 import { Route as UserCoursesIdIndexRouteImport } from './routes/user/courses/$id/index'
 import { Route as HomeProgramsIdIndexRouteImport } from './routes/home/programs/$id/index'
 import { Route as HomeAuthVerifyIndexRouteImport } from './routes/home/auth/verify/index'
-import { Route as UserCoursesIdAssessmentRouteImport } from './routes/user/courses/$id/assessment'
 
 const UserRouteRoute = UserRouteRouteImport.update({
   id: '/user',
@@ -156,11 +155,6 @@ const HomeAuthVerifyIndexRoute = HomeAuthVerifyIndexRouteImport.update({
   path: '/auth/verify/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
-const UserCoursesIdAssessmentRoute = UserCoursesIdAssessmentRouteImport.update({
-  id: '/assessment',
-  path: '/assessment',
-  getParentRoute: () => UserCoursesIdRouteRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -184,7 +178,6 @@ export interface FileRoutesByFullPath {
   '/user/purchase-history/': typeof UserPurchaseHistoryIndexRoute
   '/user/settings/': typeof UserSettingsIndexRoute
   '/user/support/': typeof UserSupportIndexRoute
-  '/user/courses/$id/assessment': typeof UserCoursesIdAssessmentRoute
   '/home/auth/verify/': typeof HomeAuthVerifyIndexRoute
   '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
   '/user/courses/$id/': typeof UserCoursesIdIndexRoute
@@ -207,7 +200,6 @@ export interface FileRoutesByTo {
   '/user/purchase-history': typeof UserPurchaseHistoryIndexRoute
   '/user/settings': typeof UserSettingsIndexRoute
   '/user/support': typeof UserSupportIndexRoute
-  '/user/courses/$id/assessment': typeof UserCoursesIdAssessmentRoute
   '/home/auth/verify': typeof HomeAuthVerifyIndexRoute
   '/home/programs/$id': typeof HomeProgramsIdIndexRoute
   '/user/courses/$id': typeof UserCoursesIdIndexRoute
@@ -235,7 +227,6 @@ export interface FileRoutesById {
   '/user/purchase-history/': typeof UserPurchaseHistoryIndexRoute
   '/user/settings/': typeof UserSettingsIndexRoute
   '/user/support/': typeof UserSupportIndexRoute
-  '/user/courses/$id/assessment': typeof UserCoursesIdAssessmentRoute
   '/home/auth/verify/': typeof HomeAuthVerifyIndexRoute
   '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
   '/user/courses/$id/': typeof UserCoursesIdIndexRoute
@@ -264,7 +255,6 @@ export interface FileRouteTypes {
     | '/user/purchase-history/'
     | '/user/settings/'
     | '/user/support/'
-    | '/user/courses/$id/assessment'
     | '/home/auth/verify/'
     | '/home/programs/$id/'
     | '/user/courses/$id/'
@@ -287,7 +277,6 @@ export interface FileRouteTypes {
     | '/user/purchase-history'
     | '/user/settings'
     | '/user/support'
-    | '/user/courses/$id/assessment'
     | '/home/auth/verify'
     | '/home/programs/$id'
     | '/user/courses/$id'
@@ -314,7 +303,6 @@ export interface FileRouteTypes {
     | '/user/purchase-history/'
     | '/user/settings/'
     | '/user/support/'
-    | '/user/courses/$id/assessment'
     | '/home/auth/verify/'
     | '/home/programs/$id/'
     | '/user/courses/$id/'
@@ -498,13 +486,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeAuthVerifyIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
-    '/user/courses/$id/assessment': {
-      id: '/user/courses/$id/assessment'
-      path: '/assessment'
-      fullPath: '/user/courses/$id/assessment'
-      preLoaderRoute: typeof UserCoursesIdAssessmentRouteImport
-      parentRoute: typeof UserCoursesIdRouteRoute
-    }
   }
 }
 
@@ -549,12 +530,10 @@ const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(
 )
 
 interface UserCoursesIdRouteRouteChildren {
-  UserCoursesIdAssessmentRoute: typeof UserCoursesIdAssessmentRoute
   UserCoursesIdIndexRoute: typeof UserCoursesIdIndexRoute
 }
 
 const UserCoursesIdRouteRouteChildren: UserCoursesIdRouteRouteChildren = {
-  UserCoursesIdAssessmentRoute: UserCoursesIdAssessmentRoute,
   UserCoursesIdIndexRoute: UserCoursesIdIndexRoute,
 }
 

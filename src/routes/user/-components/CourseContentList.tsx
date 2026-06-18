@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Link } from "@tanstack/react-router";
 import { CheckSquare, ChevronDown, ChevronUp, Loader2, Square } from "lucide-react";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
+import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
 import { useCurrentLesson } from "#/store/playerStore.ts";
 import type { LessonSection, LessonSub } from "#/types/learn.ts";
+import AssessmentRunner from "./AssessmentRunner";
 import { MediaIcon } from "./CoursePlayer";
 
 interface Props {
@@ -29,6 +30,16 @@ export default function CourseContentList({
     firstWithLessons === -1 ? 0 : firstWithLessons,
   );
 
+  const modalRef = useRef<ModalHandle>(null);
+  const [activeAssessment, setActiveAssessment] = useState<LessonSub | null>(
+    null,
+  );
+
+  function openAssessment(sub: LessonSub) {
+    setActiveAssessment(sub);
+    modalRef.current?.open();
+  }
+
   return (
     <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
       <div className="border-b border-base-300 px-5 py-4">
@@ -43,6 +54,7 @@ export default function CourseContentList({
             readIds={readIds}
             doneIds={doneIds}
             courseId={courseId}
+            onOpenAssessment={openAssessment}
             isOpen={openIndex === index}
             onToggle={() =>
               setOpenIndex((cur) => (cur === index ? -1 : index))
@@ -50,6 +62,18 @@ export default function CourseContentList({
           />
         ))}
       </div>
+
+      <Modal ref={modalRef} title="Assessment">
+        {activeAssessment && (
+          <AssessmentRunner
+            key={activeAssessment.id}
+            sub={activeAssessment}
+            courseId={courseId}
+            done={doneIds.has(activeAssessment.id)}
+            onClose={() => modalRef.current?.close()}
+          />
+        )}
+      </Modal>
     </div>
   );
 }
@@ -59,6 +83,7 @@ function Section({
   readIds,
   doneIds,
   courseId,
+  onOpenAssessment,
   isOpen,
   onToggle,
 }: {
@@ -66,6 +91,7 @@ function Section({
   readIds: Set<string>;
   doneIds: Set<string>;
   courseId: string;
+  onOpenAssessment: (sub: LessonSub) => void;
   isOpen: boolean;
   onToggle: () => void;
 }) {
@@ -92,7 +118,7 @@ function Section({
                 key={sub.id}
                 sub={sub}
                 done={doneIds.has(sub.id)}
-                courseId={courseId}
+                onOpen={() => onOpenAssessment(sub)}
               />
             ) : (
               <LessonRow
@@ -193,22 +219,22 @@ function LessonRow({
   );
 }
 
-// Assessments aren't played inline — link out to the assessment page where the
-// learner can take or review the attempt.
+// Assessments open inline in a modal where the learner takes the quiz or
+// reviews their completed attempt.
 function AssessmentRow({
   sub,
   done,
-  courseId,
+  onOpen,
 }: {
   sub: LessonSub;
   done: boolean;
-  courseId: string;
+  onOpen: () => void;
 }) {
   return (
     <li>
-      <Link
-        to="/user/courses/$id/assessment"
-        params={{ id: courseId }}
+      <button
+        type="button"
+        onClick={onOpen}
         className="flex w-full items-start gap-3 px-5 py-3 text-left transition-colors hover:bg-base-200"
       >
         <span className="mt-0.5 text-secondary">
@@ -227,7 +253,7 @@ function AssessmentRow({
         <span className="shrink-0 rounded-full bg-secondary/10 px-2 py-0.5 text-[10px] font-medium tracking-wide text-secondary uppercase">
           {done ? "Done" : "Assessment"}
         </span>
-      </Link>
+      </button>
     </li>
   );
 }

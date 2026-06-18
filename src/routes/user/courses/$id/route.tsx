@@ -1,5 +1,5 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
-import { BookOpen, GraduationCap, LayoutGrid, type LucideIcon } from "lucide-react";
+import { BookOpen, LayoutGrid, type LucideIcon } from "lucide-react";
 
 export const Route = createFileRoute("/user/courses/$id")({
   component: RouteComponent,
@@ -18,11 +18,6 @@ function RouteComponent() {
   const items: NavItem[] = [
     { label: "Dashboard", icon: LayoutGrid, to: "/user", exact: true },
     { label: "Course", icon: BookOpen, to: "/user/courses/$id", exact: true },
-    {
-      label: "Assessment",
-      icon: GraduationCap,
-      to: "/user/courses/$id/assessment",
-    },
   ];
 
   return (

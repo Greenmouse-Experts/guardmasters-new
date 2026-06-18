@@ -36,6 +36,20 @@ export interface AttemptQuestion {
   point: number;
 }
 
+export interface QuestionItem {
+  id: string;
+  question: string;
+  options: string[];
+  correctOption: number;
+  point: number;
+  isPublished: boolean;
+}
+
+export interface QuestionsResponse {
+  count: number;
+  data: QuestionItem[];
+}
+
 export interface AttemptAnswer {
   id: string;
   choice: number;
