@@ -41,7 +41,7 @@ function RouteComponent() {
 
   const mutation = useMutation({
     mutationFn: async (payload: ProfileForm) => {
-      await apiClient.patch("/auth/update-profile", payload);
+      await apiClient.post("/auth/update-profile", payload);
       return payload;
     },
     onSuccess: (payload) => {

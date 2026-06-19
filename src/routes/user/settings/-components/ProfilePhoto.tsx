@@ -29,7 +29,7 @@ export default function ProfilePhoto() {
       const picture = upload.data.image;
 
       // 2. Persist the URL on the user's profile.
-      await apiClient.patch("/auth/update-profile", { picture });
+      await apiClient.post("/auth/update-profile", { picture });
       return picture;
     },
     onSuccess: (picture) => {
@@ -90,10 +90,10 @@ export default function ProfilePhoto() {
           type="button"
           onClick={() => inputRef.current?.click()}
           disabled={mutation.isPending}
-          className="mt-1 flex w-16 items-center justify-center rounded-md bg-accent py-2.5 text-accent-content transition-colors hover:bg-accent/90 disabled:opacity-60"
+          className="btn btn-accent"
           aria-label="Change profile photo"
         >
-          <MoreHorizontal className="h-5 w-5" />
+          Update Photo
         </button>
       </div>
     </div>

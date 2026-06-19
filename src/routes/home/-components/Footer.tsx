@@ -124,7 +124,7 @@ export default function Footer() {
                 to="/home/contact"
                 className="btn rounded-none border border-white/40 bg-transparent px-6 font-semibold text-white hover:bg-white/10"
               >
-                Talk to Advicer
+                Talk to Advisor
               </Link>
             </div>
           </div>

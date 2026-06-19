@@ -98,7 +98,15 @@ export default function ProgramHero({
                   </>
                 )}
               </button>
-              <button className="btn h-auto gap-2 rounded-md border border-white/20 bg-transparent px-6 py-4 font-medium text-white hover:bg-white/10">
+              <button
+                type="button"
+                onClick={() =>
+                  document
+                    .getElementById("curriculum")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="btn h-auto gap-2 rounded-md border border-white/20 bg-transparent px-6 py-4 font-medium text-white hover:bg-white/10"
+              >
                 Explore curriculum
               </button>
             </div>
