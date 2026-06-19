@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { new_url } from "#/client/api.ts";
 import { extract_message } from "#/helpers/auth.ts";
 
-export const Route = createFileRoute("/auth/confirm")({
+export const Route = createFileRoute("/auth/confirm/")({
   component: RouteComponent,
   validateSearch: (search: { token?: string }): { token?: string } => search,
 });
