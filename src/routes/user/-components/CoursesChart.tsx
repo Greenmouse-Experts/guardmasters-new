@@ -32,7 +32,7 @@ export default function CoursesChart() {
   });
 
   return (
-    <div className="rounded-lg border border-base-300 bg-base-100 p-6">
+    <div className="flex h-full flex-col rounded-lg border border-base-300 bg-base-100 p-6">
       <div className="mb-6 flex items-start gap-4">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-accent text-accent-content">
           <Network className="h-6 w-6" />
@@ -45,7 +45,8 @@ export default function CoursesChart() {
         </div>
       </div>
 
-      <QueryCompLayout query={query}>
+      <div className="flex flex-1 flex-col">
+        <QueryCompLayout query={query}>
         {(data) => {
           const slices = statusMeta.map((meta) => ({
             label: meta.label,
@@ -65,9 +66,9 @@ export default function CoursesChart() {
             .join(", ");
 
           return (
-            <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center">
+            <div className="flex flex-1 flex-col items-center justify-center gap-8 sm:flex-row sm:justify-around">
               <div
-                className="h-52 w-52 rounded-full bg-base-200"
+                className="aspect-square w-full max-w-[18rem] shrink-0 rounded-full bg-base-200"
                 style={
                   total > 0
                     ? { background: `conic-gradient(${gradient})` }
@@ -76,7 +77,7 @@ export default function CoursesChart() {
                 role="img"
                 aria-label="Courses progress pie chart"
               />
-              <ul className="space-y-2">
+              <ul className="w-full max-w-xs space-y-2 sm:w-auto">
                 {slices.map((slice) => (
                   <li
                     key={slice.label}
@@ -96,7 +97,8 @@ export default function CoursesChart() {
             </div>
           );
         }}
-      </QueryCompLayout>
+        </QueryCompLayout>
+      </div>
     </div>
   );
 }
