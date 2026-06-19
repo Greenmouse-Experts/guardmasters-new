@@ -2,7 +2,7 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   component: Home,
-  // loader: () => redirect({ to: "/home" }),
+  loader: () => redirect({ to: "/home" }),
 });
 
 function Home() {
