@@ -14,6 +14,7 @@ import { Route as HomeRouteRouteImport } from './routes/home/route'
 import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UserIndexRouteImport } from './routes/user/index'
+import { Route as TestIndexRouteImport } from './routes/test/index'
 import { Route as HomeIndexRouteImport } from './routes/home/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as PaymentCallbackRouteImport } from './routes/payment/callback'
@@ -58,6 +59,11 @@ const UserIndexRoute = UserIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => UserRouteRoute,
+} as any)
+const TestIndexRoute = TestIndexRouteImport.update({
+  id: '/test/',
+  path: '/test/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const HomeIndexRoute = HomeIndexRouteImport.update({
   id: '/',
@@ -164,6 +170,7 @@ export interface FileRoutesByFullPath {
   '/payment/callback': typeof PaymentCallbackRoute
   '/admin/': typeof AdminIndexRoute
   '/home/': typeof HomeIndexRoute
+  '/test/': typeof TestIndexRoute
   '/user/': typeof UserIndexRoute
   '/user/courses/$id': typeof UserCoursesIdRouteRouteWithChildren
   '/home/auth/login': typeof HomeAuthLoginRoute
@@ -187,6 +194,7 @@ export interface FileRoutesByTo {
   '/payment/callback': typeof PaymentCallbackRoute
   '/admin': typeof AdminIndexRoute
   '/home': typeof HomeIndexRoute
+  '/test': typeof TestIndexRoute
   '/user': typeof UserIndexRoute
   '/home/auth/login': typeof HomeAuthLoginRoute
   '/home/auth/signup': typeof HomeAuthSignupRoute
@@ -213,6 +221,7 @@ export interface FileRoutesById {
   '/payment/callback': typeof PaymentCallbackRoute
   '/admin/': typeof AdminIndexRoute
   '/home/': typeof HomeIndexRoute
+  '/test/': typeof TestIndexRoute
   '/user/': typeof UserIndexRoute
   '/user/courses/$id': typeof UserCoursesIdRouteRouteWithChildren
   '/home/auth/login': typeof HomeAuthLoginRoute
@@ -241,6 +250,7 @@ export interface FileRouteTypes {
     | '/payment/callback'
     | '/admin/'
     | '/home/'
+    | '/test/'
     | '/user/'
     | '/user/courses/$id'
     | '/home/auth/login'
@@ -264,6 +274,7 @@ export interface FileRouteTypes {
     | '/payment/callback'
     | '/admin'
     | '/home'
+    | '/test'
     | '/user'
     | '/home/auth/login'
     | '/home/auth/signup'
@@ -289,6 +300,7 @@ export interface FileRouteTypes {
     | '/payment/callback'
     | '/admin/'
     | '/home/'
+    | '/test/'
     | '/user/'
     | '/user/courses/$id'
     | '/home/auth/login'
@@ -314,6 +326,7 @@ export interface RootRouteChildren {
   HomeRouteRoute: typeof HomeRouteRouteWithChildren
   UserRouteRoute: typeof UserRouteRouteWithChildren
   PaymentCallbackRoute: typeof PaymentCallbackRoute
+  TestIndexRoute: typeof TestIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -352,6 +365,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/user/'
       preLoaderRoute: typeof UserIndexRouteImport
       parentRoute: typeof UserRouteRoute
+    }
+    '/test/': {
+      id: '/test/'
+      path: '/test'
+      fullPath: '/test/'
+      preLoaderRoute: typeof TestIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/home/': {
       id: '/home/'
@@ -572,6 +592,7 @@ const rootRouteChildren: RootRouteChildren = {
   HomeRouteRoute: HomeRouteRouteWithChildren,
   UserRouteRoute: UserRouteRouteWithChildren,
   PaymentCallbackRoute: PaymentCallbackRoute,
+  TestIndexRoute: TestIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
