@@ -1,5 +1,6 @@
 import apiClient from "#/client/api.ts";
 import QueryCompLayout from "#/components/layout/QueryCompLayout.tsx";
+import { useCartStore, useIsInCart, type CartItem } from "#/store/cartStore.ts";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
@@ -33,6 +34,7 @@ interface EnrollMoreProps {
   relatedTitle: string;
   programId: string;
   currentCourseId?: string;
+  cartItem?: CartItem;
 }
 
 export default function EnrollMore({
@@ -46,7 +48,21 @@ export default function EnrollMore({
   relatedTitle,
   programId,
   currentCourseId,
+  cartItem,
 }: EnrollMoreProps) {
+  const addItem = useCartStore((s) => s.addItem);
+  const openCart = useCartStore((s) => s.openCart);
+  const inCart = useIsInCart(cartItem?.id ?? "");
+
+  function handleEnroll() {
+    if (!cartItem) return;
+    if (inCart) {
+      openCart();
+      return;
+    }
+    addItem(cartItem);
+  }
+
   const related = useQuery<RelatedResponse>({
     queryKey: ["related", programId],
     queryFn: async () => {
@@ -94,13 +110,23 @@ export default function EnrollMore({
               ))}
             </ul>
 
-            <Link
-              to="/home/auth/signup"
+            <button
+              type="button"
+              onClick={handleEnroll}
               className="btn btn-block h-auto gap-2 rounded-md border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90"
             >
-              Enroll now
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
+              {inCart ? (
+                <>
+                  Added to cart
+                  <Check className="h-4 w-4" />
+                </>
+              ) : (
+                <>
+                  Enroll now
+                  <ArrowUpRight className="h-4 w-4" />
+                </>
+              )}
+            </button>
             <button className="btn btn-ghost btn-block mt-3 gap-2 font-medium text-base-content/60 hover:bg-transparent hover:text-base-content">
               Or speak to an advisor
               <ArrowRight className="h-4 w-4" />
@@ -159,7 +185,7 @@ export default function EnrollMore({
                           <img
                             src={course.coverImage}
                             alt={course.title}
-                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            className="h-full w-full object-contain bg-base-300 transition-transform duration-300 group-hover:scale-105"
                           />
                         )}
                       </div>

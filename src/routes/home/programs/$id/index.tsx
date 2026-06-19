@@ -184,6 +184,13 @@ function RouteComponent() {
                 badge="Enroll"
                 programId={resp.course.program.id}
                 currentCourseId={String(resp.course.id)}
+                cartItem={{
+                  id: String(course.id),
+                  coverImg: course.coverImage,
+                  title: course.title,
+                  price: course.price,
+                  fmprice: course.originalPriceFormat,
+                }}
                 title={
                   <>
                     One investment.{" "}

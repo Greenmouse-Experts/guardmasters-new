@@ -120,9 +120,12 @@ export default function Footer() {
                 Explore Programs
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
-              <button className="btn rounded-none border border-white/40 bg-transparent px-6 font-semibold text-white hover:bg-white/10">
-                Talk to Admissions
-              </button>
+              <Link
+                to="/home/contact"
+                className="btn rounded-none border border-white/40 bg-transparent px-6 font-semibold text-white hover:bg-white/10"
+              >
+                Talk to Advicer
+              </Link>
             </div>
           </div>
         </div>
