@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   createFileRoute,
   Link,
@@ -16,7 +15,6 @@ import {
   ChevronDown,
   Home,
   Menu,
-  X,
   type LucideIcon,
 } from "lucide-react";
 import { clear_user, useProfile } from "#/store/authStore.ts";
@@ -46,7 +44,6 @@ const mainLinks: NavLink[] = [
 function RouteComponent() {
   const navigate = useNavigate();
   const [profile] = useProfile();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const name =
     [profile?.firstName, profile?.lastName].filter(Boolean).join(" ") ||
@@ -61,48 +58,27 @@ function RouteComponent() {
     navigate({ to: "/home/auth/login" });
   }
 
-  return (
-    <div className="flex min-h-screen bg-base-200 text-base-content">
-      {/* Sidebar (desktop) */}
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col bg-accent text-accent-content lg:flex">
-        <SidebarNav onLogout={handleLogout} />
-      </aside>
+  const closeDrawer = () => {
+    const drawer = document.getElementById(
+      "user-drawer",
+    ) as HTMLInputElement | null;
+    if (drawer) drawer.checked = false;
+  };
 
-      {/* Sidebar (mobile drawer) */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
-          <div
-            className="absolute inset-0 bg-black/50"
-            onClick={() => setMenuOpen(false)}
-          />
-          <aside className="absolute top-0 left-0 flex h-full w-64 flex-col bg-accent text-accent-content shadow-xl">
-            <button
-              type="button"
-              onClick={() => setMenuOpen(false)}
-              aria-label="Close menu"
-              className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-md text-accent-content/70 hover:bg-white/10"
-            >
-              <X className="h-5 w-5" />
-            </button>
-            <SidebarNav
-              onLogout={handleLogout}
-              onNavigate={() => setMenuOpen(false)}
-            />
-          </aside>
-        </div>
-      )}
+  return (
+    <div className="drawer lg:drawer-open">
+      <input id="user-drawer" type="checkbox" className="drawer-toggle" />
 
       {/* Main */}
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className="drawer-content flex min-h-screen flex-col bg-base-200 text-base-content">
         <header className="flex h-20 items-center justify-between gap-3 px-6 md:px-10 lg:justify-end">
-          <button
-            type="button"
-            onClick={() => setMenuOpen(true)}
+          <label
+            htmlFor="user-drawer"
             aria-label="Open menu"
-            className="flex h-10 w-10 items-center justify-center rounded-md border border-base-300 bg-base-100 text-accent lg:hidden"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-md border border-base-300 bg-base-100 text-accent lg:hidden"
           >
             <Menu className="h-5 w-5" />
-          </button>
+          </label>
 
           <div className="dropdown dropdown-end">
             <button
@@ -166,6 +142,18 @@ function RouteComponent() {
         <main className="flex-1 px-6 pb-12 md:px-10">
           <Outlet />
         </main>
+      </div>
+
+      {/* Sidebar */}
+      <div className="drawer-side z-50">
+        <label
+          htmlFor="user-drawer"
+          aria-label="close sidebar"
+          className="drawer-overlay"
+        ></label>
+        <aside className="flex min-h-full w-64 flex-col bg-accent text-accent-content">
+          <SidebarNav onLogout={handleLogout} onNavigate={closeDrawer} />
+        </aside>
       </div>
     </div>
   );

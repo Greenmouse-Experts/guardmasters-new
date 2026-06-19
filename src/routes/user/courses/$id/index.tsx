@@ -64,7 +64,7 @@ function Learn({ data }: { data: CourseLearnResponse }) {
       {/* Left: player + meta */}
       <div className="min-w-0 space-y-6">
         <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
-          <CoursePlayer />
+          <CoursePlayer courseId={String(course.id)} />
         </div>
 
         <CourseTabs data={data} />

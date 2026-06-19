@@ -1,8 +1,26 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ClipboardList, FileText, PlaySquare } from "lucide-react";
+import { toast } from "sonner";
+import apiClient from "#/client/api.ts";
 import { useCurrentLesson } from "#/store/playerStore.ts";
 
-export default function CoursePlayer() {
+export default function CoursePlayer({ courseId }: { courseId: string }) {
   const [lesson] = useCurrentLesson();
+  const queryClient = useQueryClient();
+
+  const markRead = useMutation({
+    mutationFn: async (lessonId: string) => {
+      await apiClient.post(
+        "/orders/record-course-read",
+        { courseContentSub: lessonId },
+        { headers: { "Course-Request-Id": courseId } },
+      );
+    },
+    onSuccess: () => {
+      toast.success("Lesson completed.");
+      queryClient.invalidateQueries({ queryKey: ["my-course", courseId] });
+    },
+  });
 
   if (!lesson) {
     return (
@@ -16,7 +34,11 @@ export default function CoursePlayer() {
   return (
     <div className="w-full">
       <div className="aspect-video w-full overflow-hidden bg-black">
-        <Media key={lesson.id} lesson={lesson} />
+        <Media
+          key={lesson.id}
+          lesson={lesson}
+          onEnded={() => markRead.mutate(lesson.id)}
+        />
       </div>
       <div className="flex items-center justify-between gap-4 px-1 py-3">
         <h2 className="font-medium text-accent">{lesson.title}</h2>
@@ -30,7 +52,13 @@ export default function CoursePlayer() {
   );
 }
 
-function Media({ lesson }: { lesson: { media: string; mediaType: string } }) {
+function Media({
+  lesson,
+  onEnded,
+}: {
+  lesson: { media: string; mediaType: string };
+  onEnded: () => void;
+}) {
   const { media, mediaType } = lesson;
 
   if (mediaType === "video") {
@@ -39,6 +67,7 @@ function Media({ lesson }: { lesson: { media: string; mediaType: string } }) {
         src={media}
         controls
         controlsList="nodownload"
+        onEnded={onEnded}
         className="h-full w-full"
       />
     );

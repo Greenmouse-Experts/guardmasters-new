@@ -1,8 +1,9 @@
 import type { QueryObserverResult } from "@tanstack/react-query";
 import type { AxiosError } from "axios";
-import type { ApiResponse } from "types/api";
+
 import { extract_message } from "@/helpers/apihelpers";
 import { Loader2, ShieldOff } from "lucide-react";
+import type { ApiResponse } from "#/types/api.js";
 
 interface QueryPageLayoutProps<TData> {
   query: QueryObserverResult<TData>;
