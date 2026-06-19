@@ -75,7 +75,7 @@ function Learn({ data }: { data: CourseLearnResponse }) {
         <div className="flex items-center gap-4 rounded-lg border border-base-300 bg-base-100 px-5 py-4 text-sm">
           <span className="flex items-center gap-1.5 text-base-content/60">
             <ListChecks className="h-4 w-4" />
-            {contents.total} sections
+            {contents.total} modules
           </span>
           <span className="flex items-center gap-1.5 text-base-content/60">
             <Clock className="h-4 w-4" />
