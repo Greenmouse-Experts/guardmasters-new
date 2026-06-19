@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Mail, Menu, Phone, Search, ShoppingCart } from "lucide-react";
 import { useAuth, useProfile } from "#/store/authStore.ts";
 import { useCartCount, useCartStore } from "#/store/cartStore.ts";
@@ -63,8 +63,18 @@ export default function HomeNav() {
   const dashboardPath =
     profile?.role === "admin" ? "/admin" : ("/user" as const);
 
+  // Transparent + overlaid on the landing page hero; solid accent elsewhere.
+  const pathname = useLocation({ select: (l) => l.pathname });
+  const isHome = pathname === "/home" || pathname === "/home/";
+
   return (
-    <div className="absolute top-0 z-50 w-full bg-transparent">
+    <div
+      className={
+        isHome
+          ? "absolute top-0 z-50 w-full bg-transparent"
+          : "relative z-50 w-full bg-accent"
+      }
+    >
       {/* Top contact strip */}
       <div className="hidden bg-primary text-neutral md:block">
         <div className="container mx-auto flex items-center justify-between px-4 py-2 text-sm md:px-10">
@@ -103,7 +113,7 @@ export default function HomeNav() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="flex h-6 w-6 items-center justify-center rounded bg-neutral text-primary-content transition-opacity hover:opacity-80"
+                  className="flex h-6 w-6 items-center justify-center text-neutral transition-opacity hover:opacity-70"
                 >
                   <svg
                     viewBox="0 0 24 24"
