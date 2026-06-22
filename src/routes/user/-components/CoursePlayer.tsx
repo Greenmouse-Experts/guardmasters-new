@@ -1,5 +1,6 @@
+import { useRef } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { ClipboardList, FileText, PlaySquare } from "lucide-react";
+import { ClipboardList, FileText, Maximize, PlaySquare } from "lucide-react";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
 import { useCurrentLesson } from "#/store/playerStore.ts";
@@ -78,7 +79,7 @@ function Media({
   }
 
   if (mediaType === "document") {
-    return <iframe src={media} title="Document" className="h-full w-full" />;
+    return <DocumentMedia src={media} />;
   }
 
   // assessment
@@ -93,6 +94,28 @@ function Media({
         className="rounded-sm bg-secondary px-6 py-2.5 text-sm font-medium text-secondary-content hover:bg-secondary/90"
       >
         Start Assessment
+      </button>
+    </div>
+  );
+}
+
+function DocumentMedia({ src }: { src: string }) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  function goFullscreen() {
+    wrapperRef.current?.requestFullscreen?.();
+  }
+
+  return (
+    <div ref={wrapperRef} className="relative h-full w-full bg-base-100">
+      <iframe src={src} title="Document" className="h-full w-full" />
+      <button
+        type="button"
+        onClick={goFullscreen}
+        aria-label="View fullscreen"
+        className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-md bg-black/60 text-white transition-colors hover:bg-black/80"
+      >
+        <Maximize className="h-4 w-4" />
       </button>
     </div>
   );

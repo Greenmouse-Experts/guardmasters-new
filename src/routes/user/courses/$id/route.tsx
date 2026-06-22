@@ -37,9 +37,9 @@ function RouteComponent() {
 
   const generateCertificate = useMutation({
     mutationFn: async () => {
-      const { data } = await apiClient.post<CertificateResponse>(
-        "certificates/generate",
-        { courseId: id },
+      const { data } = await apiClient.get<CertificateResponse>(
+        "certificates/" + id,
+        // { params: { courseId: id } },
       );
       return data;
     },
