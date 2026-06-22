@@ -10,6 +10,7 @@ export interface Course {
   createdDate: string;
   updatedDate: string;
   totalContent?: number;
+  completedContent?: number;
   assessment?: {
     total: number;
     done: number;
