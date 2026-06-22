@@ -82,7 +82,6 @@ function Learn({ data }: { data: CourseLearnResponse }) {
             {contents.totalDuration} Min(s)
           </span>
         </div>
-
         <CourseContentList
           sections={contents.data}
           readIds={readIds}
