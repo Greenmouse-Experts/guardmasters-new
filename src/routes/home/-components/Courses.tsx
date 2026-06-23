@@ -55,21 +55,21 @@ export default function Courses() {
           {(data) => {
             return (
               <>
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-3 mb-22">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-4 mb-22">
                   {data.data.map((course) => (
                     <Link
                       key={course.title}
                       to={`/home/programs/`}
-                      className="group cursor-pointer rounded-2xl bg-base-300/60 p-4 transition-colors hover:bg-base-300 h-50"
+                      className="group cursor-pointer rounded-2xl ring ring-current/20  transition-colors hover:bg-base-300 "
                     >
-                      <div className="overflow-hidden h-50 rounded-xl ">
+                      <div className="overflow-hidden w-full aspect-square rounded-xl bg-base-300">
                         <img
                           src={course.courses[0].coverImage}
                           alt={course.title}
-                          className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="object-contain size-full transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
-                      <h3 className="py-8 text-center text-2xl font-bold ">
+                      <h3 className="py-8 text-center p-4 text-2xl font-bold ">
                         {course.title}
                       </h3>
                     </Link>
