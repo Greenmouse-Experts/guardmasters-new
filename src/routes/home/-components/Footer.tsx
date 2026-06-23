@@ -11,7 +11,7 @@ const exploreLinks: FooterLink[] = [
   { name: "Home", path: "/home" },
   { name: "About Us", path: "/home/about" },
   { name: "Training Programs", path: "/home/programs" },
-  { name: "News & Insights" },
+  { name: "Blog", path: "/home/blog" },
 ];
 const resourceLinks: FooterLink[] = [
   { name: "Accreditations", path: "/home/accreditations" },
