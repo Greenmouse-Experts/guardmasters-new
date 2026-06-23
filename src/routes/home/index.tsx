@@ -137,7 +137,7 @@ function RouteComponent() {
                   <Icon className="size-8 text-accent" strokeWidth={1.5} />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold ">{title}</h3>
-                <p className="text-sm leading-relaxed text-base-content/60">
+                <p className=" leading-relaxed text-base-content/60">
                   {description}
                 </p>
               </div>
