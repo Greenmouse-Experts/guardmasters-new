@@ -90,7 +90,7 @@ function RouteComponent() {
               education, relevant professional certifications, ISO standards
               training, forward-looking research, and strategic advisory.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col ">
               {[
                 "ASIS-International Preferred CPE Provider",
                 "IFPO-USA Approved Training Centre",
@@ -99,12 +99,12 @@ function RouteComponent() {
                 "ISO Standards Accredited Trainer",
                 "Converged Security Institute Partner",
               ].map((badge) => (
-                <span
-                  key={badge}
-                  className=" bg-secondary px-4 py-2 text-sm font-medium text-secondary-content"
-                >
-                  {badge}
-                </span>
+                <div>
+                  <span className="mr-2 text-accent text-bold">-</span>
+                  <span key={badge} className="mb-2">
+                    {badge}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
