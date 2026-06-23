@@ -111,13 +111,13 @@ function RouteComponent() {
         </div>
       </section>
 
-      <div className="bg-base-200 py-8">
+      <div className="py-8 bg-accent">
         <section
           data-theme=""
           className="py-8  mx-auto container bg-transparent"
         >
-          <div className="mb-12 ">
-            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent font-medium tracking-[0.18em] uppercase">
+          <div className="mb-12 text-accent-content">
+            <span className="mb-6 inline-block rounded-full border border-accent-content/20 px-4 py-1.5  font-medium tracking-[0.18em] uppercase">
               The Guardmaster Advantage
             </span>
             <h2 className="max-w-5xl text-4xl leading-tight font-light  md:text-5xl">
@@ -127,17 +127,17 @@ function RouteComponent() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 border-t border-l border-base-300 md:grid-cols-3">
+          <div className="grid grid-cols-1 border-t border-l border-secondary/50 md:grid-cols-3">
             {features.map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
-                className="border-r border-b border-base-300 bg-base-100 p-10"
+                className="border-r border-b border-secondary/50 bg-accent text-accent-content p-10"
               >
-                <div className="mb-8 inline-flex  items-center justify-center rounded border border-base-300 p-2.5">
-                  <Icon className="size-8 text-accent" strokeWidth={1.5} />
+                <div className="mb-8 inline-flex  items-center justify-center rounded border border-secondary/20 p-2.5">
+                  <Icon className="size-8 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold ">{title}</h3>
-                <p className=" leading-relaxed text-base-content/60">
+                <p className=" leading-relaxed text-accent-content/60">
                   {description}
                 </p>
               </div>
