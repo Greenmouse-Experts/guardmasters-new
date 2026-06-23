@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import {
   Award,
@@ -36,6 +36,19 @@ interface CertificateResponse {
   student?: { firstName: string; lastName: string };
 }
 
+interface CourseProgressResponse {
+  message?: string;
+  data: {
+    courseId: string;
+    totalContent: number;
+    completedContent: number;
+    totalAssessments: number;
+    completedAssessments: number;
+    progress: number;
+    isCompleted: boolean;
+  };
+}
+
 function RouteComponent() {
   const { id } = Route.useParams();
   const modalRef = useRef<ModalHandle>(null);
@@ -44,6 +57,18 @@ function RouteComponent() {
     { label: "Dashboard", icon: LayoutGrid, to: "/user", exact: true },
     { label: "Course", icon: BookOpen, to: "/user/courses/$id", exact: true },
   ];
+
+  const progressQuery = useQuery({
+    queryKey: ["course-progress", id],
+    queryFn: async () => {
+      const { data } = await apiClient.get<CourseProgressResponse>(
+        "/orders/course-progress/" + id,
+      );
+      return data;
+    },
+  });
+
+  const isCompleted = progressQuery.data?.data?.isCompleted ?? false;
 
   const generateCertificate = useMutation({
     mutationFn: async () => {
@@ -75,8 +100,17 @@ function RouteComponent() {
         <button
           type="button"
           onClick={() => generateCertificate.mutate()}
-          disabled={generateCertificate.isPending}
-          className="flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:opacity-60"
+          disabled={
+            generateCertificate.isPending ||
+            progressQuery.isLoading ||
+            !isCompleted
+          }
+          title={
+            !isCompleted
+              ? "Complete the course to unlock your certificate"
+              : undefined
+          }
+          className="flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {generateCertificate.isPending ? (
             <Loader2 className="h-4 w-4 animate-spin" />
