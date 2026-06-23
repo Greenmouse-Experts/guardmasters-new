@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import {
-  Check,
-  ClipboardList,
-  Clock,
-  Loader2,
-  Minus,
-  X,
-} from "lucide-react";
+import { Check, ClipboardList, Clock, Loader2, Minus, X } from "lucide-react";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
 import type {
@@ -242,7 +235,9 @@ function Quiz({
         ) : (
           <button
             type="button"
-            onClick={() => setIndex((i) => Math.min(questions.length - 1, i + 1))}
+            onClick={() =>
+              setIndex((i) => Math.min(questions.length - 1, i + 1))
+            }
             className="rounded-md bg-secondary px-6 py-2 text-sm font-medium text-secondary-content transition-colors hover:bg-secondary/90"
           >
             Next
@@ -342,7 +337,8 @@ function Results({
         </p>
         <div className="mt-2 flex items-center justify-center gap-4">
           <p className="text-2xl font-bold text-accent">
-            <span className="text-secondary">{result.score}</span>/{result.total}
+            <span className="text-secondary">{result.score}</span>/
+            {result.total}
           </p>
           <Minus className="h-4 w-4 text-base-content/40" />
           <p className="text-2xl font-bold text-accent">{result.percent}%</p>
@@ -355,7 +351,10 @@ function Results({
           const q = answer.assessmentQuestion;
           const correct = answer.choice === q.correctOption;
           return (
-            <li key={answer.id} className="rounded-lg border border-base-300 p-4">
+            <li
+              key={answer.id}
+              className="rounded-lg border border-base-300 p-4"
+            >
               <div className="flex items-start justify-between gap-3">
                 <p className="font-medium text-accent">
                   {index + 1}. {q.question}
