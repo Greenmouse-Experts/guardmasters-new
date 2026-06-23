@@ -189,8 +189,8 @@ function Quiz({
 
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           {question.options.map((option, i) => {
-            // Match the platform convention: choices are 1-based.
-            const value = i + 1;
+            // Choices are 0-based option indices.
+            const value = i;
             const active = selected === value;
             return (
               <button
