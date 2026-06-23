@@ -13,7 +13,7 @@ export const Route = createFileRoute("/home/blog/$id/")({
 function RouteComponent() {
   const { id } = Route.useParams();
 
-  const query = useQuery<ApiResponse<BlogPost>>({
+  const query = useQuery<BlogPost>({
     queryKey: ["blog", id],
     queryFn: async () => {
       let resp = await apiClient.get(`/blog/view-post/${id}`);
