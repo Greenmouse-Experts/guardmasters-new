@@ -1,6 +1,12 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { ClipboardList, FileText, Maximize, PlaySquare } from "lucide-react";
+import {
+  ClipboardList,
+  FileText,
+  Maximize,
+  Minimize,
+  PlaySquare,
+} from "lucide-react";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
 import { useCurrentLesson } from "#/store/playerStore.ts";
@@ -101,9 +107,22 @@ function Media({
 
 function DocumentMedia({ src }: { src: string }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
-  function goFullscreen() {
-    wrapperRef.current?.requestFullscreen?.();
+  // Keep state in sync with browser fullscreen changes (incl. Esc to exit).
+  useEffect(() => {
+    const onChange = () =>
+      setIsFullscreen(document.fullscreenElement === wrapperRef.current);
+    document.addEventListener("fullscreenchange", onChange);
+    return () => document.removeEventListener("fullscreenchange", onChange);
+  }, []);
+
+  function toggleFullscreen() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.();
+    } else {
+      wrapperRef.current?.requestFullscreen?.();
+    }
   }
 
   return (
@@ -111,11 +130,15 @@ function DocumentMedia({ src }: { src: string }) {
       <iframe src={src} title="Document" className="h-full w-full" />
       <button
         type="button"
-        onClick={goFullscreen}
-        aria-label="View fullscreen"
-        className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-md bg-black/60 text-white transition-colors hover:bg-black/80"
+        onClick={toggleFullscreen}
+        aria-label={isFullscreen ? "Exit fullscreen" : "View fullscreen"}
+        className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-md bg-black/60 text-white transition-colors hover:bg-black/80"
       >
-        <Maximize className="h-4 w-4" />
+        {isFullscreen ? (
+          <Minimize className="h-4 w-4" />
+        ) : (
+          <Maximize className="h-4 w-4" />
+        )}
       </button>
     </div>
   );
