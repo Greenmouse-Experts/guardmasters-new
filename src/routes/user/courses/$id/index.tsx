@@ -8,6 +8,7 @@ import { useCurrentLesson } from "#/store/playerStore.ts";
 import type { CourseLearnResponse, LessonSub } from "#/types/learn.ts";
 import CourseContentList from "#/routes/user/-components/CourseContentList.tsx";
 import CoursePlayer from "#/routes/user/-components/CoursePlayer.tsx";
+import LoadReviews from "../-components/Reviews";
 
 export const Route = createFileRoute("/user/courses/$id/")({
   component: RouteComponent,
@@ -136,9 +137,7 @@ function CourseTabs({ data }: { data: CourseLearnResponse }) {
             </div>
           </div>
         ) : (
-          <p className="py-6 text-center text-sm text-base-content/50">
-            No reviews yet.
-          </p>
+          <LoadReviews id={course.id as unknown as string} />
         )}
       </div>
     </div>
