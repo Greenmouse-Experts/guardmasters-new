@@ -1,36 +1,29 @@
+import apiClient from "#/client/api.ts";
+import QueryCompLayout from "#/components/layout/QueryCompLayout.tsx";
+import type { ApiResponseV2 } from "#/types/api.js";
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 
-const programs = [
-  {
-    number: "01",
-    category: "MINI-MBA",
-    hours: "60 HRS",
-    image: "/features/mba.png",
-    title: "Mini-MBA (Security Project Management)",
-    description:
-      "This program equips professionals to plan, execute, and oversee complex security projects with precision.",
-  },
-  {
-    number: "02",
-    category: "MASTERCLASS",
-    hours: "40 HRS",
-    image: "/features/cpo.png",
-    title: "Certified Protection Officer (CPO)",
-    description:
-      "The globally recognized IFPO certification — the gold standard for protection professionals.",
-  },
-  {
-    number: "03",
-    category: "MINI-MBA",
-    hours: "32 HRS",
-    image: "/features/mini-mba.png",
-    title: "Mini-MBA (Business Interruption and Emergency Management)",
-    description:
-      "Implement, audit, and lead BCM programs aligned with ISO international standards.",
-  },
-];
+interface FeaturedCourse {
+  id: string;
+  title: string;
+  shortDesc: string;
+  coverImage: string;
+  originalPriceFormat: string;
+  discountPriceFormat: string | null;
+  program?: { id: string; title: string };
+}
 
 export default function Featured() {
+  const query = useQuery<ApiResponseV2<FeaturedCourse[]>>({
+    queryKey: ["featured-programs"],
+    queryFn: async () => {
+      const resp = await apiClient.get("/courses/public/featured");
+      return resp.data;
+    },
+  });
+
   return (
     <section>
       {/* Featured programs */}
@@ -52,41 +45,67 @@ export default function Featured() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {programs.map((program) => (
-              <div
-                key={program.title}
-                className="group flex flex-col rounded-2xl border border-base-300 bg-base-100 p-4 transition-shadow hover:shadow-lg"
-              >
-                <div className="mb-4 flex items-center justify-between text-[11px] font-medium tracking-[0.15em] text-base-content/50 uppercase">
-                  <span>
-                    {program.number} / {program.category}
-                  </span>
-                  <span>{program.hours}</span>
+          <QueryCompLayout query={query}>
+            {(resp) => {
+              const programs = resp.data ?? [];
+
+              if (programs.length === 0) {
+                return (
+                  <p className="py-12 text-center text-base-content/50">
+                    No featured programs available right now.
+                  </p>
+                );
+              }
+
+              return (
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                  {programs.map((program, index) => (
+                    <div
+                      key={program.id}
+                      className="group flex flex-col rounded-2xl border border-base-300 bg-base-100 p-4 transition-shadow hover:shadow-lg"
+                    >
+                      <div className="mb-4 flex items-center justify-between text-[11px] font-medium tracking-[0.15em] text-base-content/50 uppercase">
+                        <span>
+                          {String(index + 1).padStart(2, "0")} /{" "}
+                          {program.program?.title ?? "Program"}
+                        </span>
+                        <span>
+                          {program.discountPriceFormat ??
+                            program.originalPriceFormat}
+                        </span>
+                      </div>
+
+                      <div className="mb-5 overflow-hidden rounded-xl bg-base-200">
+                        {program.coverImage && (
+                          <img
+                            src={program.coverImage}
+                            alt={program.title}
+                            className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        )}
+                      </div>
+
+                      <h3 className="mb-3 line-clamp-2 text-xl font-semibold text-accent">
+                        {program.title}
+                      </h3>
+                      <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-base-content/60">
+                        {program.shortDesc}
+                      </p>
+
+                      <Link
+                        to="/home/programs/$id"
+                        params={{ id: program.id }}
+                        className="btn btn-block mt-auto gap-2 rounded-md bg-secondary text-accent-content hover:bg-accent/90"
+                      >
+                        Enroll
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  ))}
                 </div>
-
-                <div className="mb-5 overflow-hidden rounded-xl">
-                  <img
-                    src={program.image}
-                    alt={program.title}
-                    className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-
-                <h3 className="mb-3 text-xl font-semibold text-accent">
-                  {program.title}
-                </h3>
-                <p className="mb-6 text-sm leading-relaxed text-base-content/60">
-                  {program.description}
-                </p>
-
-                <button className="btn btn-block mt-auto gap-2 rounded-md bg-secondary text-accent-content hover:bg-accent/90">
-                  Enroll
-                  <ArrowUpRight className="h-4 w-4" />
-                </button>
-              </div>
-            ))}
-          </div>
+              );
+            }}
+          </QueryCompLayout>
         </div>
       </div>
     </section>
