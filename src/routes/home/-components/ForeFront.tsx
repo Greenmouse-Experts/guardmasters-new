@@ -35,7 +35,7 @@ export default function ForeFront() {
               className="flex items-center gap-5 border-b border-white/10 py-4 first:border-t"
             >
               <span className="text-xs font-medium tracking-widest text-primary">
-                — {String(i + 1).padStart(2, "0")}
+                {String(i + 1).padStart(2, "0")}
               </span>
               <span className="text-white/85">{item}</span>
             </li>
