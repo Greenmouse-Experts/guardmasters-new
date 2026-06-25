@@ -53,8 +53,8 @@ export default function Featured() {
             <div className="flex items-end justify-between gap-6 md:flex-col md:items-end">
               <p className="max-w-sm text-sm leading-relaxed text-base-content/60">
                 Comprehensive Mini-MBA security programs, IFPO certifications,
-                and specialized courses — built around global best practices
-                and ISO standards.
+                and specialized courses — built around global best practices and
+                ISO standards.
               </p>
               <div className="flex shrink-0 gap-2">
                 <button
@@ -116,7 +116,7 @@ export default function Featured() {
                           <img
                             src={program.coverImage}
                             alt={program.title}
-                            className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="h-80 w-full object-contain transition-transform duration-500 group-hover:scale-105"
                           />
                         )}
                       </div>
