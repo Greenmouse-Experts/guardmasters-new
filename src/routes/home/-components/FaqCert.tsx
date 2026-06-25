@@ -1,33 +1,27 @@
+import { new_url } from "#/client/api.ts";
+import type { ApiResponseV2 } from "#/types/api.js";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { ChevronDown, ArrowUpRight } from "lucide-react";
 
-const faqs = [
-  {
-    q: "Do I need prior security experience to take a course?",
-    a: "Not necessarily. We offer programs from entry-level through advanced, so beginners and seasoned professionals alike can find the right starting point.",
-  },
-  {
-    q: "How long do the training programs take?",
-    a: "Most programs run between 32 and 60 hours of content, delivered flexibly so you can complete them around your work schedule.",
-  },
-  {
-    q: "Are your courses accredited or certified?",
-    a: "Yes. We are an ASIS International Preferred CPE Provider, an IFPO Approved Training Centre, and ACTD accredited, among others.",
-  },
-  {
-    q: "Can organizations enroll multiple employees?",
-    a: "Absolutely. We offer group and corporate enrollment with tailored cohorts and volume options — talk to our admissions team.",
-  },
-  {
-    q: "How are the courses delivered?",
-    a: "Through live webinars, real-case analysis, and integrative workshop sessions — immersive learning, never just slides.",
-  },
-  {
-    q: "Are there flexible payment options available?",
-    a: "Yes. Flexible installment plans are available for most programs. Reach out and we'll find an option that works for you.",
-  },
-];
+interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+  order: number;
+}
 
 export default function FaqCert() {
+  const query = useQuery<ApiResponseV2<FaqItem[]>>({
+    queryKey: ["faq-cert"],
+    queryFn: async () => {
+      let resp = await axios.get(new_url + "faqs/published");
+      return resp.data;
+    },
+  });
+
+  const faqs = [...(query.data?.data ?? [])].sort((a, b) => a.order - b.order);
+
   return (
     <section className="px-6 py-8 text-white md:px-16">
       <div className="container mx-auto">
@@ -49,24 +43,30 @@ export default function FaqCert() {
         </div>
 
         {/* FAQ grid */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {faqs.map(({ q, a }) => (
-            <details
-              key={q}
-              className="group rounded-lg bg-base-200 px-5 py-4 text-base-content [&_svg]:open:rotate-180"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                <span className="font-medium">{q}</span>
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-secondary/30 text-secondary">
-                  <ChevronDown className="h-4 w-4 transition-transform" />
-                </span>
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed text-base-content/60">
-                {a}
-              </p>
-            </details>
-          ))}
-        </div>
+        {faqs.length === 0 ? (
+          <p className="py-10 text-center text-black/60">
+            {query.isLoading ? "Loading FAQs..." : "No FAQs published yet."}
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {faqs.map((faq) => (
+              <details
+                key={faq.id}
+                className="group rounded-lg bg-base-200 px-5 py-4 text-base-content [&_svg]:open:rotate-180"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                  <span className="font-medium">{faq.question}</span>
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-secondary/30 text-secondary">
+                    <ChevronDown className="h-4 w-4 transition-transform" />
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-base-content/60">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        )}
 
         {/* CTA card */}
         <div className="mt-16 overflow-hidden rounded-2xl bg-accent px-8 py-12 md:px-12 md:py-14">
