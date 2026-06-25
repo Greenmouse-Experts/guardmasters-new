@@ -1,9 +1,10 @@
+import { useRef } from "react";
 import apiClient from "#/client/api.ts";
 import QueryCompLayout from "#/components/layout/QueryCompLayout.tsx";
 import type { ApiResponseV2 } from "#/types/api.js";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
 interface FeaturedCourse {
   id: string;
@@ -24,6 +25,16 @@ export default function Featured() {
     },
   });
 
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  function scrollByCard(direction: 1 | -1) {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.querySelector<HTMLElement>("[data-card]");
+    const amount = (card?.offsetWidth ?? track.clientWidth) + 24; // + gap-6
+    track.scrollBy({ left: direction * amount, behavior: "smooth" });
+  }
+
   return (
     <section>
       {/* Featured programs */}
@@ -38,11 +49,32 @@ export default function Featured() {
                 Start here. <em className="italic text-accent">Go places.</em>
               </h2>
             </div>
-            <p className="max-w-sm text-sm leading-relaxed text-base-content/60">
-              Comprehensive Mini-MBA security programs, IFPO certifications, and
-              specialized courses — built around global best practices and ISO
-              standards.
-            </p>
+
+            <div className="flex items-end justify-between gap-6 md:flex-col md:items-end">
+              <p className="max-w-sm text-sm leading-relaxed text-base-content/60">
+                Comprehensive Mini-MBA security programs, IFPO certifications,
+                and specialized courses — built around global best practices
+                and ISO standards.
+              </p>
+              <div className="flex shrink-0 gap-2">
+                <button
+                  type="button"
+                  onClick={() => scrollByCard(-1)}
+                  aria-label="Previous"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-base-300 text-base-content/60 transition-colors hover:border-accent hover:text-accent"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollByCard(1)}
+                  aria-label="Next"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-base-300 text-base-content/60 transition-colors hover:border-accent hover:text-accent"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
           </div>
 
           <QueryCompLayout query={query}>
@@ -58,11 +90,15 @@ export default function Featured() {
               }
 
               return (
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <div
+                  ref={trackRef}
+                  className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                >
                   {programs.map((program, index) => (
                     <div
                       key={program.id}
-                      className="group flex flex-col rounded-2xl border border-base-300 bg-base-100 p-4 transition-shadow hover:shadow-lg"
+                      data-card
+                      className="group flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border border-base-300 bg-base-100 p-4 transition-shadow hover:shadow-lg sm:w-[60%] md:w-[calc((100%-3rem)/3)]"
                     >
                       <div className="mb-4 flex items-center justify-between text-[11px] font-medium tracking-[0.15em] text-base-content/50 uppercase">
                         <span>
