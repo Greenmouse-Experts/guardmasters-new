@@ -34,7 +34,7 @@ export default function Courses() {
     },
   });
   return (
-    <section className="bg-base-200 px-6 py-8 md:px-16">
+    <section className="bg-primary px-6 py-8 md:px-16">
       <div className="container mx-auto">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -60,7 +60,7 @@ export default function Courses() {
                     <Link
                       key={course.title}
                       to={`/home/programs/`}
-                      className="group cursor-pointer rounded-2xl ring ring-current/20  transition-colors hover:bg-base-300 bg-accent "
+                      className="group cursor-pointer rounded-2xl ring ring-current/20  transition-colors hover:bg-accent/80 bg-accent "
                     >
                       <div className="overflow-hidden w-full aspect-square rounded-t-xl bg-base-300">
                         <img
