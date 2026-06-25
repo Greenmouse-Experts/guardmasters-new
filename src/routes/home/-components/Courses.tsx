@@ -62,7 +62,7 @@ export default function Courses() {
                       to={`/home/programs/`}
                       className="group cursor-pointer rounded-2xl ring ring-current/20  transition-colors hover:bg-accent/80 bg-accent "
                     >
-                      <div className="overflow-hidden w-full aspect-square rounded-t-xl bg-base-300">
+                      <div className="overflow-hidden w-full aspect-square rounded-t-xl bg-base-300/80">
                         <img
                           src={course.courses[0].coverImage}
                           alt={course.title}
