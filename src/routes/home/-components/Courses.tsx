@@ -60,16 +60,16 @@ export default function Courses() {
                     <Link
                       key={course.title}
                       to={`/home/programs/`}
-                      className="group cursor-pointer rounded-2xl ring ring-current/20  transition-colors hover:bg-base-300 "
+                      className="group cursor-pointer rounded-2xl ring ring-current/20  transition-colors hover:bg-base-300 bg-accent "
                     >
-                      <div className="overflow-hidden w-full aspect-square rounded-xl bg-base-300">
+                      <div className="overflow-hidden w-full aspect-square rounded-t-xl bg-base-300">
                         <img
                           src={course.courses[0].coverImage}
                           alt={course.title}
                           className="object-contain size-full transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
-                      <h3 className="py-8 text-center p-4 text-2xl font-bold ">
+                      <h3 className="py-8 text-center p-4 text-2xl font-bold text-accent-content">
                         {course.title}
                       </h3>
                     </Link>
