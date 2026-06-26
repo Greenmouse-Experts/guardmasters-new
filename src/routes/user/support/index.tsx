@@ -1,11 +1,28 @@
+import { useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Headphones, Mail, MessageCircle, Phone } from "lucide-react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { Headphones, Loader2, Mail, MessageCircle, Phone } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import apiClient, { new_url } from "#/client/api.ts";
+import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
+import { extract_message } from "#/helpers/apihelpers.tsx";
+import { useProfile } from "#/store/authStore.ts";
+import type { ApiResponseV2 } from "#/types/api.js";
+import axios from "axios";
 
 export const Route = createFileRoute("/user/support/")({
   component: RouteComponent,
 });
 
-const channels = [
+interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+  order: number;
+}
+
+const contactCards = [
   {
     icon: Mail,
     label: "Email us",
@@ -18,30 +35,23 @@ const channels = [
     value: "+1 905-452-2470",
     href: "tel:+19054522470",
   },
-  {
-    icon: MessageCircle,
-    label: "Live chat",
-    value: "Mon–Fri, 9am–5pm ET",
-    href: "#",
-  },
-];
-
-const faqs = [
-  {
-    q: "How do I access my purchased courses?",
-    a: "Head to My Courses from the sidebar. Every confirmed enrollment appears there with your current progress.",
-  },
-  {
-    q: "When do I receive my certificate?",
-    a: "Certificates are issued automatically once you complete all lessons and pass the required assessments for a course.",
-  },
-  {
-    q: "My payment went through but the course isn't showing.",
-    a: "Payments can take a moment to confirm. If a course is still missing after a few minutes, contact us with your reference number from Purchase History.",
-  },
 ];
 
 function RouteComponent() {
+  const modalRef = useRef<ModalHandle>(null);
+
+  const faqQuery = useQuery<ApiResponseV2<FaqItem[]>>({
+    queryKey: ["faq-cert"],
+    queryFn: async () => {
+      const resp = await axios.get(new_url + "faqs/published");
+      return resp.data;
+    },
+  });
+
+  const faqs = [...(faqQuery.data?.data ?? [])].sort(
+    (a, b) => a.order - b.order,
+  );
+
   return (
     <div className="mx-auto max-w-5xl space-y-8">
       <div className="flex items-center gap-4">
@@ -58,7 +68,7 @@ function RouteComponent() {
 
       {/* Contact channels */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {channels.map((channel) => (
+        {contactCards.map((channel) => (
           <a
             key={channel.label}
             href={channel.href}
@@ -73,29 +83,146 @@ function RouteComponent() {
             </div>
           </a>
         ))}
+
+        <button
+          type="button"
+          onClick={() => modalRef.current?.open()}
+          className="flex flex-col gap-3 rounded-lg border border-base-300 bg-base-100 p-6 text-left transition-colors hover:border-secondary"
+        >
+          <span className="flex h-11 w-11 items-center justify-center rounded-md bg-secondary/10 text-secondary">
+            <MessageCircle className="h-5 w-5" />
+          </span>
+          <div>
+            <p className="text-sm text-base-content/55">Send a message</p>
+            <p className="font-medium text-accent">We'll reply by email</p>
+          </div>
+        </button>
       </div>
+
+      <Modal ref={modalRef} title="Send a message">
+        <MessageForm onDone={() => modalRef.current?.close()} />
+      </Modal>
 
       {/* FAQ */}
       <div className="rounded-lg border border-base-300 bg-base-100 p-6">
         <h2 className="mb-4 text-lg font-semibold text-accent">
           Frequently asked questions
         </h2>
-        <div className="divide-y divide-base-300">
-          {faqs.map((faq) => (
-            <details key={faq.q} className="group py-4">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-accent">
-                {faq.q}
-                <span className="text-base-content/40 transition-transform group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed text-base-content/60">
-                {faq.a}
-              </p>
-            </details>
-          ))}
-        </div>
+        {faqs.length === 0 ? (
+          <p className="py-6 text-center text-sm text-base-content/50">
+            {faqQuery.isLoading ? "Loading FAQs..." : "No FAQs available yet."}
+          </p>
+        ) : (
+          <div className="divide-y divide-base-300">
+            {faqs.map((faq) => (
+              <details key={faq.id} className="group py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-accent">
+                  {faq.question}
+                  <span className="text-base-content/40 transition-transform group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-base-content/60">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        )}
       </div>
     </div>
+  );
+}
+
+interface MessageFields {
+  name: string;
+  email: string;
+  message: string;
+}
+
+function MessageForm({ onDone }: { onDone: () => void }) {
+  const [profile] = useProfile();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<MessageFields>({
+    defaultValues: {
+      name: [profile?.firstName, profile?.lastName].filter(Boolean).join(" "),
+      email: profile?.email ?? "",
+      message: "",
+    },
+  });
+
+  const mutation = useMutation({
+    mutationFn: async (values: MessageFields) => {
+      const { data } = await apiClient.post("contact-me", values);
+      return data;
+    },
+    onSuccess: (data) => {
+      toast.success(data?.message ?? "Message sent. We'll be in touch soon.");
+      reset();
+      onDone();
+    },
+    onError: (err) => toast.error(extract_message(err)),
+  });
+
+  return (
+    <form
+      className="space-y-4"
+      onSubmit={handleSubmit((values) => mutation.mutate(values))}
+    >
+      <div>
+        <label className="mb-1.5 block text-sm font-medium text-accent">
+          Name
+        </label>
+        <input
+          {...register("name", { required: "Name is required" })}
+          className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5 text-sm text-base-content focus:border-secondary focus:outline-none"
+        />
+        {errors.name && (
+          <p className="mt-1 text-xs text-error">{errors.name.message}</p>
+        )}
+      </div>
+
+      <div>
+        <label className="mb-1.5 block text-sm font-medium text-accent">
+          Email
+        </label>
+        <input
+          type="email"
+          {...register("email", { required: "Email is required" })}
+          className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5 text-sm text-base-content focus:border-secondary focus:outline-none"
+        />
+        {errors.email && (
+          <p className="mt-1 text-xs text-error">{errors.email.message}</p>
+        )}
+      </div>
+
+      <div>
+        <label className="mb-1.5 block text-sm font-medium text-accent">
+          Message
+        </label>
+        <textarea
+          rows={5}
+          {...register("message", { required: "Message is required" })}
+          placeholder="How can we help?"
+          className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5 text-sm text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
+        />
+        {errors.message && (
+          <p className="mt-1 text-xs text-error">{errors.message.message}</p>
+        )}
+      </div>
+
+      <button
+        type="submit"
+        disabled={mutation.isPending}
+        className="btn btn-block h-auto gap-2 rounded-md border-none bg-secondary py-3 font-medium text-secondary-content hover:bg-secondary/90 disabled:opacity-60"
+      >
+        {mutation.isPending && <Loader2 className="h-4 w-4 animate-spin" />}
+        {mutation.isPending ? "Sending…" : "Send message"}
+      </button>
+    </form>
   );
 }
