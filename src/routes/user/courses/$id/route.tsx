@@ -72,13 +72,33 @@ function RouteComponent() {
 
   const generateCertificate = useMutation({
     mutationFn: async () => {
-      const { data } = await apiClient.get<CertificateResponse>(
-        "certificates/course/" + id,
-      );
-      return data;
+      // Try the existing certificate first; generate one if none exists yet.
+      let cert: CertificateResponse | undefined;
+      try {
+        const { data } = await apiClient.get<CertificateResponse>(
+          "certificates/course/" + id,
+        );
+        cert = data ?? undefined;
+      } catch {
+        cert = undefined;
+      }
+
+      if (!cert?.certificateUrl) {
+        const { data } = await apiClient.post<CertificateResponse>(
+          "certificates/generate",
+          { courseId: id },
+        );
+        cert = data;
+      }
+
+      return cert;
     },
     onSuccess: (data) => {
-      toast.success(data?.message ?? "Certificate generated successfully.");
+      if (!data?.certificateUrl) {
+        toast.error("Could not retrieve your certificate.");
+        return;
+      }
+      toast.success(data?.message ?? "Certificate ready.");
       modalRef.current?.open();
     },
     onError: (err) => {
