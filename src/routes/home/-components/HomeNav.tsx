@@ -151,7 +151,7 @@ export default function HomeNav() {
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
-                  className="text-lg font-medium text-neutral/60 transition-colors hover:bg-transparent hover:text-neutral"
+                  className="text-lg font-medium text-white/60 transition-colors hover:bg-transparent hover:text-neutral"
                   to={link.path}
                 >
                   {link.name}
@@ -162,7 +162,7 @@ export default function HomeNav() {
         </div>
 
         <div className="navbar-end gap-4">
-          <label className="hidden h-11 w-64 items-center gap-2 rounded-full bg-white/10 px-5 text-neutral/50 ring backdrop-blur-sm md:flex">
+          <label className="hidden h-11 w-64 items-center gap-2 rounded-full bg-white/10 px-5 text-white/50 ring backdrop-blur-sm md:flex">
             <Search className="h-4 w-4 shrink-0" />
             <input
               type="text"
