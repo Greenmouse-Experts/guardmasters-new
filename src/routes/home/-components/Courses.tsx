@@ -67,7 +67,7 @@ export default function Courses() {
                     >
                       <div className="overflow-hidden w-full aspect-square rounded-t-xl bg-base-300/80">
                         <img
-                          src={course.courses[0].coverImage}
+                          src={course.coverImage}
                           alt={course.title}
                           className="object-contain size-full transition-transform duration-500 group-hover:scale-105"
                         />
