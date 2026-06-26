@@ -1,10 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { ArrowUpRight, Loader2, Mail, MapPin, Phone } from "lucide-react";
+import { useForm, type UseFormRegister } from "react-hook-form";
+import { toast } from "sonner";
+import apiClient from "#/client/api.ts";
+import { extract_message } from "#/helpers/apihelpers.tsx";
 import ImagelessHeader from "../-components/headers/ImagelessHeader";
 
 export const Route = createFileRoute("/home/contact/")({
   component: RouteComponent,
 });
+
+interface ContactFields {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  interestedIn: string;
+  message: string;
+}
 
 const details = [
   {
@@ -25,6 +39,27 @@ const details = [
 ];
 
 function RouteComponent() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFields>({
+    defaultValues: { interestedIn: "Mini-MBA Corporate Security" },
+  });
+
+  const mutation = useMutation({
+    mutationFn: async (values: ContactFields) => {
+      const { data } = await apiClient.post("contact-me", values);
+      return data;
+    },
+    onSuccess: (data) => {
+      toast.success(data?.message ?? "Message sent. We'll be in touch soon.");
+      reset();
+    },
+    onError: (err) => toast.error(extract_message(err)),
+  });
+
   return (
     <>
       <ImagelessHeader
@@ -68,40 +103,86 @@ function RouteComponent() {
           {/* Form */}
           <form
             className="border border-base-300 p-6 md:p-10"
-            onSubmit={(event) => event.preventDefault()}
+            onSubmit={handleSubmit((values) => mutation.mutate(values))}
           >
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <Field label="First name" name="firstName" />
-              <Field label="Last name" name="lastName" />
-              <Field label="Email" name="email" type="email" />
-              <Field label="Phone" name="phone" type="tel" />
+              <Field
+                label="First name"
+                name="firstName"
+                register={register}
+                rules={{ required: "First name is required" }}
+                error={errors.firstName?.message}
+              />
+              <Field
+                label="Last name"
+                name="lastName"
+                register={register}
+                rules={{ required: "Last name is required" }}
+                error={errors.lastName?.message}
+              />
+              <Field
+                label="Email"
+                name="email"
+                type="email"
+                register={register}
+                rules={{ required: "Email is required" }}
+                error={errors.email?.message}
+              />
+              <Field
+                label="Phone"
+                name="phone"
+                type="tel"
+                register={register}
+                rules={{ required: "Phone is required" }}
+                error={errors.phone?.message}
+              />
             </div>
 
             <div className="mt-6">
               <Field
                 label="Interested in"
-                name="interest"
-                defaultValue="Mini-MBA Corporate Security"
+                name="interestedIn"
+                register={register}
+                error={errors.interestedIn?.message}
               />
             </div>
 
             <div className="mt-6">
-              <label className="mb-2 block text-xs font-medium tracking-[0.18em] text-base-content/50 uppercase">
+              <label
+                htmlFor="message"
+                className="mb-2 block text-xs font-medium tracking-[0.18em] text-base-content/50 uppercase"
+              >
                 Message
               </label>
               <textarea
-                name="message"
+                id="message"
                 rows={6}
+                {...register("message", { required: "Message is required" })}
                 className="w-full border border-base-300 bg-base-200/40 px-4 py-3 text-base-content focus:border-secondary focus:outline-none"
               />
+              {errors.message && (
+                <p className="mt-1 text-xs text-error">
+                  {errors.message.message}
+                </p>
+              )}
             </div>
 
             <button
               type="submit"
-              className="btn btn-block mt-8 h-auto gap-2 rounded-none border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90"
+              disabled={mutation.isPending}
+              className="btn btn-block mt-8 h-auto gap-2 rounded-none border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90 disabled:opacity-60"
             >
-              Send message
-              <ArrowUpRight className="h-4 w-4" />
+              {mutation.isPending ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Sending…
+                </>
+              ) : (
+                <>
+                  Send message
+                  <ArrowUpRight className="h-4 w-4" />
+                </>
+              )}
             </button>
           </form>
         </div>
@@ -112,12 +193,14 @@ function RouteComponent() {
 
 interface FieldProps {
   label: string;
-  name: string;
+  name: keyof ContactFields;
   type?: string;
-  defaultValue?: string;
+  register: UseFormRegister<ContactFields>;
+  rules?: Parameters<UseFormRegister<ContactFields>>[1];
+  error?: string;
 }
 
-function Field({ label, name, type = "text", defaultValue }: FieldProps) {
+function Field({ label, name, type = "text", register, rules, error }: FieldProps) {
   return (
     <div>
       <label
@@ -128,11 +211,11 @@ function Field({ label, name, type = "text", defaultValue }: FieldProps) {
       </label>
       <input
         id={name}
-        name={name}
         type={type}
-        defaultValue={defaultValue}
+        {...register(name, rules)}
         className="w-full border border-base-300 bg-base-200/40 px-4 py-3 text-base-content focus:border-secondary focus:outline-none"
       />
+      {error && <p className="mt-1 text-xs text-error">{error}</p>}
     </div>
   );
 }

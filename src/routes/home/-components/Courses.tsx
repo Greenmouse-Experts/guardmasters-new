@@ -45,10 +45,13 @@ export default function Courses() {
               Browse Courses by Category
             </h2>
           </div>
-          <button className="btn btn-outline border-secondary text-secondary hover:bg-secondary hover:text-secondary-content self-start rounded-full px-6 md:self-auto">
+          <Link
+            to="/home/programs/"
+            className="btn btn-outline border-secondary text-secondary hover:bg-secondary hover:text-secondary-content self-start rounded-full px-6 md:self-auto"
+          >
             View All Programs
             <ArrowUpRight className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
 
         <QueryCompLayout query={query}>
