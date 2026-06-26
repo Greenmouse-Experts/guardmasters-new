@@ -76,58 +76,60 @@ export default function HomeNav() {
       }
     >
       {/* Top contact strip */}
-      <div className="hidden bg-primary text-neutral md:block">
-        <div className="container mx-auto flex items-center justify-between px-4 py-2 text-sm md:px-10">
-          <div className="flex items-center divide-x divide-neutral/20">
-            <a
-              href="tel:+19054522470"
-              className="flex items-center gap-2 pr-4 font-medium hover:opacity-70"
-            >
-              <Phone className="h-4 w-4" />
-              +1 905-452-2470
-            </a>
-            <a
-              href="mailto:info@guardmasterinstitute.ca"
-              className="flex items-center gap-2 pl-4 font-medium hover:opacity-70"
-            >
-              <Mail className="h-4 w-4" />
-              info@guardmasterinstitute.ca
-            </a>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Link
-              to={isLoggedIn ? dashboardPath : "/home/auth/login"}
-              className="font-medium hover:opacity-70"
-            >
-              {isLoggedIn ? "Dashboard" : "Student Login"}
-            </Link>
-            <span className="text-neutral/30">|</span>
-            <Link to="/home/contact" className="font-medium hover:opacity-70">
-              Contact Us
-            </Link>
-
-            <div className="ml-1 flex items-center gap-1.5">
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="flex h-6 w-6 items-center justify-center text-neutral transition-opacity hover:opacity-70"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="h-3 w-3"
-                    aria-hidden="true"
-                  >
-                    <path d={social.path} />
-                  </svg>
-                </a>
-              ))}
+      <div className="bg-white">
+        <div className="hidden bg-primary/60 text-neutral md:block">
+          <div className="container mx-auto flex items-center justify-between px-4 py-2 text-sm md:px-10">
+            <div className="flex items-center divide-x divide-neutral/20">
+              <a
+                href="tel:+19054522470"
+                className="flex items-center gap-2 pr-4 font-medium hover:opacity-70"
+              >
+                <Phone className="h-4 w-4" />
+                +1 905-452-2470
+              </a>
+              <a
+                href="mailto:info@guardmasterinstitute.ca"
+                className="flex items-center gap-2 pl-4 font-medium hover:opacity-70"
+              >
+                <Mail className="h-4 w-4" />
+                info@guardmasterinstitute.ca
+              </a>
             </div>
 
-            <CartButton className="ml-1 text-neutral hover:opacity-70" />
+            <div className="flex items-center gap-4">
+              <Link
+                to={isLoggedIn ? dashboardPath : "/home/auth/login"}
+                className="font-medium hover:opacity-70"
+              >
+                {isLoggedIn ? "Dashboard" : "Student Login"}
+              </Link>
+              <span className="text-neutral">|</span>
+              <Link to="/home/contact" className="font-medium hover:opacity-70">
+                Contact Us
+              </Link>
+
+              <div className="ml-1 flex items-center gap-1.5">
+                {socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="flex h-6 w-6 items-center justify-center text-neutral transition-opacity hover:opacity-70"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-3 w-3"
+                      aria-hidden="true"
+                    >
+                      <path d={social.path} />
+                    </svg>
+                  </a>
+                ))}
+              </div>
+
+              <CartButton className="ml-1 text-neutral hover:opacity-70" />
+            </div>
           </div>
         </div>
       </div>
@@ -149,7 +151,7 @@ export default function HomeNav() {
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
-                  className="text-lg font-medium text-white/60 transition-colors hover:bg-transparent hover:text-white"
+                  className="text-lg font-medium text-neutral/60 transition-colors hover:bg-transparent hover:text-neutral"
                   to={link.path}
                 >
                   {link.name}
@@ -160,16 +162,16 @@ export default function HomeNav() {
         </div>
 
         <div className="navbar-end gap-4">
-          <label className="hidden h-11 w-64 items-center gap-2 rounded-full bg-white/10 px-5 text-white/50 ring backdrop-blur-sm md:flex">
+          <label className="hidden h-11 w-64 items-center gap-2 rounded-full bg-white/10 px-5 text-neutral/50 ring backdrop-blur-sm md:flex">
             <Search className="h-4 w-4 shrink-0" />
             <input
               type="text"
               placeholder="Search..."
-              className="w-full bg-transparent text-sm text-white placeholder:text-white/40 focus:outline-none"
+              className="w-full bg-transparent text-sm text-neutral placeholder:text-neutral/40 focus:outline-none"
             />
           </label>
 
-          <CartButton className="text-white/80 hover:text-white md:hidden" />
+          <CartButton className="text-neutral/80 hover:text-neutral md:hidden" />
 
           <Link
             to={isLoggedIn ? dashboardPath : "/home/auth/signup"}
@@ -181,7 +183,7 @@ export default function HomeNav() {
           <label
             htmlFor="home-drawer"
             aria-label="open sidebar"
-            className="btn btn-ghost text-white/70 lg:hidden"
+            className="btn btn-ghost text-neutral/70 lg:hidden"
           >
             <Menu className="h-5 w-5" />
           </label>
