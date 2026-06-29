@@ -121,10 +121,10 @@ function RouteComponent() {
 
           {/* Right: credentials grid */}
           <div>
-            <h3 className="text-xl font-semibold text-base-content">
+            <h3 className="text-2xl font-semibold text-base-content">
               Recognized Training Credentials
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-base-content/55">
+            <p className="mt-2  leading-relaxed text-base-content/55">
               A structured view of accreditation, provider status, and global
               training recognition.
             </p>
