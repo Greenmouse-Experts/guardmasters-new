@@ -77,7 +77,7 @@ export default function HomeNav() {
     >
       {/* Top contact strip */}
       <div className="bg-white">
-        <div className="hidden bg-primary/60 text-neutral md:block">
+        <div className="hidden bg-accent text-white md:block">
           <div className="container mx-auto flex items-center justify-between px-4 py-2 text-sm md:px-10">
             <div className="flex items-center divide-x divide-neutral/20">
               <a
@@ -114,7 +114,7 @@ export default function HomeNav() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="flex h-6 w-6 items-center justify-center text-neutral transition-opacity hover:opacity-70"
+                    className="flex h-6 w-6 items-center justify-center text-white transition-opacity hover:opacity-70"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -128,7 +128,7 @@ export default function HomeNav() {
                 ))}
               </div>
 
-              <CartButton className="ml-1 text-neutral hover:opacity-70" />
+              <CartButton className="ml-1 text-white hover:opacity-70" />
             </div>
           </div>
         </div>
