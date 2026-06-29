@@ -108,7 +108,7 @@ function RouteComponent() {
             </span>
             <h2 className="text-4xl leading-tight font-light text-base-content md:text-5xl">
               Certifications that build confidence,
-              <br />
+              {/*<br />*/}
               credibility, and{" "}
               <em className="italic font-light text-accent">career growth.</em>
             </h2>
