@@ -33,38 +33,35 @@ const accreditations = [
 
 export default function Accredition() {
   return (
-    <section className="bg-base-100 px-6 py-8 md:px-16">
-      <div className="container mx-auto">
-        <div className="mb-14 text-center">
-          <span className="mb-8 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-secondary uppercase">
-            Trusted Globally
-          </span>
-          <h2 className="text-4xl leading-tight font-light text-base-content md:text-5xl">
-            Accredited by the bodies that
-            <br />
-            <em className="italic text-accent">matter most.</em>
-          </h2>
-        </div>
+    <section className="relative overflow-hidden bg-[linear-gradient(110deg,#211b3d_0%,#2e2645_22%,#4a3b4a_50%,#7a5a3f_75%,#a9762f_100%)] py-32">
+      <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_42%,rgba(255,255,255,0.06)_50%,transparent_58%)]" />
 
-        <div className="grid grid-cols-1 border-t border-l border-base-300 sm:grid-cols-2 lg:grid-cols-3">
-          {accreditations.map((item) => (
+      <div className="relative mb-14 px-6 text-center md:px-16">
+        <h2 className="text-3xl font-semibold text-white md:text-4xl">
+          Affiliation &amp; Partnership
+        </h2>
+      </div>
+
+      <div className="relative flex overflow-hidden">
+        <div className="flex w-max animate-marquee gap-6 pr-6 py">
+          {[...accreditations, ...accreditations].map((item, i) => (
             <div
-              key={item.name}
-              className="flex flex-col items-center border-r border-b border-base-300 px-6 py-12 text-center transition-colors hover:bg-base-200"
+              key={`${item.name}-${i}`}
+              className="flex w-80 shrink-0 items-center gap-4 rounded-2xl bg-white px-6 py-5 shadow-lg"
             >
-              <div className="mb-8 flex h-36 items-center justify-center">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="max-h-full w-auto object-contain"
-                />
+              <img
+                src={item.image}
+                alt={item.name}
+                className="h-12 w-12 shrink-0 rounded-full object-contain"
+              />
+              <div className="text-left">
+                <h3 className="text-base font-semibold text-base-content">
+                  {item.name}
+                </h3>
+                <p className="mt-1 text-[10px] font-medium tracking-[0.15em] text-base-content/80 uppercase">
+                  {item.role}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-base-content">
-                {item.name}
-              </h3>
-              <p className="mt-2 text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase">
-                {item.role}
-              </p>
             </div>
           ))}
         </div>
