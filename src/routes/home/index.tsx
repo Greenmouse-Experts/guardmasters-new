@@ -21,6 +21,39 @@ export const Route = createFileRoute("/home/")({
   component: RouteComponent,
 });
 
+const accreditations = [
+  {
+    image: "/accredition/asis.png",
+    name: "ASIS International",
+    role: "Preferred CPE Provider",
+  },
+  {
+    image: "/accredition/ifpo.png",
+    name: "IFPO — USA",
+    role: "Approved Training Centre",
+  },
+  {
+    image: "/accredition/chlps.png",
+    name: "ChLPS Canada",
+    role: "Accredited Provider",
+  },
+  {
+    image: "/accredition/iso.png",
+    name: "ISO Standards",
+    role: "Accredited Trainer",
+  },
+  {
+    image: "/accredition/csi.png",
+    name: "CSI Spain",
+    role: "Approved Training Centre",
+  },
+  {
+    image: "/accredition/actd.png",
+    name: "ACTD — USA",
+    role: "Accredited Institution",
+  },
+];
+
 const features = [
   {
     icon: Award,
@@ -66,44 +99,58 @@ function RouteComponent() {
       <HomeNav />
       <Hero />
 
-      <section className="container mx-auto py-8">
-        <div className="container mx-auto flex flex-col gap-12 md:flex-row md:items-start md:gap-20">
-          <div className="md:w-1/2">
-            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-medium tracking-[0.18em] text-accent uppercase">
-              Our Mission
+      <section className="bg-base-200 px-6 py-16 md:px-16">
+        <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+          {/* Left: copy */}
+          <div>
+            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold tracking-[0.18em] text-accent uppercase bg-secondary/10">
+              Certifications
             </span>
-            <h2 className="text-4xl leading-tight font-light  md:text-5xl">
-              The certifications
+            <h2 className="text-4xl leading-tight font-light text-base-content md:text-5xl">
+              Certifications that build confidence,
               <br />
-              you need for the
-              <br />
-              <em className="italic font-light text-accent">
-                career you want.
-              </em>
+              credibility, and{" "}
+              <em className="italic font-light text-accent">career growth.</em>
             </h2>
+            <p className="mt-8 max-w-md text-base leading-relaxed text-base-content/70">
+              We equip corporate security and allied professionals with
+              industry-relevant education, recognized certifications,
+              ISO-standard training, and strategic advisory support.
+            </p>
           </div>
 
-          <div className="md:w-1/2">
-            <p className="mb-8 text-base leading-relaxed text-base-content/70">
-              We equip corporate security and allied professionals with the
-              knowledge, skills, and support they need through cutting-edge
-              education, relevant professional certifications, ISO standards
-              training, forward-looking research, and strategic advisory.
+          {/* Right: credentials grid */}
+          <div>
+            <h3 className="text-xl font-semibold text-base-content">
+              Recognized Training Credentials
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-base-content/55">
+              A structured view of accreditation, provider status, and global
+              training recognition.
             </p>
-            <ul className="list-disc list-outside ml-4 flex flex-col gap-2">
-              {[
-                "ASIS-International Preferred CPE Provider",
-                "IFPO-USA Approved Training Centre",
-                "ChLPS-Canada Accredited Provider",
-                "ACTD-USA Accredited Institution",
-                "ISO Standards Accredited Trainer",
-                "Converged Security Institute Partner",
-              ].map((badge) => (
-                <li key={badge} className="text-base-content/80">
-                  {badge}
-                </li>
+
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {accreditations.map((item) => (
+                <div
+                  key={item.name}
+                  className="flex items-center gap-4 rounded-2xl bg-base-100 p-4 shadow-sm"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="h-12 w-12 shrink-0 object-contain"
+                  />
+                  <div className="min-w-0">
+                    <p className="font-semibold text-base-content">
+                      {item.name}
+                    </p>
+                    <p className="text-xs font-medium tracking-[0.1em] text-base-content/45 uppercase">
+                      {item.role}
+                    </p>
+                  </div>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -114,7 +161,7 @@ function RouteComponent() {
           className="py-8  mx-auto container bg-transparent"
         >
           <div className="mb-12 text-accent-content">
-            <span className="mb-6 inline-block rounded-full border border-accent-content/20 px-4 py-1.5  font-medium tracking-[0.18em] uppercase">
+            <span className="mb-6 inline-block rounded-full border border-accent-content/20 px-4 py-1.5   tracking-[0.18em] uppercase bg-white text-accent font-bold">
               The Guardmaster Advantage
             </span>
             <h2 className="max-w-5xl text-4xl leading-tight font-light  md:text-5xl">

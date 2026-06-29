@@ -42,7 +42,7 @@ export default function Featured() {
         <div className="container mx-auto">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
-              <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent font-medium tracking-[0.18em]  uppercase">
+              <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent bg-secondary/20 font-bold tracking-[0.18em]  uppercase">
                 Featured Programs
               </span>
               <h2 className="text-4xl leading-tight font-light text-accent md:text-5xl">
@@ -98,9 +98,9 @@ export default function Featured() {
                     <div
                       key={program.id}
                       data-card
-                      className="group flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border border-base-300 bg-base-100 p-4 transition-shadow hover:shadow-lg sm:w-[60%] md:w-[calc((100%-3rem)/3)]"
+                      className="group flex w-[85%] shrink-0 snap-start flex-col rounded-2xl bg-accent p-5 text-accent-content transition-shadow hover:shadow-lg sm:w-[60%] md:w-[calc((100%-3rem)/3)]"
                     >
-                      <div className="mb-4 flex items-center justify-between text-[11px] font-medium tracking-[0.15em] text-base-content/50 uppercase">
+                      <div className="mb-5 flex items-center justify-between text-[11px] font-medium tracking-[0.15em] text-accent-content/50 uppercase">
                         <span>
                           {String(index + 1).padStart(2, "0")} /{" "}
                           {program.program?.title ?? "Program"}
@@ -111,27 +111,27 @@ export default function Featured() {
                         </span>
                       </div>
 
-                      <div className="mb-5 overflow-hidden rounded-xl bg-base-200">
+                      <div className="mb-6 overflow-hidden rounded-xl bg-accent-content/10">
                         {program.coverImage && (
                           <img
                             src={program.coverImage}
                             alt={program.title}
-                            className="h-80 w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                            className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                         )}
                       </div>
 
-                      <h3 className="mb-3 line-clamp-2 text-xl font-semibold text-accent">
+                      <h3 className="mb-4 line-clamp-3 text-2xl leading-tight font-light text-accent-content">
                         {program.title}
                       </h3>
-                      <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-base-content/60">
+                      <p className="mb-8 line-clamp-2 text-sm leading-relaxed text-accent-content/60">
                         {program.shortDesc}
                       </p>
 
                       <Link
                         to="/home/programs/$id"
                         params={{ id: program.id }}
-                        className="btn btn-block mt-auto gap-2 rounded-md bg-secondary text-accent-content hover:bg-accent/90"
+                        className="btn btn-block mt-auto h-auto gap-2 rounded-md border-none bg-primary py-3.5 font-medium text-primary-content hover:bg-primary/90"
                       >
                         Enroll
                         <ArrowUpRight className="h-4 w-4" />

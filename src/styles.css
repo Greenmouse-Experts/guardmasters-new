@@ -38,6 +38,9 @@
   --font-sans: "Poppins", sans-serif;
 }
 
+@utility fade {
+  @apply ring-current/50 border-current/50;
+}
 @utility container {
   @apply px-4;
 }

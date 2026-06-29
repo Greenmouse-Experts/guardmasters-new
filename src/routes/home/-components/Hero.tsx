@@ -40,11 +40,11 @@ export default function Hero() {
             <em className="text-primary italic">corporate security.</em>
           </h1>
 
-          <p className="mb-10 max-w-xl text-lg leading-relaxed text-white/70">
+          {/*<p className="mb-10 max-w-xl text-lg leading-relaxed text-white/70">
             Globally accredited Mini-MBA, Masterclass, and certification
             programs in Corporate Security, Loss Prevention, Asset Protection,
             ISO Standards, and Business Continuity Management.
-          </p>
+          </p>*/}
 
           <div className="flex flex-wrap items-center gap-4">
             <Link
