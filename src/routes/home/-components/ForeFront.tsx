@@ -13,7 +13,7 @@ export default function ForeFront() {
     <section className="grid grid-cols-1 bg-black text-white lg:grid-cols-2">
       {/* Left content */}
       <div className="order-2 flex flex-col justify-center px-6 py-16 md:px-16 md:py-24 lg:order-1">
-        <span className="mb-8 self-start rounded-full border border-white/25 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-white/70 uppercase">
+        <span className="mb-8 self-start rounded-full border border-white/25 px-4 py-1.5   tracking-[0.18em] text-accent font-bold uppercase bg-white">
           Level Up
         </span>
 
