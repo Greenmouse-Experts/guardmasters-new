@@ -133,7 +133,7 @@ function RouteComponent() {
               {accreditations.map((item) => (
                 <div
                   key={item.name}
-                  className="flex items-center gap-4 rounded-2xl bg-base-100 p-4 shadow-sm"
+                  className="flex items-center gap-4 rounded-2xl bg-base-10 p-4 shadow-sm"
                 >
                   <img
                     src={item.image}
@@ -177,8 +177,8 @@ function RouteComponent() {
                 key={title}
                 className="border-r border-b border-secondary/50 bg-accent text-accent-content p-10"
               >
-                <div className="mb-8 inline-flex  items-center justify-center rounded border border-secondary/20 p-2.5">
-                  <Icon className="size-8 text-primary" strokeWidth={1.5} />
+                <div className="mb-8 inline-flex  items-center justify-center rounded border border-secondary/20 bg-primary p-2.5">
+                  <Icon className="size-8 text-accent" strokeWidth={1.5} />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold ">{title}</h3>
                 <p className=" leading-relaxed text-accent-content/60">
