@@ -5,7 +5,8 @@ import { toast } from "sonner";
 // export type ApiResponse<T = any> = BaseApiResponse<T>;
 
 // export const new_url = "https://safeethix-crm-backend.onrender.com";
-export const new_url = "https://guardmaster-institute-backend.onrender.com/v1/";
+export const new_url =
+  "https://guardmaster-institute-backend-mrty.onrender.com/v1/";
 const apiClient = axios.create({
   baseURL: new_url,
   headers: {
