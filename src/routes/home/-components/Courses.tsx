@@ -65,8 +65,9 @@ export default function Courses() {
                       to={`/home/programs/`}
                       className="group cursor-pointer rounded-2xl ring ring-current/20  transition-colors hover:bg-accent/80 bg-accent "
                     >
-                      <div className="overflow-hidden w-full aspect-square rounded-t-xl bg-base-300/80">
+                      <div className="overflow-hidden w-full  rounded-t-xl bg-base-300/80">
                         <img
+                          //@ts-ignore
                           src={course.coverImage}
                           alt={course.title}
                           className="object-contain size-full transition-transform duration-500 group-hover:scale-105"
