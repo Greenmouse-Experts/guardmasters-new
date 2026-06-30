@@ -10,58 +10,60 @@ const advantages = [
 
 export default function ForeFront() {
   return (
-    <section className="grid grid-cols-1 bg-black text-white lg:grid-cols-2">
-      {/* Left content */}
-      <div className="order-2 flex flex-col justify-center px-6 py-16 md:px-16 md:py-24 lg:order-1">
-        <span className="mb-8 self-start rounded-full border border-white/25 px-4 py-1.5   tracking-[0.18em] text-accent font-bold uppercase bg-white">
-          Level Up
-        </span>
+    <div className="bg-black">
+      <section className="grid grid-cols-1 bg-black text-white lg:grid-cols-2  mx-auto container">
+        {/* Left content */}
+        <div className="order-2 flex flex-col justify-center px-6 py-16 md:px-16 md:py-24 lg:order-1 ">
+          <span className="mb-8 self-start rounded-full border border-white/25 px-4 py-1.5   tracking-[0.18em] text-accent font-bold uppercase bg-white">
+            Level Up
+          </span>
 
-        <h2 className="mb-7 text-4xl leading-[1.1] font-light md:text-5xl lg:text-6xl">
-          At the forefront of corporate security{" "}
-          <em className="italic text-primary">since day one.</em>
-        </h2>
+          <h2 className="mb-7 text-4xl leading-[1.1] font-light md:text-5xl lg:text-6xl">
+            At the forefront of corporate security{" "}
+            <em className="italic text-primary">since day one.</em>
+          </h2>
 
-        <p className="mb-10 max-w-lg leading-relaxed text-white/60">
-          Our faculty and training facilitators are subject matter experts —
-          among the leading trainers in their fields globally. The result:
-          professionals who lead, not follow.
-        </p>
+          <p className="mb-10 max-w-lg leading-relaxed text-white/60">
+            Our faculty and training facilitators are subject matter experts —
+            among the leading trainers in their fields globally. The result:
+            professionals who lead, not follow.
+          </p>
 
-        <ul className="mb-12 flex flex-col">
-          {advantages.map((item, i) => (
-            <li
-              key={item}
-              className="flex items-center gap-5 border-b border-white/10 py-4 first:border-t"
-            >
-              <span className="text-xs font-medium tracking-widest text-primary">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="text-white/85">{item}</span>
-            </li>
-          ))}
-        </ul>
+          <ul className="mb-12 flex flex-col">
+            {advantages.map((item, i) => (
+              <li
+                key={item}
+                className="flex items-center gap-5 border-b border-white/10 py-4 first:border-t"
+              >
+                <span className="text-xs font-medium tracking-widest text-primary">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-white/85">{item}</span>
+              </li>
+            ))}
+          </ul>
 
-        <button className="btn h-auto gap-2 self-start rounded-none border-none bg-white px-8 py-4 font-medium text-black hover:bg-white/90">
-          Browse all programs
-          <ArrowUpRight className="h-4 w-4" />
-        </button>
-      </div>
+          <button className="btn h-auto gap-2 self-start rounded-none border-none bg-white px-8 py-4 font-medium text-black hover:bg-white/90">
+            Browse all programs
+            <ArrowUpRight className="h-4 w-4" />
+          </button>
+        </div>
 
-      {/* Right image */}
-      <div className="relative order-1 min-h-[360px] lg:order-2">
-        <img
-          src="/forefront/forefront.png"
-          alt="Faculty leading a strategy session"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute bottom-0 left-0 bg-secondary px-8 py-6 text-secondary-content shadow-2xl">
-          <div className="text-4xl font-bold text-white">250+</div>
-          <div className="mt-1 text-[10px] font-medium tracking-[0.15em] text-white/70 uppercase">
-            Active Learners
+        {/* Right image */}
+        <div className="relative order-1 min-h-[360px]  plg:order-2">
+          <img
+            src="/forefront/forefront.png"
+            alt="Faculty leading a strategy session"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute bottom-0 left-0 bg-secondary px-8 py-6 text-secondary-content shadow-2xl">
+            <div className="text-4xl font-bold text-white">250+</div>
+            <div className="mt-1 text-[10px] font-medium tracking-[0.15em] text-white/70 uppercase">
+              Active Learners
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

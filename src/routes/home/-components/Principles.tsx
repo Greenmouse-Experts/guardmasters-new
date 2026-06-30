@@ -50,10 +50,10 @@ export default function Principles() {
               <div className="mb-8 inline-flex items-center justify-center bg-primary p-2.5">
                 <Icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-base-content">
+              <h3 className="mb-3 text-2xl font-semibold text-base-content">
                 {title}
               </h3>
-              <p className="text-sm leading-relaxed text-base-content/60">
+              <p className=" text-lg leading-relaxed text-base-content/60">
                 {description}
               </p>
             </div>

@@ -133,18 +133,18 @@ function RouteComponent() {
               {accreditations.map((item) => (
                 <div
                   key={item.name}
-                  className="flex items-center gap-4 rounded-2xl bg-base-10 p-4 shadow-sm"
+                  className="btn h-auto btn-ghost shadow-lg p-4 ring ring-current/20 rounded-2xl"
                 >
                   <img
                     src={item.image}
                     alt={item.name}
                     className="h-12 w-12 shrink-0 object-contain"
                   />
-                  <div className="min-w-0">
-                    <p className="font-semibold text-base-content">
+                  <div className=" ml-2 min-w-0 flex flex-col items-start text-left">
+                    <p className="font-semibold text-base-content text-lg">
                       {item.name}
                     </p>
-                    <p className="text-xs font-medium tracking-[0.1em] text-base-content/45 uppercase">
+                    <p className="text-sm font-medium tracking-[0.1em] text-base-content/80 uppercase">
                       {item.role}
                     </p>
                   </div>
