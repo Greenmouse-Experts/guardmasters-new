@@ -105,7 +105,7 @@ export default function ActivityTimeline() {
                           <Icon className="h-5 w-5" />
                         </span>
                         <div className="min-w-0">
-                          <p className="font-medium text-accent">
+                          <p className="font-medium text-accent wrap-anywhere">
                             {activity.title}
                           </p>
                           {activity.description && (
