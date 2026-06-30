@@ -43,8 +43,13 @@ function RouteComponent() {
                       {program.title}
                     </h2>
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                      {program.courses.map((course) => (
-                        <ProgramCard key={course.id} course={course} />
+                      {program.courses.map((course, index) => (
+                        <ProgramCard
+                          key={course.id}
+                          course={course}
+                          index={index}
+                          programTitle={program.title}
+                        />
                       ))}
                     </div>
                   </section>
