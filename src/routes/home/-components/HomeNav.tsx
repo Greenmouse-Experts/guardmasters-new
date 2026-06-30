@@ -171,7 +171,7 @@ export default function HomeNav() {
             />
           </label>
 
-          <CartButton className="text-neutral/80 hover:text-neutral md:hidden" />
+          <CartButton className="text-white hover:text-neutral md:hidden" />
 
           <Link
             to={isLoggedIn ? dashboardPath : "/home/auth/signup"}
@@ -183,7 +183,7 @@ export default function HomeNav() {
           <label
             htmlFor="home-drawer"
             aria-label="open sidebar"
-            className="btn btn-ghost text-neutral/70 lg:hidden"
+            className="btn btn-ghost text-white lg:hidden"
           >
             <Menu className="h-5 w-5" />
           </label>
