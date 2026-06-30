@@ -79,11 +79,11 @@ function RouteComponent() {
             <div className="space-y-10">
               {details.map((detail) => (
                 <div key={detail.label}>
-                  <div className="mb-2 flex items-center gap-2 text-xs font-medium tracking-[0.18em] text-base-content/50 uppercase">
+                  <div className="mb-2 flex items-center gap-2  font-medium  text-base-content/80 ">
                     <detail.icon className="h-4 w-4 text-secondary" />
                     {detail.label}
                   </div>
-                  <p className="text-xl leading-snug font-light whitespace-pre-line text-accent break-words sm:text-2xl md:text-3xl">
+                  <p className="text-xl font-light whitespace-pre-line text-accent break-words sm:text-2xl ">
                     {detail.value}
                   </p>
                 </div>
@@ -200,12 +200,19 @@ interface FieldProps {
   error?: string;
 }
 
-function Field({ label, name, type = "text", register, rules, error }: FieldProps) {
+function Field({
+  label,
+  name,
+  type = "text",
+  register,
+  rules,
+  error,
+}: FieldProps) {
   return (
     <div>
       <label
         htmlFor={name}
-        className="mb-2 block text-xs font-medium tracking-[0.18em] text-base-content/50 uppercase"
+        className="mb-2 block  font-medium text-base-content/90 "
       >
         {label}
       </label>
