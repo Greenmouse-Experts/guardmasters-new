@@ -71,7 +71,7 @@ export default function FacultyProfile() {
           </div>
         </div>
       </div>
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/*<div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 container mx-auto">
         {certifications.map((cert) => (
           <span
             key={cert}
@@ -80,7 +80,7 @@ export default function FacultyProfile() {
             {cert}
           </span>
         ))}
-      </div>
+      </div>*/}
     </section>
   );
 }

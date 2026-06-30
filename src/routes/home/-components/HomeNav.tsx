@@ -6,7 +6,7 @@ import { useCartCount, useCartStore } from "#/store/cartStore.ts";
 const navLinks = [
   { name: "Home", path: "/home" },
   { name: "About", path: "/home/about" },
-  { name: "Programs", path: "/home/programs" },
+  { name: "Training Programs", path: "/home/programs" },
   { name: "Accreditations", path: "/home/accreditations" },
   { name: "Contact", path: "/home/contact" },
 ] as const;
