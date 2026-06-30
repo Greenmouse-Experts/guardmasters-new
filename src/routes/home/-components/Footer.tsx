@@ -1,6 +1,6 @@
 import type { ComponentType, SVGProps } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 interface FooterLink {
   name: string;
@@ -11,13 +11,14 @@ const exploreLinks: FooterLink[] = [
   { name: "Home", path: "/home" },
   { name: "About Us", path: "/home/about" },
   { name: "Training Programs", path: "/home/programs" },
-  { name: "Blog", path: "/home/blog" },
+  { name: "News & Insights", path: "/home/blog" },
 ];
+
 const resourceLinks: FooterLink[] = [
-  { name: "Accreditations", path: "/home/accreditations" },
-  { name: "Faculty", path: "/home/about" },
-  { name: "Contact", path: "/home/contact" },
-  { name: "Sign in", path: "/home/auth/login" },
+  { name: "Our Accreditations", path: "/home/accreditations" },
+  { name: "Terms & Condition", path: "/home/terms" },
+  { name: "Privacy Policy", path: "/home/privacy" },
+  { name: "Cookie Policy", path: "/home/cookies" },
 ];
 
 type IconProps = SVGProps<SVGSVGElement>;
@@ -62,6 +63,15 @@ const contacts = [
   },
 ];
 
+const accreditationLogos = [
+  { src: "/accredition/asis.png", alt: "ASIS Preferred CPE Provider" },
+  { src: "/accredition/chlps.png", alt: "CHLPS" },
+  { src: "/accredition/actd.png", alt: "ACTD" },
+  { src: "/accredition/csi.png", alt: "CSI Institute" },
+  { src: "/accredition/iso.png", alt: "SBP" },
+  { src: "/accredition/ifpo.png", alt: "IFPO Accredited Training Center" },
+];
+
 function FooterColumn({
   title,
   links,
@@ -71,16 +81,14 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h3 className="mb-5 text-xs font-semibold tracking-[0.18em] text-white/50 uppercase">
-        {title}
-      </h3>
+      <h3 className="mb-5 text-lg font-bold text-white">{title}</h3>
       <ul className="space-y-3">
         {links.map((link) => (
           <li key={link.name}>
             {link.path ? (
               <Link
                 to={link.path}
-                className="text-[15px] text-white/85 transition-colors hover:text-primary"
+                className="text-[15px] text-white/75 transition-colors hover:text-primary"
               >
                 {link.name}
               </Link>
@@ -98,40 +106,6 @@ export default function Footer() {
   return (
     <footer className="bg-accent text-secondary-content">
       <div className="container mx-auto px-6 py-16 md:px-12">
-        {/* Top CTA */}
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-          <h2 className="max-w-2xl text-4xl leading-[1.1] font-light text-white md:text-6xl">
-            Step into the next class of{" "}
-            <em className="text-primary not-italic italic">
-              corporate security leaders.
-            </em>
-          </h2>
-
-          <div className="max-w-md lg:pt-2">
-            <p className="mb-6 text-[15px] leading-relaxed text-white/60">
-              Join 250+ professionals advancing their careers through globally
-              accredited certifications and Mini-MBA programs.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                className="btn rounded-none border-none bg-white px-6 font-semibold text-accent gap-2 hover:bg-white/90"
-                to="/home/programs"
-              >
-                Explore Programs
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/home/contact"
-                className="btn rounded-none border border-white/40 bg-transparent px-6 font-semibold text-white hover:bg-white/10"
-              >
-                Talk to Advisor
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="my-12 h-px w-full bg-white/10" />
-
         {/* Main grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -139,59 +113,64 @@ export default function Footer() {
             <img
               src="/logo.png"
               alt="Guardmaster Institute"
-              className="mb-6 h-16 w-auto "
+              className="mb-6 h-16 w-auto"
             />
-            <p className="mb-8 max-w-xs text-[15px] leading-relaxed text-white/55">
-              An accredited professional certification training and consulting
-              organization. ASIS International Preferred CPE Provider, IFPO
-              Approved Training Centre, and ACTD Accredited.
+            <p className="mb-8 max-w-xs text-[14px] leading-relaxed text-white/70">
+              Guardmaster Institute Canada is an accredited professional security
+              certifications training institution. Accredited by the American
+              Council of Training &amp; Development. Guardmaster Institute is an
+              ASIS International Preferred CPE Provider
             </p>
-            <div className="flex gap-3">
-              {socials.map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  aria-label={label}
-                  className="grid h-11 w-11 cursor-pointer place-items-center border border-white/20 text-white/80 transition-colors hover:border-primary hover:bg-primary hover:text-primary-content"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           <FooterColumn title="Explore" links={exploreLinks} />
           <FooterColumn title="Resources" links={resourceLinks} />
 
-          {/* Contact */}
+          {/* Contact Info */}
           <div>
-            <h3 className="mb-5 text-xs font-semibold tracking-[0.18em] text-white/50 uppercase">
-              Contact
-            </h3>
+            <h3 className="mb-5 text-lg font-bold text-white">Contact Info</h3>
             <ul className="space-y-4">
               {contacts.map(({ Icon, content }) => (
                 <li key={content} className="flex items-start gap-3">
                   <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span className="whitespace-pre-line text-[15px] text-white/85">
+                  <span className="whitespace-pre-line text-[15px] text-white/75">
                     {content}
                   </span>
                 </li>
               ))}
             </ul>
+            <div className="mt-6 flex gap-2">
+              {socials.map(({ Icon, label }) => (
+                <a
+                  key={label}
+                  aria-label={label}
+                  className="grid h-10 w-10 cursor-pointer place-items-center border border-primary text-primary transition-colors hover:bg-primary hover:text-primary-content"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
         <div className="mt-12 h-px w-full bg-white/10" />
 
         {/* Bottom bar */}
-        <div className="flex flex-col gap-4 pt-8 text-xs tracking-wider text-white/50 uppercase md:flex-row md:items-center md:justify-between">
-          <span>© 2026 Guardmaster Institute. All Rights Reserved</span>
-          <div className="flex gap-8">
-            <a className="cursor-pointer transition-colors hover:text-white">
-              Terms
-            </a>
-            <a className="cursor-pointer transition-colors hover:text-white">
-              Privacy
-            </a>
+        <div className="flex flex-col gap-6 pt-8 md:flex-row md:items-center md:justify-between">
+          <p className="text-center text-sm text-white/60 md:text-left">
+            © 2026 Guardmaster Institute of Corporate Security Management™
+            <br />
+            All rights reserved.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:justify-end">
+            {accreditationLogos.map(({ src, alt }) => (
+              <img
+                key={src}
+                src={src}
+                alt={alt}
+                className="h-14 w-auto object-contain"
+              />
+            ))}
           </div>
         </div>
       </div>
