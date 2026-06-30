@@ -72,7 +72,7 @@ export default function HomeNav() {
       className={
         isHome
           ? "absolute top-0 z-50 w-full bg-transparent"
-          : "relative z-50 w-full bg-accent"
+          : "z-50 w-full bg-accent sticky top-0"
       }
     >
       {/* Top contact strip */}
