@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 import type { Course } from "#/types/courses.ts";
 
 interface ProgramCardProps {
@@ -7,45 +8,32 @@ interface ProgramCardProps {
 
 export default function ProgramCard({ course }: ProgramCardProps) {
   return (
-    <Link
-      to="/home/programs/$id"
-      params={{ id: course.id }}
-      className="flex h-full max-w-[400px] flex-col border border-gray-200 rounded-sm p-6 font-sans"
-    >
-      <div className="mb-6 h-48 overflow-hidden rounded-xl bg-gray-100">
+    <div className="group flex h-full flex-col rounded-2xl bg-accent p-5 text-accent-content transition-shadow hover:shadow-lg">
+      <div className="mb-6 overflow-hidden rounded-xl bg-accent-content/10">
         {course.coverImage && (
           <img
-            src={`${course.coverImage}`}
+            src={course.coverImage}
             alt={course.title}
-            className="h-full w-full object-cover"
+            className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
       </div>
 
-      <h2 className="text-3xl font-medium leading-tight mb-4 text-gray-900 line-clamp-2">
+      <h3 className="mb-4 line-clamp-3 text-2xl leading-tight font-light text-accent-content">
         {course.title}
-      </h2>
-
-      <p className="text-gray-600 text-lg line-clamp-3 leading-relaxed mb-8 flex-1">
+      </h3>
+      <p className="mb-8 line-clamp-2 text-sm leading-relaxed text-accent-content/60 flex-1">
         {course.shortDesc}
       </p>
 
-      <button className="w-full bg-[#004aad] hover:bg-[#003a8c] text-white py-4 rounded-lg flex items-center justify-center gap-2 font-medium transition-colors line-clamp-3">
+      <Link
+        to="/home/programs/$id"
+        params={{ id: course.id }}
+        className="btn btn-block mt-auto h-auto gap-2 rounded-md border-none bg-primary py-3.5 font-medium text-primary-content hover:bg-primary/90"
+      >
         Enroll
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </svg>
-      </button>
-    </Link>
+        <ArrowUpRight className="h-4 w-4" />
+      </Link>
+    </div>
   );
 }
