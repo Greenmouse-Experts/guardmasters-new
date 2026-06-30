@@ -83,7 +83,7 @@ function RouteComponent() {
                     <detail.icon className="h-4 w-4 text-secondary" />
                     {detail.label}
                   </div>
-                  <p className="text-3xl leading-snug font-light whitespace-pre-line text-accent">
+                  <p className="text-xl leading-snug font-light whitespace-pre-line text-accent break-words sm:text-2xl md:text-3xl">
                     {detail.value}
                   </p>
                 </div>
