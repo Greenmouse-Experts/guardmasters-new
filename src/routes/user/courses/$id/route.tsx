@@ -110,8 +110,8 @@ function RouteComponent() {
 
   return (
     <section className="flex flex-1 flex-col">
-      <header className="flex w-full items-center justify-between gap-3 border-b border-base-300 bg-base-100 px-4 py-2">
-        <nav className="flex items-center gap-2">
+      <header className="flex w-full flex-wrap items-center justify-between gap-3 border-b border-base-300 bg-base-100 px-4 py-2">
+        <nav className="flex flex-wrap items-center gap-2">
           {items.map((item) => (
             <NavLink key={item.label} item={item} id={id} />
           ))}
@@ -130,7 +130,7 @@ function RouteComponent() {
               ? "Complete the course to unlock your certificate"
               : undefined
           }
-          className="flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60"
+          className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md bg-accent px-3 py-2 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60 sm:px-4"
         >
           {generateCertificate.isPending ? (
             <Loader2 className="h-4 w-4 animate-spin" />
@@ -226,7 +226,7 @@ function Row({ label, value }: { label: string; value: string }) {
 function NavLink({ item, id }: { item: NavItem; id: string }) {
   const { icon: Icon, label, to, exact } = item;
   const base =
-    "flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors";
+    "flex items-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors sm:px-4";
 
   return (
     <Link

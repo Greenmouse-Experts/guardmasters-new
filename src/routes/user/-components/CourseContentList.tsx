@@ -197,7 +197,10 @@ function LessonRow({
 
       <button
         type="button"
-        onClick={() => setCurrent(sub)}
+        onClick={() => {
+          setCurrent(sub);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
         className="flex flex-1 items-center gap-2 text-left"
       >
         <MediaIcon type={sub.mediaType} />

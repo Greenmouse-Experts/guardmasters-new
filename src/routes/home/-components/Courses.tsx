@@ -46,7 +46,7 @@ export default function Courses() {
             </h2>
           </div>
           <Link
-            to="/home/programs/"
+            to="/home/programs"
             className="btn btn-outline border-secondary text-secondary hover:bg-secondary hover:text-secondary-content self-start rounded-full px-6 md:self-auto"
           >
             View All Programs
@@ -62,7 +62,7 @@ export default function Courses() {
                   {data.data.map((course) => (
                     <Link
                       key={course.title}
-                      to={`/home/programs/`}
+                      to={`/home/programs`}
                       className="group cursor-pointer rounded-2xl ring ring-current/20  transition-colors hover:bg-accent/80 bg-accent "
                     >
                       <div className="overflow-hidden w-full  rounded-t-xl bg-base-300/80">
