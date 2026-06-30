@@ -33,8 +33,8 @@ const accreditations = [
 
 export default function Accredition() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(110deg,#211b3d_0%,#2e2645_22%,#4a3b4a_50%,#7a5a3f_75%,#a9762f_100%)] py-32">
-      <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_42%,rgba(255,255,255,0.06)_50%,transparent_58%)]" />
+    <section className="relative overflow-hidden bg-[linear-gradient(100deg,#0b1a4d_0%,#13235a_18%,#3a3550_38%,#6c5639_58%,#bb8a2e_80%,#e9a31f_100%)] py-32">
+      <div className="absolute inset-0 opacity-30 bg-[repeating-linear-gradient(45deg,transparent_0_70px,rgba(255,255,255,0.12)_70px_140px),repeating-linear-gradient(-45deg,transparent_0_70px,rgba(255,255,255,0.12)_70px_140px)]" />
 
       <div className="relative mb-14 px-6 text-center md:px-16">
         <h2 className="text-3xl font-semibold text-white md:text-4xl">
