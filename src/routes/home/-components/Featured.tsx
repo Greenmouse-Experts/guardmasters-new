@@ -51,7 +51,7 @@ export default function Featured() {
             </div>
 
             <div className="flex items-end justify-between gap-6 md:flex-col md:items-end">
-              <p className="max-w-sm text-sm leading-relaxed text-base-content/60">
+              <p className="max-w-sm text-lg leading-relaxed text-base-content/80">
                 Comprehensive Mini-MBA security programs, IFPO certifications,
                 and specialized courses — built around global best practices and
                 ISO standards.
