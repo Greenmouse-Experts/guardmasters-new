@@ -23,7 +23,7 @@ export default function FaqCert() {
   const faqs = [...(query.data?.data ?? [])].sort((a, b) => a.order - b.order);
 
   return (
-    <section className="px-6 py-8 text-white md:px-16">
+    <section className="px-6 py-8 text-white md:px-16 bg=[#F0F4F9]">
       <div className="container mx-auto">
         {/* FAQ header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
