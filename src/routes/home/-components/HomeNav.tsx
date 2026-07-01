@@ -77,14 +77,14 @@ export default function HomeNav() {
     >
       {/* Top contact strip */}
       <div className="bg-white">
-        <div className="hidden bg-accent text-white md:block">
+        <div className="hidden bg-accent text-white  md:block">
           <div className="container mx-auto flex items-center justify-between px-4 py-2 text-sm md:px-10">
             <div className="flex items-center divide-x divide-neutral/20 ">
               <a
                 href="tel:+19054522470"
-                className="flex items-center gap-2 pr-4 font-medium hover:opacity-70"
+                className="flex items-center gap-2 pr-4 font-medium hover:opacity-70 "
               >
-                <Phone className="h-4 w-4" />
+                <Phone className="h-4 w-4 " />
                 +1 905-452-2470
               </a>
               <a
