@@ -52,7 +52,7 @@ export default function FaqCert() {
             {faqs.map((faq) => (
               <details
                 key={faq.id}
-                className="group rounded-lg bg-base-200 px-5 py-4 text-base-content [&_svg]:open:rotate-180"
+                className="group rounded-lg bg-[#D9D9D9] px-5 py-4 text-base-content [&_svg]:open:rotate-180"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
                   <span className="font-medium">{faq.question}</span>
