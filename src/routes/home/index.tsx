@@ -101,13 +101,13 @@ function RouteComponent() {
 
       <section
         className="bg-base-200 px-6 py-16 md:px-16"
-        style={{
-          backgroundImage:
-            "url('data:image/svg+xml,%3Csvg width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M0,30 Q25,10 50,30 T100,30 L100,0 L0,0 Z%22 fill=%22%23e5e5e5%22/%3E%3Cpath d=%22M0,50 Q25,30 50,50 T100,50 L100,20 Q50,0 0,20 Z%22 fill=%22%23d9d9d9%22/%3E%3Cpath d=%22M0,70 Q25,50 50,70 T100,70 L100,40 Q50,20 0,40 Z%22 fill=%22%23cdcdcd%22/%3E%3C/svg%3E')",
-          backgroundSize: "auto 100%",
-          backgroundPosition: "left center",
-          backgroundRepeat: "repeat-x",
-        }}
+        // style={{
+        //   backgroundImage:
+        //     "url('data:image/svg+xml,%3Csvg width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M0,30 Q25,10 50,30 T100,30 L100,0 L0,0 Z%22 fill=%22%23e5e5e5%22/%3E%3Cpath d=%22M0,50 Q25,30 50,50 T100,50 L100,20 Q50,0 0,20 Z%22 fill=%22%23d9d9d9%22/%3E%3Cpath d=%22M0,70 Q25,50 50,70 T100,70 L100,40 Q50,20 0,40 Z%22 fill=%22%23cdcdcd%22/%3E%3C/svg%3E')",
+        //   backgroundSize: "auto 100%",
+        //   backgroundPosition: "left center",
+        //   backgroundRepeat: "repeat-x",
+        // }}
       >
         <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left: copy */}
@@ -121,8 +121,7 @@ function RouteComponent() {
             >
               Certifications that build confidence,
               {/*<br />*/}
-              credibility, and{" "}
-              <em className="italic  text-accent">career growth.</em>
+              credibility, and <em className="  text-accent">career growth.</em>
             </h2>
             <p className="mt-8 max-w-md text-lg leading-relaxed">
               We equip corporate security and allied professionals with
@@ -145,12 +144,13 @@ function RouteComponent() {
               {accreditations.map((item) => (
                 <div
                   key={item.name}
-                  className="btn h-auto btn-ghost shadow-lg p-4 ring ring-current/20 rounded-2xl"
+                  className="flex  items-center"
+                  //   className="btn h-auto btn-ghost shadow-lg p-4 ring ring-current/20 rounded-2xl"
                 >
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="h-12 w-12 shrink-0 object-contain"
+                    className="size-24 shrink-0 object-contain"
                   />
                   <div className=" ml-2 min-w-0 flex flex-col items-start text-left">
                     <p className="font-semibold text-base-content text-lg">

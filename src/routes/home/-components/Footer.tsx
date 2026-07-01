@@ -114,48 +114,83 @@ export default function Footer() {
     >
         <div className="container mx-auto px-6 py-16 md:px-12">
           {/* Main grid */}
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-16 md:grid-cols-4 lg:grid-cols-4">
             {/* Brand */}
             <div>
               <img
                 src="/logo.png"
                 alt="Guardmaster Institute"
-                className="mb-6 h-16 w-auto"
+                className="mb-6 h-20 w-auto"
               />
-              <p className="mb-8 max-w-xs text-[14px] leading-relaxed text-white/70">
-                Guardmaster Institute Canada is an accredited professional
-                security certifications training institution. Accredited by the
-                American Council of Training &amp; Development. Guardmaster
-                Institute is an ASIS International Preferred CPE Provider
+              <p className="text-sm leading-relaxed text-white/80">
+                Guardmaster Institute Canada is an accredited professional security
+                certifications training institution. Accredited by the American
+                Council of Training &amp; Development. Guardmaster Institute is an ASIS
+                International Preferred CPE Provider
               </p>
             </div>
 
-            <FooterColumn title="Explore" links={exploreLinks} />
-            <FooterColumn title="Resources" links={resourceLinks} />
+            <div>
+              <h3 className="mb-6 text-xl font-semibold text-white">Explore</h3>
+              <ul className="space-y-4">
+                {exploreLinks.map((link) => (
+                  <li key={link.name}>
+                    {link.path ? (
+                      <Link
+                        to={link.path}
+                        className="text-base text-white/70 transition-colors hover:text-primary"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <span className="text-base text-white/40">{link.name}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-6 text-xl font-semibold text-white">Resources</h3>
+              <ul className="space-y-4">
+                {resourceLinks.map((link) => (
+                  <li key={link.name}>
+                    {link.path ? (
+                      <Link
+                        to={link.path}
+                        className="text-base text-white/70 transition-colors hover:text-primary"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <span className="text-base text-white/40">{link.name}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             {/* Contact Info */}
             <div>
-              <h3 className="mb-5 text-lg font-bold text-white">
-                Contact Info
-              </h3>
+              <h3 className="mb-6 text-xl font-semibold text-white">Contact Info</h3>
               <ul className="space-y-4">
                 {contacts.map(({ Icon, content }) => (
                   <li key={content} className="flex items-start gap-3">
                     <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span className="whitespace-pre-line text-[15px] text-white/75">
+                    <span className="whitespace-pre-line text-base text-white/70">
                       {content}
                     </span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 flex gap-2">
+              <div className="mt-8 flex gap-3">
                 {socials.map(({ Icon, label }) => (
                   <a
                     key={label}
                     aria-label={label}
-                    className="grid h-10 w-10 cursor-pointer place-items-center border border-primary text-primary transition-colors hover:bg-primary hover:text-primary-content"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-[#0f2347] transition-transform hover:scale-110"
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-5 w-5" />
                   </a>
                 ))}
               </div>
@@ -165,22 +200,13 @@ export default function Footer() {
           <div className="mt-12 h-px w-full bg-white/10" />
 
           {/* Bottom bar */}
-          <div className="flex flex-col gap-6 pt-8 md:flex-row md:items-center md:justify-between">
-            <p className="text-center text-sm text-white/60 md:text-left">
-              © 2026 Guardmaster Institute of Corporate Security Management™
-              <br />
+          <div className="pt-8 text-center">
+            <p className="text-white">
+              © 2026 Guardmaster Institute Canada™
+            </p>
+            <p className="text-white/70">
               All rights reserved.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 md:justify-end">
-              {accreditationLogos.map(({ src, alt }) => (
-                <img
-                  key={src}
-                  src={src}
-                  alt={alt}
-                  className="h-14 w-auto object-contain"
-                />
-              ))}
-            </div>
           </div>
         </div>
     </footer>
