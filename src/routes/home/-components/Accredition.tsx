@@ -37,7 +37,7 @@ export default function Accredition() {
       <div className="absolute inset-0 opacity-30 " />
 
       <div className="relative mb-14 px-6 text-center md:px-16">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
+        <h2 className="text-3xl font-semibold text-black md:text-4xl">
           Affiliation &amp; Partnership
         </h2>
       </div>

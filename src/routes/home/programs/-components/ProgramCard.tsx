@@ -51,11 +51,11 @@ export default function ProgramCard({
           Guardmaster Institute Canada<sup>™</sup>
         </span>
       </div>
-
+      {/*
       <div className="mb-6 flex items-center justify-center gap-0.5 text-2xl font-semibold">
         <DollarSign className="h-5 w-5" />
         {course.price}
-      </div>
+      </div>*/}
 
       <Link
         to="/home/programs/$id"
