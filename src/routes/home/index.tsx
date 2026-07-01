@@ -112,7 +112,7 @@ function RouteComponent() {
               credibility, and{" "}
               <em className="italic font-light text-accent">career growth.</em>
             </h2>
-            <p className="mt-8 max-w-md text-base leading-relaxed text-base-content/70">
+            <p className="mt-8 max-w-md text-lg leading-relaxed">
               We equip corporate security and allied professionals with
               industry-relevant education, recognized certifications,
               ISO-standard training, and strategic advisory support.
