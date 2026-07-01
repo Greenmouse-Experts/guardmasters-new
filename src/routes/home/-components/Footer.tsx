@@ -108,13 +108,10 @@ export default function Footer() {
       className="text-secondary-content"
       style={{
         backgroundImage: "url(/FOOTER.png)",
-        backgroundSize: "auto 100%",
-        backgroundPosition: "center",
-        backgroundAttachment: "scroll",
-        backgroundRepeat: "repeat-x",
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      <div className=" backdrop-blur-sm">
         <div className="container mx-auto px-6 py-16 md:px-12">
           {/* Main grid */}
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -186,7 +183,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
     </footer>
   );
 }
