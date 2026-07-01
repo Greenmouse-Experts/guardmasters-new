@@ -104,10 +104,19 @@ function FooterColumn({
 
 export default function Footer() {
   return (
-    <footer className="bg-accent text-secondary-content">
-      <div className="container mx-auto px-6 py-16 md:px-12">
-        {/* Main grid */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <footer
+      className="text-secondary-content"
+      style={{
+        backgroundImage: "url(/FOOTER.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="bg-accent/90 backdrop-blur-sm">
+        <div className="container mx-auto px-6 py-16 md:px-12">
+          {/* Main grid */}
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
             <img
@@ -153,24 +162,25 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 h-px w-full bg-white/10" />
+          <div className="mt-12 h-px w-full bg-white/10" />
 
-        {/* Bottom bar */}
-        <div className="flex flex-col gap-6 pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="text-center text-sm text-white/60 md:text-left">
-            © 2026 Guardmaster Institute of Corporate Security Management™
-            <br />
-            All rights reserved.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 md:justify-end">
-            {accreditationLogos.map(({ src, alt }) => (
-              <img
-                key={src}
-                src={src}
-                alt={alt}
-                className="h-14 w-auto object-contain"
-              />
-            ))}
+          {/* Bottom bar */}
+          <div className="flex flex-col gap-6 pt-8 md:flex-row md:items-center md:justify-between">
+            <p className="text-center text-sm text-white/60 md:text-left">
+              © 2026 Guardmaster Institute of Corporate Security Management™
+              <br />
+              All rights reserved.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4 md:justify-end">
+              {accreditationLogos.map(({ src, alt }) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={alt}
+                  className="h-14 w-auto object-contain"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
