@@ -63,7 +63,10 @@ export default function Hero() {
                 <polyline points="7 7 17 7 17 17" />
               </svg>
             </Link>
-            <Link to="/home/auth/signup" className="btn btn-lg">
+            <Link
+              to="/home/auth/signup"
+              className="btn btn-lg btn-ghost text-white ring"
+            >
               Enroll Now
             </Link>
           </div>
