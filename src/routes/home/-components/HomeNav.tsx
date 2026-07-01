@@ -79,7 +79,7 @@ export default function HomeNav() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome]);
+  }, []);
 
   return (
     <div
