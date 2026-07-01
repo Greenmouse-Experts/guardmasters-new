@@ -45,7 +45,7 @@ export default function Featured() {
               <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent bg-secondary/10 font-bold tracking-[0.18em]  uppercase">
                 Featured Programs
               </span>
-              <h2 className="text-4xl leading-tight font-light text-accent md:text-5xl">
+              <h2 className="text-4xl leading-tight font-bold text-accent md:text-5xl">
                 Start here. <em className="italic text-accent">Go places.</em>
               </h2>
             </div>
