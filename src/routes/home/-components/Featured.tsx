@@ -133,10 +133,10 @@ export default function Featured() {
                         </span>
                       </div>
 
-                      <div className="mb-6 text-2xl font-semibold">
+                      {/*<div className="mb-6 text-2xl font-semibold">
                         {program.discountPriceFormat ??
                           program.originalPriceFormat}
-                      </div>
+                      </div>*/}
 
                       <Link
                         to="/home/programs/$id"
