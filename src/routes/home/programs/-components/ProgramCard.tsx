@@ -16,7 +16,7 @@ export default function ProgramCard({
   return (
     <div className="group flex h-full flex-col rounded-2xl bg-accent p-6 text-center text-accent-content transition-shadow hover:shadow-lg">
       {programTitle && (
-        <div className="mb-5 text-left text-[11px] font-medium tracking-[0.15em] text-accent-content/50 uppercase">
+        <div className="mb-5 text-left text-[11px]  tracking-[0.15em] text-accent-content/50 uppercase font-bold">
           {typeof index === "number"
             ? `${String(index + 1).padStart(2, "0")} / `
             : ""}
