@@ -23,12 +23,12 @@ export default function FaqCert() {
   const faqs = [...(query.data?.data ?? [])].sort((a, b) => a.order - b.order);
 
   return (
-    <section className="px-6 py-8 text-white md:px-16 bg=[#F0F4F9]">
+    <section className="px-6 py-8 text-white md:px-16 bg-base-200">
       <div className="container mx-auto">
         {/* FAQ header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
-            <span className="mb-6 inline-block rounded-full ring ring-current/40 px-4 py-1.5  tracking-[0.18em] font-bold bg-secondary/10  uppercase text-accent">
+            <span className="mb-6 inline-block rounded-full ring ring-current/40 px-4 py-1.5  tracking-[0.18em] font-bold   uppercase text-accent">
               FAQs
             </span>
             <h2 className="text-4xl text-black font-bold md:text-5xl">
@@ -76,7 +76,15 @@ export default function FaqCert() {
                 Cohort Opens Monthly
               </span>
               <h3 className="max-w-md text-4xl leading-[1.1] font-light text-white md:text-5xl">
-                Start your path to a rewarding career in <span className="font-semibold italic text-primary">Corporate Security, Loss Prevention, Asset Protection</span> and <span className="font-semibold italic text-primary">Business Continuity Management</span> today.
+                Start your path to a rewarding career in{" "}
+                <span className="font-semibold italic text-primary">
+                  Corporate Security, Loss Prevention, Asset Protection
+                </span>{" "}
+                and{" "}
+                <span className="font-semibold italic text-primary">
+                  Business Continuity Management
+                </span>{" "}
+                today.
               </h3>
             </div>
 

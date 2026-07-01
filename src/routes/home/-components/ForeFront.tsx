@@ -56,15 +56,15 @@ export default function ForeFront() {
         </div>
 
         {/* Right image */}
-        <div className="order-1 flex items-center justify-center p-6 py-12 lg:order-2 lg:p-10 relative isolate">
-          <div className="relative h-full w-full overflow-hidden rounded-3xl">
+        <div className="order-1 flex items-center justify-center  lg:order-2  relative isolate md:pl-4">
+          <div className="relative h-full w-full overflow-hidden  rounded-3xl">
             <img
               src="/new_image.png"
               alt="Faculty leading a strategy session"
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="absolute bottom-0 p-4 bg-base-100  ring fade flex items-center z-10 pr-12 rounded-2xl">
+          {/*<div className="absolute bottom-0 p-4 bg-base-100  ring fade flex items-center z-10 pr-12 rounded-2xl">
             <div className="bg-accent p-4 rounded-2xl">
               <Users className=" bg-accent text-primary size-8" />
             </div>
@@ -72,7 +72,7 @@ export default function ForeFront() {
               <h2 className="text-black text-2xl font-bold">250+</h2>
               <p className="text-black/70">Learners</p>
             </div>
-          </div>
+          </div>*/}
         </div>
       </section>
     </div>
