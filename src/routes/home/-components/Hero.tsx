@@ -65,7 +65,7 @@ export default function Hero() {
             </Link>
             <Link
               to="/home/auth/signup"
-              className="btn btn-lg btn-ghost text-white ring"
+              className="btn  btn-accent btn-lg  ring"
             >
               Enroll Now
             </Link>
