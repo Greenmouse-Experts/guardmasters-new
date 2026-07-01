@@ -103,7 +103,7 @@ function RouteComponent() {
         <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left: copy */}
           <div>
-            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold tracking-[0.18em] text-accent uppercase bg-secondary/10">
+            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold tracking-[0.18em] text-accent uppercase bg-base-100/10">
               Certifications
             </span>
             <h2 className="text-4xl leading-tight font-light text-base-content md:text-5xl">
@@ -171,13 +171,13 @@ function RouteComponent() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 border-t border-l border-secondary/50 md:grid-cols-3">
+          <div className="grid grid-cols-1 border-t border-l border-base-100/50 md:grid-cols-3">
             {features.map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
-                className="border-r border-b border-secondary/50 bg-accent text-accent-content p-10"
+                className="border-r border-b border-base-100/50 bg-accent text-accent-content p-10"
               >
-                <div className="mb-8 inline-flex  items-center justify-center rounded border border-secondary/20 bg-primary p-2.5">
+                <div className="mb-8 inline-flex  items-center justify-center rounded border border-base-100/20 bg-primary p-2.5">
                   <Icon className="size-8 text-accent" strokeWidth={1.5} />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold ">{title}</h3>
