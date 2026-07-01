@@ -33,12 +33,12 @@ const accreditations = [
 
 export default function Accredition() {
   return (
-    <section className="relative overflow-hidden bg-accent/20 py-32">
+    <section className="relative overflow-hidden bg-[#D2D2D3] py-32">
       <div className="absolute inset-0 opacity-30 " />
 
       <div className="relative mb-14 px-6 text-center md:px-16">
         <h2 className="text-3xl font-semibold text-black md:text-4xl">
-          Affiliation &amp; Partnership
+          Affiliations &amp; Partnership
         </h2>
       </div>
 

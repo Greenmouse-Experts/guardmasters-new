@@ -38,7 +38,7 @@ export default function Courses() {
       <div className="container mx-auto">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold bg-secondary/20 tracking-[0.18em] text-accent uppercase">
+            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold bg-secondary/10 tracking-[0.18em] text-accent uppercase">
               Explore Courses
             </span>
             <h2 className="max-w-3xl text-4xl leading-tight font-light  md:text-5xl">
