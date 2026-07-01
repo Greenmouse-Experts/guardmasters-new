@@ -141,7 +141,7 @@ export default function Featured() {
                       <Link
                         to="/home/programs/$id"
                         params={{ id: program.id }}
-                        className="btn btn-block mt-auto h-auto justify-center gap-2 rounded-md border-none bg-primary py-3.5 font-medium text-primary-content hover:bg-primary/90"
+                        className="btn btn-block btn-lg  mt-auto h-auto justify-center gap-2 rounded-md border-none bg-primary py-3.5 font-medium text-primary-content hover:bg-primary/90"
                       >
                         Enroll
                         <ArrowUpRight className="h-4 w-4" />
