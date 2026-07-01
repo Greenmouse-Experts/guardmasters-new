@@ -108,59 +108,62 @@ export default function Footer() {
       className="text-secondary-content"
       style={{
         backgroundImage: "url(/FOOTER.png)",
-        backgroundSize: "cover",
+        backgroundSize: "auto 100%",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed",
+        backgroundAttachment: "scroll",
+        backgroundRepeat: "repeat-x",
       }}
     >
-      <div className="bg-accent/90 backdrop-blur-sm">
+      <div className=" backdrop-blur-sm">
         <div className="container mx-auto px-6 py-16 md:px-12">
           {/* Main grid */}
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div>
-            <img
-              src="/logo.png"
-              alt="Guardmaster Institute"
-              className="mb-6 h-16 w-auto"
-            />
-            <p className="mb-8 max-w-xs text-[14px] leading-relaxed text-white/70">
-              Guardmaster Institute Canada is an accredited professional security
-              certifications training institution. Accredited by the American
-              Council of Training &amp; Development. Guardmaster Institute is an
-              ASIS International Preferred CPE Provider
-            </p>
-          </div>
+            {/* Brand */}
+            <div>
+              <img
+                src="/logo.png"
+                alt="Guardmaster Institute"
+                className="mb-6 h-16 w-auto"
+              />
+              <p className="mb-8 max-w-xs text-[14px] leading-relaxed text-white/70">
+                Guardmaster Institute Canada is an accredited professional
+                security certifications training institution. Accredited by the
+                American Council of Training &amp; Development. Guardmaster
+                Institute is an ASIS International Preferred CPE Provider
+              </p>
+            </div>
 
-          <FooterColumn title="Explore" links={exploreLinks} />
-          <FooterColumn title="Resources" links={resourceLinks} />
+            <FooterColumn title="Explore" links={exploreLinks} />
+            <FooterColumn title="Resources" links={resourceLinks} />
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="mb-5 text-lg font-bold text-white">Contact Info</h3>
-            <ul className="space-y-4">
-              {contacts.map(({ Icon, content }) => (
-                <li key={content} className="flex items-start gap-3">
-                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span className="whitespace-pre-line text-[15px] text-white/75">
-                    {content}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 flex gap-2">
-              {socials.map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  aria-label={label}
-                  className="grid h-10 w-10 cursor-pointer place-items-center border border-primary text-primary transition-colors hover:bg-primary hover:text-primary-content"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+            {/* Contact Info */}
+            <div>
+              <h3 className="mb-5 text-lg font-bold text-white">
+                Contact Info
+              </h3>
+              <ul className="space-y-4">
+                {contacts.map(({ Icon, content }) => (
+                  <li key={content} className="flex items-start gap-3">
+                    <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                    <span className="whitespace-pre-line text-[15px] text-white/75">
+                      {content}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 flex gap-2">
+                {socials.map(({ Icon, label }) => (
+                  <a
+                    key={label}
+                    aria-label={label}
+                    className="grid h-10 w-10 cursor-pointer place-items-center border border-primary text-primary transition-colors hover:bg-primary hover:text-primary-content"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
           <div className="mt-12 h-px w-full bg-white/10" />
 
