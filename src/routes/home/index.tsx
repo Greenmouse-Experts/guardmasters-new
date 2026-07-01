@@ -115,11 +115,14 @@ function RouteComponent() {
             <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold tracking-[0.18em] text-accent uppercase bg-base-100/10">
               Certifications
             </span>
-            <h2 className="text-4xl leading-tight font-bold text-base-content md:text-5xl">
+            <h2
+              className="text-4xl leading-tight font-bold
+              text-base-content md:text-5xl"
+            >
               Certifications that build confidence,
               {/*<br />*/}
               credibility, and{" "}
-              <em className="italic font-light text-accent">career growth.</em>
+              <em className="italic  text-accent">career growth.</em>
             </h2>
             <p className="mt-8 max-w-md text-lg leading-relaxed">
               We equip corporate security and allied professionals with
