@@ -28,7 +28,7 @@ export default function FaqCert() {
         {/* FAQ header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
-            <span className="mb-6 inline-block rounded-full ring ring-current/40 px-4 py-1.5 font-medium tracking-[0.18em] bg-secondary/10  uppercase text-accent">
+            <span className="mb-6 inline-block rounded-full ring ring-current/40 px-4 py-1.5  tracking-[0.18em] font-bold bg-secondary/10  uppercase text-accent">
               FAQs
             </span>
             <h2 className="text-4xl text-black md:text-5xl">
