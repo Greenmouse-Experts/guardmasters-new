@@ -36,7 +36,7 @@ export default function FaqCert() {
               <span className="text-accent">We've Got Answers</span>
             </h2>
           </div>
-          <p className="max-w-sm text-lg leading-relaxed text-black/80">
+          <p className="max-w-sm text-xl font-bold leading-relaxed text-black/80">
             Find answers to common questions about our courses, certifications,
             enrollment process, and learning experience.
           </p>
@@ -76,8 +76,7 @@ export default function FaqCert() {
                 Cohort Opens Monthly
               </span>
               <h3 className="max-w-md text-4xl leading-[1.1] font-light text-white md:text-5xl">
-                Start your path to a rewarding career in corporate security
-                today.
+                Start your path to a rewarding career in <span className="font-semibold italic text-primary">Corporate Security, Loss Prevention, Asset Protection</span> and <span className="font-semibold italic text-primary">Business Continuity Management</span> today.
               </h3>
             </div>
 
