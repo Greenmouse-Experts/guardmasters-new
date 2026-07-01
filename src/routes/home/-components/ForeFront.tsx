@@ -22,7 +22,7 @@ export default function ForeFront() {
             backgroundPosition: "center",
           }}
         >
-          <h2 className="mb-7 text-4xl leading-[1.1] font-light md:text-5xl lg:text-6xl">
+          <h2 className="mb-7 text-4xl leading-[1.1] md:text-5xl lg:text-6xl font-bold">
             Level Up Your Professional Skills In Corporate Security Management
           </h2>
 
