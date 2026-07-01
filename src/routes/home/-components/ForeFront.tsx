@@ -17,7 +17,7 @@ export default function ForeFront() {
         <div
           className="order-2 flex flex-col justify-center rounded-xl px-6 py-16 md:px-16 md:py-24 lg:order-1 text-white"
           style={{
-            backgroundImage: "url('data:image/svg+xml,%3Csvg width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cdefs%3E%3ClinearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 style=%22stop-color:%231a2d5a%22/%3E%3Cstop offset=%22100%25%22 style=%22stop-color:%230f1f3f%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%22url(%23grad)%22 width=%22300%22 height=%22300%22/%3E%3Cpath d=%22M0,100 Q75,50 150,100 T300,100 L300,0 L0,0 Z%22 fill=%22rgba(255,255,255,0.03)%22/%3E%3Cpath d=%22M0,150 Q75,100 150,150 T300,150 L300,120 Q150,70 0,120 Z%22 fill=%22rgba(255,255,255,0.02)%22/%3E%3C/svg%3E')",
+            backgroundImage: "url('level_up.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
