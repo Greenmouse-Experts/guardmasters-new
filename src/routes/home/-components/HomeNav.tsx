@@ -2,6 +2,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { Mail, Menu, Phone, Search, ShoppingCart } from "lucide-react";
 import { useAuth, useProfile } from "#/store/authStore.ts";
 import { useCartCount, useCartStore } from "#/store/cartStore.ts";
+import { useEffect, useState } from "react";
 
 const navLinks = [
   { name: "Home", path: "/home" },
@@ -67,11 +68,26 @@ export default function HomeNav() {
   const pathname = useLocation({ select: (l) => l.pathname });
   const isHome = pathname === "/home" || pathname === "/home/";
 
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!isHome) return;
+
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]);
+
   return (
     <div
       className={
         isHome
-          ? "absolute top-0 z-50 w-full bg-transparent"
+          ? `fixed top-0 z-50 w-full transition-colors duration-300 ${
+              hasScrolled ? "bg-accent" : "bg-transparent"
+            }`
           : "z-50 w-full bg-accent sticky top-0"
       }
     >
