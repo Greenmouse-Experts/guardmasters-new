@@ -115,7 +115,7 @@ function RouteComponent() {
             <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold tracking-[0.18em] text-accent uppercase bg-base-100/10">
               Certifications
             </span>
-            <h2 className="text-4xl leading-tight font-light text-base-content md:text-5xl">
+            <h2 className="text-4xl leading-tight font-bold text-base-content md:text-5xl">
               Certifications that build confidence,
               {/*<br />*/}
               credibility, and{" "}
