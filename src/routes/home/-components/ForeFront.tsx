@@ -50,17 +50,13 @@ export default function ForeFront() {
         </div>
 
         {/* Right image */}
-        <div className="relative order-1 min-h-[360px]  plg:order-2">
-          <img
-            src="/forefront/forefront.png"
-            alt="Faculty leading a strategy session"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute bottom-0 left-0 bg-secondary px-8 py-6 text-secondary-content shadow-2xl">
-            <div className="text-4xl font-bold text-white">250+</div>
-            <div className="mt-1 text-[10px] font-medium tracking-[0.15em] text-white/70 uppercase">
-              Active Learners
-            </div>
+        <div className="order-1 flex items-center justify-center p-6 py-12 lg:order-2 lg:p-10">
+          <div className="relative h-full w-full overflow-hidden rounded-3xl">
+            <img
+              src="/new_image.png"
+              alt="Faculty leading a strategy session"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>

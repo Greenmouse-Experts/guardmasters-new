@@ -58,14 +58,14 @@ export default function Courses() {
           {(data) => {
             return (
               <>
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-4 mb-22">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mb-22">
                   {data.data.map((course) => (
                     <Link
                       key={course.title}
                       to={`/home/programs`}
-                      className="group cursor-pointer rounded-2xl ring ring-current/20  transition-colors hover:bg-accent/80 bg-accent "
+                      className="group cursor-pointer  ring ring-current/20  transition-colors hover:bg-accent/80 bg-accent p-6 "
                     >
-                      <div className="overflow-hidden w-full  rounded-t-xl bg-base-300/80">
+                      <div className="overflow-hidden w-full   bg-base-300/80">
                         <img
                           //@ts-ignore
                           src={course.coverImage}
