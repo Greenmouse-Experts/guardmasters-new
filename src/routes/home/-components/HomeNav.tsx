@@ -151,7 +151,7 @@ export default function HomeNav() {
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
-                  className="text-lg font-medium text-white/60 transition-colors hover:bg-transparent hover:text-neutral"
+                  className="text font-medium text-white/60 transition-colors hover:bg-transparent hover:text-neutral"
                   to={link.path}
                 >
                   {link.name}
