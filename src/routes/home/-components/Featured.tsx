@@ -100,7 +100,7 @@ export default function Featured() {
                       data-card
                       className="group flex w-[85%] shrink-0 snap-start flex-col rounded-2xl bg-accent p-6 text-center text-accent-content transition-shadow hover:shadow-lg sm:w-[60%] md:w-[calc((100%-3rem)/3)]"
                     >
-                      <div className="mb-5 text-left text-[11px] font-medium tracking-[0.15em] text-accent-content/50 uppercase">
+                      <div className="mb-5 text-left text-[11px] font-bold tracking-[0.15em] text-accent-content/50 uppercase">
                         {String(index + 1).padStart(2, "0")} /{" "}
                         {program.program?.title ?? "Program"}
                       </div>
@@ -115,7 +115,7 @@ export default function Featured() {
                         )}
                       </div>
 
-                      <h3 className="mb-4 line-clamp-2 text-2xl leading-tight font-light text-accent-content">
+                      <h3 className="mb-4 line-clamp-2 text-2xl leading-tight font-bold text-accent-content">
                         {program.title}
                       </h3>
                       <p className="mb-8 line-clamp-3 text-sm leading-relaxed text-accent-content/60">
