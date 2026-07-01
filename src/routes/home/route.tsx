@@ -8,7 +8,7 @@ import HomeNav from "./-components/HomeNav";
 const navLinks = [
   { name: "Home", path: "/home" },
   { name: "About", path: "/home/about" },
-  { name: "Programs", path: "/home/programs" },
+  { name: "Training Programs", path: "/home/programs" },
   { name: "Accreditations", path: "/home/accreditations" },
   { name: "Contact", path: "/home/contact" },
 ] as const;
@@ -75,7 +75,7 @@ function RouteComponent() {
           className="drawer-overlay"
         ></label>
 
-        <div className="flex min-h-full w-72 flex-col bg-secondary p-6 text-secondary-content">
+        <div className="flex min-h-full w-72 flex-col bg-accent p-6 text-secondary-content">
           <div className="mb-10 flex items-center justify-between">
             <img
               src="/logo.png"

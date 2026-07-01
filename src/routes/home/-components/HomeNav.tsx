@@ -137,13 +137,13 @@ export default function HomeNav() {
       {/* Main navbar */}
       <div className="navbar container mx-auto gap-4 px-4 py-5 md:px-10">
         <div className="navbar-start">
-          <a className="shrink-0 cursor-pointer">
+          <Link to="/" className="shrink-0 cursor-pointer">
             <img
               src="/logo.png"
               alt="Guardmaster Institute"
               className="h-10 w-auto shrink-0 object-contain md:h-18"
             />
-          </a>
+          </Link>
         </div>
 
         <div className="navbar-center hidden lg:flex">
