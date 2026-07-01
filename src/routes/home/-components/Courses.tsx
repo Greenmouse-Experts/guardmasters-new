@@ -63,7 +63,7 @@ export default function Courses() {
                     <Link
                       key={course.title}
                       to={`/home/programs`}
-                      className="group cursor-pointer  ring ring-current/20  transition-colors hover:bg-primary bg-accent p-6 "
+                      className="group cursor-pointer  ring ring-current/20  transition-colors hover:bg-primary bg-accent p-2 "
                     >
                       <div className="overflow-hidden w-full   bg-base-300/80">
                         <img
