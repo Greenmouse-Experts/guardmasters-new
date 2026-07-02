@@ -187,7 +187,7 @@ function RouteComponent() {
             {features.map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
-                className="relative pt-10 flex flex-col drop-shadow-xl drop-shadow-base-100/20"
+                className="relative pt-10 flex flex-col drop-shadow-2xl "
               >
                 <div className="absolute -top-0 left-1/2 -translate-x-1/2 flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl">
                   <Icon className="size-8 text-accent" strokeWidth={1.5} />
