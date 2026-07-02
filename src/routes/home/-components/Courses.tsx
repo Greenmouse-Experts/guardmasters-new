@@ -73,7 +73,7 @@ export default function Courses() {
                           className="object-contain size-full transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
-                      <h3 className="py-8 text-center p-4 text-2xl font-bold text-accent-content">
+                      <h3 className="py-8 text-left p-4 text-2xl font-bold text-accent-content">
                         {course.title}
                       </h3>
                     </Link>

@@ -34,7 +34,7 @@ export default function Hero() {
             Certified Center for Learning
           </span>
 
-          <h1 className="mb-6 max-w-3xl text-5xl leading-[1.1] font-light text-white md:text-7xl">
+          <h1 className="mb-6 max-w-3xl text-5xl leading-[1.1]  text-white md:text-7xl font-bold">
             Master the craft of
             <br />
             <em className="text-primary italic">corporate security.</em>

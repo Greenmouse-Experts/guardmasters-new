@@ -126,11 +126,11 @@ export default function Featured() {
                         <img
                           src="/course_logo.png"
                           alt=""
-                          className="h-10 w-10 rounded-full object-cover object-left"
+                          className="h-20 rounded-full object-cover object-left"
                         />
-                        <span className="text-lg font-medium text-accent-content/80">
+                        {/*<span className="text-lg font-medium text-accent-content/80">
                           Guardmaster Institute Canada<sup>™</sup>
-                        </span>
+                        </span>*/}
                       </div>
 
                       {/*<div className="mb-6 text-2xl font-semibold">
