@@ -60,7 +60,7 @@ export default function ProgramCard({
       <Link
         to="/home/programs/$id"
         params={{ id: course.id }}
-        className="btn btn-block mt-auto h-auto justify-center gap-2 rounded-md border-none bg-primary py-3.5 font-medium text-primary-content hover:bg-primary/90"
+        className="btn btn-block mt-auto h-auto justify-center gap-2 rounded-md border-none bg-primary py-3.5  text-primary-content hover:bg-primary/90 font-bold text-xl"
       >
         Enroll
         <ArrowUpRight className="h-4 w-4" />
