@@ -88,7 +88,9 @@ export default function HomeNav() {
       }`}
     >
       {/* Top contact strip */}
-      <div className="bg-white">
+      <div
+        className={`bg-white ${hasScrolled && "border-b  border-current/20"}`}
+      >
         <div className="hidden bg-accent text-white  md:block">
           <div className="container mx-auto flex items-center justify-between px-4 py-2 text-sm md:px-10">
             <div className="flex items-center divide-x divide-neutral/20 ">
@@ -108,7 +110,7 @@ export default function HomeNav() {
               </a>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className={`flex items-center gap-4  `}>
               <Link
                 to={isLoggedIn ? dashboardPath : "/home/auth/login"}
                 className="font-medium hover:opacity-70"
