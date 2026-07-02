@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, DollarSign } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { Course } from "#/types/courses.ts";
 
 interface ProgramCardProps {
@@ -51,11 +51,11 @@ export default function ProgramCard({
           Guardmaster Institute Canada<sup>™</sup>
         </span>
       </div>
-      {/*
-      <div className="mb-6 flex items-center justify-center gap-0.5 text-2xl font-semibold">
-        <DollarSign className="h-5 w-5" />
-        {course.price}
-      </div>*/}
+      {course.price > 0 && (
+        <div className="mb-6 text-2xl font-bold text-accent-content">
+          $CA{course.price}
+        </div>
+      )}
 
       <Link
         to="/home/programs/$id"
