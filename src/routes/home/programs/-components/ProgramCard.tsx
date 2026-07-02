@@ -45,11 +45,11 @@ export default function ProgramCard({
         <img
           src="/course_logo.png"
           alt=""
-          className="h-7 w-7 rounded-full object-cover object-left"
+          className="h-20 rounded-full object-cover object-left"
         />
-        <span className="text-sm font-medium text-accent-content/80">
+        {/*<span className="text-sm font-medium text-accent-content/80">
           Guardmaster Institute Canada<sup>™</sup>
-        </span>
+        </span>*/}
       </div>
       {course.price > 0 && (
         <div className="mb-6 text-2xl font-bold text-accent-content">

@@ -1,6 +1,7 @@
 import { new_url } from "#/client/api.ts";
 import type { ApiResponseV2 } from "#/types/api.js";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import axios from "axios";
 import { ChevronDown, ArrowUpRight } from "lucide-react";
 
@@ -97,13 +98,19 @@ export default function FaqCert() {
                 />
               </div>
               <div className="mt-6 flex flex-wrap justify-end gap-4">
-                <button className="btn gap-2 rounded-none border-none bg-white px-6 font-medium text-black hover:bg-white/90">
+                <Link
+                  to="/home/programs"
+                  className="btn gap-2 rounded-none border-none bg-white px-6 font-medium text-black hover:bg-white/90"
+                >
                   Apply Now
                   <ArrowUpRight className="h-4 w-4" />
-                </button>
-                <button className="btn rounded-none border-white/30 bg-transparent px-6 font-medium text-white hover:border-white hover:bg-white/10">
+                </Link>
+                <Link
+                  to="/home/contact"
+                  className="btn rounded-none border-white/30 bg-transparent px-6 font-medium text-white hover:border-white hover:bg-white/10"
+                >
                   Talk to us
-                </button>
+                </Link>
               </div>
             </div>
           </div>
