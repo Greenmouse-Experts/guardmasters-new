@@ -77,7 +77,7 @@ export default function FaqCert() {
                 Cohort Opens Monthly
               </span>
               <h3
-                className="max-w-md text-4xl leading-[1.1] font-medium
+                className="max-w-xl text-4xl leading-[1.1] font-medium
                 text-white md:text-5xl font-pop"
               >
                 Start your path to a rewarding career in{" "}
@@ -85,7 +85,7 @@ export default function FaqCert() {
                   Corporate Security, Loss Prevention, Asset Protection
                 </span>{" "}
                 and{" "}
-                <span className="font-medium italic text-primary underline">
+                <span className="font-medium italic text-primary underline ">
                   Business Continuity Management
                 </span>{" "}
                 today.
