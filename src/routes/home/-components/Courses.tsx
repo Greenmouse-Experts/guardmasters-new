@@ -34,7 +34,14 @@ export default function Courses() {
     },
   });
   return (
-    <section className=" px-6 py-12 md:px-16 bg-base-200">
+    <section
+      className=" px-6 py-12 md:px-16 bg-base-200"
+      style={{
+        backgroundImage: "url(/cert.jpeg)",
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container mx-auto">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
