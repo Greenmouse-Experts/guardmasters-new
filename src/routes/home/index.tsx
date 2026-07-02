@@ -167,7 +167,15 @@ function RouteComponent() {
         </div>
       </section>
 
-      <div className="py-8 bg-accent">
+      <div
+        className="py-8 bg-accent"
+        style={{
+          backgroundImage: "url('pattern.png')",
+          backgroundSize: "auto 100%",
+          backgroundPosition: "left center",
+          backgroundRepeat: "repeat-x",
+        }}
+      >
         <section
           data-theme=""
           className="py-8  mx-auto container bg-transparent"
@@ -193,7 +201,7 @@ function RouteComponent() {
                   <Icon className="size-8 text-accent" strokeWidth={1.5} />
                 </div>
                 <div
-                  className="flex flex-1 flex-col rounded-2xl px-8 pb-10 pt-14 text-center text-accent-content  shadow-2xl"
+                  className="flex flex-1 flex-col rounded-2xl px-8 pb-10 pt-14 text-center text-accent-content  shadow-2xl bg-accent"
                   // style={{
                   //   backgroundImage: "url(card_frame.png)",
                   //   backgroundSize: "100% 100%",
