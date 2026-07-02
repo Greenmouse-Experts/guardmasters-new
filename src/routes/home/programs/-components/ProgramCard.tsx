@@ -34,7 +34,7 @@ export default function ProgramCard({
         )}
       </div>
 
-      <h3 className="mb-4 line-clamp-2 text-2xl leading-tight font-light text-accent-content">
+      <h3 className="mb-4 line-clamp-2 text-2xl leading-tight font-light text-accent-content font-pop>
         {course.title}
       </h3>
       <p className="mb-8 line-clamp-3 text-sm leading-relaxed text-accent-content/60">
