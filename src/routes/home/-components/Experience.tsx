@@ -39,7 +39,7 @@ export default function Experience() {
             <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-medium tracking-[0.18em] text-accent uppercase">
               Our Mission
             </span>
-            <h2 className="text-4xl leading-tight font-bold text-base-content md:text-5xl">
+            <h2 className="text-4xl leading-tight font-bold text-base-content md:text-5xl font-pop">
               Hear From <span className="text-accent">Our Learners</span>
             </h2>
           </div>

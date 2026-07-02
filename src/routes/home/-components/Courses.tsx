@@ -41,7 +41,7 @@ export default function Courses() {
             {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold bg-secondary/10 tracking-[0.18em] text-accent uppercase">
               Explore Courses
             </span>*/}
-            <h2 className="max-w-3xl text-4xl text-accent leading-tight font-bold md:text-5xl">
+            <h2 className="max-w-3xl text-4xl text-accent leading-tight font-bold md:text-5xl font-pop">
               Browse Courses by Category
             </h2>
           </div>
@@ -63,7 +63,7 @@ export default function Courses() {
                     <Link
                       key={course.title}
                       to={`/home/programs`}
-                      className="group cursor-pointer  ring ring-current/20  transition-all duration-300 group-hover:animate-pulse bg-accent p-4 "
+                      className="group cursor-pointer  ring ring-current/20  transition-all duration-300 group-hover:animate-pulse bg-accent p-4  rounded-xl"
                     >
                       <div className="overflow-hidden w-full   bg-base-300/80">
                         <img
@@ -73,7 +73,7 @@ export default function Courses() {
                           className="object-contain size-full transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
-                      <h3 className="py-8 text-left p-4 text-2xl font-bold text-accent-content">
+                      <h3 className="py-8 text-left p-4 text-2xl font-bold text-accent-content font-pop">
                         {course.title}
                       </h3>
                     </Link>

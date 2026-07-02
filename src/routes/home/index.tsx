@@ -176,7 +176,7 @@ function RouteComponent() {
             <span className="mb-6 inline-block rounded-full border border-accent-content/20 px-4 py-1.5   tracking-[0.18em] uppercase bg-white text-accent font-bold">
               The Guardmaster Advantage
             </span>
-            <h2 className="max-w-7xl text-4xl leading-tight font-bold  md:text-5xl">
+            <h2 className="max-w-7xl text-4xl font-pop leading-tight font-bold  md:text-5xl">
               Empowering the Next Generation
               {/*<br />*/}
               of Security Leaders
