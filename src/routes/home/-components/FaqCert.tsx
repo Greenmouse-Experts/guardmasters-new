@@ -103,14 +103,14 @@ export default function FaqCert() {
               <div className="mt-6 flex flex-wrap justify-end gap-4">
                 <Link
                   to="/home/programs"
-                  className="btn gap-2 rounded-none border-none bg-white px-6 font-medium text-black hover:bg-white/90"
+                  className="btn gap-2  border-none bg-white px-6 font-medium text-black hover:bg-white/90"
                 >
                   Apply Now
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
                 <Link
                   to="/home/contact"
-                  className="btn rounded-none border-white/30 bg-transparent px-6 font-medium text-white hover:border-white hover:bg-white/10"
+                  className="btn  border-white/30 bg-transparent px-6 font-medium text-white hover:border-white hover:bg-white/10"
                 >
                   Talk to us
                 </Link>
