@@ -36,10 +36,7 @@ export default function ForeFront() {
 
           <ul className="mb-12 flex flex-col">
             {advantages.map((item, i) => (
-              <li
-                key={item}
-                className="flex items-center gap-5 border-b border-white/10 py-4 first:border-t"
-              >
+              <li key={item} className="flex items-center gap-5 py-4 ">
                 <span className="font-medium tracking-widest text-primary">
                   <ArrowRight />
                   {/*{String(i + 1).padStart(2, "0")}*/}
