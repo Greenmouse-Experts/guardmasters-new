@@ -211,8 +211,9 @@ function RouteComponent() {
       <Courses />
       <Featured />
       <ForeFront />
-      <Accredition />
       <Experience />
+      <Accredition />
+
       <FaqCert />
       {/*<Footer />*/}
     </>
