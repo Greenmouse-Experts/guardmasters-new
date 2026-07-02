@@ -32,7 +32,7 @@ export default function FaqCert() {
             <span className="mb-6 inline-block rounded-full ring ring-current/40 px-4 py-1.5  tracking-[0.18em] font-bold   uppercase text-accent">
               FAQs
             </span>
-            <h2 className="text-4xl text-black font-bold md:text-5xl">
+            <h2 className="text-4xl text-black font-bold md:text-5xl font-pop">
               Got Questions?{" "}
               <span className="text-accent">We've Got Answers</span>
             </h2>
@@ -76,13 +76,16 @@ export default function FaqCert() {
               <span className="mb-6 inline-block text-[11px] font-medium tracking-[0.18em] text-white/50 uppercase">
                 Cohort Opens Monthly
               </span>
-              <h3 className="max-w-md text-4xl leading-[1.1] font-light text-white md:text-5xl">
+              <h3
+                className="max-w-md text-4xl leading-[1.1] font-medium
+                text-white md:text-5xl font-pop"
+              >
                 Start your path to a rewarding career in{" "}
-                <span className="font-semibold italic text-primary">
+                <span className="font-medium italic text-primary underline">
                   Corporate Security, Loss Prevention, Asset Protection
                 </span>{" "}
                 and{" "}
-                <span className="font-semibold italic text-primary">
+                <span className="font-medium italic text-primary underline">
                   Business Continuity Management
                 </span>{" "}
                 today.

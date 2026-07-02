@@ -43,7 +43,7 @@ export default function Accredition() {
       }}
     >
       <div className="relative mb-14 px-6 text-center md:px-16">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
+        <h2 className="text-3xl font-semibold text-white md:text-4xl font-pop">
           Affiliations &amp; Partnership
         </h2>
       </div>
