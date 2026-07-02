@@ -20,7 +20,7 @@ export default function ImageHeader({ badge, title, image }: ImageHeaderProps) {
         <span className="bg-white text-secondary p-2 rounded-full px-4  uppercase ">
           {badge}
         </span>
-        <h1 className="max-w-3xl text-4xl leading-tight font-light text-white mt-4 md:text-6xl">
+        <h1 className="max-w-3xl text-4xl font-pop leading-tight font-light text-white mt-4 md:text-6xl">
           {title}
         </h1>
       </div>

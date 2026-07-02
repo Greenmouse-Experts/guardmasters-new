@@ -20,7 +20,7 @@ export default function ImagelessHeader({
         <span className="mb-6 inline-block rounded-full border border-white/20 px-4 py-1.5 font-medium tracking-[0.18em] text-white/60 uppercase bg-white/20 text-sm">
           {badge}
         </span>
-        <h1 className="max-w-3xl text-4xl leading-tight font-light text-white md:text-6xl">
+        <h1 className="max-w-3xl font-pop text-4xl leading-tight font-light text-white md:text-6xl">
           {title}
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/50">

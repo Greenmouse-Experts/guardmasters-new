@@ -5,7 +5,7 @@ export default function Cta() {
   return (
     <section className=" bg-black py-16  ">
       <div className="container mx-auto flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-        <h2 className="text-4xl leading-tight font-light text-primary md:text-5xl">
+        <h2 className="text-4xl leading-tight font-light text-primary md:text-5xl font-pop">
           Ready to write the
           <br />
           next chapter?

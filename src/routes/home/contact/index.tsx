@@ -96,7 +96,7 @@ function RouteComponent() {
           {/* Cards row */}
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {/* Contact info card */}
-            <div className="rounded-2xl p-8 shadow-sm md:p-10 bg-accent/5 ring ring-current/10">
+            <div className="rounded-2xl p-8 shadow-sm md:p-10 bg-accent/5 ring ring-current/10 font-pop">
               <p className="mb-1 text-sm font-semibold text-secondary">
                 Contact Information
               </p>
