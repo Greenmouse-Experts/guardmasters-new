@@ -193,12 +193,12 @@ function RouteComponent() {
                   <Icon className="size-8 text-accent" strokeWidth={1.5} />
                 </div>
                 <div
-                  className="flex flex-1 flex-col rounded-2xl px-8 pb-10 pt-14 text-center text-accent-content"
-                  style={{
-                    backgroundImage: "url(card_frame.png)",
-                    backgroundSize: "100% 100%",
-                    backgroundRepeat: "no-repeat",
-                  }}
+                  className="flex flex-1 flex-col rounded-2xl px-8 pb-10 pt-14 text-center text-accent-content  shadow-2xl"
+                  // style={{
+                  //   backgroundImage: "url(card_frame.png)",
+                  //   backgroundSize: "100% 100%",
+                  //   backgroundRepeat: "no-repeat",
+                  // }}
                 >
                   <h3 className="mb-4 text-xl font-bold">{title}</h3>
                   <p className="leading-relaxed text-accent-content/70">
