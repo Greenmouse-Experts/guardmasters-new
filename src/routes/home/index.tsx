@@ -183,19 +183,16 @@ function RouteComponent() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 border-t border-l border-base-100/50 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {features.map(({ icon: Icon, title, description }) => (
-              <div
-                key={title}
-                className="border-r border-b border-base-100/50 bg-accent text-accent-content p-10"
-              >
-                <div className="mb-8 inline-flex  items-center justify-center rounded border border-base-100/20 bg-primary p-2.5">
+              <div key={title} className="relative pt-10">
+                <div className="absolute -top-0 left-1/2 -translate-x-1/2 flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-lg">
                   <Icon className="size-8 text-accent" strokeWidth={1.5} />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold ">{title}</h3>
-                <p className=" leading-relaxed text-accent-content/60">
-                  {description}
-                </p>
+                <div className="rounded-2xl bg-secondary/30 px-8 pb-10 pt-14 text-center text-accent-content">
+                  <h3 className="mb-4 text-xl font-bold">{title}</h3>
+                  <p className="leading-relaxed text-accent-content/70">{description}</p>
+                </div>
               </div>
             ))}
           </div>
