@@ -53,7 +53,7 @@ export default function ProgramCard({
       </div>
       {course.price > 0 && (
         <div className="mb-6 text-2xl font-semibold text-accent-content">
-          $CAD{course.price}
+          CAD ${course.price}
         </div>
       )}
 
