@@ -12,10 +12,10 @@ export default function AboutIntro() {
           className="pointer-events-none absolute top-0 right-0 h-full select-none opacity-10"
         />
         <div className="container relative mx-auto">
-          <h2 className="mb-8 text-3xl font-bold text-base-content md:text-4xl font-pop">
+          <h2 className="mb-8 text-3xl font-bold  md:text-4xl font-pop text-accent">
             About Guardmaster Institute Canada
           </h2>
-          <div className="max-w-4xl space-y-5 text-base leading-relaxed text-base-content/80">
+          <div className=" space-y-5 text-xl leading-relaxed text-base-content/80">
             <p>
               Guardmaster Institute Canada is a Canadian federally incorporated
               professional certification, corporate training, and consulting
