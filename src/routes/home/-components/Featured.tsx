@@ -125,7 +125,7 @@ export default function Featured() {
                       <h3 className="mb-4 line-clamp-2 text-2xl leading-tight font-semibold text-accent-content font-pop">
                         {program.title}
                       </h3>
-                      <p className="mb-8 line-clamp-3 text-lg leading-relaxed text-accent-content/60">
+                      <p className="mb-8 line-clamp-3 text-lg leading-relaxed ">
                         {program.shortDesc}
                       </p>
 

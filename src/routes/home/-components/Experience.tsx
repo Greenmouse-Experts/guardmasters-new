@@ -4,7 +4,7 @@ import { ArrowRight, Quote } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "The Mini-MBA changed the trajectory of my career. I walked in a guard supervisor, I walked out leading enterprise security strategy for a multinational.",
+      "The Mini-MBA changed the trajectory of my career. I walked in as a guard supervisor, I walked out leading enterprise security strategy for a multinational.",
     name: "A. Mensah, CPP",
     role: "Head of Corporate Security · Cohort 2024",
     image: "/experience/experience.png",
@@ -47,7 +47,7 @@ export default function Experience() {
           <button
             onClick={next}
             aria-label="Next testimonial"
-            className="btn btn-circle hidden h-14 w-14 shrink-0 border-none bg-secondary text-secondary-content hover:bg-secondary/90 md:inline-flex"
+            className="btn btn-circle hidden h-14 w-14 shrink-0 border-none bg-accent text-secondary-content hover:bg-secondary/90 md:inline-flex"
           >
             <ArrowRight className="h-6 w-6" />
           </button>
@@ -64,7 +64,7 @@ export default function Experience() {
 
           <div>
             <Quote className="mb-6 h-10 w-10 fill-secondary text-secondary" />
-            <blockquote className="mb-10 text-2xl leading-snug font-medium text-base-content md:text-3xl">
+            <blockquote className="mb-10 border border-base-content/20 rounded-lg px-6 py-4 text-2xl leading-snug font-medium text-base-content md:text-3xl">
               {active.quote}
             </blockquote>
 
