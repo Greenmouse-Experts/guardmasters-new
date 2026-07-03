@@ -112,16 +112,17 @@ function RouteComponent() {
         <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left: copy */}
           <div>
-            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-semibold tracking-[0.18em] text-accent uppercase bg-base-100/10">
+            {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-semibold tracking-[0.18em] text-accent uppercase bg-base-100/10">
               Certifications
-            </span>
+            </span>*/}
             <h2
               className="text-4xl leading-tight font-semibold
               text-base-content md:text-5xl"
             >
               Certifications that build confidence,
               {/*<br />*/}
-              credibility, and <em className="  text-accent">career growth.</em>
+              credibility, and{" "}
+              <span className="  text-accent">career growth.</span>
             </h2>
             <p className="mt-8 max-w-md text-lg leading-relaxed">
               We equip corporate security and allied professionals with
