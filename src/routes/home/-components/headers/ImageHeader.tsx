@@ -1,14 +1,20 @@
 import type { ReactNode } from "react";
 
 interface ImageHeaderProps {
-  badge: string;
-  title: ReactNode;
-  image: string;
+  badge?: string;
+  title?: ReactNode;
+  image?: string;
+  description?: any;
 }
 
-export default function ImageHeader({ badge, title, image }: ImageHeaderProps) {
+export default function ImageHeader({
+  badge,
+  title,
+  image,
+  description,
+}: ImageHeaderProps) {
   return (
-    <section className="relative overflow-hidden bg-black px-6 pt-32 pb-40 md:px-16 md:pt-40 md:pb-56">
+    <section className="relative overflow-hidden bg-black px-6 pt-32 pb-40 md:px-16 md:pt-40 md:pb-22">
       <img
         src={image}
         alt=""
@@ -17,12 +23,17 @@ export default function ImageHeader({ badge, title, image }: ImageHeaderProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black" />
 
       <div className="relative container mx-auto">
-        <span className="bg-white text-secondary p-2 rounded-full px-4  uppercase ">
-          {badge}
-        </span>
-        <h1 className="max-w-3xl text-4xl font-pop leading-tight font-light text-white mt-4 md:text-6xl">
+        {badge && (
+          <span className="bg-white text-secondary p-2 rounded-full px-4  uppercase ">
+            {badge}
+          </span>
+        )}
+        <h1 className="max-w-3xl text-4xl font-pop leading-tight  text-white mt-4 md:text-6xl font-semibold">
           {title}
         </h1>
+        {description && (
+          <p className="max-w-3xl text-white mt-4 text-xl ">{description}</p>
+        )}
       </div>
     </section>
   );

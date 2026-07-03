@@ -31,31 +31,27 @@ export default function Principles() {
   return (
     <section className="bg-base-200 px-6 py-20 md:px-16">
       <div className="container mx-auto">
-        <div className="mb-12">
-          {/*<span className="mb-6 inline-block rounded-full border border-current/20 px-4 py-1.5  font-medium tracking-[0.18em] text-secondary uppercase">
-            What We Stand For
-          </span>*/}
-          <h2 className="max-w-2xl text-4xl leading-tight font-light text-base-content md:text-5xl">
-            Four principles.{" "}
-            <em className="text-secondary italic">One mission.</em>
-          </h2>
-        </div>
+        <h2 className="mb-16 text-center text-4xl font-bold  md:text-5xl text-accent">
+          Four principles. One mission.
+        </h2>
 
-        <div className="grid grid-cols-1 border-t border-l border-base-300 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {principles.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="border-r border-b border-base-300 bg-base-200 p-10"
+              className="flex flex-col items-center shadow-lg rounded-xl"
             >
-              <div className="mb-8 inline-flex items-center justify-center bg-primary p-2.5">
-                <Icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
+              <div className="relative z-10 -mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-accent shadow-lg">
+                <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-3 text-2xl font-semibold text-base-content">
-                {title}
-              </h3>
-              <p className=" text-lg leading-relaxed text-base-content/60">
-                {description}
-              </p>
+              <div className="flex w-full flex-col items-center rounded-2xl bg-base-100 px-8 pt-14 pb-10 shadow-sm">
+                <h3 className="mb-3 text-2xl font-semibold text-base-content">
+                  {title}
+                </h3>
+                <p className="text-center text-base leading-relaxed text-base-content/60">
+                  {description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
