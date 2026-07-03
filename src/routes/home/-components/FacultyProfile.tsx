@@ -28,7 +28,7 @@ export default function FacultyProfile() {
           <div className="font-pop font-bold text-3xl mb-4">
             Lead Faculty &amp; Programs Director
           </div>
-          <h2 className="text-2xl text-accent font-semibold text-base-content md:text-5xl">
+          <h2 className="text-lg text-accent font-semibold  md:text-5xl">
             Dr. Adegbenga <span className="text-accent">William Koko</span>
           </h2>
           <p className="mt-4 text-sm leading-relaxed tracking-wide text-base-content/50 uppercase">
