@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation } from "@tanstack/react-query";
-import { ArrowRight, Clock, Loader2, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Loader2, Mail, MapPin, Phone } from "lucide-react";
 import ImagelessHeader from "../-components/headers/ImagelessHeader";
 import { useForm, type UseFormRegister } from "react-hook-form";
 import { toast } from "sonner";
@@ -22,6 +22,11 @@ interface ContactFields {
 
 const details = [
   {
+    Icon: MapPin,
+    label: "Visit",
+    value: "405 Victoria Avenue\nWindsor, Ontario N9A 4N1\nCanada",
+  },
+  {
     Icon: Phone,
     label: "Phone",
     value: "+1 437-545-1684",
@@ -30,16 +35,6 @@ const details = [
     Icon: Mail,
     label: "Email",
     value: "info@guardmasterinstitute.ca",
-  },
-  {
-    Icon: MapPin,
-    label: "Visit",
-    value: "405 Victoria Avenue\nWindsor, Ontario N9A 4N1\nCanada",
-  },
-  {
-    Icon: Clock,
-    label: "Office Hours",
-    value: "Monday — Friday\n09:00 — 18:00 ET",
   },
 ];
 
@@ -91,36 +86,83 @@ function RouteComponent() {
         description="Have questions about certification programs, admissions, or corporate security training? Send a message and our team will guide you through the right next step."
       />
 
-      <section className="bg-base-200/40 px-6 py-16 md:px-12 md:py-24">
-        <div className="container mx-auto space-y-8">
-          {/* Cards row */}
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {/* Contact info card */}
-            <div className="rounded-2xl p-8 shadow-sm md:p-10 bg-accent/5 ring ring-current/10 font-pop">
-              <p className="mb-1 text-sm font-semibold text-secondary">
-                Contact Information
+      {/* Contact cards straddling a dark band */}
+      <div className="relative bg-base-100 py-4">
+        <div className="bg-neutral" />
+        <div className="container relative mx-auto grid grid-cols-1 gap-6 px-6 py-12 md:grid-cols-3 md:px-12">
+          {details.map(({ Icon, label, value }) => (
+            <div
+              key={label}
+              className="relative rounded-2xl bg-base-100 px-6 pt-12 pb-8 text-center shadow-lg"
+            >
+              <span className="absolute -top-6 left-1/2 grid h-12 w-12 -translate-x-1/2 place-items-center rounded-full bg-accent text-white shadow-md">
+                <Icon className="h-5 w-5 " />
+              </span>
+              <p className="mb-2 text-lg font-bold text-base-content">
+                {label}
               </p>
-              <h2 className="mb-8 text-3xl font-semibold text-base-content">
-                Reach us directly
-              </h2>
+              <p className="whitespace-pre-line text-base-content/70">
+                {value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
 
-              <ul className="space-y-6">
-                {details.map(({ Icon, label, value }) => (
-                  <li key={label} className="flex items-start gap-4">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-base-300 text-base-content/60">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <p className="mb-0.5 text-sm text-base-content/50">
-                        {label}
-                      </p>
-                      <p className="whitespace-pre-line text-base font-medium text-base-content">
-                        {value}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+      <section className="bg-base-200/40 px-6 pb-16 md:px-12 md:pb-24">
+        <div className="container mx-auto">
+          {/* Location + form row */}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {/* Location / map card */}
+            <div className="rounded-2xl bg-base-100 p-8 shadow-sm md:p-10">
+              <p className="mb-1 text-sm font-semibold text-secondary">
+                Our Location
+              </p>
+              <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h2 className="mb-1 text-3xl font-semibold text-base-content">
+                    Find Guardmaster Institute
+                  </h2>
+                  <p className="text-sm text-base-content/50">
+                    405 Victoria Avenue, Windsor,
+                    <br />
+                    Ontario N9A 4N1, Canada
+                  </p>
+                </div>
+                <a
+                  href={GMAPS_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-base-300 px-4 py-2.5 text-sm font-medium text-base-content transition-colors hover:bg-base-200"
+                >
+                  Open in Google Maps
+                  <ArrowRight className="h-3.5 w-3.5 -rotate-45" />
+                </a>
+              </div>
+
+              <div className="relative overflow-hidden rounded-xl">
+                <iframe
+                  src={MAP_SRC}
+                  title="Guardmaster Institute location"
+                  width="100%"
+                  height="400"
+                  className="block w-full border-0"
+                  loading="lazy"
+                />
+                {/* Location overlay card */}
+                <div className="absolute bottom-4 left-4 max-w-[200px] rounded-xl bg-base-100 p-4 shadow-lg">
+                  <p className="mb-0.5 text-xs font-semibold text-amber-500">
+                    Pinned Location
+                  </p>
+                  <p className="text-sm font-semibold text-base-content">
+                    Guardmaster Institute
+                  </p>
+                  <p className="mt-1 text-xs text-base-content/60">
+                    405 Victoria Avenue{"\n"}Windsor, Ontario N9A 4N1{"\n"}
+                    Canada
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Form card */}
@@ -232,55 +274,6 @@ function RouteComponent() {
                   )}
                 </button>
               </form>
-            </div>
-          </div>
-
-          {/* Map section */}
-          <div className="rounded-2xl bg-base-100 p-8 shadow-sm md:p-10">
-            <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <p className="mb-1 text-sm font-semibold text-secondary">
-                  Our Location
-                </p>
-                <h2 className="mb-1 text-3xl font-semibold text-base-content">
-                  Find Guardmaster Institute
-                </h2>
-                <p className="text-sm text-base-content/50">
-                  405 Victoria Avenue, Windsor, Ontario N9A 4N1, Canada
-                </p>
-              </div>
-              <a
-                href={GMAPS_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-base-300 px-4 py-2.5 text-sm font-medium text-base-content transition-colors hover:bg-base-200"
-              >
-                Open in Google Maps
-                <ArrowRight className="h-3.5 w-3.5 -rotate-45" />
-              </a>
-            </div>
-
-            <div className="relative overflow-hidden rounded-xl">
-              <iframe
-                src={MAP_SRC}
-                title="Guardmaster Institute location"
-                width="100%"
-                height="400"
-                className="block w-full border-0"
-                loading="lazy"
-              />
-              {/* Location overlay card */}
-              <div className="absolute bottom-4 left-4 max-w-[200px] rounded-xl bg-base-100 p-4 shadow-lg">
-                <p className="mb-0.5 text-xs font-semibold text-amber-500">
-                  Pinned Location
-                </p>
-                <p className="text-sm font-semibold text-base-content">
-                  Guardmaster Institute
-                </p>
-                <p className="mt-1 text-xs text-base-content/60">
-                  405 Victoria Avenue{"\n"}Windsor, Ontario N9A 4N1{"\n"}Canada
-                </p>
-              </div>
             </div>
           </div>
         </div>

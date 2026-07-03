@@ -6,6 +6,7 @@ import AboutIntro from "../-components/AboutIntro";
 import Principles from "../-components/Principles";
 import Stats from "../-components/Stats";
 import FacultyProfile from "../-components/FacultyProfile";
+import YearsOfExperience from "../-components/YearsOfExperience";
 import Cta from "../-components/Cta";
 
 export const Route = createFileRoute("/home/about/")({
@@ -33,7 +34,7 @@ function RouteComponent() {
 
       {/*<Stats />*/}
       <FacultyProfile />
-      <Cta />
+      {/*<Cta />*/}
     </>
   );
 }
