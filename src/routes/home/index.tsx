@@ -200,7 +200,7 @@ function RouteComponent() {
                   <Icon className="size-8 text-accent" strokeWidth={1.5} />
                 </div>
                 <div
-                  className="flex flex-1 flex-col rounded-2xl px-8 pb-10 pt-14 text-center text-accent-content  shadow-2xl bg-accent"
+                  className="flex flex-1 flex-col rounded-2xl px-8 pb-10 pt-14 text-center text-accent-content  shadow-2xl bg-accent ring ring-current/50"
                   // style={{
                   //   backgroundImage: "url(card_frame.png)",
                   //   backgroundSize: "100% 100%",
