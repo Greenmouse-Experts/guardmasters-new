@@ -29,7 +29,7 @@ function RouteComponent() {
   });
 
   return (
-    <div>
+    <>
       <HomeNav />
       <ImagelessHeader
         badge="Certificate Verification"
@@ -193,6 +193,6 @@ function RouteComponent() {
           );
         }}
       </PageLoader>
-    </div>
+    </>
   );
 }

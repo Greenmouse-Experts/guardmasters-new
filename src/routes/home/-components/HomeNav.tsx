@@ -66,7 +66,7 @@ export default function HomeNav() {
 
   // Transparent + overlaid on the landing page hero; solid accent elsewhere.
   const pathname = useLocation({ select: (l) => l.pathname });
-  const isHome = pathname === "/home" || pathname === "/home/";
+  const isHome = true;
 
   const [hasScrolled, setHasScrolled] = useState(false);
 
