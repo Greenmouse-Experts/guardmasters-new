@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { User, HeartHandshake, Award } from "lucide-react";
+import { User, HeartHandshake, Award, User2 } from "lucide-react";
 
 const stats = [
-  { icon: User, value: "500+", label: "Satisfied Learners" },
+  { icon: User2, value: "500+", label: "Satisfied Learners" },
   { icon: HeartHandshake, value: "90", label: "Certified Professionals" },
   { icon: Award, value: "10+", label: "Research Papers Published" },
 ];
@@ -19,10 +19,7 @@ export default function YearsOfExperience() {
             Equipping security professionals with practical training,
             certification readiness, and leadership-focused learning.
           </p>
-          <Link
-            to="/home/programs"
-            className="btn rounded-lg border-none bg-accent px-8 font-bold text-accent-content hover:bg-accent/90"
-          >
+          <Link to="/home/programs" className="btn btn-primary text-accent">
             Train With Us
           </Link>
         </div>
@@ -33,8 +30,12 @@ export default function YearsOfExperience() {
               key={label}
               className="flex flex-col items-center rounded-2xl bg-accent px-8 py-12 text-center"
             >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary">
-                <Icon className="h-8 w-8 text-accent" strokeWidth={1.5} />
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary ring ring-white ring-4">
+                <Icon
+                  className="h-8 w-8 text-accent"
+                  fill="currentColor"
+                  strokeWidth={0}
+                />
               </div>
               <span className="text-5xl font-extrabold text-base-100 md:text-6xl">
                 {value}
