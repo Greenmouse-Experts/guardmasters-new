@@ -204,9 +204,7 @@ function RouteComponent() {
                   // }}
                 >
                   <h3 className="mb-4 text-xl font-semibold">{title}</h3>
-                  <p className="leading-relaxed text-accent-content/70">
-                    {description}
-                  </p>
+                  <p className="leading-relaxed ">{description}</p>
                 </div>
               </div>
             ))}
