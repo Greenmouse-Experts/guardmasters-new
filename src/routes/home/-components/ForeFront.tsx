@@ -46,7 +46,10 @@ export default function ForeFront() {
             ))}
           </ul>
 
-          <Link to="/home/programs" className="btn btn-primary btn-lg ">
+          <Link
+            to="/home/programs"
+            className="btn btn-primary btn-lg text-black font-bold rounded-xl "
+          >
             Explore Our Training Programs
             {/*<ArrowUpRight className="h-4 w-4" />*/}
           </Link>
