@@ -132,12 +132,11 @@ function RouteComponent() {
 
           {/* Right: credentials grid */}
           <div>
-            <h3 className="text-2xl font-semibold text-base-content">
+            <h3 className="text-4xl font-semibold text-base-content">
               Recognized Training Credentials
             </h3>
-            <p className="mt-2  leading-relaxed text-lg font-semibold">
-              A structured view of accreditation, provider status, and global
-              training recognition.
+            <p className="mt-2  leading-relaxed text-xl font-semibold">
+              We are accredited training Organisation
             </p>
 
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -185,8 +184,8 @@ function RouteComponent() {
               The Guardmaster Advantage
             </span>*/}
             <h2 className=" text-4xl font-pop leading-tight font-semibold  md:text-5xl text-center">
-              At Guardmaster Institute, we are empowering the Next Generation of
-              Security Leaders
+              At Guardmaster Institute, We are Empowering the Next Generation of
+              Corporate Security Leaders
             </h2>
           </div>
 

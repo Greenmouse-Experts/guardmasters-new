@@ -42,20 +42,25 @@ export default function Featured() {
         <div className="container mx-auto">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
-              <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent bg-secondary/10 font-semibold tracking-[0.18em]  uppercase">
+              {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent bg-secondary/10 font-semibold tracking-[0.18em]  uppercase">
                 Featured Programs
-              </span>
-              <h2 className="text-4xl leading-tight font-semibold text-accent md:text-5xl font-pop">
-                Start here. <em className="italic text-accent">Go places.</em>
+              </span>*/}
+              <h2 className="text-4xl leading-tight font-semibold  md:text-5xl font-pop">
+                The{" "}
+                <em className="italic text-accent underline">Certifications</em>{" "}
+                you need, For the{" "}
+                <em className="italic text-accent underline">Career</em> you
+                want
+                {/*<em className="italic text-accent">Go places.</em>*/}
               </h2>
             </div>
 
             <div className="flex items-end justify-between gap-6 md:flex-col md:items-end">
-              <p className="max-w-sm text-lg leading-relaxed text-base-content/80">
+              {/*<p className="max-w-sm text-lg leading-relaxed text-base-content/80">
                 Comprehensive Mini-MBA security programs, IFPO certifications,
                 and specialized courses — built around global best practices and
                 ISO standards.
-              </p>
+              </p>*/}
               <div className="flex shrink-0 gap-2">
                 <button
                   type="button"
