@@ -15,18 +15,18 @@ export default function ForeFront() {
       <section className="grid grid-cols-1 text-white lg:grid-cols-2  mx-auto container py-6">
         {/* Left content */}
         <div
-          className="order-2 flex flex-col justify-center rounded-xl px-6 py-16 md:px-16 md:py-24 lg:order-1 text-white"
+          className="order-2 flex flex-col justify-center rounded-xl px-6 py-16 md:px-12 md:py-12 lg:order-1 text-white"
           style={{
             backgroundImage: "url('level_up.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <h2 className="mb-7 text-4xl leading-[1.1] md:text-4xl lg:text-6xl font-semibold font-pop">
+          <h2 className="mb-7 text-4xl leading-[1.1] md:text-4xl lg:text-5xl font-semibold font-pop">
             Level Up Your Professional Skills
           </h2>
 
-          <p className="mb-10 max-w-lg leading-relaxed text-white/60 text-xl">
+          <p className="mb-10 max-w-lg leading-relaxed  text-2xl">
             Guardmaster Institute has been at the forefront of training
             corporate security, business continuity, and loss prevention
             professionals. Our faculty and training facilitators are subject
@@ -41,7 +41,7 @@ export default function ForeFront() {
                   <ArrowRight />
                   {/*{String(i + 1).padStart(2, "0")}*/}
                 </span>
-                <span className="text-white/85">{item}</span>
+                <span className="text-xl">{item}</span>
               </li>
             ))}
           </ul>
