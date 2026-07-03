@@ -112,11 +112,11 @@ function RouteComponent() {
         <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left: copy */}
           <div>
-            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold tracking-[0.18em] text-accent uppercase bg-base-100/10">
+            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-semibold tracking-[0.18em] text-accent uppercase bg-base-100/10">
               Certifications
             </span>
             <h2
-              className="text-4xl leading-tight font-bold
+              className="text-4xl leading-tight font-semibold
               text-base-content md:text-5xl"
             >
               Certifications that build confidence,
@@ -135,7 +135,7 @@ function RouteComponent() {
             <h3 className="text-2xl font-semibold text-base-content">
               Recognized Training Credentials
             </h3>
-            <p className="mt-2  leading-relaxed text-lg font-bold">
+            <p className="mt-2  leading-relaxed text-lg font-semibold">
               A structured view of accreditation, provider status, and global
               training recognition.
             </p>
@@ -181,10 +181,10 @@ function RouteComponent() {
           className="py-8  mx-auto container bg-transparent"
         >
           <div className="mb-12 text-accent-content">
-            {/*<span className="mb-6 inline-block rounded-full border border-accent-content/20 px-4 py-1.5   tracking-[0.18em] uppercase bg-white text-accent font-bold">
+            {/*<span className="mb-6 inline-block rounded-full border border-accent-content/20 px-4 py-1.5   tracking-[0.18em] uppercase bg-white text-accent font-semibold">
               The Guardmaster Advantage
             </span>*/}
-            <h2 className=" text-4xl font-pop leading-tight font-bold  md:text-5xl">
+            <h2 className=" text-4xl font-pop leading-tight font-semibold  md:text-5xl">
               At Guardmaster Institute, we are empowering the Next Generationof
               Security Leaders
             </h2>
@@ -207,7 +207,7 @@ function RouteComponent() {
                   //   backgroundRepeat: "no-repeat",
                   // }}
                 >
-                  <h3 className="mb-4 text-xl font-bold">{title}</h3>
+                  <h3 className="mb-4 text-xl font-semibold">{title}</h3>
                   <p className="leading-relaxed text-accent-content/70">
                     {description}
                   </p>

@@ -100,7 +100,7 @@ function RouteComponent() {
               <p className="mb-1 text-sm font-semibold text-secondary">
                 Contact Information
               </p>
-              <h2 className="mb-8 text-3xl font-bold text-base-content">
+              <h2 className="mb-8 text-3xl font-semibold text-base-content">
                 Reach us directly
               </h2>
 
@@ -128,7 +128,7 @@ function RouteComponent() {
               <p className="mb-1 text-sm font-semibold text-secondary">
                 Send A Message
               </p>
-              <h2 className="mb-1 text-3xl font-bold text-base-content">
+              <h2 className="mb-1 text-3xl font-semibold text-base-content">
                 Tell us what you need
               </h2>
               <p className="mb-8 text-sm text-base-content/55">
@@ -242,7 +242,7 @@ function RouteComponent() {
                 <p className="mb-1 text-sm font-semibold text-secondary">
                   Our Location
                 </p>
-                <h2 className="mb-1 text-3xl font-bold text-base-content">
+                <h2 className="mb-1 text-3xl font-semibold text-base-content">
                   Find Guardmaster Institute
                 </h2>
                 <p className="text-sm text-base-content/50">
@@ -274,7 +274,7 @@ function RouteComponent() {
                 <p className="mb-0.5 text-xs font-semibold text-amber-500">
                   Pinned Location
                 </p>
-                <p className="text-sm font-bold text-base-content">
+                <p className="text-sm font-semibold text-base-content">
                   Guardmaster Institute
                 </p>
                 <p className="mt-1 text-xs text-base-content/60">

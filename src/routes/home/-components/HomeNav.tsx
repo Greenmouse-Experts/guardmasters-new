@@ -49,7 +49,7 @@ function CartButton({ className }: { className?: string }) {
     >
       <ShoppingCart className="h-5 w-5" />
       {cartCount > 0 && (
-        <span className="absolute -top-2 -right-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-error px-1 text-[10px] font-bold text-error-content">
+        <span className="absolute -top-2 -right-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-error px-1 text-[10px] font-semibold text-error-content">
           {cartCount}
         </span>
       )}

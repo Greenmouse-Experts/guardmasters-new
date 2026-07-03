@@ -77,7 +77,7 @@ export default function Hero() {
                 key={stat.value}
                 className={`px-6 py-5 text-center sm:px-8 ${i < stats.length - 1 ? "border-r border-base-300" : ""}`}
               >
-                <div className="text-3xl font-bold text-secondary">
+                <div className="text-3xl font-semibold text-secondary">
                   {stat.value}
                 </div>
                 <div className="mt-1 text-[10px] font-medium tracking-widest  uppercase">

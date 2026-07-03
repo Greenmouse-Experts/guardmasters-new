@@ -45,10 +45,10 @@ export default function Courses() {
       <div className="container mx-auto">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-bold bg-secondary/10 tracking-[0.18em] text-accent uppercase">
+            {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-semibold bg-secondary/10 tracking-[0.18em] text-accent uppercase">
               Explore Courses
             </span>*/}
-            <h2 className="max-w-3xl text-4xl text-accent leading-tight font-bold md:text-5xl font-pop">
+            <h2 className="max-w-3xl text-4xl text-accent leading-tight font-semibold md:text-5xl font-pop">
               Browse Courses by Category
             </h2>
           </div>
@@ -65,7 +65,7 @@ export default function Courses() {
           {(data) => {
             return (
               <>
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mb-22">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mb-22 max-w-5xl mx-auto">
                   {data.data.map((course) => (
                     <Link
                       key={course.title}
@@ -80,7 +80,7 @@ export default function Courses() {
                           className="object-contain size-full transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
-                      <h3 className="py-8 text-left p-4 text-2xl font-bold text-accent-content font-pop">
+                      <h3 className="py-8 text-left p-4 text-2xl font-semibold text-accent-content font-pop">
                         {course.title}
                       </h3>
                     </Link>

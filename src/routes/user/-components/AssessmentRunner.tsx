@@ -336,12 +336,12 @@ function Results({
           Your Score
         </p>
         <div className="mt-2 flex items-center justify-center gap-4">
-          <p className="text-2xl font-bold text-accent">
+          <p className="text-2xl font-semibold text-accent">
             <span className="text-secondary">{result.score}</span>/
             {result.total}
           </p>
           <Minus className="h-4 w-4 text-base-content/40" />
-          <p className="text-2xl font-bold text-accent">{result.percent}%</p>
+          <p className="text-2xl font-semibold text-accent">{result.percent}%</p>
         </div>
       </div>
 

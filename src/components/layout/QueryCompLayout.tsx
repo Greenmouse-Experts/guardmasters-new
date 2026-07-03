@@ -58,7 +58,7 @@ export default function QueryCompLayout<TData>(
               <ShieldOff className="w-8 h-8" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-lg font-bold text-base-content">
+              <h3 className="text-lg font-semibold text-base-content">
                 Access Denied
               </h3>
               <p className="text-sm text-base-content/60">
@@ -74,7 +74,7 @@ export default function QueryCompLayout<TData>(
     return (
       <div className="p-4 h-[520px] grid place-items-center bg-base-300 rounded-md">
         <div className="p-4 space-y-4">
-          <div className="text-xl font-bold floating-label">{error}</div>
+          <div className="text-xl font-semibold floating-label">{error}</div>
           <button
             className="btn btn-error btn-block"
             onClick={() => props.query.refetch()}

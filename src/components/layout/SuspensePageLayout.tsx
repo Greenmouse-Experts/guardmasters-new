@@ -60,7 +60,7 @@ export default function SuspensePageLayout<TData>(
         )}
         <div className="p-4 min-h-[520px] grid place-items-center bg-base-300 rounded-md">
           <div className="p-4 space-y-4">
-            <div className="text-lg text-center fieldset-label font-bold wrap-anywhere">
+            <div className="text-lg text-center fieldset-label font-semibold wrap-anywhere">
               {error}
             </div>
             <button

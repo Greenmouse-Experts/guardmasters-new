@@ -39,7 +39,7 @@ export default function Experience() {
             <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-medium tracking-[0.18em] text-accent uppercase">
               Our Mission
             </span>
-            <h2 className="text-4xl leading-tight font-bold text-base-content md:text-5xl font-pop">
+            <h2 className="text-4xl leading-tight font-semibold text-base-content md:text-5xl font-pop">
               Hear From <span className="text-accent">Our Learners</span>
             </h2>
           </div>
@@ -69,11 +69,11 @@ export default function Experience() {
             </blockquote>
 
             <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-content">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-semibold text-primary-content">
                 {active.name.charAt(0)}
               </div>
               <div>
-                <div className="font-bold text-base-content">{active.name}</div>
+                <div className="font-semibold text-base-content">{active.name}</div>
                 <div className="text-xs font-medium tracking-[0.12em] text-base-content/50 uppercase">
                   {active.role}
                 </div>

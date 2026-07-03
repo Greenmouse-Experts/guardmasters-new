@@ -25,7 +25,7 @@ export default function QueryPageLayout(props: QueryPageLayoutProps) {
     return (
       <div className="p-4 h-[520px] grid place-items-center bg-base-300 rounded-md">
         <div className="p-4 space-y-4 ">
-          <div className="text-lg text-center fieldset-label font-bold floating-label  wrap-anywhere">
+          <div className="text-lg text-center fieldset-label font-semibold floating-label  wrap-anywhere">
             {error}
           </div>
           <button

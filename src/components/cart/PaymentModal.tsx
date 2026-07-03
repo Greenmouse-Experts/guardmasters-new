@@ -87,11 +87,11 @@ const PaymentModal = forwardRef<ModalHandle, PaymentModalProps>(
           </span>
           <p className="mt-2 leading-relaxed text-base-content/70">
             You're about to pay{" "}
-            <span className="font-bold text-accent">
+            <span className="font-semibold text-accent">
               ${amount.toLocaleString()}
             </span>{" "}
             for{" "}
-            <span className="font-bold text-accent">
+            <span className="font-semibold text-accent">
               {items.length} item{items.length !== 1 ? "s" : ""}
             </span>
             .

@@ -16,7 +16,7 @@ export default function ProgramCard({
   return (
     <div className="group flex h-full flex-col rounded-2xl bg-accent p-6 text-center text-accent-content transition-shadow hover:shadow-lg">
       {programTitle && (
-        <div className="mb-5 text-left text-[11px]  tracking-[0.15em] text-accent-content/50 uppercase font-bold">
+        <div className="mb-5 text-left text-[11px]  tracking-[0.15em] text-accent-content/50 uppercase font-semibold">
           {typeof index === "number"
             ? `${String(index + 1).padStart(2, "0")} / `
             : ""}
@@ -52,7 +52,7 @@ export default function ProgramCard({
         </span>*/}
       </div>
       {course.price > 0 && (
-        <div className="mb-6 text-2xl font-bold text-accent-content">
+        <div className="mb-6 text-2xl font-semibold text-accent-content">
           $CA{course.price}
         </div>
       )}
@@ -60,7 +60,7 @@ export default function ProgramCard({
       <Link
         to="/home/programs/$id"
         params={{ id: course.id }}
-        className="btn btn-block mt-auto h-auto justify-center gap-2 rounded-md border-none bg-primary py-3.5  text-primary-content hover:bg-primary/90 font-bold text-xl"
+        className="btn btn-block mt-auto h-auto justify-center gap-2 rounded-md border-none bg-primary py-3.5  text-primary-content hover:bg-primary/90 font-semibold text-xl"
       >
         Enroll
         <ArrowUpRight className="h-4 w-4" />

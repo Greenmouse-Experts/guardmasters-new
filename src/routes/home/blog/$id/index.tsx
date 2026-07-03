@@ -75,7 +75,7 @@ function Article({ post }: { post: BlogPost }) {
       )}
 
       {/* Title */}
-      <h1 className="max-w-3xl text-3xl leading-tight font-bold text-accent lg:text-[2.6rem]">
+      <h1 className="max-w-3xl text-3xl leading-tight font-semibold text-accent lg:text-[2.6rem]">
         {post.title}
       </h1>
 
@@ -210,7 +210,7 @@ function NewsletterCard() {
       <p className="mb-3 text-xs font-semibold tracking-[0.18em] text-accent-content/50 uppercase">
         Newsletter
       </p>
-      <p className="mb-6 text-xl leading-snug font-bold">
+      <p className="mb-6 text-xl leading-snug font-semibold">
         Get new articles every week.
       </p>
       <button

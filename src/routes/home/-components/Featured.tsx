@@ -42,10 +42,10 @@ export default function Featured() {
         <div className="container mx-auto">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
-              <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent bg-secondary/10 font-bold tracking-[0.18em]  uppercase">
+              <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent bg-secondary/10 font-semibold tracking-[0.18em]  uppercase">
                 Featured Programs
               </span>
-              <h2 className="text-4xl leading-tight font-bold text-accent md:text-5xl font-pop">
+              <h2 className="text-4xl leading-tight font-semibold text-accent md:text-5xl font-pop">
                 Start here. <em className="italic text-accent">Go places.</em>
               </h2>
             </div>
@@ -100,7 +100,7 @@ export default function Featured() {
                       data-card
                       className="group flex w-[85%] shrink-0 snap-start flex-col rounded-2xl bg-accent p-6 text-center text-accent-content transition-shadow hover:shadow-lg sm:w-[60%] md:w-[calc((100%-3rem)/3)]"
                     >
-                      <div className="mb-5 text-left text-[11px] font-bold tracking-[0.15em] text-accent-content/50 uppercase">
+                      <div className="mb-5 text-left text-[11px] font-semibold tracking-[0.15em] text-accent-content/50 uppercase">
                         {String(index + 1).padStart(2, "0")} /{" "}
                         {program.program?.title ?? "Program"}
                       </div>
@@ -115,7 +115,7 @@ export default function Featured() {
                         )}
                       </div>
 
-                      <h3 className="mb-4 line-clamp-2 text-2xl leading-tight font-bold text-accent-content font-pop">
+                      <h3 className="mb-4 line-clamp-2 text-2xl leading-tight font-semibold text-accent-content font-pop">
                         {program.title}
                       </h3>
                       <p className="mb-8 line-clamp-3 text-sm leading-relaxed text-accent-content/60">

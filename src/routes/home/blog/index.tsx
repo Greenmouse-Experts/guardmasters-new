@@ -92,7 +92,7 @@ function BlogContent({ posts }: { posts: BlogPost[] }) {
             <p className="text-xs font-semibold tracking-[0.18em] text-base-content/45 uppercase">
               Blog feed
             </p>
-            <h2 className="mt-1 text-3xl font-bold text-accent">
+            <h2 className="mt-1 text-3xl font-semibold text-accent">
               Latest Articles
             </h2>
           </div>
@@ -167,7 +167,7 @@ function Featured({ post }: { post: BlogPost }) {
           </p>
         )}
 
-        <h1 className="mt-3 text-4xl leading-tight font-bold text-accent md:text-5xl">
+        <h1 className="mt-3 text-4xl leading-tight font-semibold text-accent md:text-5xl">
           {post.title}
         </h1>
 

@@ -22,7 +22,7 @@ export default function ForeFront() {
             backgroundPosition: "center",
           }}
         >
-          <h2 className="mb-7 text-4xl leading-[1.1] md:text-4xl lg:text-6xl font-bold font-pop">
+          <h2 className="mb-7 text-4xl leading-[1.1] md:text-4xl lg:text-6xl font-semibold font-pop">
             Level Up Your Professional Skills
           </h2>
 
@@ -66,7 +66,7 @@ export default function ForeFront() {
               <Users className=" bg-accent text-primary size-8" />
             </div>
             <div className="ml-4">
-              <h2 className="text-black text-2xl font-bold">250+</h2>
+              <h2 className="text-black text-2xl font-semibold">250+</h2>
               <p className="text-black/70">Learners</p>
             </div>
           </div>*/}

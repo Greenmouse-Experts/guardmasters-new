@@ -29,15 +29,15 @@ export default function FaqCert() {
         {/* FAQ header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
-            <span className="mb-6 inline-block rounded-full ring ring-current/40 px-4 py-1.5  tracking-[0.18em] font-bold   uppercase text-accent">
+            <span className="mb-6 inline-block rounded-full ring ring-current/40 px-4 py-1.5  tracking-[0.18em] font-semibold   uppercase text-accent">
               FAQs
             </span>
-            <h2 className="text-4xl text-black font-bold md:text-5xl font-pop">
+            <h2 className="text-4xl text-black font-semibold md:text-5xl font-pop">
               Got Questions?{" "}
               <span className="text-accent">We've Got Answers</span>
             </h2>
           </div>
-          <p className="max-w-sm text-xl font-bold leading-relaxed text-black/80">
+          <p className="max-w-sm text-xl font-semibold leading-relaxed text-black/80">
             Find answers to common questions about our courses, certifications,
             enrollment process, and learning experience.
           </p>
