@@ -187,7 +187,7 @@ function RouteComponent() {
                     className="checkbox checkbox-secondary checkbox-sm mt-0.5"
                   />
                   <span>
-                    I have read and agreed to GuardMaster Institute Privacy
+                    I have read and agreed to Guardmaster Institute Privacy
                     Policy and Terms of Use
                   </span>
                 </label>
