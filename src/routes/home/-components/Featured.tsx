@@ -47,9 +47,11 @@ export default function Featured() {
               </span>*/}
               <h2 className="text-4xl leading-tight font-semibold  md:text-5xl font-pop">
                 The{" "}
-                <em className="italic text-accent underline">Certifications</em>{" "}
+                <em className="italic text-primary underline">
+                  Certifications
+                </em>{" "}
                 you need, For the{" "}
-                <em className="italic text-accent underline">Career</em> you
+                <em className="italic text-primary underline">Career</em> you
                 want
                 {/*<em className="italic text-accent">Go places.</em>*/}
               </h2>
