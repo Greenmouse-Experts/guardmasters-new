@@ -181,12 +181,12 @@ function RouteComponent() {
           className="py-8  mx-auto container bg-transparent"
         >
           <div className="mb-12 text-accent-content">
-            <span className="mb-6 inline-block rounded-full border border-accent-content/20 px-4 py-1.5   tracking-[0.18em] uppercase bg-white text-accent font-bold">
+            {/*<span className="mb-6 inline-block rounded-full border border-accent-content/20 px-4 py-1.5   tracking-[0.18em] uppercase bg-white text-accent font-bold">
               The Guardmaster Advantage
-            </span>
+            </span>*/}
             <h2 className=" text-4xl font-pop leading-tight font-bold  md:text-5xl">
-              Empowering the Next Generation
-              {/*<br />*/} of Security Leaders
+              At Guardmaster Institute, we are empowering the Next Generationof
+              Security Leaders
             </h2>
           </div>
 
