@@ -54,7 +54,7 @@ export default function Courses() {
           </div>
           <Link
             to="/home/programs"
-            className="btn btn-primary border-accent text-accent hover:bg-secondary hover:text-secondary-content self-start rounded-2xl px-6 md:self-auto"
+            className="btn btn-primary border-accent text-accent hover:bg-accent hover:text-secondary-content self-start rounded-2xl px-6 md:self-auto text-xl btn-lg"
           >
             View All Programs
             <ArrowUpRight className="h-4 w-4" />
