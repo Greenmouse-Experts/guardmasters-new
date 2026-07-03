@@ -84,7 +84,7 @@ export default function HomeNav() {
   return (
     <div
       className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
-        hasScrolled ? "bg-accent/60 backdrop-blur-xs" : "bg-transparent"
+        hasScrolled ? "bg-accent/40 backdrop-blur-xs" : "bg-transparent"
       }`}
     >
       {/* Top contact strip */}
