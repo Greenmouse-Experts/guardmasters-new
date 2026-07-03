@@ -112,103 +112,101 @@ export default function Footer() {
         backgroundRepeat: "no-repeat",
       }}
     >
-        <div className="container mx-auto px-6 py-16 md:px-12">
-          {/* Main grid */}
-          <div className="grid grid-cols-1 gap-16 md:grid-cols-4 lg:grid-cols-4">
-            {/* Brand */}
-            <div>
-              <img
-                src="/logo.png"
-                alt="Guardmaster Institute"
-                className="mb-6 h-20 w-auto"
-              />
-              <p className="text-sm leading-relaxed text-white/80">
-                Guardmaster Institute Canada is an accredited professional security
-                certifications training institution. Accredited by the American
-                Council of Training &amp; Development. Guardmaster Institute is an ASIS
-                International Preferred CPE Provider
-              </p>
-            </div>
-
-            <div>
-              <h3 className="mb-6 text-xl font-semibold text-white">Explore</h3>
-              <ul className="space-y-4">
-                {exploreLinks.map((link) => (
-                  <li key={link.name}>
-                    {link.path ? (
-                      <Link
-                        to={link.path}
-                        className="text-base text-white/70 transition-colors hover:text-primary"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <span className="text-base text-white/40">{link.name}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="mb-6 text-xl font-semibold text-white">Resources</h3>
-              <ul className="space-y-4">
-                {resourceLinks.map((link) => (
-                  <li key={link.name}>
-                    {link.path ? (
-                      <Link
-                        to={link.path}
-                        className="text-base text-white/70 transition-colors hover:text-primary"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <span className="text-base text-white/40">{link.name}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div>
-              <h3 className="mb-6 text-xl font-semibold text-white">Contact Info</h3>
-              <ul className="space-y-4">
-                {contacts.map(({ Icon, content }) => (
-                  <li key={content} className="flex items-start gap-3">
-                    <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span className="whitespace-pre-line text-base text-white/70">
-                      {content}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex gap-3">
-                {socials.map(({ Icon, label }) => (
-                  <a
-                    key={label}
-                    aria-label={label}
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-[#0f2347] transition-transform hover:scale-110"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
+      <div className="container mx-auto px-6 py-16 md:px-12">
+        {/* Main grid */}
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-4 lg:grid-cols-4">
+          {/* Brand */}
+          <div>
+            <img
+              src="/logo.png"
+              alt="Guardmaster Institute"
+              className="mb-6 h-20 w-auto"
+            />
+            <p className="text-sm leading-relaxed text-white/80">
+              Guardmaster Institute Canada is an accredited professional
+              security certifications training institution. Accredited by the
+              American Council of Training &amp; Development. Guardmaster
+              Institute is an ASIS International Preferred CPE Provider
+            </p>
           </div>
 
-          <div className="mt-12 h-px w-full bg-white/10" />
+          <div>
+            <h3 className="mb-6 text-xl font-semibold text-white">Explore</h3>
+            <ul className="space-y-4">
+              {exploreLinks.map((link) => (
+                <li key={link.name}>
+                  {link.path ? (
+                    <Link
+                      to={link.path}
+                      className="text-base text-white/70 transition-colors hover:text-primary"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <span className="text-base text-white/40">{link.name}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Bottom bar */}
-          <div className="pt-8 text-center">
-            <p className="text-white">
-              © 2026 Guardmaster Institute Canada™
-            </p>
-            <p className="text-white/70">
-              All rights reserved.
-            </p>
+          <div>
+            <h3 className="mb-6 text-xl font-semibold text-white">Resources</h3>
+            <ul className="space-y-4">
+              {resourceLinks.map((link) => (
+                <li key={link.name}>
+                  {link.path ? (
+                    <Link
+                      to={link.path}
+                      className="text-base text-white/70 transition-colors hover:text-primary"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <span className="text-base text-white/40">{link.name}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="mb-6 text-xl font-semibold text-white">
+              Contact Info
+            </h3>
+            <ul className="space-y-4">
+              {contacts.map(({ Icon, content }) => (
+                <li key={content} className="flex items-start gap-3">
+                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <span className="whitespace-pre-line text-base text-white/70">
+                    {content}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex gap-3">
+              {socials.map(({ Icon, label }) => (
+                <a
+                  key={label}
+                  aria-label={label}
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-[#0f2347] transition-transform hover:scale-110"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
+
+        <div className="mt-12 h-px w-full bg-white/10" />
+
+        {/* Bottom bar */}
+        <div className="pt-8 text-center">
+          <p className="text-white">© 2026 Guardmaster Institute Canada™</p>
+          <p className="text-white/70">All rights reserved.</p>
+        </div>
+      </div>
     </footer>
   );
 }

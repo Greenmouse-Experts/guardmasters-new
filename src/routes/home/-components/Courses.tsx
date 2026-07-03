@@ -65,7 +65,7 @@ export default function Courses() {
           {(data) => {
             return (
               <>
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mb-22 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mb-22  mx-auto">
                   {data.data.map((course) => (
                     <Link
                       key={course.title}

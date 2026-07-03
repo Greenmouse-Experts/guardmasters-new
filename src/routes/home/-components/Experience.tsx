@@ -73,7 +73,9 @@ export default function Experience() {
                 {active.name.charAt(0)}
               </div>
               <div>
-                <div className="font-semibold text-base-content">{active.name}</div>
+                <div className="font-semibold text-base-content">
+                  {active.name}
+                </div>
                 <div className="text-xs font-medium tracking-[0.12em] text-base-content/50 uppercase">
                   {active.role}
                 </div>

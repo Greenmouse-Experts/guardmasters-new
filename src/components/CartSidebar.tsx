@@ -49,7 +49,8 @@ export default function CartSidebar() {
                 {items.length}
               </span>
             )}
--semibold-semibold-semibold-semibold          </div>
+            -semibold-semibold-semibold-semibold{" "}
+          </div>
           <button
             type="button"
             onClick={closeCart}
