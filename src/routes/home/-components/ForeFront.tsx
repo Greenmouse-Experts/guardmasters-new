@@ -26,7 +26,7 @@ export default function ForeFront() {
             Level Up Your Professional Skills
           </h2>
 
-          <p className="mb-10 max-w-lg leading-relaxed text-white/60">
+          <p className="mb-10 max-w-lg leading-relaxed text-white/60 text-lg">
             Guardmaster Institute has been at the forefront of training
             corporate security, business continuity, and loss prevention
             professionals. Our faculty and training facilitators are subject
