@@ -48,7 +48,7 @@ export default function Principles() {
                 <h3 className="mb-3 text-2xl font-semibold text-base-content">
                   {title}
                 </h3>
-                <p className="text-center text-base leading-relaxed text-base-content/60">
+                <p className="text-center text-base leading-relaxed">
                   {description}
                 </p>
               </div>
