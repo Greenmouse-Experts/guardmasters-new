@@ -93,9 +93,18 @@ export default function FaqCert() {
             </div>
 
             <div>
-              <div className="overflow-hidden rounded-lg shadow-2xl">
+              <div className="overflow-hidden rounded-lg shadow-2xl relative isolate">
+                <div className="bg-red-500 absolute left-14 right-12  top-8  bottom-17 z-10 rounded-xl">
+                  <iframe
+                    src="https://www.youtube.com/embed/7nE6xsvVE9U"
+                    className="w-full h-full"
+                    title="Guardmaster Institute"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+
                 <img
-                  src="/certificate.png"
+                  src="/laptop.png"
                   alt="Guardmaster Institute certificate"
                   className="w-full object-cover"
                 />
