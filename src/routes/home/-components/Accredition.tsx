@@ -57,7 +57,7 @@ export default function Accredition() {
             <img
               src={item.image}
               alt={item.name}
-              className="h-28 w-28 object-contain"
+              className="size-42 object-contain"
             />
           </div>
         ))}
