@@ -107,7 +107,7 @@ export default function Footer() {
     <footer
       className="text-secondary-content"
       style={{
-        backgroundImage: "url(/FOOTER.png)",
+        backgroundImage: "url(/FOOTER.jpeg)",
         backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
       }}

@@ -36,7 +36,7 @@ export default function Accredition() {
     <section
       className="relative overflow-hidden py-24 bg-accent"
       style={{
-        backgroundImage: "url('pattern.png')",
+        backgroundImage: "url('pattern.jpeg')",
         backgroundSize: "auto 100%",
         backgroundPosition: "left center",
         backgroundRepeat: "repeat-x",
