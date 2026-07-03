@@ -34,7 +34,7 @@ const accreditations = [
 export default function Accredition() {
   return (
     <section
-      className="relative overflow-hidden py-32 bg-accent"
+      className="relative overflow-hidden py-24 bg-accent"
       style={{
         backgroundImage: "url('pattern.png')",
         backgroundSize: "auto 100%",
