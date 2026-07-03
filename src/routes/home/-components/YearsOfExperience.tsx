@@ -15,7 +15,7 @@ export default function YearsOfExperience() {
           <h2 className="mb-4 text-4xl font-bold text-base-content md:text-5xl">
             15 Years of Experience
           </h2>
-          <p className="mb-8 max-w-lg text-base text-base-content/60">
+          <p className="mb-8 max-w-lg text-base text-lg">
             Equipping security professionals with practical training,
             certification readiness, and leadership-focused learning.
           </p>
@@ -31,10 +31,10 @@ export default function YearsOfExperience() {
           {stats.map(({ icon: Icon, value, label }) => (
             <div
               key={label}
-              className="flex flex-col items-center rounded-2xl bg-primary px-8 py-12 text-center"
+              className="flex flex-col items-center rounded-2xl bg-accent px-8 py-12 text-center"
             >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent">
-                <Icon className="h-8 w-8 text-primary" strokeWidth={1.5} />
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary">
+                <Icon className="h-8 w-8 text-accent" strokeWidth={1.5} />
               </div>
               <span className="text-5xl font-extrabold text-base-100 md:text-6xl">
                 {value}
