@@ -32,9 +32,9 @@ export default function Principles() {
     <section className="bg-base-200 px-6 py-20 md:px-16">
       <div className="container mx-auto">
         <div className="mb-12">
-          <span className="mb-6 inline-block rounded-full border border-current/20 px-4 py-1.5  font-medium tracking-[0.18em] text-secondary uppercase">
+          {/*<span className="mb-6 inline-block rounded-full border border-current/20 px-4 py-1.5  font-medium tracking-[0.18em] text-secondary uppercase">
             What We Stand For
-          </span>
+          </span>*/}
           <h2 className="max-w-2xl text-4xl leading-tight font-light text-base-content md:text-5xl">
             Four principles.{" "}
             <em className="text-secondary italic">One mission.</em>
