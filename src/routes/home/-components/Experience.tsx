@@ -36,9 +36,9 @@ export default function Experience() {
       <div className="container mx-auto">
         <div className="mb-12 flex items-start justify-between gap-6">
           <div>
-            <span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-medium tracking-[0.18em] text-accent uppercase">
+            {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-medium tracking-[0.18em] text-accent uppercase">
               Our Mission
-            </span>
+            </span>*/}
             <h2 className="text-4xl leading-tight font-semibold text-base-content md:text-5xl font-pop">
               Hear From <span className="text-accent">Our Learners</span>
             </h2>
