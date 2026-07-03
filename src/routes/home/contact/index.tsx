@@ -6,6 +6,7 @@ import { useForm, type UseFormRegister } from "react-hook-form";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
 import { extract_message } from "#/helpers/apihelpers.tsx";
+import ImageHeader from "../-components/headers/ImageHeader";
 
 export const Route = createFileRoute("/home/contact/")({
   component: RouteComponent,
@@ -75,8 +76,8 @@ function RouteComponent() {
 
   return (
     <>
-      <ImagelessHeader
-        badge="Contact Guardmaster Institute"
+      <ImageHeader
+        // badge="Contact Guardmaster Institute"
         title={
           <>
             Speak with our{" "}

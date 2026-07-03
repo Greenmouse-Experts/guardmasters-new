@@ -34,6 +34,7 @@ function RouteComponent() {
 
       {/*<Stats />*/}
       <FacultyProfile />
+      <YearsOfExperience />
       {/*<Cta />*/}
     </>
   );
