@@ -25,10 +25,10 @@ export default function FacultyProfile() {
         </div>
 
         <div>
-          <span className="mb-5 inline-block rounded-full border border-base-content/20 px-4 py-1.5  text-secondary uppercase">
+          <div className="font-pop font-bold text-3xl mb-4">
             Lead Faculty &amp; Programs Director
-          </span>
-          <h2 className="text-4xl font-semibold text-base-content md:text-5xl">
+          </div>
+          <h2 className="text-2xl text-accent font-semibold text-base-content md:text-5xl">
             Dr. Adegbenga <span className="text-accent">William Koko</span>
           </h2>
           <p className="mt-4 text-sm leading-relaxed tracking-wide text-base-content/50 uppercase">
