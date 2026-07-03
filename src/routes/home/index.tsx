@@ -101,13 +101,11 @@ function RouteComponent() {
 
       <section
         className="bg-base-200 px-6 py-16 md:px-16"
-        // style={{
-        //   backgroundImage:
-        //     "url('data:image/svg+xml,%3Csvg width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M0,30 Q25,10 50,30 T100,30 L100,0 L0,0 Z%22 fill=%22%23e5e5e5%22/%3E%3Cpath d=%22M0,50 Q25,30 50,50 T100,50 L100,20 Q50,0 0,20 Z%22 fill=%22%23d9d9d9%22/%3E%3Cpath d=%22M0,70 Q25,50 50,70 T100,70 L100,40 Q50,20 0,40 Z%22 fill=%22%23cdcdcd%22/%3E%3C/svg%3E')",
-        //   backgroundSize: "auto 100%",
-        //   backgroundPosition: "left center",
-        //   backgroundRepeat: "repeat-x",
-        // }}
+        style={{
+          backgroundImage: "url(/cert.jpeg)",
+          backgroundSize: "100% 100%",
+          backgroundRepeat: "no-repeat",
+        }}
       >
         <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left: copy */}
