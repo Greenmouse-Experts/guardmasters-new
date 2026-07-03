@@ -48,7 +48,7 @@ export default function ForeFront() {
 
           <Link
             to="/home/programs"
-            className="btn btn-primary btn-lg text-black font-bold rounded-xl "
+            className="btn btn-primary btn-xl w-fit text-accent font-bold rounded-xl "
           >
             Explore Our Training Programs
             {/*<ArrowUpRight className="h-4 w-4" />*/}
