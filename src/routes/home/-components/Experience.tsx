@@ -63,8 +63,8 @@ export default function Experience() {
           </div>
 
           <div>
-            <Quote className="mb-6 h-10 w-10 fill-secondary text-secondary" />
-            <blockquote className="mb-10 border border-base-content/20 rounded-lg px-6 py-4 text-2xl leading-snug font-medium text-base-content md:text-3xl">
+            <Quote className="mb-6 h-10 w-10  text-accent" />
+            <blockquote className="mb-10 text-2xl leading-snug font-medium text-base-content md:text-3xl ">
               {active.quote}
             </blockquote>
 
