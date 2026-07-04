@@ -116,7 +116,7 @@ function RouteComponent() {
             <div
               className="rounded-2xl  p-8 shadow-sm md:p-10"
               style={{
-                backgroundImage: "url('pattern.jpeg')",
+                backgroundImage: "url('/cert.jpeg')",
                 backgroundSize: "auto 100%",
                 backgroundPosition: "left center",
                 backgroundRepeat: "repeat-x",
@@ -176,7 +176,7 @@ function RouteComponent() {
             <div
               className="rounded-2xl  p-8 shadow-sm md:p-10  ring ring-current/10"
               style={{
-                backgroundImage: "url('cert.jpeg')",
+                backgroundImage: "url('/cert.jpeg')",
                 backgroundSize: "auto 100%",
                 backgroundPosition: "left center",
                 backgroundRepeat: "repeat-x",
