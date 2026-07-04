@@ -24,7 +24,7 @@ interface ContactFields {
 const details = [
   {
     Icon: MapPin,
-    label: "Visit",
+    label: "Address",
     value: "405 Victoria Avenue\nWindsor, Ontario N9A 4N1\nCanada",
   },
   {
@@ -99,12 +99,10 @@ function RouteComponent() {
               <span className="absolute -top-6 left-1/2 grid h-12 w-12 -translate-x-1/2 place-items-center rounded-full bg-accent text-white shadow-md">
                 <Icon className="h-5 w-5 " />
               </span>
-              <p className="mb-2 text-lg font-bold text-base-content">
+              <p className="mb-2 text-lg font-pop font-bold text-base-content">
                 {label}
               </p>
-              <p className="whitespace-pre-line text-base-content/70">
-                {value}
-              </p>
+              <p className="whitespace-pre-line text-base-conten">{value}</p>
             </div>
           ))}
         </div>
@@ -115,7 +113,15 @@ function RouteComponent() {
           {/* Location + form row */}
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {/* Location / map card */}
-            <div className="rounded-2xl bg-base-100 p-8 shadow-sm md:p-10">
+            <div
+              className="rounded-2xl  p-8 shadow-sm md:p-10"
+              style={{
+                backgroundImage: "url('pattern.jpeg')",
+                backgroundSize: "auto 100%",
+                backgroundPosition: "left center",
+                backgroundRepeat: "repeat-x",
+              }}
+            >
               <p className="mb-1 text-sm font-semibold text-secondary">
                 Our Location
               </p>
@@ -124,7 +130,7 @@ function RouteComponent() {
                   <h2 className="mb-1 text-3xl font-semibold text-base-content">
                     Find Guardmaster Institute
                   </h2>
-                  <p className="text-sm text-base-content/50">
+                  <p className="text-sm text-base-content">
                     405 Victoria Avenue, Windsor,
                     <br />
                     Ontario N9A 4N1, Canada
@@ -167,7 +173,15 @@ function RouteComponent() {
             </div>
 
             {/* Form card */}
-            <div className="rounded-2xl  p-8 shadow-sm md:p-10 bg-accent/5 ring ring-current/10">
+            <div
+              className="rounded-2xl  p-8 shadow-sm md:p-10  ring ring-current/10"
+              style={{
+                backgroundImage: "url('cert.jpeg')",
+                backgroundSize: "auto 100%",
+                backgroundPosition: "left center",
+                backgroundRepeat: "repeat-x",
+              }}
+            >
               <p className="mb-1 text-sm font-semibold text-secondary">
                 Send A Message
               </p>
