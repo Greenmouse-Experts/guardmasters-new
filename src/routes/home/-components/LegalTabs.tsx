@@ -188,7 +188,7 @@ function LegalAccordion({ tab }: { tab: Tab }) {
           <details
             key={item.title}
             open={i === 0}
-            className="shadow-xl group ring ring-current/5 rounded-xl my-4 px-6 py-5 md:px-8 [&_svg]:open:rotate-45"
+            className="shadow-xl bg-base-100 group ring ring-current/5 rounded-xl my-4 px-6 py-5 md:px-8 [&_svg]:open:rotate-45"
           >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
               <span className="font-pop font-bold text-base-content">
