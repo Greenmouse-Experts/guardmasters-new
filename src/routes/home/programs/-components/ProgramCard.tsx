@@ -62,7 +62,7 @@ export default function ProgramCard({
           {course.shortDesc}
         </p>
 
-        {course.price > 0 && (
+        {(course.price ?? 0) > 0 && (
           <p className="mb-8 text-lg font-semibold text-accent-content">
             CA${course.price}
           </p>
