@@ -337,7 +337,7 @@ function CookieContent() {
         how we use them, and your choices.
       </Para>
 
-      <div className="mt-8 inline-block rounded-xl bg-primary px-6 py-4 text-sm text-primary-content">
+      <div className="mt-8 inline-block rounded-xl bg-accent px-6 py-4 text-sm text-accent-content">
         <p className="mb-1 font-semibold">Cookie questions?</p>
         <a
           href="mailto:info@guardmasterinstitute.ca"
