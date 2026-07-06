@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
 import type { Course } from "#/types/courses.ts";
 
 interface ProgramCardProps {
@@ -14,57 +13,61 @@ export default function ProgramCard({
   programTitle,
 }: ProgramCardProps) {
   return (
-    <div className="group flex h-full flex-col rounded-2xl bg-accent p-6 text-center text-accent-content transition-shadow hover:shadow-lg">
-      {programTitle && (
-        <div className="mb-5 text-left text-[11px]  tracking-[0.15em] text-accent-content/50 uppercase font-semibold">
-          {typeof index === "number"
-            ? `${String(index + 1).padStart(2, "0")} / `
-            : ""}
-          {programTitle}
-        </div>
-      )}
-
-      <div className="mb-6 overflow-hidden rounded-xl bg-accent-content/10">
-        {course.coverImage && (
-          <img
-            src={course.coverImage}
-            alt={course.title}
-            className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        )}
-      </div>
-
-      <h3 className="mb-4 line-clamp-2 text-2xl leading-tight font-light text-accent-content font-pop">
-        {course.title}
-      </h3>
-      <p className="mb-8 line-clamp-3 text-sm leading-relaxed text-accent-content/60">
-        {course.shortDesc}
-      </p>
-
-      <div className="mb-6 flex items-center justify-center gap-2">
-        <img
-          src="/course_logo.png"
-          alt=""
-          className="h-20 rounded-full object-cover object-left"
+    <div className="group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow hover:shadow-xl">
+      {/* ── Header: white bg + yellow angled band + circle image ── */}
+      <div className="relative h-52 overflow-hidden bg-white">
+        {/* Angled yellow shape covering the lower portion */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-3/5 bg-primary"
+          style={{ clipPath: "polygon(0 45%, 100% 0%, 100% 100%, 0 100%)" }}
         />
-        {/*<span className="text-sm font-medium text-accent-content/80">
-          Guardmaster Institute Canada<sup>™</sup>
-        </span>*/}
-      </div>
-      {course.price > 0 && (
-        <div className="mb-6 text-2xl font-semibold text-accent-content">
-          CAD ${course.price}
-        </div>
-      )}
 
-      <Link
-        to="/home/programs/$id"
-        params={{ id: course.id }}
-        className="btn btn-block mt-auto h-auto justify-center gap-2 rounded-md border-none bg-primary py-3.5  text-primary-content hover:bg-primary/90 font-semibold text-xl"
-      >
-        Enroll
-        <ArrowUpRight className="h-4 w-4" />
-      </Link>
+        {/* Program label — top-left */}
+        {programTitle && (
+          <div className="absolute left-5 top-5 z-10 text-[10px] font-semibold uppercase tracking-[0.15em] text-base-content/40">
+            {typeof index === "number"
+              ? `${String(index + 1).padStart(2, "0")} · `
+              : ""}
+            {programTitle}
+          </div>
+        )}
+
+        {/* Circle: course image or placeholder */}
+        <div className="absolute right-6 top-5 z-10 h-20 w-20 overflow-hidden rounded-full bg-base-300 shadow-md ring-4 ring-white transition-transform duration-500 group-hover:scale-105">
+          {course.coverImage ? (
+            <img
+              src={course.coverImage}
+              alt={course.title}
+              className="h-full w-full object-cover"
+            />
+          ) : null}
+        </div>
+      </div>
+
+      {/* ── Dark content area ── */}
+      <div className="flex flex-1 flex-col bg-accent px-6 py-8 text-center">
+        <h3 className="mb-3 font-pop text-xl font-bold leading-snug text-accent-content line-clamp-3">
+          {course.title}
+        </h3>
+
+        <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-accent-content/60">
+          {course.shortDesc}
+        </p>
+
+        {course.price > 0 && (
+          <p className="mb-8 text-lg font-semibold text-accent-content">
+            CA${course.price}
+          </p>
+        )}
+
+        <Link
+          to="/home/programs/$id"
+          params={{ id: course.id }}
+          className="btn btn-block mt-auto h-auto justify-center rounded-xl border-none bg-primary py-3.5 text-base font-semibold text-primary-content hover:bg-primary/90"
+        >
+          Enroll
+        </Link>
+      </div>
     </div>
   );
 }

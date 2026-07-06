@@ -25,34 +25,40 @@ export const Route = createFileRoute("/home/")({
 
 const accreditations = [
   {
-    image: "/accredition/asis.png",
-    name: "ASIS International",
-    role: "Preferred CPE Provider",
+    initials: "AS",
+    name: "ASIS Preferred CPE Provider",
+    description:
+      "Learners earn credits from our Mini-MBA and Masterclass training programs.",
   },
   {
-    image: "/accredition/ifpo.png",
-    name: "IFPO — USA",
-    role: "Approved Training Centre",
+    initials: "IF",
+    name: "IFPO Approved Training Centre",
+    description:
+      "Authorized to deliver IFPO programs including CPO and CSSM certifications.",
   },
   {
-    image: "/accredition/chlps.png",
-    name: "ChLPS Canada",
-    role: "Accredited Provider",
+    initials: "CS",
+    name: "CSI Approved Training Centre",
+    description:
+      "Approved Training Centre for Covered Security Institute certifications.",
   },
   {
-    image: "/accredition/iso.png",
-    name: "ISO Standards",
-    role: "Accredited Trainer",
+    initials: "ISO",
+    name: "Accredited ISO Standards Trainer",
+    description:
+      "Accredited to deliver specialized ISO-based training for security professionals.",
   },
   {
-    image: "/accredition/csi.png",
-    name: "CSI Spain",
-    role: "Approved Training Centre",
+    initials: "CL",
+    name: "ChLPS Accredited Training Provider",
+    description:
+      "Accredited for certification courses and programs in loss prevention.",
   },
   {
-    image: "/accredition/actd.png",
-    name: "ACTD — USA",
-    role: "Accredited Institution",
+    initials: "AC",
+    name: "ACTD Accredited Training Institution",
+    description:
+      "Accredited by the American Council of Training and Development.",
   },
 ];
 
@@ -101,71 +107,50 @@ function RouteComponent() {
       <HomeNav />
       <Hero />
       <Programs />
-      {/*<Offerings />*/}
 
-      <section
-        className="bg-base-200 px-6 py-16 md:px-16"
-        style={{
-          backgroundImage: "url(/cert.jpeg)",
-          backgroundSize: "100% 100%",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-          {/* Left: copy */}
-          <div>
-            {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-semibold tracking-[0.18em] text-accent uppercase bg-base-100/10">
-              Certifications
-            </span>*/}
-            <h2
-              className="text-4xl leading-tight font-semibold
-              text-base-content md:text-5xl"
-            >
-              Certifications that build confidence, credibility, and{" "}
-              <span className="  text-accent">career growth.</span>
-            </h2>
-            <p className="mt-8 max-w-md text-lg leading-relaxed">
-              We equip corporate security and allied professionals with
-              industry-relevant education, recognized certifications,
-              ISO-standard training, and strategic advisory support.
-            </p>
+      <section className="bg-accent px-6 py-16 md:px-16">
+        <div className="container mx-auto">
+          <p className="mx-auto mb-12 max-w-2xl text-center text-white/60">
+            Our accreditations and partnerships reflect our commitment to
+            delivering world-class education and training that meets global
+            standards.
+          </p>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            {accreditations.map((item) => (
+              <div
+                key={item.name}
+                className="flex flex-col items-center rounded-2xl bg-base-100 px-5 py-8 text-center shadow-lg"
+              >
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent ring-2 ring-primary">
+                  <span className="text-lg font-bold text-primary">
+                    {item.initials}
+                  </span>
+                </div>
+                <h3 className="mb-3 text-base font-bold leading-snug text-base-content font-pop">
+                  {item.name}
+                </h3>
+                <p className="text-sm leading-relaxed text-base-content/60">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
 
-          {/* Right: credentials grid */}
-          <div>
-            <h3 className="text-4xl font-semibold text-base-content">
-              Recognized Training Credentials
-            </h3>
-            <p className="mt-2  leading-relaxed text-xl font-semibold">
-              We are accredited training Organisation
+          <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/20 px-6 py-5 text-center md:flex-row md:text-left">
+            <p className="text-white/80">
+              Our accreditations validate our commitment to excellence and
+              globally recognized, industry-relevant training.
             </p>
-
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {accreditations.map((item) => (
-                <div
-                  key={item.name}
-                  className="flex  items-center"
-                  //   className="btn h-auto btn-ghost shadow-lg p-4 ring ring-current/20 rounded-2xl"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="size-24 shrink-0 object-contain"
-                  />
-                  <div className=" ml-2 min-w-0 flex flex-col items-start text-left">
-                    <p className="font-semibold text-base-content text-lg">
-                      {item.name}
-                    </p>
-                    <p className="text-sm font-medium tracking-[0.1em] text-base-content/80 uppercase">
-                      {item.role}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <button className="btn shrink-0 rounded-lg border-white/30 bg-transparent px-6 font-semibold text-white hover:border-white hover:bg-white/10">
+              Learn More About Our Accreditations
+            </button>
           </div>
         </div>
       </section>
+
+      <Offerings />
+      <Featured />
 
       <div
         className="py-8 bg-accent"
@@ -217,7 +202,6 @@ function RouteComponent() {
       </div>
 
       <Courses />
-      <Featured />
       <ForeFront />
       <Experience />
       <Accredition />
