@@ -110,7 +110,7 @@ function Para({ children }: { children: React.ReactNode }) {
 function TermsContent() {
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-bold text-base-content">
+      <h2 className="mb-4 text-2xl font-bold text-base-content font-pop">
         Terms & Conditions
       </h2>
       <Para>
@@ -158,7 +158,7 @@ function TermsContent() {
 function PrivacyContent() {
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-bold text-base-content">
+      <h2 className="mb-4 text-2xl font-bold text-base-content font-pop">
         Privacy Policy
       </h2>
       <Para>
@@ -205,7 +205,7 @@ function PrivacyContent() {
 function CookieContent() {
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-bold text-base-content">
+      <h2 className="mb-4 text-2xl font-bold text-base-content font-pop">
         Cookie Policy
       </h2>
       <Para>
