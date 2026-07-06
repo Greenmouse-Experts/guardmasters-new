@@ -54,9 +54,34 @@ const accordions: Record<Tab, AccordionItem[]> = {
         "Guardmaster Institute shall not be liable for any indirect, incidental, or consequential damages arising from participation in programs or use of the website. Our total liability shall not exceed the amount paid by the participant for the relevant program.",
     },
     {
+      title: "Disclaimer of Warranties",
+      paragraph:
+        "Our website, programs, and materials are provided on an “as is” and “as available” basis without warranties of any kind, whether express or implied. While we strive for accuracy and quality, Guardmaster Institute does not warrant that the services will be uninterrupted, error-free, or that certification outcomes are guaranteed.",
+    },
+    {
+      title: "Indemnification",
+      paragraph:
+        "You agree to indemnify and hold harmless Guardmaster Institute, its faculty, staff, and affiliates from any claims, damages, losses, or expenses arising out of your breach of these Terms, your misuse of our services, or your violation of any applicable law or third-party right.",
+    },
+    {
+      title: "Termination",
+      paragraph:
+        "Guardmaster Institute reserves the right to suspend or terminate your access to any program or the website, without notice, if you breach these Terms and Conditions or engage in conduct that is unlawful or harmful to the institute, its staff, or other participants.",
+    },
+    {
       title: "Governing Law",
       paragraph:
-        "These Terms and Conditions are governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein.",
+        "These Terms and Conditions are governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein. Any disputes shall be subject to the exclusive jurisdiction of the courts of Ontario, Canada.",
+    },
+    {
+      title: "Changes to These Terms",
+      paragraph:
+        "We may revise these Terms and Conditions from time to time. The most current version will always be posted on this page, and your continued use of our website or services constitutes acceptance of any changes.",
+    },
+    {
+      title: "Contact Information",
+      paragraph:
+        "For any questions regarding these Terms and Conditions, please contact us at info@guardmasterinstitute.ca.",
     },
   ],
   privacy: [
@@ -77,9 +102,25 @@ const accordions: Record<Tab, AccordionItem[]> = {
         "Your information is used to process enrollments, communicate program updates, issue certificates, provide customer support, and improve our services. We do not sell, rent, or trade your personal information to third parties.",
     },
     {
-      title: "Data Sharing",
+      title: "Legal Basis for Processing (for EU/UK Users)",
+      intro:
+        "Where the GDPR or UK GDPR applies, we process your personal data on one or more of the following legal bases:",
+      bullets: [
+        "Consent — where you have given clear consent for a specific purpose.",
+        "Contract — where processing is necessary to deliver a program or service you have enrolled in.",
+        "Legal obligation — where we must process data to comply with the law.",
+        "Legitimate interests — where processing is necessary for our legitimate business interests and does not override your rights.",
+      ],
+    },
+    {
+      title: "Data Sharing and Storage",
       paragraph:
-        "We may share your information with accrediting bodies for certification verification purposes, and with trusted service providers who assist in operating our website and programs — all bound by confidentiality obligations. We may also disclose information as required by law.",
+        "We may share your information with accrediting bodies for certification verification purposes, and with trusted service providers who assist in operating our website and programs — all bound by confidentiality obligations. Your data is stored on secure servers and may be hosted by reputable third-party providers. We may also disclose information as required by law.",
+    },
+    {
+      title: "International Data Transfers",
+      paragraph:
+        "As a Canadian organization serving learners across continents, your information may be transferred to and processed in countries outside your own. Where such transfers occur, we take appropriate safeguards to ensure your data remains protected in accordance with applicable data protection laws.",
     },
     {
       title: "Data Retention",
@@ -89,7 +130,12 @@ const accordions: Record<Tab, AccordionItem[]> = {
     {
       title: "Your Rights",
       paragraph:
-        "Under applicable Canadian privacy laws (PIPEDA), you have the right to access, correct, or request deletion of your personal information. To exercise these rights, contact us at info@guardmasterinstitute.ca.",
+        "Under applicable Canadian privacy laws (PIPEDA), and where relevant the GDPR/UK GDPR, you have the right to access, correct, restrict, or request deletion of your personal information, as well as the right to data portability and to withdraw consent. To exercise these rights, contact us at info@guardmasterinstitute.ca.",
+    },
+    {
+      title: "Cookies and Tracking Technologies",
+      paragraph:
+        "We use cookies and similar technologies to operate our website, analyze traffic, and remember your preferences. For full details on how we use cookies and how to manage them, please refer to our Cookie Policy.",
     },
     {
       title: "Security",
@@ -97,9 +143,24 @@ const accordions: Record<Tab, AccordionItem[]> = {
         "We implement reasonable administrative, technical, and physical safeguards to protect your information from unauthorized access, disclosure, or destruction.",
     },
     {
+      title: "Children's Privacy",
+      paragraph:
+        "Our programs and services are intended for professionals and adult learners. We do not knowingly collect personal information from children under the age of 16. If you believe we have inadvertently collected such data, please contact us so we can promptly remove it.",
+    },
+    {
       title: "Third-Party Links",
       paragraph:
         "Our website may contain links to external sites. We are not responsible for the privacy practices of those sites and encourage you to review their policies independently.",
+    },
+    {
+      title: "Changes to This Policy",
+      paragraph:
+        "We may update this Privacy Policy from time to time to reflect changes in our practices or legal obligations. The latest version will always be available on this page, with the effective date updated accordingly.",
+    },
+    {
+      title: "Contact Us",
+      paragraph:
+        "If you have any questions or concerns about this Privacy Policy or how your data is handled, please reach out to us at info@guardmasterinstitute.ca.",
     },
   ],
   cookie: [

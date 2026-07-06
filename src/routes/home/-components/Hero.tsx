@@ -1,55 +1,34 @@
 import { Link } from "@tanstack/react-router";
+import { Clock, Users, GraduationCap } from "lucide-react";
 
 const stats = [
-  { value: "236+", lines: ["HOURS OF", "CONTENT"] },
-  { value: "250+", lines: ["ACTIVE", "LEARNERS"] },
-  { value: "40", lines: ["CPE", "CREDITS"] },
-];
-
-const tickerItems = [
-  "ASIS INTERNATIONAL · PREFERRED CPE PROVIDER",
-  "IFPO — USA · APPROVED TRAINING CENTRE",
-  "CHLPS CANADA · ACCREDITED PROVIDER",
-  "ISO 18788 · CERTIFIED TRAINER",
+  { icon: Clock, value: "1536+", lines: ["HOURS", "OF CONTENT"] },
+  { icon: Users, value: "250+", lines: ["ACTIVE", "LEARNERS"] },
+  { icon: GraduationCap, value: "40+", lines: ["CPE", "CREDITS"] },
 ];
 
 export default function Hero() {
   return (
-    <>
-      <style>{`
-        @keyframes ticker { to { transform: translateX(-50%); } }
-        .ticker-track { animation: ticker 30s linear infinite; }
-      `}</style>
-
-      <section className="relative flex min-h-dvh md:min-h-screen flex-col  bg-black">
-        <img
-          src="/home/hero.png"
-          alt="hero"
-          className="absolute inset-0 w-full h-full object-cover   blur-[2px] brightness-75"
-        />
-        {/*<div className="absolute inset-0 bg-black/65" />*/}
-
-        <div className="relative z-10 container mx-auto flex flex-1 flex-col justify-center px-6 pt-36 pb-28 md:px-12 md:py-28 mt-18">
-          <span className="mb-8 self-start rounded-full border border-white/30 px-4 py-1.5 text-[11px] font-medium tracking-[0.18em] text-white/75 uppercase bg-base-100/20">
-            Certified Center for Learning
-          </span>
-
-          <h1 className="mb-6 max-w-3xl text-5xl leading-[1.1]  text-white md:text-7xl font-medium font-pop">
-            Master the craft of
+    <section className="relative overflow-hidden bg-accent px-6 py-16 md:px-16 md:py-24">
+      <div className="container mx-auto grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        {/* Left — copy */}
+        <div>
+          <h1 className="mb-6 text-4xl leading-[1.1] font-bold text-white md:text-6xl font-pop">
+            Master Your Craft in
             <br />
-            <em className="text-primary italic">corporate security.</em>
+            <span className="text-primary italic">Corporate Security</span>
           </h1>
 
-          {/*<p className="mb-10 max-w-xl text-lg leading-relaxed text-white/70">
-            Globally accredited Mini-MBA, Masterclass, and certification
-            programs in Corporate Security, Loss Prevention, Asset Protection,
-            ISO Standards, and Business Continuity Management.
-          </p>*/}
+          <p className="mb-8 max-w-xl text-lg leading-relaxed text-white/70">
+            Advance your career with world-class education, industry expertise,
+            and globally recognized certifications designed for professionals
+            who lead, protect, and make a difference.
+          </p>
 
           <div className="flex flex-wrap items-center gap-4">
             <Link
               to="/home/programs"
-              className="btn btn-primary btn-lg  gap-2 px-6"
+              className="btn btn-primary btn-lg gap-2 px-6"
             >
               Explore Programs
               <svg
@@ -65,45 +44,43 @@ export default function Hero() {
             </Link>
             <Link
               to="/home/auth/signup"
-              className="btn  btn-accent btn-lg  ring"
+              className="btn btn-lg border-white/40 bg-transparent px-6 text-white hover:border-white hover:bg-white/10"
             >
               Enroll Now
             </Link>
           </div>
+        </div>
 
-          <div className="mt-12 flex flex-wrap overflow-hidden self-start bg-white shadow-2xl md:absolute md:right-16 md:bottom-16 md:mt-0 md:flex-nowrap md:self-auto">
-            {stats.map((stat, i) => (
-              <div
-                key={stat.value}
-                className={`px-6 py-5 text-center sm:px-8 ${i < stats.length - 1 ? "border-r border-base-300" : ""}`}
-              >
-                <div className="text-3xl font-semibold text-secondary">
-                  {stat.value}
-                </div>
-                <div className="mt-1 text-[10px] font-medium tracking-widest  uppercase">
-                  {stat.lines[0]}
-                  <br />
-                  {stat.lines[1]}
+        {/* Right — image + stats overlay */}
+        <div className="relative">
+          <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src="/home/hero.png"
+              alt="Students at Guardmaster Institute"
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </div>
+
+          <div className="mx-4 -mt-16 flex flex-wrap justify-around gap-4 rounded-2xl border border-primary/40 bg-accent/90 px-6 py-5 shadow-xl backdrop-blur-sm sm:flex-nowrap md:mx-6">
+            {stats.map(({ icon: Icon, value, lines }) => (
+              <div key={value} className="flex items-center gap-3">
+                <Icon
+                  className="h-8 w-8 shrink-0 text-primary"
+                  strokeWidth={1.5}
+                />
+                <div>
+                  <div className="text-2xl font-bold text-white">{value}</div>
+                  <div className="text-[10px] font-medium tracking-widest text-white/60 uppercase">
+                    {lines[0]}
+                    <br />
+                    {lines[1]}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        {/*<div className="relative z-10 overflow-hidden bg-secondary/85 py-3 backdrop-blur-sm">
-          <div className="ticker-track flex w-max whitespace-nowrap">
-            {[...tickerItems, ...tickerItems].map((item, i) => (
-              <span
-                key={i}
-                className="mx-10 text-xs tracking-[0.15em] text-white/50 uppercase"
-              >
-                <span className="mr-4 tex">✦</span>
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>*/}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
