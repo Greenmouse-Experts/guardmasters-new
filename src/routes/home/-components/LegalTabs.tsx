@@ -52,7 +52,7 @@ function HighlightCard({ tab }: { tab: Tab }) {
         <button
           onClick={() => setOpen(false)}
           aria-label="Dismiss"
-          className="absolute top-6 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-content transition-opacity hover:opacity-90"
+          className="absolute top-6 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-accent text-accent-content transition-opacity hover:opacity-90"
         >
           <X className="h-4 w-4" />
         </button>
