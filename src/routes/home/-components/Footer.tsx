@@ -16,9 +16,9 @@ const exploreLinks: FooterLink[] = [
 
 const resourceLinks: FooterLink[] = [
   { name: "Our Accreditations", path: "/home/accreditations" },
-  { name: "Terms & Condition", path: "/home/terms" },
-  { name: "Privacy Policy", path: "/home/privacy" },
-  { name: "Cookie Policy", path: "/home/cookies" },
+  { name: "Terms & Conditions", path: "/home/terms" },
+  { name: "Privacy Policy", path: "/home/terms" },
+  { name: "Cookie Policy", path: "/home/terms" },
 ];
 
 type IconProps = SVGProps<SVGSVGElement>;
@@ -202,7 +202,29 @@ export default function Footer() {
         <div className="mt-12 h-px w-full bg-white/10" />
 
         {/* Bottom bar */}
-        <div className="pt-8 text-center">
+        <div className="pt-8 flex flex-col items-center gap-3 text-center">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+            <Link
+              to="/home/terms"
+              className="text-white/60 transition-colors hover:text-primary"
+            >
+              Terms &amp; Conditions
+            </Link>
+            <span className="text-white/20">|</span>
+            <Link
+              to="/home/terms"
+              className="text-white/60 transition-colors hover:text-primary"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-white/20">|</span>
+            <Link
+              to="/home/terms"
+              className="text-white/60 transition-colors hover:text-primary"
+            >
+              Cookie Policy
+            </Link>
+          </div>
           <p className="text-white">© 2026 Guardmaster Institute Canada™</p>
           <p className="text-white/70">All rights reserved.</p>
         </div>
