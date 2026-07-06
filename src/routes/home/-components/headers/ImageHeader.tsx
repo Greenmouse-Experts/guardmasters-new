@@ -5,6 +5,7 @@ interface ImageHeaderProps {
   title?: ReactNode;
   image?: string;
   description?: any;
+  fade?: boolean;
 }
 
 export default function ImageHeader({
@@ -12,15 +13,25 @@ export default function ImageHeader({
   title,
   image,
   description,
+  fade = true,
 }: ImageHeaderProps) {
   return (
     <section className="relative overflow-hidden bg-black px-6 pt-32 pb-40 md:px-16 md:pt-40 md:pb-22">
       <img
         src={image}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-top opacity-60"
+        className={
+          "absolute inset-0 h-full w-full object-cover object-top " +
+          (fade ? "opacity-60" : "")
+        }
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black" />
+      <div
+        className={
+          fade
+            ? "absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black"
+            : "absolute inset-0"
+        }
+      ></div>
 
       <div className="relative container mx-auto">
         {badge && (

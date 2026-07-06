@@ -10,6 +10,7 @@ function RouteComponent() {
   return (
     <div className="bg-base-300">
       <ImageHeader
+        fade={false}
         image="/section.png"
         title={
           <div>
