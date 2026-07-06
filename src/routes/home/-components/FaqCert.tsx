@@ -1,9 +1,8 @@
 import { new_url } from "#/client/api.ts";
 import type { ApiResponseV2 } from "#/types/api.js";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "@tanstack/react-router";
 import axios from "axios";
-import { ChevronDown, ArrowUpRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 interface FaqItem {
   id: string;
@@ -69,61 +68,33 @@ export default function FaqCert() {
           </div>
         )}
 
-        {/* CTA card */}
-        <div className="mt-16 overflow-hidden rounded-2xl bg-accent px-8 py-12 md:px-12 md:py-14">
+        {/* CTA banner */}
+        <div className="mt-16 overflow-hidden rounded-2xl bg-accent px-8 py-14 md:px-14 md:py-16">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div>
-              <span className="mb-6 inline-block text-[11px] font-medium tracking-[0.18em] text-white/50 uppercase">
-                Cohort Opens Monthly
-              </span>
-              <h3
-                className="max-w-xl text-4xl leading-[1.1] font-medium
-                text-white md:text-5xl font-pop"
-              >
-                Start your path to a rewarding career in{" "}
-                <span className="font-medium italic text-primary underline">
-                  Corporate Security, Loss Prevention, Asset Protection
-                </span>{" "}
-                and{" "}
-                <span className="font-medium italic text-primary underline ">
-                  Business Continuity Management
-                </span>{" "}
-                today.
+              <h3 className="text-4xl leading-[1.1] font-bold text-white md:text-5xl font-pop italic">
+                Your Journey
+                <br />
+                <span className="text-primary">Starts Here.</span>
               </h3>
+              <div className="mt-6 h-1 w-16 rounded-full bg-primary" />
             </div>
 
-            <div>
-              <div className="overflow-hidden rounded-lg shadow-2xl relative isolate">
-                <div className="absolute left-[10%] right-[9%] top-[9%] bottom-[15%] z-10 overflow-hidden rounded-sm bg-black">
-                  <iframe
-                    src="https://www.youtube.com/embed/7nE6xsvVE9U"
-                    className="w-full h-full"
-                    title="Guardmaster Institute"
-                    allowFullScreen
-                  ></iframe>
-                </div>
+            <div className="overflow-hidden rounded-lg relative isolate">
+              <div className="absolute left-[10%] right-[9%] top-[9%] bottom-[15%] z-10 overflow-hidden rounded-sm bg-black">
+                <iframe
+                  src="https://www.youtube.com/embed/7nE6xsvVE9U"
+                  className="w-full h-full"
+                  title="Guardmaster Institute"
+                  allowFullScreen
+                ></iframe>
+              </div>
 
-                <img
-                  src="/laptop.png"
-                  alt="Guardmaster Institute certificate"
-                  className="w-full object-cover"
-                />
-              </div>
-              <div className="mt-6 flex flex-wrap justify-end gap-4">
-                <Link
-                  to="/home/programs"
-                  className="btn gap-2  border-none bg-white px-6 font-medium text-black hover:bg-white/90"
-                >
-                  Apply Now
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  to="/home/contact"
-                  className="btn  border-white/30 bg-transparent px-6 font-medium text-white hover:border-white hover:bg-white/10"
-                >
-                  Talk to us
-                </Link>
-              </div>
+              <img
+                src="/laptop.png"
+                alt="Guardmaster Institute Canada on YouTube"
+                className="w-full object-cover"
+              />
             </div>
           </div>
         </div>

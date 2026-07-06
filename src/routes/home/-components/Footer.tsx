@@ -1,17 +1,18 @@
 import type { ComponentType, SVGProps } from "react";
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin } from "lucide-react";
 
 interface FooterLink {
   name: string;
   path?: string;
+  external?: string;
 }
 
-const exploreLinks: FooterLink[] = [
+const quickLinks: FooterLink[] = [
   { name: "Home", path: "/home" },
   { name: "About Us", path: "/home/about" },
   { name: "Training Programs", path: "/home/programs" },
-  { name: "News & Insights", path: "/home/blog" },
+  { name: "News & Blogs", path: "/home/blog" },
+  { name: "Contact Us", path: "/home/contact" },
 ];
 
 const resourceLinks: FooterLink[] = [
@@ -19,6 +20,7 @@ const resourceLinks: FooterLink[] = [
   { name: "Terms & Conditions", path: "/home/terms" },
   { name: "Privacy Policy", path: "/home/terms" },
   { name: "Cookie Policy", path: "/home/terms" },
+  { name: "Student Login", path: "/home/auth/login" },
 ];
 
 type IconProps = SVGProps<SVGSVGElement>;
@@ -54,117 +56,79 @@ const socials: { Icon: ComponentType<IconProps>; label: string }[] = [
   { Icon: YoutubeIcon, label: "YouTube" },
 ];
 
-const contacts = [
-  { Icon: Phone, content: "+1 437-545-1684" },
-  { Icon: Mail, content: "info@guardmasterinstitute.ca" },
-  {
-    Icon: MapPin,
-    content: "405 Victoria Avenue, Windsor,\nOntario N9A 4N1, Canada",
-  },
-];
-
-const accreditationLogos = [
-  { src: "/accredition/asis.png", alt: "ASIS Preferred CPE Provider" },
-  { src: "/accredition/chlps.png", alt: "CHLPS" },
-  { src: "/accredition/actd.png", alt: "ACTD" },
-  { src: "/accredition/csi.png", alt: "CSI Institute" },
-  { src: "/accredition/iso.png", alt: "SBP" },
-  { src: "/accredition/ifpo.png", alt: "IFPO Accredited Training Center" },
-];
-
-function FooterColumn({
-  title,
-  links,
-}: {
-  title: string;
-  links: FooterLink[];
-}) {
+function ColHeading({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      <h3 className="mb-5 text-lg font-semibold text-white">{title}</h3>
-      <ul className="space-y-3">
-        {links.map((link) => (
-          <li key={link.name}>
-            {link.path ? (
-              <Link
-                to={link.path}
-                className="text-[15px] text-white/75 transition-colors hover:text-primary"
-              >
-                {link.name}
-              </Link>
-            ) : (
-              <span className="text-[15px] text-white/40">{link.name}</span>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+      {children}
+    </h3>
   );
+}
+
+function NavLink({ link }: { link: FooterLink }) {
+  const cls =
+    "group flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white";
+
+  const inner = (
+    <>
+      <span className="text-primary transition-transform group-hover:translate-x-0.5">
+        ›
+      </span>
+      {link.name}
+    </>
+  );
+
+  if (link.path) {
+    return (
+      <Link to={link.path} className={cls}>
+        {inner}
+      </Link>
+    );
+  }
+  return <span className={cls}>{inner}</span>;
 }
 
 export default function Footer() {
   return (
-    <footer
-      className="text-secondary-content"
-      style={{
-        backgroundImage: "url(/FOOTER.jpeg)",
-        backgroundSize: "100% 100%",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <footer className="bg-accent text-white">
       <div className="container mx-auto px-6 py-16 md:px-12">
-        {/* Main grid */}
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-4 lg:grid-cols-4">
+        {/* ── Main grid ── */}
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <img
-              src="/logo.png"
-              alt="Guardmaster Institute"
-              className="mb-6 h-20 w-auto"
-            />
-            <p className="text-sm leading-relaxed text-white/80">
-              Guardmaster Institute Canada is an accredited professional
-              security certifications training institution. Accredited by the
-              American Council of Training &amp; Development. Guardmaster
-              Institute is an ASIS International Preferred CPE Provider
+            {/* GI badge */}
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-primary/60 text-sm font-black text-primary">
+              GI
+            </div>
+            <p className="mb-2 text-base font-bold text-white">
+              Guardmaster Institute Canada
+            </p>
+            <div className="mb-4 h-0.5 w-8 bg-primary" />
+            <p className="text-sm leading-relaxed text-white/55">
+              We are an accredited professional security certifications training
+              institution. Guardmaster Institute is an ASIS International
+              Preferred CPE Provider.
             </p>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h3 className="mb-6 text-xl font-semibold text-white">Explore</h3>
-            <ul className="space-y-4">
-              {exploreLinks.map((link) => (
+            <ColHeading>Quick Links</ColHeading>
+            <ul className="space-y-3.5">
+              {quickLinks.map((link) => (
                 <li key={link.name}>
-                  {link.path ? (
-                    <Link
-                      to={link.path}
-                      className="text-base text-white/70 transition-colors hover:text-primary"
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <span className="text-base text-white/40">{link.name}</span>
-                  )}
+                  <NavLink link={link} />
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Resources */}
           <div>
-            <h3 className="mb-6 text-xl font-semibold text-white">Resources</h3>
-            <ul className="space-y-4">
+            <ColHeading>Resources</ColHeading>
+            <ul className="space-y-3.5">
               {resourceLinks.map((link) => (
                 <li key={link.name}>
-                  {link.path ? (
-                    <Link
-                      to={link.path}
-                      className="text-base text-white/70 transition-colors hover:text-primary"
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <span className="text-base text-white/40">{link.name}</span>
-                  )}
+                  <NavLink link={link} />
                 </li>
               ))}
             </ul>
@@ -172,62 +136,38 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="mb-6 text-xl font-semibold text-white">
-              Contact Info
-            </h3>
-            <ul className="space-y-4">
-              {contacts.map(({ Icon, content }) => (
-                <li key={content} className="flex items-start gap-3">
-                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span className="whitespace-pre-line text-base text-white/70">
-                    {content}
-                  </span>
-                </li>
-              ))}
+            <ColHeading>Contact Info</ColHeading>
+            <ul className="space-y-4 text-sm text-white/60">
+              <li>+1 437-545-1684</li>
+              <li>info@guardmasterinstitute.ca</li>
+              <li className="leading-relaxed">
+                405 Victoria Avenue, Windsor, <br className="hidden sm:block" />
+                Ontario N9A 4N1, Canada
+              </li>
             </ul>
+
+            {/* Social icons — outlined squares */}
             <div className="mt-8 flex gap-3">
               {socials.map(({ Icon, label }) => (
                 <a
                   key={label}
                   aria-label={label}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-[#0f2347] transition-transform hover:scale-110"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 text-white/50 transition-colors hover:border-primary hover:text-primary"
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="mt-12 h-px w-full bg-white/10" />
+        {/* Divider */}
+        <div className="mt-14 h-px w-full bg-white/10" />
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col items-center gap-3 text-center">
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
-            <Link
-              to="/home/terms"
-              className="text-white/60 transition-colors hover:text-primary"
-            >
-              Terms &amp; Conditions
-            </Link>
-            <span className="text-white/20">|</span>
-            <Link
-              to="/home/terms"
-              className="text-white/60 transition-colors hover:text-primary"
-            >
-              Privacy Policy
-            </Link>
-            <span className="text-white/20">|</span>
-            <Link
-              to="/home/terms"
-              className="text-white/60 transition-colors hover:text-primary"
-            >
-              Cookie Policy
-            </Link>
-          </div>
-          <p className="text-white">© 2026 Guardmaster Institute Canada™</p>
-          <p className="text-white/70">All rights reserved.</p>
-        </div>
+        <p className="pt-8 text-center text-sm text-white/50">
+          © 2026 Guardmaster Institute Canada. All rights reserved.
+        </p>
       </div>
     </footer>
   );
