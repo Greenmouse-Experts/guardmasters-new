@@ -417,7 +417,7 @@ export default function LegalTabs() {
   return (
     <section className="bg-base-200 py-16 ">
       <div className="container mx-auto ">
-        <div className="mb-6 inline-flex rounded-full border border-base-300 bg-base-100 ">
+        <div className="mb-6 inline-flex rounded-xl border border-base-300 bg-base-100 shadow-xl px-4 py-2">
           {tabs.map((tab) => (
             <button
               key={tab.id}

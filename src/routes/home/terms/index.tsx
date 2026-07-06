@@ -8,7 +8,7 @@ export const Route = createFileRoute("/home/terms/")({
 
 function RouteComponent() {
   return (
-    <div>
+    <div className="bg-base-300">
       <ImageHeader
         title={
           <div>
