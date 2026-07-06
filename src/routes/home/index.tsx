@@ -1,12 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  Award,
-  ClipboardList,
-  Target,
-  GraduationCap,
-  Globe,
-  Truck,
-} from "lucide-react";
+import { Crown, Target, User, Music, Square, Star } from "lucide-react";
 import HomeNav from "./-components/HomeNav";
 import Hero from "./-components/Hero";
 import Courses from "./-components/Courses";
@@ -18,6 +11,7 @@ import FaqCert from "./-components/FaqCert";
 import Footer from "./-components/Footer";
 import Offerings from "./-components/Offerings";
 import Programs from "./-components/Programs";
+import Opportunity from "./-components/Oppourtunity";
 
 export const Route = createFileRoute("/home/")({
   component: RouteComponent,
@@ -64,40 +58,38 @@ const accreditations = [
 
 const features = [
   {
-    icon: Award,
-    title: "Accredited Programs",
+    icon: Crown,
+    tile: "bg-accent",
     description:
-      "Internationally accredited training combining business knowledge with advanced corporate security expertise.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Tailored Certifications",
-    description:
-      "Entry-level to advanced certifications, Mini-MBAs, and Masterclasses across the corporate security spectrum.",
+      "Learn from seasoned industry professionals and academic experts.",
   },
   {
     icon: Target,
-    title: "Career-Focused",
+    tile: "bg-[#7A1F2B]",
     description:
-      "Results-focused education that sharpens problem-solving and prepares you for global certifications.",
+      "Courses are designed for working professionals and practical application.",
   },
   {
-    icon: GraduationCap,
-    title: "Expert Faculty",
-    description:
-      "Real-world expertise from leading corporate security, risk, and continuity practitioners.",
+    icon: User,
+    tile: "bg-[#1F6B4A]",
+    description: "Join a global community of like-minded professionals.",
   },
   {
-    icon: Globe,
-    title: "ISO-Integrated",
-    description:
-      "Curriculum aligned with ISO international standards — implement and audit with confidence.",
+    icon: Music,
+    tile: "bg-accent",
+    description: "Receive support throughout your learning journey.",
   },
   {
-    icon: Truck,
-    title: "Immersive Delivery",
+    icon: Square,
+    tile: "bg-[#4B2E83]",
     description:
-      "Live webinars, real-case analysis, integrative workshops — never just slides.",
+      "Certifications are trusted by employers and aligned with standards.",
+  },
+  {
+    icon: Star,
+    tile: "bg-[#0F766E]",
+    description:
+      "Study flexibly with programs built around your professional goals.",
   },
 ];
 
@@ -152,57 +144,48 @@ function RouteComponent() {
       <Offerings />
       <Featured />
 
-      <div
-        className="py-8 bg-accent"
-        style={{
-          backgroundImage: "url('pattern.jpeg')",
-          backgroundSize: "auto 100%",
-          backgroundPosition: "left center",
-          backgroundRepeat: "repeat-x",
-        }}
-      >
-        <section
-          data-theme=""
-          className="py-8  mx-auto container bg-transparent"
-        >
-          <div className="mb-12 text-accent-content">
-            {/*<span className="mb-6 inline-block rounded-full border border-accent-content/20 px-4 py-1.5   tracking-[0.18em] uppercase bg-white text-accent font-semibold">
-              The Guardmaster Advantage
-            </span>*/}
-            <h2 className=" text-4xl font-pop leading-tight font-semibold  md:text-5xl text-center">
-              At Guardmaster Institute, We are Empowering the Next Generation of
-              Corporate Security Leaders
+      <Opportunity />
+
+      <section className="bg-accent px-6 py-20 md:px-16">
+        <div className="container mx-auto">
+          <div className="mb-12">
+            <h2 className="text-4xl leading-tight font-bold font-pop md:text-5xl">
+              <span className="text-white">Why Choose</span>
+              <br />
+              <span className="text-primary">Guardmaster Institute</span>
             </h2>
+            <p className="mt-4 max-w-xl text-white/60">
+              We are committed to raising the standard of professional
+              excellence through world-class education and globally recognized
+              certifications.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {features.map(({ icon: Icon, title, description }) => (
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {features.map(({ icon: Icon, tile, description }) => (
               <div
-                key={title}
-                className="relative pt-10 flex flex-col drop-shadow-2xl "
+                key={description}
+                className="flex items-center gap-6 rounded-2xl bg-base-100 p-5"
               >
-                <div className="absolute -top-0 left-1/2 -translate-x-1/2 flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl">
-                  <Icon className="size-8 text-accent" strokeWidth={1.5} />
-                </div>
                 <div
-                  className="flex flex-1 flex-col rounded-2xl px-8 pb-10 pt-14 text-center text-accent-content  shadow-2xl bg-accent ring ring-current/50"
-                  // style={{
-                  //   backgroundImage: "url(card_frame.png)",
-                  //   backgroundSize: "100% 100%",
-                  //   backgroundRepeat: "no-repeat",
-                  // }}
+                  className={`flex h-24 w-24 shrink-0 items-center justify-center rounded-xl ${tile}`}
                 >
-                  <h3 className="mb-4 text-xl font-semibold">{title}</h3>
-                  <p className="leading-relaxed ">{description}</p>
+                  <Icon className="h-9 w-9 text-primary" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <div className="mb-3 h-1 w-8 rounded-full bg-primary" />
+                  <p className="leading-relaxed text-base-content/70">
+                    {description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      <Courses />
-      <ForeFront />
+      {/*<Courses />*/}
+      {/*<ForeFront />*/}
       <Experience />
       <Accredition />
 

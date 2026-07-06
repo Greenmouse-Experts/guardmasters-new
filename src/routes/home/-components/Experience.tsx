@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ArrowRight, Quote } from "lucide-react";
+import { GraduationCap, LayoutList } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 const testimonials = [
   {
@@ -29,72 +30,132 @@ export default function Experience() {
   const [index, setIndex] = useState(0);
   const active = testimonials[index];
 
-  const next = () => setIndex((i) => (i + 1) % testimonials.length);
-
   return (
-    <section className="bg-base-200 px-6 py-8 md:px-16">
+    <section className="bg-base-200 px-6 py-20 md:px-16">
       <div className="container mx-auto">
-        <div className="mb-12 flex items-start justify-between gap-6">
-          <div>
-            {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5  font-medium tracking-[0.18em] text-accent uppercase">
-              Our Mission
-            </span>*/}
-            <h2 className="text-4xl leading-tight font-semibold text-base-content md:text-5xl font-pop">
-              Hear From <span className="text-accent">Our Learners</span>
-            </h2>
+        {/* ── Heading ── */}
+        <div className="mb-12 text-center">
+          <div className="mb-4 flex items-center justify-center gap-4">
+            <span className="h-px w-10 bg-primary" />
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Our Learners, Our Pride
+            </span>
+            <span className="h-px w-10 bg-primary" />
           </div>
 
-          <button
-            onClick={next}
-            aria-label="Next testimonial"
-            className="btn btn-circle hidden h-14 w-14 shrink-0 border-none bg-accent text-secondary-content hover:bg-secondary/90 md:inline-flex"
-          >
-            <ArrowRight className="h-6 w-6" />
-          </button>
+          <h2 className="font-pop text-4xl font-bold text-accent md:text-5xl">
+            Hear From <span className="text-primary">Our Learners</span>
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-base-content/60">
+            Real stories from security professionals who have advanced their
+            careers and made an impact through our programs.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="overflow-hidden">
-            <img
-              src={active.image}
-              alt={active.name}
-              className="aspect-square w-full object-cover lg:aspect-[5/4]"
-            />
-          </div>
+        {/* ── Testimonial card ── */}
+        <div className="overflow-hidden rounded-3xl shadow-xl grid grid-cols-1 md:grid-cols-2">
+          {/* Left: quote */}
+          <div className="flex flex-col bg-accent px-10 py-14">
+            {/* Stylised opening quote */}
+            <span className="mb-6 font-pop text-6xl font-black leading-none text-primary">
+              &#8220;
+            </span>
 
-          <div>
-            <Quote className="mb-6 h-10 w-10  text-accent" />
-            <blockquote className="mb-10 text-2xl leading-snug font-medium text-base-content md:text-3xl ">
+            <blockquote className="flex-1 text-lg leading-relaxed text-accent-content md:text-xl">
               {active.quote}
             </blockquote>
 
+            {/* Divider */}
+            <div className="my-8 h-0.5 w-10 bg-primary" />
+
+            {/* Author */}
             <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-semibold text-primary-content">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-content">
                 {active.name.charAt(0)}
               </div>
               <div>
-                <div className="font-semibold text-base-content">
-                  {active.name}
-                </div>
-                <div className="text-xs font-medium tracking-[0.12em] text-base-content/50 uppercase">
+                <p className="font-bold text-accent-content">{active.name}</p>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-accent-content/50">
                   {active.role}
-                </div>
+                </p>
               </div>
+            </div>
+          </div>
+
+          {/* Right: image + dots */}
+          <div className="relative min-h-72">
+            <img
+              src={active.image}
+              alt={active.name}
+              className="h-full w-full object-cover"
+            />
+
+            {/* Dot navigation */}
+            <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIndex(i)}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    i === index
+                      ? "w-7 bg-white"
+                      : "w-2.5 bg-white/50 hover:bg-white/75"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="mt-12 flex justify-end gap-2">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              aria-label={`Go to testimonial ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all ${
-                i === index ? "w-8 bg-primary" : "w-4 bg-base-content/20"
-              }`}
-            />
-          ))}
+        {/* ── Mission CTA banner ── */}
+        <div className="mt-8 flex flex-col items-center gap-6 rounded-2xl bg-accent px-8 py-7 md:flex-row md:gap-0">
+          {/* Brand block */}
+          <div className="flex shrink-0 items-start gap-5">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/50 text-sm font-black text-primary">
+              GI
+            </div>
+            <div>
+              <p className="font-pop text-base font-bold leading-snug text-primary">
+                Your Success. Our Mission.
+              </p>
+              <p className="mt-1 max-w-[220px] text-sm leading-relaxed text-accent-content/60">
+                Equipping security professionals with the knowledge, skills, and
+                confidence to lead and excel.
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="hidden h-14 w-px shrink-0 bg-white/10 md:mx-8 md:block" />
+
+          {/* Feature 1 */}
+          <div className="flex flex-1 flex-col items-center gap-2 text-center">
+            <LayoutList className="h-5 w-5 text-primary" />
+            <span className="text-sm font-medium text-accent-content/80">
+              Industry-Relevant Programs
+            </span>
+          </div>
+
+          {/* Divider */}
+          <div className="hidden h-14 w-px shrink-0 bg-white/10 md:mx-8 md:block" />
+
+          {/* Feature 2 */}
+          <div className="flex flex-1 flex-col items-center gap-2 text-center">
+            <GraduationCap className="h-5 w-5 text-primary" />
+            <span className="text-sm font-medium text-accent-content/80">
+              Expert Instructors &amp; Mentorship
+            </span>
+          </div>
+
+          {/* CTA */}
+          <Link
+            to="/home/programs"
+            className="btn shrink-0 rounded-xl border-none bg-primary px-7 py-3.5 font-bold text-primary-content hover:bg-primary/90 md:ml-8"
+          >
+            Explore Our Programs &rarr;
+          </Link>
         </div>
       </div>
     </section>
