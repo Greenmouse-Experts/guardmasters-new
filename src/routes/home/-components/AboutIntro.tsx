@@ -8,10 +8,10 @@ export default function AboutIntro() {
     <>
       <section className="relative overflow-hidden bg-base-100 px-6 py-16 md:px-16">
         <img
-          src="/about.png"
+          src="/aff_frame.png"
           alt=""
           aria-hidden
-          className="pointer-events-none absolute top-0 right-0 h-full select-none opacity-10"
+          className="absolute left-0 top-0 right-0 h-full"
         />
         <div className="container relative mx-auto">
           <h2 className="mb-8 text-3xl font-bold  md:text-4xl font-pop text-accent">
@@ -44,24 +44,24 @@ export default function AboutIntro() {
               <>
                 <p>
                   Guardmaster Institute is a globally accredited professional
-                  training organization with local and international affiliations
-                  and linkages. We stand at the forefront of modern corporate
-                  security education, combining academic rigor with industry
-                  relevance. Our programs are designed not just to train but to
-                  transform security and allied professionals into strategic
-                  thinkers and effective leaders across diverse sectors. We offer
-                  mini-MBAs, Masterclasses and professional certification
-                  training programs.
+                  training organization with local and international
+                  affiliations and linkages. We stand at the forefront of modern
+                  corporate security education, combining academic rigor with
+                  industry relevance. Our programs are designed not just to
+                  train but to transform security and allied professionals into
+                  strategic thinkers and effective leaders across diverse
+                  sectors. We offer mini-MBAs, Masterclasses and professional
+                  certification training programs.
                 </p>
                 <p>
                   Guardmaster Institute is accredited as a Professional Training
-                  Institution by the American Council of Training and Development
-                  (ACTD-USA), a Preferred CPE Provider of ASIS International, an
-                  Approved Training Partner of the International Foundation for
-                  Protection Officers (IFPO), an Approved Training Partner of
-                  the Association of Chartered Loss Prevention Specialists of
-                  Canada, and Approved Training Centre of the Converged Security
-                  Institute (CSI) Spain.
+                  Institution by the American Council of Training and
+                  Development (ACTD-USA), a Preferred CPE Provider of ASIS
+                  International, an Approved Training Partner of the
+                  International Foundation for Protection Officers (IFPO), an
+                  Approved Training Partner of the Association of Chartered Loss
+                  Prevention Specialists of Canada, and Approved Training Centre
+                  of the Converged Security Institute (CSI) Spain.
                 </p>
               </>
             )}
