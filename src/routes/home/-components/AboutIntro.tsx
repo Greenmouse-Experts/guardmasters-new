@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Eye } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 
 export default function AboutIntro() {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <>
       <section className="relative overflow-hidden bg-base-100 px-6 py-16 md:px-16">
@@ -17,7 +19,7 @@ export default function AboutIntro() {
           </h2>
           <div className=" space-y-5 text-xl leading-relaxed text-base-content/80">
             <p>
-              Guardmaster Institute Canada is a Canadian federally incorporated
+              Guardmaster Institute Canada™ is a Canadian federally incorporated
               professional certification, corporate training, and consulting
               organization. We deliver internationally accredited and recognized
               certification programs in Corporate Security Management, Loss
@@ -35,14 +37,41 @@ export default function AboutIntro() {
               prepare security experts for senior advisory roles. Our programs
               are designed to strengthen organizations across corporate
               security, loss prevention, cybersecurity, ISO standards, business
-              continuity, governance, risk, and compliance management.{" "}
-              <Link
-                to="/home/about"
-                className="font-medium text-accent hover:underline"
-              >
-                Read More...
-              </Link>
+              continuity, governance, risk, and compliance management.
             </p>
+
+            {expanded && (
+              <>
+                <p>
+                  Guardmaster Institute is a globally accredited professional
+                  training organization with local and international affiliations
+                  and linkages. We stand at the forefront of modern corporate
+                  security education, combining academic rigor with industry
+                  relevance. Our programs are designed not just to train but to
+                  transform security and allied professionals into strategic
+                  thinkers and effective leaders across diverse sectors. We offer
+                  mini-MBAs, Masterclasses and professional certification
+                  training programs.
+                </p>
+                <p>
+                  Guardmaster Institute is accredited as a Professional Training
+                  Institution by the American Council of Training and Development
+                  (ACTD-USA), a Preferred CPE Provider of ASIS International, an
+                  Approved Training Partner of the International Foundation for
+                  Protection Officers (IFPO), an Approved Training Partner of
+                  the Association of Chartered Loss Prevention Specialists of
+                  Canada, and Approved Training Centre of the Converged Security
+                  Institute (CSI) Spain.
+                </p>
+              </>
+            )}
+
+            <button
+              onClick={() => setExpanded((v) => !v)}
+              className="font-medium text-accent hover:underline"
+            >
+              {expanded ? "Read Less" : "Read More..."}
+            </button>
           </div>
         </div>
       </section>

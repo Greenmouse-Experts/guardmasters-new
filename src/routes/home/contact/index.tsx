@@ -95,6 +95,12 @@ function RouteComponent() {
             <div
               key={label}
               className="relative rounded-2xl bg-base-100 px-6 pt-12 pb-8 text-center shadow-lg"
+              style={{
+                backgroundImage: "url('/cert.jpeg')",
+                backgroundSize: "400% 400%",
+                backgroundPosition: "left center",
+                backgroundRepeat: "none",
+              }}
             >
               <span className="absolute -top-6 left-1/2 grid h-12 w-12 -translate-x-1/2 place-items-center rounded-full bg-accent text-white shadow-md">
                 <Icon className="h-5 w-5 " />

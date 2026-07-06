@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const credentials =
   "PHD, MSC, MBA, PGCERT · CA, CFE, CFI, CAMS, CFCS, LPC, CHLPS, CPSM, CCLP, CPO, CPOI, CBRM, CBCS, ABCP, CC, CSCE, CSP, CSL, C-CSP, MSYI, M.ISRM, CMGR, MCMI, CPP®";
 
@@ -13,6 +15,7 @@ const certifications = [
 ];
 
 export default function FacultyProfile() {
+  const [expanded, setExpanded] = useState(false);
   return (
     <section className="bg-base-200 px-6 py-20 md:px-16">
       <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,560px)_1fr] lg:gap-16">
@@ -68,6 +71,100 @@ export default function FacultyProfile() {
                 CPD Group, UK.
               </strong>
             </p>
+
+            {/* Expandable section */}
+            <div
+              className={`grid transition-all duration-500 ease-in-out ${
+                expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="space-y-5 pt-5">
+                  <p>
+                    He holds a{" "}
+                    <strong className="font-semibold text-base-content">
+                      Doctor of Philosophy (PhD) in Management
+                    </strong>
+                    , a Master of Science (MSc) in International Security &amp;
+                    Risk Management, an MBA in Finance &amp; Corporate Strategy,
+                    an MSc in Forensic Accounting &amp; Audit, and a Bachelor's
+                    degree (BBA) in Corporate Security Management. He also holds
+                    Postgraduate Certificates in Forensic Accounting, Project
+                    Management, Emergency Management, Supply Chain Management,
+                    Global Logistics, and Risk Management.
+                  </p>
+                  <p>
+                    He is an alumnus of the{" "}
+                    <strong className="font-semibold text-base-content">
+                      University of West London, UK
+                    </strong>
+                    ; SMC University, Switzerland; Charisma University, Turks
+                    &amp; Caicos Islands; Obafemi Awolowo University, Nigeria;
+                    George Brown Polytechnic, Fanshawe College, Seneca
+                    Polytechnic, Algonquin College, Centennial College, and York
+                    University — all in Ontario/Canada; as well as Texila
+                    American University, Guyana. He is also an alumnus of{" "}
+                    <strong className="font-semibold text-base-content">
+                      Zenith Bank International
+                    </strong>{" "}
+                    and{" "}
+                    <strong className="font-semibold text-base-content">
+                      PwC Canada
+                    </strong>
+                    .
+                  </p>
+                  <p>
+                    His professional credentials reflect a rare depth of
+                    multidisciplinary expertise: ASIS Board-Certified Protection
+                    Professional (CPP), ISO-KLG Certified Physical Security
+                    Manager (CPSM), IFPO Certified Protection Officer (CPO)
+                    &amp; Instructor (CPOI), Certified Anti-Money Laundering
+                    Specialist (CAMS), Certified Financial Crime Specialist
+                    (CFCS), Certified Business Resilience Manager (CBRM),
+                    Associate Business Continuity Professional (ABCP), Certified
+                    Business Continuity Specialist (CBCS), Certified Safety
+                    Management Professional (CSMP), Certified Internal Controls
+                    Auditor (CICA), Certified Fraud Examiner (CFE), Certified
+                    Compliance Manager (CCM), Certified Forensic Investigator
+                    (CFI), Chartered Loss Prevention Specialist (ChLPS), CITT
+                    Certified Logistics Professional (CCLP), Loss Prevention
+                    Certified (LPC), Chartered Accountant (CA), ISC² Certified
+                    in Cybersecurity (CC), Certified Converged Security
+                    Professional (CSP), Converged Security Leader (CSL),
+                    Chartered Converged Security Professional (C-CSP), and
+                    Professional Strategic Risk Manager (M.ISRM). He is a
+                    Certified Lead Auditor and Lead Implementer in{" "}
+                    <strong className="font-semibold text-base-content">
+                      ISO 27001, ISO 18788, ISO 31000, ISO 28000, ISO 22301, and
+                      ISO 42001
+                    </strong>
+                    , and holds the Chartered Manager (CMgr, MCMI) designation
+                    in both the United Kingdom and Canada.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setExpanded((prev) => !prev)}
+              className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+            >
+              {expanded ? "Read less" : "Read more"}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className={`size-4 transition-transform duration-300 ${
+                  expanded ? "rotate-180" : ""
+                }`}
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
