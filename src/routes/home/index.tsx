@@ -16,6 +16,8 @@ import Accredition from "./-components/Accredition";
 import Experience from "./-components/Experience";
 import FaqCert from "./-components/FaqCert";
 import Footer from "./-components/Footer";
+import Offerings from "./-components/Offerings";
+import Programs from "./-components/Programs";
 
 export const Route = createFileRoute("/home/")({
   component: RouteComponent,
@@ -98,6 +100,8 @@ function RouteComponent() {
     <>
       <HomeNav />
       <Hero />
+      <Programs />
+      {/*<Offerings />*/}
 
       <section
         className="bg-base-200 px-6 py-16 md:px-16"
