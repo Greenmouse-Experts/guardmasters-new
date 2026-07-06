@@ -154,7 +154,9 @@ function AccordionBody({ item }: { item: AccordionItem }) {
   return (
     <div className="mt-4">
       {item.intro && (
-        <p className="mb-3 leading-relaxed text-base-content/70">{item.intro}</p>
+        <p className="mb-3 leading-relaxed text-base-content/70">
+          {item.intro}
+        </p>
       )}
       {item.bullets && (
         <ul className="ml-1 space-y-2">
@@ -180,13 +182,13 @@ function LegalAccordion({ tab }: { tab: Tab }) {
   const items = accordions[tab];
 
   return (
-    <div className="mt-8 overflow-hidden rounded-2xl bg-base-100 shadow-xl ring ring-primary/50">
-      <div className="divide-y divide-base-300">
+    <div className="mt-8 overflow-hidden  ">
+      <div className=" divide-base-300 p-4">
         {items.map((item, i) => (
           <details
             key={item.title}
             open={i === 0}
-            className="group px-6 py-5 md:px-8 [&_svg]:open:rotate-45"
+            className="shadow-xl group ring ring-current/5 rounded-xl my-4 px-6 py-5 md:px-8 [&_svg]:open:rotate-45"
           >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
               <span className="font-pop font-bold text-base-content">
@@ -376,9 +378,7 @@ export default function LegalTabs() {
           ))}
         </div>
 
-        <div className="rounded-2xl border-2 border-dashed border-accent/30 bg-base-100 p-8  md:p-12">
-          {content[active]}
-        </div>
+        <div className=" bg-base-100 p-8  md:p-12">{content[active]}</div>
 
         <LegalAccordion key={active} tab={active} />
       </div>
