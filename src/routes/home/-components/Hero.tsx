@@ -10,12 +10,14 @@ const stats = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-accent px-6 py-16 md:px-16 md:py-24">
-      <div className="container mx-auto grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div
+        className="container mx-auto grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 pt-22
+        "
+      >
         {/* Left — copy */}
         <div>
           <h1 className="mb-6 text-4xl leading-[1.1] font-bold text-white md:text-6xl font-pop">
-            Master Your Craft in
-            <br />
+            Master Your Craft in{" "}
             <span className="text-primary italic">Corporate Security</span>
           </h1>
 
@@ -53,15 +55,14 @@ export default function Hero() {
 
         {/* Right — image + stats overlay */}
         <div className="relative">
-          <div className="overflow-hidden rounded-2xl shadow-2xl">
+          <div className="">
             <img
-              src="/home/hero.png"
+              src="/hero.png"
               alt="Students at Guardmaster Institute"
               className="aspect-[4/3] w-full object-cover"
             />
           </div>
-
-          <div className="mx-4 -mt-16 flex flex-wrap justify-around gap-4 rounded-2xl border border-primary/40 bg-accent/90 px-6 py-5 shadow-xl backdrop-blur-sm sm:flex-nowrap md:mx-6">
+          {/*<div className="mx-4 -mt-16 flex flex-wrap justify-around gap-4 rounded-2xl border border-primary/40 bg-accent/90 px-6 py-5 shadow-xl backdrop-blur-sm sm:flex-nowrap md:mx-6">
             {stats.map(({ icon: Icon, value, lines }) => (
               <div key={value} className="flex items-center gap-3">
                 <Icon
@@ -78,7 +79,7 @@ export default function Hero() {
                 </div>
               </div>
             ))}
-          </div>
+          </div>*/}
         </div>
       </div>
     </section>
