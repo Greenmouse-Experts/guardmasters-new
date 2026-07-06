@@ -3,8 +3,8 @@ import apiClient from "#/client/api.ts";
 import QueryCompLayout from "#/components/layout/QueryCompLayout.tsx";
 import type { ApiResponseV2 } from "#/types/api.js";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import ProgramCard from "#/routes/home/programs/-components/ProgramCard.tsx";
 
 interface FeaturedCourse {
   id: string;
@@ -45,14 +45,9 @@ export default function Featured() {
               {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent bg-secondary/10 font-semibold tracking-[0.18em]  uppercase">
                 Featured Programs
               </span>*/}
-              <h2 className="text-3xl leading-tight font-semibold  md:text-5xl font-pop">
-                The{" "}
-                <em className="italic text-primary underline">
-                  Certifications
-                </em>{" "}
-                you need, For the{" "}
-                <em className="italic text-primary underline">Career</em> you
-                want
+              <h2 className="text-3xl leading-tight font-semibold  md:text-5xl font-pop text-accent text-center">
+                Guardmaster Institute™ Accredited Professional Training Programs
+                and Certification Courses
                 {/*<em className="italic text-accent">Go places.</em>*/}
               </h2>
             </div>
@@ -105,54 +100,18 @@ export default function Featured() {
                     <div
                       key={program.id}
                       data-card
-                      className="group flex w-[85%] shrink-0 snap-start flex-col rounded-2xl bg-accent p-6 text-center text-accent-content transition-shadow hover:shadow-lg sm:w-[60%] md:w-[calc((100%-3rem)/3)]"
+                      className="w-[85%] shrink-0 snap-start sm:w-[60%] md:w-[calc((100%-3rem)/3)]"
                     >
-                      <div className="mb-5 text-left text-[11px] font-semibold tracking-[0.15em] text-accent-content/50 uppercase">
-                        {String(index + 1).padStart(2, "0")} /{" "}
-                        {program.program?.title ?? "Program"}
-                      </div>
-
-                      <div className="mb-6 overflow-hidden rounded-xl bg-accent-content/10">
-                        {program.coverImage && (
-                          <img
-                            src={program.coverImage}
-                            alt={program.title}
-                            className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                        )}
-                      </div>
-
-                      <h3 className="mb-4 line-clamp-2 text-2xl leading-tight font-semibold text-accent-content font-pop">
-                        {program.title}
-                      </h3>
-                      <p className="mb-8 line-clamp-3 text-lg leading-relaxed ">
-                        {program.shortDesc}
-                      </p>
-
-                      <div className="mb-6 flex items-center justify-center gap-2">
-                        <img
-                          src="/course_logo.png"
-                          alt=""
-                          className="h-20 rounded-full object-cover object-left"
-                        />
-                        {/*<span className="text-lg font-medium text-accent-content/80">
-                          Guardmaster Institute Canada<sup>™</sup>
-                        </span>*/}
-                      </div>
-
-                      {/*<div className="mb-6 text-2xl font-semibold">
-                        {program.discountPriceFormat ??
-                          program.originalPriceFormat}
-                      </div>*/}
-
-                      <Link
-                        to="/home/programs/$id"
-                        params={{ id: program.id }}
-                        className="btn btn-block btn-lg  mt-auto h-auto justify-center gap-2 rounded-md border-none bg-primary py-3.5 font-medium text-primary-content hover:bg-primary/90"
-                      >
-                        Enroll
-                        <ArrowUpRight className="h-4 w-4" />
-                      </Link>
+                      <ProgramCard
+                        course={{
+                          id: program.id,
+                          title: program.title,
+                          shortDesc: program.shortDesc,
+                          coverImage: program.coverImage,
+                        }}
+                        index={index}
+                        programTitle={program.program?.title ?? "Program"}
+                      />
                     </div>
                   ))}
                 </div>

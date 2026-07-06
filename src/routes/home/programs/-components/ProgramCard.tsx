@@ -1,8 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import type { Course } from "#/types/courses.ts";
+
+export interface CardCourse {
+  id: string;
+  title: string;
+  shortDesc: string;
+  coverImage?: string;
+  price?: number;
+}
 
 interface ProgramCardProps {
-  course: Course;
+  course: CardCourse;
   index?: number;
   programTitle?: string;
 }
@@ -16,9 +23,10 @@ export default function ProgramCard({
     <div className="group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow hover:shadow-xl">
       {/* ── Header: white bg + yellow angled band + circle image ── */}
       <div className="relative h-52 overflow-hidden bg-white">
+        <img src={course.coverImage}></img>
         {/* Angled yellow shape covering the lower portion */}
         <div
-          className="absolute inset-x-0 bottom-0 h-3/5 bg-primary"
+          className="absolute  inset-x-0 bottom-0 h-3/5 bg-linear-0 from-primary via-primary/10 to-transparent"
           style={{ clipPath: "polygon(0 45%, 100% 0%, 100% 100%, 0 100%)" }}
         />
 
@@ -36,7 +44,7 @@ export default function ProgramCard({
         <div className="absolute right-6 top-5 z-10 h-20 w-20 overflow-hidden rounded-full bg-base-300 shadow-md ring-4 ring-white transition-transform duration-500 group-hover:scale-105">
           {course.coverImage ? (
             <img
-              src={course.coverImage}
+              src={"/favicon.png"}
               alt={course.title}
               className="h-full w-full object-cover"
             />
