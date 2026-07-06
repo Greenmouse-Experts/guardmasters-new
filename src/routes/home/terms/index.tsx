@@ -10,6 +10,7 @@ function RouteComponent() {
   return (
     <div className="bg-base-300">
       <ImageHeader
+        image="/section.png"
         title={
           <div>
             Legal & Policy<span className="text-primary"> Center</span>
