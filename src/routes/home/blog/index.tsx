@@ -13,6 +13,7 @@ import {
 } from "#/types/blog.ts";
 import BlogItem from "./-components/BlogItem";
 import type { ApiResponseV2 } from "#/types/api.js";
+import ImagelessHeader from "../-components/headers/ImagelessHeader";
 
 const PAGE_SIZE = 6;
 
@@ -33,13 +34,24 @@ function RouteComponent() {
   });
 
   return (
-    <div className="bg-base-100 px-6 py-16 md:px-16 md:py-24">
-      <div className="container mx-auto">
-        <PageLoader query={query} loadingText="Loading articles...">
-          {(posts) => <BlogContent posts={posts.data ?? []} />}
-        </PageLoader>
+    <>
+      <ImagelessHeader
+        badge="News & Insights"
+        title={
+          <>
+            Stay Informed, <em className="italic text-primary">Stay Ahead</em>
+          </>
+        }
+        description="Expert insights, industry news, and practical guidance from the Guardmaster Institute community of security and risk professionals."
+      />
+      <div className="bg-base-100 px-6 py-16 md:px-16 md:py-24">
+        <div className="container mx-auto">
+          <PageLoader query={query} loadingText="Loading articles...">
+            {(posts) => <BlogContent posts={posts.data ?? []} />}
+          </PageLoader>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
