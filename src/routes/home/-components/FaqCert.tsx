@@ -144,7 +144,7 @@ export default function FaqCert() {
 
         {/* CTA banner */}
         <div className="mt-16 overflow-hidden rounded-2xl bg-accent px-8 py-14 md:px-14 md:py-16">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-2">
             <div>
               <h3 className="text-4xl leading-[1.1] font-bold text-white md:text-5xl font-pop italic">
                 Your Journey
@@ -153,8 +153,8 @@ export default function FaqCert() {
               </h3>
               <div className="mt-6 h-1 w-16 rounded-full bg-primary" />
             </div>
-            <div className="overflow-hidden rounded-lg relative isolate">
-              <div className="absolute left-[10%] right-[9%] top-[9%] bottom-[15%] z-10 overflow-hidden rounded-sm bg-black">
+            <div className="overflow-hidden rounded-lg relative isolate ">
+              <div className="absolute left-[10%] right-[9%] top-[9%] bottom-[15%] z-10 overflow-hidden rounded-sm bg-black ">
                 <iframe
                   src="https://www.youtube.com/embed/7nE6xsvVE9U"
                   className="w-full h-full"
