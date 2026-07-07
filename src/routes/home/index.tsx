@@ -103,7 +103,7 @@ function RouteComponent() {
       <section className="bg-accent px-6 py-16 md:px-16">
         <div className="container mx-auto">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="text-5xl font-bold tracking-[0.18em] text-primary uppercase font-pop">
+            <span className="text-4xl font-bold tracking-[0.18em] text-primary text-center uppercase font-pop">
               Trusted. Accredited. Recognized Worldwide.
             </span>
           </div>
