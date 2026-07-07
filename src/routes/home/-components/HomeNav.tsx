@@ -9,7 +9,7 @@ const navLinks = [
   { name: "About", path: "/home/about" },
   { name: "Training Programs", path: "/home/programs" },
   { name: "Accreditations", path: "/home/accreditations" },
-  { name: "Contact", path: "/home/contact" },
+  // { name: "Contact", path: "/home/contact" },
 ] as const;
 
 // lucide-react no longer ships brand marks, so use inline SVG paths.
@@ -165,7 +165,7 @@ export default function HomeNav() {
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
-                  className="text font-medium text-white/60 transition-colors hover:bg-transparent hover:text-neutral"
+                  className="text font-medium text-white/60 transition-colors hover:bg-transparent hover:text-neutral text-lg"
                   to={link.path}
                 >
                   {link.name}
