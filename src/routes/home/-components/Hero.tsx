@@ -2,84 +2,76 @@ import { Link } from "@tanstack/react-router";
 import { Clock, Users, GraduationCap } from "lucide-react";
 
 const stats = [
-  { icon: Clock, value: "1536+", lines: ["HOURS", "OF CONTENT"] },
-  { icon: Users, value: "250+", lines: ["ACTIVE", "LEARNERS"] },
-  { icon: GraduationCap, value: "40+", lines: ["CPE", "CREDITS"] },
+  { icon: Clock, value: "1536+", lines: ["HOURS OF CONTENT"] },
+  { icon: Users, value: "250+", lines: ["ACTIVE LEARNERS"] },
+  { icon: GraduationCap, value: "40+", lines: ["CPE CREDITS"] },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-accent px-6 py-16 md:px-16 md:py-24">
-      <div
-        className="container mx-auto grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 pt-22
-        "
-      >
-        {/* Left — copy */}
-        <div>
-          <h1 className="mb-6 text-4xl leading-[1.1] font-bold text-white md:text-6xl font-pop">
-            Master Your Craft in{" "}
-            <span className="text-primary italic">Corporate Security</span>
-          </h1>
+    <section className="relative min-h-[480px] overflow-hidden md:min-h-[560px] py-22">
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0 bg-black" />
+      <img
+        src="/home/hero.png"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover blur-[2px]"
+      />
+      {/* Dark overlay — heavier on left for legibility */}
 
-          <p className="mb-8 max-w-xl text-lg leading-relaxed text-white/70">
-            Advance your career with world-class education, industry expertise,
-            and globally recognized certifications designed for professionals
-            who lead, protect, and make a difference.
-          </p>
+      <div className="relative z-10 container mx-auto flex h-full min-h-[inherit] flex-col justify-center px-6 pt-28 pb-24 md:px-16 md:pt-36 md:pb-28">
+        {/* Heading */}
+        <h1 className="mb-8 max-w-xl text-4xl leading-[1.1] font-bold text-white md:text-6xl font-pop">
+          Master the craft of
+          <br />
+          <span className="text-primary italic">Corporate Security.</span>
+        </h1>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              to="/home/programs"
-              className="btn btn-primary btn-lg gap-2 px-6"
+        {/* Buttons */}
+        <div className="flex flex-wrap items-center gap-3">
+          <Link
+            to="/home/programs"
+            className="btn btn-primary gap-2 rounded-lg px-6 font-semibold"
+          >
+            Explore Programs
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
             >
-              Explore Programs
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
-              </svg>
-            </Link>
-            <Link
-              to="/home/auth/signup"
-              className="btn btn-lg border-white/40 bg-transparent px-6 text-white hover:border-white hover:bg-white/10"
-            >
-              Enroll Now
-            </Link>
-          </div>
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </Link>
+          <Link
+            to="/home/auth/signup"
+            className="btn rounded-lg border-white/40 bg-transparent px-6 font-semibold text-white hover:border-white hover:bg-white/10"
+          >
+            Enroll Now
+          </Link>
         </div>
 
-        {/* Right — image + stats overlay */}
-        <div className="relative">
-          <div className="">
-            <img
-              src="/hero.png"
-              alt="Students at Guardmaster Institute"
-              className="aspect-[4/3] w-full object-cover"
-            />
-          </div>
-          {/*<div className="mx-4 -mt-16 flex flex-wrap justify-around gap-4 rounded-2xl border border-primary/40 bg-accent/90 px-6 py-5 shadow-xl backdrop-blur-sm sm:flex-nowrap md:mx-6">
-            {stats.map(({ icon: Icon, value, lines }) => (
-              <div key={value} className="flex items-center gap-3">
-                <Icon
-                  className="h-8 w-8 shrink-0 text-primary"
-                  strokeWidth={1.5}
-                />
-                <div>
-                  <div className="text-2xl font-bold text-white">{value}</div>
-                  <div className="text-[10px] font-medium tracking-widest text-white/60 uppercase">
-                    {lines[0]}
-                    <br />
-                    {lines[1]}
-                  </div>
+        {/* Stats pill — bottom-right */}
+        <div className="mt-12 inline-flex self-end items-center gap-6 rounded-2xl bg-accent/80 px-6 py-4 shadow-xl backdrop-blur-sm md:absolute md:right-16 md:bottom-12 md:mt-0">
+          {stats.map(({ icon: Icon, value, lines }) => (
+            <div key={value} className="flex items-center gap-2">
+              <Icon
+                className="h-6 w-6 shrink-0 text-primary"
+                strokeWidth={1.5}
+              />
+              <div>
+                <div className="text-lg font-bold leading-none text-white">
+                  {value}
+                </div>
+                <div className="mt-0.5 text-[9px] font-semibold tracking-widest text-white/50 uppercase">
+                  {lines[0]}
                 </div>
               </div>
-            ))}
-          </div>*/}
+            </div>
+          ))}
         </div>
       </div>
     </section>
