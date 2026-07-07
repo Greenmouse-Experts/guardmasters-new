@@ -27,13 +27,11 @@ export default function FaqCert() {
       <div className="container mx-auto">
         {/* FAQ header banner */}
         <div className="mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-accent to-accent/70 px-8 py-12 md:px-12 md:py-16">
-          <h2 className="text-4xl leading-tight font-bold font-pop md:text-6xl">
+          <h2 className="text-4xl leading-tight font-bold font-pop md:text-6xl text-center">
             <span className="text-white">Frequently Asked</span>
-            <br />
             <span className="text-primary">Questions</span>
           </h2>
-          <div className="mt-3 mb-5 h-1 w-16 rounded-full bg-primary" />
-          <p className="max-w-md leading-relaxed text-white/60">
+          <p className="leading-relaxed text-white mt-4 text-lg text-center max-w-xl mx-auto mt-4">
             Find answers to common questions about our programs, certifications,
             accreditations, and how we can help you advance your career.
           </p>
