@@ -179,15 +179,7 @@ function RouteComponent() {
             </div>
 
             {/* Form card */}
-            <div
-              className="rounded-2xl  p-8 shadow-sm md:p-10  ring ring-current/10"
-              // style={{
-              //   backgroundImage: "url('/cert.jpeg')",
-              //   backgroundSize: "auto 100%",
-              //   backgroundPosition: "left center",
-              //   backgroundRepeat: "repeat-x",
-              // }}
-            >
+            <div className="rounded-2xl  p-8 shadow-sm md:p-10  ring ring-current/10 bg-base-100">
               <p className="mb-1 text-sm font-semibold text-secondary">
                 Send A Message
               </p>
