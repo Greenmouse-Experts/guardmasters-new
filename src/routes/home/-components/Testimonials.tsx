@@ -67,7 +67,7 @@ export default function Testimonials() {
           </h2>
           <p className="mt-4 mx-auto max-w-lg text-lg text-base-content/60">
             Real stories from satisfied professionals who have advanced their
-            careers and made an impact through our programs.
+            careers and made an impact through our programs
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export default function Testimonials() {
             <div className="flex">
               {testimonials.map((t) => (
                 <div key={t.name} className="min-w-0 flex-[0_0_100%] px-2">
-                  <div className="flex overflow-hidden rounded-2xl bg-accent">
+                  <div className="flex overflow-hidden  bg-accent">
                     {/* Text side */}
                     <div className="flex flex-1 flex-col justify-between p-8 md:p-10">
                       <div>
@@ -114,7 +114,7 @@ export default function Testimonials() {
                     {/* Image side */}
                     <div className="w-2/5 h-110  bg-secondary/20">
                       <img
-                        src={t.image}
+                        src={"/experience/experience.png"}
                         alt={t.name}
                         className="h-full w-full object-cover"
                         onError={(e) => {
