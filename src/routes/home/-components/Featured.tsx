@@ -45,7 +45,7 @@ export default function Featured() {
               {/*<span className="mb-6 inline-block rounded-full border border-base-content/20 px-4 py-1.5 text-accent bg-secondary/10 font-semibold tracking-[0.18em]  uppercase">
                 Featured Programs
               </span>*/}
-              <h2 className="text-3xl leading-tight font-semibold  md:text-5xl font-pop text-accent text-center">
+              <h2 className="text-2xl leading-tight font-semibold  md:text-5xl font-pop text-accent text-center">
                 Training Programs and Certification Courses
                 {/*<em className="italic text-accent">Go places.</em>*/}
               </h2>

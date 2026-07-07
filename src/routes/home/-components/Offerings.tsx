@@ -57,10 +57,11 @@ export default function Offerings() {
     <section className="bg-accent px-6 py-20 md:px-16">
       <div className="container mx-auto">
         <div className="mb-4">
-          <h2 className="text-3xl font-bold text-white md:text-4xl font-pop">
-            Our <span className="text-primary">Program Offerings</span>
+          <h2 className="text-3xl text-primary text-center font-bold md:text-5xl font-pop">
+            Trusted. Accredited.
+            <br /> Recognized Worldwide.
           </h2>
-          <p className="mt-3 max-w-2xl text-white/60">
+          <p className="mt-3  text-white/60 text-center">
             World-class education and training divisions designed to build
             expertise, advance careers, and drive organizational excellence.
           </p>
