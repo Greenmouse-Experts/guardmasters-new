@@ -25,10 +25,10 @@ export default function ProgramCard({
       <div className="relative h-52 overflow-hidden bg-white">
         <img src={course.coverImage}></img>
         {/* Angled yellow shape covering the lower portion */}
-        <div
+        {/*<div
           className="absolute  inset-x-0 bottom-0 h-3/5 bg-linear-0 from-primary via-primary/10 to-transparent"
           style={{ clipPath: "polygon(0 45%, 100% 0%, 100% 100%, 0 100%)" }}
-        />
+        />*/}
 
         {/* Program label — top-left */}
         {programTitle && (

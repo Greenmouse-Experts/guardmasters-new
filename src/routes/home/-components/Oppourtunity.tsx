@@ -124,7 +124,7 @@ export default function Opportunity() {
           {opportunities.map(({ Icon, color, title, description }) => (
             <div
               key={title}
-              className="flex items-start gap-5 rounded-2xl border border-white/10 bg-white/5 px-6 py-6 transition-colors hover:bg-white/10"
+              className="flex items-start gap-5 rounded-2xl border border-primary/40 bg-white/5 px-6 py-6 transition-colors hover:bg-white/10"
             >
               <div
                 className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${color}`}
