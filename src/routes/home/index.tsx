@@ -113,10 +113,10 @@ function RouteComponent() {
         <div className="container mx-auto">
           <div className="mb-4 flex items-center justify-center gap-3">
             <span className="text-4xl font-bold tracking-[0.18em] text-primary text-center uppercase font-pop">
-              Trusted. Accredited. Recognized Worldwide.
+              Trusted. Accredited. <br /> Recognized Worldwide.
             </span>
           </div>
-          <p className="mx-auto mb-12 max-w-2xl text-center text-white/60">
+          <p className="mx-auto mb-12 max-w-2xl text-center text-white/60 text-lg">
             Our accreditations and partnerships reflect our commitment to
             delivering world-class education and training that meets global
             standards.
