@@ -57,10 +57,10 @@ export default function Opportunity() {
     <section className="bg-accent px-6 py-20 md:px-16">
       <div className="container mx-auto">
         {/* Heading */}
-        <h2 className="mb-4 text-4xl font-bold text-accent-content md:text-5xl">
+        <h2 className="mb-4 text-4xl font-bold text-accent-content md:text-5xl text-center font-pop">
           Career <span className="text-primary">Opportunities</span>
         </h2>
-        <p className="mb-12 max-w-lg text-base leading-relaxed text-accent-content/60">
+        <p className="mb-12 text-center text-base leading-relaxed text-accent-content/60">
           Our programs can help you build the expertise and credentials to
           advance in today's dynamic security landscape.
         </p>
