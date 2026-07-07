@@ -48,7 +48,7 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section className="bg-base-200 px-6 py-20 md:px-16">
+    <section className="bg-base-300 px-6 py-20 md:px-16">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
@@ -66,7 +66,7 @@ export default function Programs() {
           {programs.map(({ icon: Icon, title, description }, i) => (
             <div
               key={title}
-              className="relative rounded-2xl bg-base-100 p-6 shadow-lg"
+              className="relative rounded-2xl bg-base-100 p-6 shadow-lg ring ring-primary/50"
             >
               <span className="absolute top-5 right-5 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-accent">
                 {i + 1}
