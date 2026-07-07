@@ -50,7 +50,7 @@ function RouteComponent() {
                 </p>
                 <Link
                   to="/home/programs"
-                  className="mt-2 rounded-sm bg-secondary px-6 py-3 text-sm font-medium text-secondary-content hover:bg-secondary/90"
+                  className="mt-2 rounded-sm bg-accent px-6 py-3 text-sm font-medium text-accent-content hover:bg-accent/90"
                 >
                   Explore programs
                 </Link>
@@ -119,7 +119,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
           </div>
           <div className="h-1.5 w-full overflow-hidden rounded-full bg-base-200">
             <div
-              className="h-full rounded-full bg-secondary transition-all"
+              className="h-full rounded-full bg-accent transition-all"
               style={{ width: `${pct}%` }}
             />
           </div>
@@ -133,7 +133,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
         <Link
           to="/user/courses/$id"
           params={{ id: item.course.id }}
-          className="mt-4 block rounded-sm bg-secondary py-3 text-center text-sm font-medium text-secondary-content transition-colors hover:bg-secondary/90"
+          className="mt-4 block rounded-sm bg-accent py-3 text-center text-sm font-medium text-primary-content transition-colors hover:bg-accent/90"
         >
           {completed === 0 ? "Start Study" : "Continue Study"}
         </Link>
@@ -156,7 +156,7 @@ function PagerButton({
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className="rounded-sm bg-secondary px-4 py-1.5 text-sm font-medium text-secondary-content transition-colors hover:bg-secondary/90 disabled:cursor-not-allowed disabled:bg-base-300 disabled:text-base-content/40"
+      className="rounded-sm bg-accent px-4 py-1.5 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:bg-base-300 disabled:text-base-content/40"
     >
       {label}
     </button>
