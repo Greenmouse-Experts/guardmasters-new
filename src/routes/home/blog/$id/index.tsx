@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Check, Clock, Copy } from "lucide-react";
+import Markdown from "react-markdown";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
 import { formatBlogDate, readingTime, type BlogPost } from "#/types/blog.ts";
+import ImagelessHeader from "../../-components/headers/ImagelessHeader";
 
 export const Route = createFileRoute("/home/blog/$id/")({
   component: RouteComponent,
@@ -22,33 +24,44 @@ function RouteComponent() {
   });
 
   return (
-    <div className="bg-base-100 px-6 py-16 md:px-16 md:py-20">
-      <div className="container mx-auto max-w-6xl">
-        <PageLoader query={query} loadingText="Loading article...">
-          {(resp) => {
-            const post = resp;
+    <>
+      <ImagelessHeader
+        badge="News & Insights"
+        title={
+          <>
+            Stay Informed, <em className="italic text-primary">Stay Ahead</em>
+          </>
+        }
+        description="Expert insights, industry news, and practical guidance from the Guardmaster Institute community of security and risk professionals."
+      />
+      <div className="bg-base-100 px-6 py-16 md:px-16 md:py-20">
+        <div className="container mx-auto max-w-6xl">
+          <PageLoader query={query} loadingText="Loading article...">
+            {(resp) => {
+              const post = resp;
 
-            if (!post) {
-              return (
-                <div className="py-20 text-center">
-                  <p className="text-base-content/55">Article not found.</p>
-                  <Link
-                    to="/home/blog"
-                    search={{ page: 1 }}
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:underline"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                    Back to blog
-                  </Link>
-                </div>
-              );
-            }
+              if (!post) {
+                return (
+                  <div className="py-20 text-center">
+                    <p className="text-base-content/55">Article not found.</p>
+                    <Link
+                      to="/home/blog"
+                      search={{ page: 1 }}
+                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:underline"
+                    >
+                      <ArrowLeft className="h-4 w-4" />
+                      Back to blog
+                    </Link>
+                  </div>
+                );
+              }
 
-            return <Article post={post} />;
-          }}
-        </PageLoader>
+              return <Article post={post} />;
+            }}
+          </PageLoader>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -109,8 +122,8 @@ function Article({ post }: { post: BlogPost }) {
               {post.brief}
             </p>
           )}
-          <div className="space-y-5 leading-8 whitespace-pre-line text-base-content/70">
-            {post.description}
+          <div className="prose prose-slate max-w-none prose-headings:font-pop prose-headings:text-accent prose-a:text-secondary prose-strong:text-base-content prose-img:rounded-xl prose-code:text-secondary prose-blockquote:border-primary prose-blockquote:text-base-content/70">
+            <Markdown>{post.description}</Markdown>
           </div>
 
           {post.tags && post.tags.length > 0 && (
