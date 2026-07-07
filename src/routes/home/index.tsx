@@ -6,6 +6,10 @@ import {
   LifeBuoy,
   Award,
   Clock,
+  ArrowDownLeftFromCircleIcon,
+  ArrowUpRightFromCircleIcon,
+  ArrowUpRightFromSquare,
+  ArrowUpRight,
 } from "lucide-react";
 import HomeNav from "./-components/HomeNav";
 import Hero from "./-components/Hero";
@@ -26,37 +30,37 @@ export const Route = createFileRoute("/home/")({
 
 const accreditations = [
   {
-    initials: "AS",
+    logo: "/accredition/asis.png",
     name: "ASIS Preferred CPE Provider",
     description:
       "Learners earn credits from our Mini-MBA and Masterclass training programs.",
   },
   {
-    initials: "IF",
+    logo: "/accredition/ifpo.png",
     name: "IFPO Approved Training Centre",
     description:
       "Authorized to deliver IFPO programs including CPO and CSSM certifications.",
   },
   {
-    initials: "CS",
+    logo: "/accredition/csi.png",
     name: "CSI Approved Training Centre",
     description:
       "Approved Training Centre for Covered Security Institute certifications.",
   },
   {
-    initials: "ISO",
+    logo: "/accredition/iso.png",
     name: "Accredited ISO Standards Trainer",
     description:
       "Accredited to deliver specialized ISO-based training for security professionals.",
   },
   {
-    initials: "CL",
+    logo: "/accredition/chlps.png",
     name: "ChLPS Accredited Training Provider",
     description:
       "Accredited for certification courses and programs in loss prevention.",
   },
   {
-    initials: "AC",
+    logo: "/accredition/actd.png",
     name: "ACTD Accredited Training Institution",
     description:
       "Accredited by the American Council of Training and Development.",
@@ -108,6 +112,7 @@ function RouteComponent() {
       <HomeNav />
       <Hero />
       <Programs />
+      {/*<accreditations />*/}
 
       <section className="bg-accent px-6 py-16 md:px-16">
         <div className="container mx-auto">
@@ -128,10 +133,12 @@ function RouteComponent() {
                 key={item.name}
                 className="flex flex-col items-center rounded-2xl bg-base-100 px-5 py-8 text-center shadow-lg"
               >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent ring-2 ring-primary">
-                  <span className="text-lg font-bold text-primary">
-                    {item.initials}
-                  </span>
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white ring-2 ring-primary overflow-hidden p-1">
+                  <img
+                    src={item.logo}
+                    alt={item.name}
+                    className="h-full w-full object-contain"
+                  />
                 </div>
                 <h3 className="mb-3 text-base font-bold leading-snug text-base-content font-pop">
                   {item.name}
@@ -143,13 +150,12 @@ function RouteComponent() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/20 px-6 py-5 text-center md:flex-row md:text-left">
-            <p className="text-white/80">
-              Our accreditations validate our commitment to excellence and
-              globally recognized, industry-relevant training.
-            </p>
-            <button className="btn shrink-0 rounded-lg border-white/30 bg-transparent px-6 font-semibold text-white hover:border-white hover:bg-white/10">
-              Learn More About Our Accreditations
+          <div className="flex mt-8">
+            <button className="btn btn-xl btn-primary  mx-auto text-accent font-bold rounded-xl">
+              Learn More{" "}
+              <span className="p-2 bg-white ml-2 rounded-md">
+                <ArrowUpRight />
+              </span>
             </button>
           </div>
         </div>
