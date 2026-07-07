@@ -96,13 +96,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             {/* GI badge */}
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-primary/60 text-sm font-black text-primary">
-              GI
-            </div>
-            <p className="mb-2 text-base font-bold text-white">
-              Guardmaster Institute Canada
-            </p>
-            <div className="mb-4 h-0.5 w-8 bg-primary" />
+            <img src={"/logo.png"} className="mb-4 h-12" />
+
             <p className="text-sm leading-relaxed text-white/55">
               We are an accredited professional security certifications training
               institution. Guardmaster Institute is an ASIS International
