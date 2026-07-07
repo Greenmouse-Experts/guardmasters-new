@@ -52,11 +52,9 @@ export default function Programs() {
       <div className="container mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-primary" />
-            <span className="text-2xl font-bold tracking-[0.18em] text-accent uppercase">
+            <span className="text-5xl font-bold tracking-[0.18em] text-accent uppercase">
               Our Program Offerings
             </span>
-            <span className="h-px w-8 bg-primary" />
           </div>
           <p className="mx-auto max-w-2xl text-lg text-base-content/60">
             Comprehensive learning solutions tailored to empower security and
