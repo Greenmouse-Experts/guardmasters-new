@@ -125,7 +125,7 @@
 @theme {
   /*--font-sans: "DM Sans", sans-serif;
   --font-display: "DM Sans";*/
-  --font-display: "DM Sans";
+  --font-display: "Como", "DM Sans";
   --font-sans: "DM Sans";
   --font-dm: "DM Sans";
   --font-pop: "Como", sans-serif;

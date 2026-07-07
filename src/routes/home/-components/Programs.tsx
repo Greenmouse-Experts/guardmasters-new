@@ -52,7 +52,7 @@ export default function Programs() {
       <div className="container mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="text-5xl font-bold tracking-[0.18em] text-accent uppercase">
+            <span className="text-5xl font-bold tracking-[0.18em] text-accent uppercase font-pop">
               Our Program Offerings
             </span>
           </div>
