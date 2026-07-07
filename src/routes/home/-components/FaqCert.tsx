@@ -2,7 +2,7 @@ import { new_url } from "#/client/api.ts";
 import type { ApiResponseV2 } from "#/types/api.js";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { ChevronDown, Globe, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Globe, Mail, Phone } from "lucide-react";
 
 interface FaqItem {
   id: string;
@@ -72,22 +72,11 @@ export default function FaqCert() {
         <div className="mt-10 flex justify-center">
           <a
             href="/home/faq"
-            className="inline-flex items-center gap-3 rounded-xl bg-primary px-8 py-4 text-base font-bold text-primary-content transition-opacity hover:opacity-90"
+            className="btn btn-xl text-accent font-bold btn-primary"
           >
             View More FAQ
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/20">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="h-4 w-4"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.22 14.78a.75.75 0 0 1 0-1.06L11.44 7.5H6.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 .75.75v6.5a.75.75 0 0 1-1.5 0V8.06l-6.22 6.22a.75.75 0 0 1-1.06 0Z"
-                  clipRule="evenodd"
-                />
-              </svg>
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+              <ArrowUpRight />
             </span>
           </a>
         </div>

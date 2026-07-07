@@ -20,6 +20,7 @@ import Footer from "./-components/Footer";
 import Offerings from "./-components/Offerings";
 import Programs from "./-components/Programs";
 import Opportunity from "./-components/Oppourtunity";
+import Testimonials from "./-components/Testimonials";
 
 export const Route = createFileRoute("/home/")({
   component: RouteComponent,
