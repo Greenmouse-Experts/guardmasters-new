@@ -66,7 +66,7 @@ export default function Programs() {
           {programs.map(({ icon: Icon, title, description }, i) => (
             <div
               key={title}
-              className="relative rounded-2xl bg-base-100 p-6 shadow-lg ring ring-primary/50"
+              className="relative rounded-2xl bg-base-100 p-6 shadow-lg ring ring-primary/50 h-full"
             >
               <span className="absolute top-5 right-5 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-accent">
                 {i + 1}

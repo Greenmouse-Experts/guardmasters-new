@@ -116,7 +116,7 @@ function RouteComponent() {
               Trusted. Accredited. <br /> Recognized Worldwide.
             </span>
           </div>
-          <p className="mx-auto mb-12 max-w-2xl text-center text-white/60 text-lg">
+          <p className="mx-auto mb-12 max-w-2xl text-center text-white/60 t4ext">
             Our accreditations and partnerships reflect our commitment to
             delivering world-class education and training that meets global
             standards.
