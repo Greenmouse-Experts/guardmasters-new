@@ -55,11 +55,11 @@ export default function Hero() {
         </div>
 
         {/* Stats pill — bottom-right */}
-        <div className="mt-12 inline-flex self-end items-center gap-6 rounded-2xl bg-accent/80 px-6 py-4 shadow-xl backdrop-blur-sm md:absolute md:right-16 md:bottom-12 md:mt-0">
+        <div className="mt-12 inline-flex self-end items-center gap-6 rounded-2xl bg-accent/80 px-6 py-4 shadow-xl backdrop-blur-sm md:absolute md:right-16 md:bottom-12 md:mt-0 ring ring-primary divide-x divide-primary">
           {stats.map(({ icon: Icon, value, lines }) => (
-            <div key={value} className="flex items-center gap-2">
+            <div key={value} className="flex items-center gap-2 px-4 py-2">
               <Icon
-                className="h-6 w-6 shrink-0 text-primary"
+                className="size-9 shrink-0 text-primary"
                 strokeWidth={1.5}
               />
               <div>
