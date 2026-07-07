@@ -133,7 +133,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
         <Link
           to="/user/courses/$id"
           params={{ id: item.course.id }}
-          className="mt-4 block rounded-sm bg-accent py-3 text-center text-sm font-medium text-primary-content transition-colors hover:bg-accent/90"
+          className="mt-4 block rounded-sm bg-accent py-3 text-center text-sm font-medium text-primary-content transition-colors hover:bg-accent/90 text-white"
         >
           {completed === 0 ? "Start Study" : "Continue Study"}
         </Link>
