@@ -46,8 +46,7 @@ export default function Featured() {
                 Featured Programs
               </span>*/}
               <h2 className="text-3xl leading-tight font-semibold  md:text-5xl font-pop text-accent text-center">
-                Guardmaster Institute™ Accredited Professional Training Programs
-                and Certification Courses
+                Training Programs and Certification Courses
                 {/*<em className="italic text-accent">Go places.</em>*/}
               </h2>
             </div>
