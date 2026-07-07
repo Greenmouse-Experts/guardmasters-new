@@ -87,7 +87,7 @@ export default function Testimonials() {
             <div className="flex">
               {testimonials.map((t) => (
                 <div key={t.name} className="min-w-0 flex-[0_0_100%] px-2">
-                  <div className="flex overflow-hidden  bg-accent">
+                  <div className="flex flex-col-reverse overflow-hidden bg-accent md:flex-row">
                     {/* Text side */}
                     <div className="flex flex-1 flex-col justify-between p-8 md:p-10">
                       <div>
@@ -112,7 +112,7 @@ export default function Testimonials() {
                       </div>
                     </div>
                     {/* Image side */}
-                    <div className="w-2/5 h-110  bg-secondary/20">
+                    <div className="h-60 w-full bg-secondary/20 md:h-110 md:w-2/5">
                       <img
                         src={"/experience/experience.png"}
                         alt={t.name}

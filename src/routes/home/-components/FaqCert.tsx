@@ -149,13 +149,13 @@ export default function FaqCert() {
       <div className="bg-accent border-b border-primary/50">
         <div className="mt-16 overflow-hidden rounded-2xl bg-accent px-8 py-14 md:px-14 md:py-16 container mx-auto">
           <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-2">
-            <div>
-              <h3 className="text-6xl leading-[1.1] font-bold text-white md:text-7xl font-pop italic">
+            <div className="text-center lg:text-left">
+              <h3 className="text-4xl leading-[1.1] font-bold text-white md:text-5xl lg:text-6xl font-pop italic">
                 Your Journey
                 <br />
                 <span className="text-primary">Starts Here.</span>
               </h3>
-              <div className="mt-6 h-1 w-16 rounded-full bg-primary" />
+              <div className="mt-6 h-1 w-16 rounded-full bg-primary mx-auto lg:mx-0" />
             </div>
             <div className="overflow-hidden rounded-lg relative isolate ">
               <div className="absolute left-[10%] right-[9%] top-[9%] bottom-[15%] z-10 overflow-hidden rounded-sm bg-black ">
