@@ -111,9 +111,8 @@ export default function Testimonials() {
                         </div>
                       </div>
                     </div>
-
                     {/* Image side */}
-                    <div className="hidden w-2/5 shrink-0 md:block">
+                    <div className="w-2/5 h-110  bg-secondary/20">
                       <img
                         src={t.image}
                         alt={t.name}
@@ -160,7 +159,9 @@ function DotIndicators({
     if (!emblaApi) return;
     const onSelect = () => setSelected(emblaApi.selectedScrollSnap());
     emblaApi.on("select", onSelect);
-    return () => { emblaApi.off("select", onSelect); };
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi]);
 
   const scrollTo = useCallback(
