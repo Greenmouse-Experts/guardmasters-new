@@ -76,7 +76,7 @@ export default function AboutIntro() {
         </div>
       </section>
 
-      <section className="bg-base-100 px-6 pb-16 md:px-16 ">
+      <section className="bg-base-100 px-6 pb-16 md:px-16 pt-12 ">
         <div className="container mx-auto">
           <div className="card bg-accent text-white shadow-2xl rounded-4xl">
             <div className="card-body gap-6 p-8 md:p-12">
