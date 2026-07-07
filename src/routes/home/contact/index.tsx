@@ -88,19 +88,19 @@ function RouteComponent() {
       />
 
       {/* Contact cards straddling a dark band */}
-      <div className="relative bg-base-100 py-4">
+      <div className="relative bg-base-300 py-4">
         <div className="bg-neutral" />
         <div className="container relative mx-auto grid grid-cols-1 gap-6 px-6 py-12 md:grid-cols-3 md:px-12">
           {details.map(({ Icon, label, value }) => (
             <div
               key={label}
               className="relative rounded-2xl bg-base-100 px-6 pt-12 pb-8 text-center shadow-lg"
-              style={{
-                backgroundImage: "url('/cert.jpeg')",
-                backgroundSize: "400% 400%",
-                backgroundPosition: "left center",
-                backgroundRepeat: "none",
-              }}
+              // style={{
+              //   backgroundImage: "url('/cert.jpeg')",
+              //   backgroundSize: "400% 400%",
+              //   backgroundPosition: "left center",
+              //   backgroundRepeat: "none",
+              // }}
             >
               <span className="absolute -top-6 left-1/2 grid h-12 w-12 -translate-x-1/2 place-items-center rounded-full bg-accent text-white shadow-md">
                 <Icon className="h-5 w-5 " />
@@ -114,19 +114,19 @@ function RouteComponent() {
         </div>
       </div>
 
-      <section className="bg-base-200/40 px-6 pb-16 md:px-12 md:pb-24">
+      <section className="bg-base-300 px-6 pb-16 md:px-12 md:pb-24">
         <div className="container mx-auto">
           {/* Location + form row */}
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {/* Location / map card */}
             <div
-              className="rounded-2xl  p-8 shadow-sm md:p-10"
-              style={{
-                backgroundImage: "url('/cert.jpeg')",
-                backgroundSize: "auto 100%",
-                backgroundPosition: "left center",
-                backgroundRepeat: "repeat-x",
-              }}
+              className="rounded-2xl  p-8 shadow-sm md:p-10 bg-base-100"
+              // style={{
+              //   backgroundImage: "url('/cert.jpeg')",
+              //   backgroundSize: "auto 100%",
+              //   backgroundPosition: "left center",
+              //   backgroundRepeat: "repeat-x",
+              // }}
             >
               <p className="mb-1 text-sm font-semibold text-secondary">
                 Our Location
