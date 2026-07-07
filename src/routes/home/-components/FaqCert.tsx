@@ -99,7 +99,9 @@ export default function FaqCert() {
           {/* Contact items */}
           <div className="flex flex-1 flex-col gap-5 sm:flex-row sm:items-center sm:justify-around">
             <div className="flex items-center gap-3">
-              <Phone className="h-5 w-5 shrink-0 text-accent-content/60" />
+              <div className="p-3 ring rounded-full  ring-primary ">
+                <Phone className="h-5 w-5 shrink-0 text-accent-content/60" />
+              </div>
               <div>
                 <p className="text-xs text-accent-content/50">Call Us</p>
                 <p className="text-sm font-semibold text-accent-content">
@@ -111,7 +113,9 @@ export default function FaqCert() {
             <div className="hidden h-10 w-px bg-white/10 sm:block" />
 
             <div className="flex items-center gap-3">
-              <Mail className="h-5 w-5 shrink-0 text-accent-content/60" />
+              <div className="p-3 ring rounded-full  ring-primary ">
+                <Mail className="h-5 w-5 shrink-0 text-accent-content/60 " />
+              </div>
               <div>
                 <p className="text-xs text-accent-content/50">Email Us</p>
                 <p className="text-sm font-semibold text-accent-content">
@@ -123,7 +127,9 @@ export default function FaqCert() {
             <div className="hidden h-10 w-px bg-white/10 sm:block" />
 
             <div className="flex items-center gap-3">
-              <Globe className="h-5 w-5 shrink-0 text-accent-content/60" />
+              <div className="p-3 ring rounded-full  ring-primary ">
+                <Globe className="h-5 w-5 shrink-0 text-accent-content/60" />
+              </div>
               <div>
                 <p className="text-xs text-accent-content/50">
                   Visit Our Website
