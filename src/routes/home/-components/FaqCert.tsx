@@ -72,10 +72,10 @@ export default function FaqCert() {
         <div className="mt-10 flex justify-center">
           <a
             href="/home/faq"
-            className="btn btn-xl text-accent font-bold btn-primary"
+            className="btn btn-xl text-accent font-bold btn-primary rounded-xl"
           >
             View More FAQ
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+            <span className="flex h-8 w-8 ml-4 rounded-xl items-center justify-center bg-white">
               <ArrowUpRight />
             </span>
           </a>
