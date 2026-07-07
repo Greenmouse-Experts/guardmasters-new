@@ -102,6 +102,11 @@ function RouteComponent() {
 
       <section className="bg-accent px-6 py-16 md:px-16">
         <div className="container mx-auto">
+          <div className="mb-4 flex items-center justify-center gap-3">
+            <span className="text-5xl font-bold tracking-[0.18em] text-primary uppercase font-pop">
+              Trusted. Accredited. Recognized Worldwide.
+            </span>
+          </div>
           <p className="mx-auto mb-12 max-w-2xl text-center text-white/60">
             Our accreditations and partnerships reflect our commitment to
             delivering world-class education and training that meets global
