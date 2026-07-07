@@ -2,7 +2,7 @@ import { new_url } from "#/client/api.ts";
 import type { ApiResponseV2 } from "#/types/api.js";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Globe, Mail, Phone } from "lucide-react";
 
 interface FaqItem {
   id: string;
@@ -67,6 +67,85 @@ export default function FaqCert() {
             ))}
           </div>
         )}
+
+        {/* View More FAQ button */}
+        <div className="mt-10 flex justify-center">
+          <a
+            href="/home/faq"
+            className="inline-flex items-center gap-3 rounded-xl bg-primary px-8 py-4 text-base font-bold text-primary-content transition-opacity hover:opacity-90"
+          >
+            View More FAQ
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/20">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="h-4 w-4"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.22 14.78a.75.75 0 0 1 0-1.06L11.44 7.5H6.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 .75.75v6.5a.75.75 0 0 1-1.5 0V8.06l-6.22 6.22a.75.75 0 0 1-1.06 0Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        {/* Still have questions banner */}
+        <div className="mt-6 flex flex-col gap-6 overflow-hidden rounded-2xl border border-dashed border-primary/40 bg-accent px-6 py-6 md:flex-row md:items-center">
+          {/* Left: copy */}
+          <div className="shrink-0 md:max-w-[200px]">
+            <p className="font-pop font-bold text-primary">
+              Still have questions?
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-accent-content/60">
+              Our admissions team is here to help you choose the right program.
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div className="hidden h-14 w-px shrink-0 bg-white/10 md:block" />
+
+          {/* Contact items */}
+          <div className="flex flex-1 flex-col gap-5 sm:flex-row sm:items-center sm:justify-around">
+            <div className="flex items-center gap-3">
+              <Phone className="h-5 w-5 shrink-0 text-accent-content/60" />
+              <div>
+                <p className="text-xs text-accent-content/50">Call Us</p>
+                <p className="text-sm font-semibold text-accent-content">
+                  +1 437 545 1684
+                </p>
+              </div>
+            </div>
+
+            <div className="hidden h-10 w-px bg-white/10 sm:block" />
+
+            <div className="flex items-center gap-3">
+              <Mail className="h-5 w-5 shrink-0 text-accent-content/60" />
+              <div>
+                <p className="text-xs text-accent-content/50">Email Us</p>
+                <p className="text-sm font-semibold text-accent-content">
+                  info@guardmasterinstitute.ca
+                </p>
+              </div>
+            </div>
+
+            <div className="hidden h-10 w-px bg-white/10 sm:block" />
+
+            <div className="flex items-center gap-3">
+              <Globe className="h-5 w-5 shrink-0 text-accent-content/60" />
+              <div>
+                <p className="text-xs text-accent-content/50">
+                  Visit Our Website
+                </p>
+                <p className="text-sm font-semibold text-accent-content">
+                  guardmasterinstitute.ca
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* CTA banner */}
         <div className="mt-16 overflow-hidden rounded-2xl bg-accent px-8 py-14 md:px-14 md:py-16">

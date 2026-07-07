@@ -1,54 +1,110 @@
 import {
-  Star,
+  ShieldCheck,
   Search,
-  TrendingUp,
-  Diamond,
-  ShieldUser,
-  Scale,
+  ClipboardList,
+  GraduationCap,
+  Lock,
+  Landmark,
+  Camera,
+  Users,
+  UserCog,
+  Plane,
+  Truck,
+  Lightbulb,
 } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 
 interface Opportunity {
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
+  color: string;
   title: string;
   description: string;
 }
 
 const opportunities: Opportunity[] = [
   {
-    Icon: Star,
+    Icon: ShieldCheck,
+    color: "bg-[#5B3FA0]",
     title: "Corporate Security Manager",
     description:
-      "Develop strategies and operations to protect people, assets, and organizational value.",
+      "Oversee and develop security strategies, policies, and operation to protect people, assets and organizational value.",
   },
   {
     Icon: Search,
+    color: "bg-[#1F6B4A]",
     title: "Fraud Investigator / Forensic Analyst",
     description:
       "Investigate fraud, misconduct, and financial crimes using forensic techniques.",
   },
   {
-    Icon: TrendingUp,
+    Icon: ClipboardList,
+    color: "bg-[#1E3A5F]",
     title: "Risk & Resilience Consultant",
     description:
-      "Assess risks and build resilience frameworks for organizations.",
+      "Assess risks and build resilience frameworks to help organization anticipate, prepare for, and adapt to disruptions",
   },
   {
-    Icon: Diamond,
+    Icon: GraduationCap,
+    color: "bg-[#7A3B1E]",
     title: "Security Trainer / Educator",
     description:
-      "Design and deliver training programs to build security awareness.",
+      "Design and deliver training programs to build security awareness, competence, and professional development across organizations.",
   },
   {
-    Icon: ShieldUser,
+    Icon: Lock,
+    color: "bg-[#3B4FAA]",
     title: "Information Security Specialist",
-    description: "Protect digital assets and manage cybersecurity risks.",
+    description:
+      "Protect digital asset, manage cybersecurity risks, and ensure compliance with information security standards and best practices.",
   },
   {
-    Icon: Scale,
-    title: "Compliance & Governance Officer",
+    Icon: Landmark,
+    color: "bg-[#0F766E]",
+    title: "Security Compliances & Governance Officer",
     description:
-      "Ensure adherence to laws, regulations, standards, and ethics.",
+      "Ensure adherence to laws, regulations, and standards while strengthening governance, ethics, and corporate compliance.",
+  },
+  {
+    Icon: Camera,
+    color: "bg-[#166534]",
+    title: "Physical Security Manager",
+    description:
+      "Manage physical security programs including access control, surveillance, guarding, and loss prevention initiatives.",
+  },
+  {
+    Icon: Users,
+    color: "bg-[#3D5A3E]",
+    title: "Business Continuity Manager",
+    description:
+      "Lead business continuity and crisis management initiatives to ensure operational continuity during disruptions and emergencies.",
+  },
+  {
+    Icon: UserCog,
+    color: "bg-[#6B2D2D]",
+    title: "Security Operations Manager",
+    description:
+      "Identify risks and implement security controls across supply chains to safeguard goods, information, and business continuity.",
+  },
+  {
+    Icon: Plane,
+    color: "bg-[#C05621]",
+    title: "Travel Security Manager",
+    description:
+      "Develop and manage travel risk strategies to protect employees, executives, and operations globally.",
+  },
+  {
+    Icon: Truck,
+    color: "bg-[#1D4ED8]",
+    title: "Supply Chain Security Specialist",
+    description:
+      "Identify risks and implement security controls across supply chains to safeguard goods, information, and business continuity.",
+  },
+  {
+    Icon: Lightbulb,
+    color: "bg-[#6D28D9]",
+    title: "Security Consultant / Advisor",
+    description:
+      "Provide expert advice and solutions to organizations on security strategy, risk management, and program improvement.",
   },
 ];
 
@@ -56,7 +112,6 @@ export default function Opportunity() {
   return (
     <section className="bg-accent px-6 py-20 md:px-16">
       <div className="container mx-auto">
-        {/* Heading */}
         <h2 className="mb-4 text-4xl font-bold text-accent-content md:text-6xl text-center font-pop">
           Career <span className="text-primary">Opportunities</span>
         </h2>
@@ -65,19 +120,18 @@ export default function Opportunity() {
           advance in today's dynamic security landscape.
         </p>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {opportunities.map(({ Icon, title, description }) => (
+          {opportunities.map(({ Icon, color, title, description }) => (
             <div
               key={title}
               className="flex items-start gap-5 rounded-2xl border border-white/10 bg-white/5 px-6 py-6 transition-colors hover:bg-white/10"
             >
-              {/* Icon box */}
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10">
-                <Icon className="h-5 w-5 text-accent-content/80" />
+              <div
+                className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${color}`}
+              >
+                <Icon className="h-5 w-5 text-white" />
               </div>
 
-              {/* Text */}
               <div>
                 <h3 className="mb-1.5 font-bold text-accent-content">
                   {title}

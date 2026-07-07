@@ -100,55 +100,6 @@ export default function Experience() {
             </div>
           </div>
         </div>
-
-        {/* ── Mission CTA banner ── */}
-        <div className="mt-8 flex flex-col items-center gap-6 rounded-2xl bg-accent px-8 py-7 md:flex-row md:gap-0">
-          {/* Brand block */}
-          <div className="flex shrink-0 items-start gap-5">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/50 text-sm font-black text-primary">
-              GI
-            </div>
-            <div>
-              <p className="font-pop text-base font-bold leading-snug text-primary">
-                Your Success. Our Mission.
-              </p>
-              <p className="mt-1 max-w-[220px] text-sm leading-relaxed text-accent-content/60">
-                Equipping security professionals with the knowledge, skills, and
-                confidence to lead and excel.
-              </p>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="hidden h-14 w-px shrink-0 bg-white/10 md:mx-8 md:block" />
-
-          {/* Feature 1 */}
-          <div className="flex flex-1 flex-col items-center gap-2 text-center">
-            <LayoutList className="h-5 w-5 text-primary" />
-            <span className="text-sm font-medium text-accent-content/80">
-              Industry-Relevant Programs
-            </span>
-          </div>
-
-          {/* Divider */}
-          <div className="hidden h-14 w-px shrink-0 bg-white/10 md:mx-8 md:block" />
-
-          {/* Feature 2 */}
-          <div className="flex flex-1 flex-col items-center gap-2 text-center">
-            <GraduationCap className="h-5 w-5 text-primary" />
-            <span className="text-sm font-medium text-accent-content/80">
-              Expert Instructors &amp; Mentorship
-            </span>
-          </div>
-
-          {/* CTA */}
-          <Link
-            to="/home/programs"
-            className="btn shrink-0 rounded-xl border-none bg-primary px-7 py-3.5 font-bold text-primary-content hover:bg-primary/90 md:ml-8"
-          >
-            Explore Our Programs &rarr;
-          </Link>
-        </div>
       </div>
     </section>
   );

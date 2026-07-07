@@ -3,12 +3,9 @@ import {
   GraduationCap,
   Target,
   Users,
-  LifeBuoy,
+  Headphones,
+  Briefcase,
   Award,
-  Clock,
-  ArrowDownLeftFromCircleIcon,
-  ArrowUpRightFromCircleIcon,
-  ArrowUpRightFromSquare,
   ArrowUpRight,
 } from "lucide-react";
 import HomeNav from "./-components/HomeNav";
@@ -70,39 +67,45 @@ const accreditations = [
 const features = [
   {
     icon: GraduationCap,
+    color: "bg-[#4338CA]",
     title: "Learn from Experts",
     description:
       "Learn from seasoned industry professionals and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
   },
   {
     icon: Target,
-    title: "Practical & Career-Focused",
+    color: "bg-[#B91C1C]",
+    title: "Real-World Application",
     description:
-      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
+      "Our courses are designed for working professionals, focusing on practical tools, techniques, and strategies you can immediately apply to deliver results and create impact in your organization.",
   },
   {
     icon: Users,
-    title: "Global Professional Community",
+    color: "bg-[#6D28D9]",
+    title: "Build Your Network",
     description:
-      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
+      "Join a global community of like-minded professionals across industries. Collaborate, share ideas, and build valuable connections that advance your career and expand your opportunities.",
   },
   {
-    icon: LifeBuoy,
-    title: "Dedicated Learner Support",
+    icon: Headphones,
+    color: "bg-[#065F46]",
+    title: "Excellent Support",
     description:
-      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
+      "Receive comprehensive support throughout your learning journey — from expert faculty and career advisors to academic resources and wellbeing service. We are here to help you succeed.",
+  },
+  {
+    icon: Briefcase,
+    color: "bg-[#1D4ED8]",
+    title: "Employer's Choice",
+    description:
+      "Our certifications are trusted by employers and aligned with industry standards, giving you a competitive edge and opening doors to new opportunities.",
   },
   {
     icon: Award,
-    title: "Recognized Certifications",
+    color: "bg-[#92400E]",
+    title: "Made for Your Success",
     description:
-      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
-  },
-  {
-    icon: Clock,
-    title: "Flexible Learning Pathways",
-    description:
-      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
+      "Study flexibly, at your pace with programs built to fit your professional goals. We are committed to your success and long-term career growth.",
   },
 ];
 
@@ -151,7 +154,7 @@ function RouteComponent() {
           </div>
 
           <div className="flex mt-8">
-            <button className="btn btn-xl btn-primary  mx-auto text-accent font-bold rounded-xl">
+            <button className="btn btn-xl btn-primary  mx-auto text-accent font-bold rounded-xl ">
               Learn More{" "}
               <span className="p-2 bg-white ml-2 rounded-md">
                 <ArrowUpRight />
@@ -161,7 +164,7 @@ function RouteComponent() {
         </div>
       </section>
 
-      <Offerings />
+      {/*<Offerings />*/}
       <Featured />
 
       <Opportunity />
@@ -177,18 +180,21 @@ function RouteComponent() {
           </div>
 
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-            {features.map(({ icon: Icon, title, description }) => (
+            {features.map(({ icon: Icon, color, title, description }) => (
               <div
                 key={title}
                 className="flex items-start gap-5 rounded-2xl bg-accent p-6"
               >
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary">
-                  <Icon className="h-7 w-7 text-accent" strokeWidth={1.5} />
+                <div
+                  className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-xl ${color}`}
+                >
+                  <Icon className="h-8 w-8 text-white" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="mb-2 font-pop font-bold text-accent-content">
                     {title}
                   </h3>
+                  <div className="mb-3 h-0.5 w-6 rounded-full bg-primary" />
                   <p className="text-sm leading-relaxed text-accent-content/60">
                     {description}
                   </p>

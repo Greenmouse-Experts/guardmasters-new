@@ -21,6 +21,7 @@
     "@tanstack/react-router-devtools": "latest",
     "axios": "^1.18.0",
     "daisyui": "^5.5.23",
+    "embla-carousel-react": "^8.6.0",
     "jotai": "^2.20.1",
     "js-cookie": "^3.0.8",
     "lucide-react": "^1.17.0",
