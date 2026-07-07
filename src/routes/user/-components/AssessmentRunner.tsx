@@ -328,6 +328,28 @@ function Results({
 
   const { result, attempt } = data.data;
 
+  if (!result) {
+    return (
+      <div className="space-y-5">
+        <div className="rounded-lg bg-base-200 py-10 text-center">
+          <p className="text-sm font-medium text-base-content/60">
+            Your submission was received, but the result is not available yet.
+          </p>
+          <p className="mt-1 text-xs text-base-content/40">
+            Please check back shortly or contact support if this persists.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          className="w-full rounded-md bg-accent py-3 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90"
+        >
+          Close
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-5">
       {/* Score summary */}
