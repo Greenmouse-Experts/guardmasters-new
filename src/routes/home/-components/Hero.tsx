@@ -54,19 +54,22 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* Stats pill — bottom-right */}
-        <div className="mt-12 inline-flex self-end items-center gap-6 rounded-2xl bg-accent/80 px-6 py-4 shadow-xl backdrop-blur-sm md:absolute md:right-16 md:bottom-12 md:mt-0 ring ring-primary divide-x divide-primary">
+        {/* Stats pill */}
+        <div className="mt-12 flex w-full items-center divide-x divide-primary rounded-2xl bg-accent/80 px-4 py-4 shadow-xl backdrop-blur-sm ring ring-primary md:absolute md:bottom-12 md:right-16 md:mt-0 md:w-auto md:px-6">
           {stats.map(({ icon: Icon, value, lines }) => (
-            <div key={value} className="flex items-center gap-2 px-4 py-2">
+            <div
+              key={value}
+              className="flex flex-1 items-center justify-center gap-2 px-2 py-1 md:flex-none md:px-4 md:py-2"
+            >
               <Icon
-                className="size-9 shrink-0 text-primary"
+                className="size-7 shrink-0 text-primary md:size-9"
                 strokeWidth={1.5}
               />
               <div>
-                <div className="text-lg font-bold leading-none text-white">
+                <div className="text-base font-bold leading-none text-white md:text-lg">
                   {value}
                 </div>
-                <div className="mt-0.5 text-[9px] font-semibold tracking-widest text-white/50 uppercase">
+                <div className="mt-0.5 text-[8px] font-semibold tracking-widest text-white/50 uppercase md:text-[9px]">
                   {lines[0]}
                 </div>
               </div>
