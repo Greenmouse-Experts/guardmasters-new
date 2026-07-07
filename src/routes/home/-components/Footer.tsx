@@ -162,11 +162,11 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mt-14 h-px w-full bg-white/10" />
+        <div className="mt-14 h-px w-full bg-primary/50" />
 
         {/* Bottom bar */}
         <p className="pt-8 text-center text-sm text-white/50">
-          © 2026 Guardmaster Institute Canada. All rights reserved.
+          © 2026 Guardmaster Institute Canada. <br /> All rights reserved.
         </p>
       </div>
     </footer>
