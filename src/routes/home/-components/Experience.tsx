@@ -35,14 +35,6 @@ export default function Experience() {
       <div className="container mx-auto">
         {/* ── Heading ── */}
         <div className="mb-12 text-center">
-          <div className="mb-4 flex items-center justify-center gap-4">
-            <span className="h-px w-10 bg-primary" />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Our Learners, Our Pride
-            </span>
-            <span className="h-px w-10 bg-primary" />
-          </div>
-
           <h2 className="font-pop text-4xl font-bold text-accent md:text-5xl">
             Hear From <span className="text-primary">Our Learners</span>
           </h2>

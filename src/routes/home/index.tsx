@@ -1,5 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Crown, Target, User, Music, Square, Star } from "lucide-react";
+import {
+  GraduationCap,
+  Target,
+  Users,
+  LifeBuoy,
+  Award,
+  Clock,
+} from "lucide-react";
 import HomeNav from "./-components/HomeNav";
 import Hero from "./-components/Hero";
 import Courses from "./-components/Courses";
@@ -58,38 +65,40 @@ const accreditations = [
 
 const features = [
   {
-    icon: Crown,
-    tile: "bg-accent",
+    icon: GraduationCap,
+    title: "Learn from Experts",
     description:
-      "Learn from seasoned industry professionals and academic experts.",
+      "Learn from seasoned industry professionals and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
   },
   {
     icon: Target,
-    tile: "bg-[#7A1F2B]",
+    title: "Practical & Career-Focused",
     description:
-      "Courses are designed for working professionals and practical application.",
+      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
   },
   {
-    icon: User,
-    tile: "bg-[#1F6B4A]",
-    description: "Join a global community of like-minded professionals.",
-  },
-  {
-    icon: Music,
-    tile: "bg-accent",
-    description: "Receive support throughout your learning journey.",
-  },
-  {
-    icon: Square,
-    tile: "bg-[#4B2E83]",
+    icon: Users,
+    title: "Global Professional Community",
     description:
-      "Certifications are trusted by employers and aligned with standards.",
+      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
   },
   {
-    icon: Star,
-    tile: "bg-[#0F766E]",
+    icon: LifeBuoy,
+    title: "Dedicated Learner Support",
     description:
-      "Study flexibly with programs built around your professional goals.",
+      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
+  },
+  {
+    icon: Award,
+    title: "Recognized Certifications",
+    description:
+      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
+  },
+  {
+    icon: Clock,
+    title: "Flexible Learning Pathways",
+    description:
+      "Learn from seasoned industry professionals seasoned practitioners, and academic experts with real-world experience in security, risk management, and resilience. Our programs combine global standards with practical insights.",
   },
 ];
 
@@ -151,35 +160,30 @@ function RouteComponent() {
 
       <Opportunity />
 
-      <section className="bg-accent px-6 py-20 md:px-16">
+      <section className="bg-base-100 px-6 py-20 md:px-16">
         <div className="container mx-auto">
           <div className="mb-12">
-            <h2 className="text-4xl leading-tight font-bold font-pop md:text-5xl">
-              <span className="text-white">Why Choose</span>
-              <br />
+            <h2 className="text-4xl leading-tight font-bold font-pop text-center md:text-5xl">
+              <span className="text-accnt">Why Choose</span>
+              {/*<br />*/}{" "}
               <span className="text-primary">Guardmaster Institute</span>
             </h2>
-            <p className="mt-4 max-w-xl text-white/60">
-              We are committed to raising the standard of professional
-              excellence through world-class education and globally recognized
-              certifications.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {features.map(({ icon: Icon, tile, description }) => (
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            {features.map(({ icon: Icon, title, description }) => (
               <div
-                key={description}
-                className="flex items-center gap-6 rounded-2xl bg-base-100 p-5"
+                key={title}
+                className="flex items-start gap-5 rounded-2xl bg-accent p-6"
               >
-                <div
-                  className={`flex h-24 w-24 shrink-0 items-center justify-center rounded-xl ${tile}`}
-                >
-                  <Icon className="h-9 w-9 text-primary" strokeWidth={1.5} />
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary">
+                  <Icon className="h-7 w-7 text-accent" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div className="mb-3 h-1 w-8 rounded-full bg-primary" />
-                  <p className="leading-relaxed text-base-content/70">
+                  <h3 className="mb-2 font-pop font-bold text-accent-content">
+                    {title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-accent-content/60">
                     {description}
                   </p>
                 </div>

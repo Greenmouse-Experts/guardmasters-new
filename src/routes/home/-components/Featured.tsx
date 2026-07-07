@@ -69,7 +69,7 @@ export default function Featured() {
                   <div className="mt-10 flex justify-center">
                     <Link
                       to="/home/programs"
-                      className="btn btn-primary gap-2 rounded-lg px-8 font-semibold text-accent"
+                      className="btn btn-primary btn-xl gap-2 rounded-lg px-8 font-semibold text-accent"
                     >
                       Browse More Courses
                       <ArrowUpRight className="h-4 w-4" />
