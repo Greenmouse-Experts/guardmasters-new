@@ -68,10 +68,6 @@ export default function Programs() {
               key={title}
               className="relative rounded-2xl bg-base-100 p-6 shadow-lg ring ring-primary/50 h-full"
             >
-              <span className="absolute top-5 right-5 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-accent">
-                {i + 1}
-              </span>
-
               <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent">
                 <Icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
               </div>
