@@ -153,7 +153,6 @@ export default function FaqCert() {
               </h3>
               <div className="mt-6 h-1 w-16 rounded-full bg-primary" />
             </div>
-
             <div className="overflow-hidden rounded-lg relative isolate">
               <div className="absolute left-[10%] right-[9%] top-[9%] bottom-[15%] z-10 overflow-hidden rounded-sm bg-black">
                 <iframe
