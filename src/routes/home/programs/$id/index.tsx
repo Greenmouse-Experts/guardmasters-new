@@ -10,64 +10,7 @@ import { defaultProgramId, programs } from "./-info/programs";
 import { useQuery } from "@tanstack/react-query";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
-import type { CourseComment, CourseProgramSingle } from "#/types/courses.ts";
-
-const comments: CourseComment[] = [
-  {
-    id: "1",
-    name: "Adaeze Okonkwo",
-    role: "Security Operations Manager",
-    avatar: "https://i.pravatar.cc/150?img=47",
-    rating: 5,
-    body: "The most practical security program I've taken. I walked back into my role with frameworks I could apply the very next morning — not abstract theory.",
-    date: "Mar 2026",
-  },
-  {
-    id: "2",
-    name: "Daniel Mensah",
-    role: "Corporate Risk Lead",
-    avatar: "https://i.pravatar.cc/150?img=12",
-    rating: 5,
-    body: "Worth every credit. The instructors clearly come from the field, and the ASIS CPE recognition made it an easy sell to my employer.",
-    date: "Feb 2026",
-  },
-  {
-    id: "3",
-    name: "Fatima Bello",
-    role: "Loss Prevention Supervisor",
-    avatar: "https://i.pravatar.cc/150?img=32",
-    rating: 4,
-    body: "Rigorous and well-structured. The curriculum moves fast, but the modules are organized so you never feel lost. The credential opened doors for me.",
-    date: "Jan 2026",
-  },
-  {
-    id: "4",
-    name: "Kwame Asante",
-    role: "Facility Security Officer",
-    avatar: "https://i.pravatar.cc/150?img=68",
-    rating: 5,
-    body: "Internationally recognized and genuinely respected in our industry. My board signed off on the investment after seeing the accreditation.",
-    date: "Dec 2025",
-  },
-  {
-    id: "5",
-    name: "Ngozi Eze",
-    role: "Investigations Analyst",
-    avatar: "https://i.pravatar.cc/150?img=24",
-    rating: 5,
-    body: "The verifiable digital certificate is a nice touch. Clients and recruiters can confirm my credentials instantly — it carries real weight.",
-    date: "Nov 2025",
-  },
-  {
-    id: "6",
-    name: "Samuel Adeyemi",
-    role: "Head of Physical Security",
-    avatar: "https://i.pravatar.cc/150?img=51",
-    rating: 4,
-    body: "A career-defining program. The pathway into more advanced courses keeps you growing long after the cohort ends. Highly recommended.",
-    date: "Oct 2025",
-  },
-];
+import type { CourseProgramSingle } from "#/types/courses.ts";
 
 export const Route = createFileRoute("/home/programs/$id/")({
   component: RouteComponent,
@@ -137,7 +80,7 @@ function RouteComponent() {
                   </>
                 }
                 description="Practical, board-ready competencies — not just theory. Designed for direct application the day you return to your organization."
-                outcomes={[...course.courseOutcomes]
+                outcomes={[...(course.courseOutcomes ?? [])]
                   .sort((a, b) => a.order - b.order)
                   .map((o) => o.description)}
               />
@@ -185,7 +128,7 @@ function RouteComponent() {
                   </>
                 }
                 description="Real feedback from security professionals who've completed the program and applied it in the field."
-                comments={comments}
+                courseId={String(course.id)}
               />
               <EnrollMore
                 badge="Enroll"
