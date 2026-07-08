@@ -114,7 +114,9 @@ function RouteComponent() {
   return (
     <>
       <HomeNav />
+
       <Hero />
+
       <Programs />
       {/*<accreditations />*/}
 

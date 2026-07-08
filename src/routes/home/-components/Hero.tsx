@@ -77,6 +77,7 @@ export default function Hero() {
           ))}
         </div>
       </div>
+      <div className="h-30 bg-accent/80 backdrop-blur-md absolute w-full " />
     </section>
   );
 }
