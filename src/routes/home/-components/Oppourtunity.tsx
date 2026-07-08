@@ -112,7 +112,7 @@ export default function Opportunity() {
   return (
     <section className="bg-accent px-6 py-20 md:px-16">
       <div className="container mx-auto">
-        <h2 className="mb-4 text-4xl font-bold text-accent-content md:text-6xl text-center font-pop">
+        <h2 className="mb-4 text-4xl font-bold text-accent-content uppercase text-center font-pop">
           Career <span className="text-primary">Opportunities</span>
         </h2>
         <p className="mb-12 text-center text-base leading-relaxed text-accent-content/60">

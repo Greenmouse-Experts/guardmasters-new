@@ -61,7 +61,7 @@ export default function Testimonials() {
       <div className="container mx-auto">
         {/* Heading */}
         <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold font-pop md:text-5xl">
+          <h2 className="text-4xl font-bold font-pop  uppercase">
             <span className="text-accent">Hear From </span>
             <span className="text-primary">Our Learners</span>
           </h2>

@@ -175,7 +175,7 @@ function RouteComponent() {
       <section className="bg-base-100 px-6 py-20 md:px-16">
         <div className="container mx-auto">
           <div className="mb-12">
-            <h2 className="text-4xl leading-tight font-bold font-pop text-center md:text-5xl">
+            <h2 className="text-4xl leading-tight font-bold font-pop text-center uppercase">
               <span className="text-accnt">Why Choose</span>
               {/*<br />*/}{" "}
               <span className="text-primary">Guardmaster Institute</span>
