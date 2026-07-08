@@ -98,12 +98,17 @@ function RouteComponent() {
           const course = resp.course;
           const price =
             course.discountPriceFormat ?? course.originalPriceFormat;
-          const modules = resp.contents.data.map((content) => ({
-            title: content.title,
-            description: content.courseContentSubs
-              .map((s) => s.title)
-              .join(", "),
-          }));
+          const totalDuration = resp.contents.totalDuration;
+          const durationLabel =
+            totalDuration >= 60
+              ? `${(totalDuration / 60).toFixed(1)} hours of on-demand content`
+              : `${totalDuration} minutes of on-demand content`;
+          const includes = [
+            durationLabel,
+            "Certificate of completion",
+            "Full lifetime access",
+            "Access on mobile and desktop",
+          ];
           return (
             <>
               <ProgramHero
@@ -202,8 +207,8 @@ function RouteComponent() {
                 }
                 description="Talk to admissions about cohort dates, corporate group rates, and continuing-education credit transfer."
                 price={price}
-                priceNote={program.priceNote}
-                includes={program.includes}
+                priceNote="per enrollment"
+                includes={includes}
                 relatedBadge="More courses"
                 relatedTitle="Continue your pathway."
               />
