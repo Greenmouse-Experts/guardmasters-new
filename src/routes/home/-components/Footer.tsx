@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router";
 interface FooterLink {
   name: string;
   path?: string;
+  search?: Record<string, string>;
   external?: string;
 }
 
@@ -17,9 +18,9 @@ const quickLinks: FooterLink[] = [
 
 const resourceLinks: FooterLink[] = [
   { name: "Our Accreditations", path: "/home/accreditations" },
-  { name: "Terms & Conditions", path: "/home/terms" },
-  { name: "Privacy Policy", path: "/home/terms" },
-  { name: "Cookie Policy", path: "/home/terms" },
+  { name: "Terms & Conditions", path: "/home/terms", search: { tab: "terms" } },
+  { name: "Privacy Policy", path: "/home/terms", search: { tab: "privacy" } },
+  { name: "Cookie Policy", path: "/home/terms", search: { tab: "cookie" } },
   { name: "Student Login", path: "/home/auth/login" },
 ];
 
@@ -79,7 +80,7 @@ function NavLink({ link }: { link: FooterLink }) {
 
   if (link.path) {
     return (
-      <Link to={link.path} className={cls}>
+      <Link to={link.path} search={link.search} className={cls}>
         {inner}
       </Link>
     );

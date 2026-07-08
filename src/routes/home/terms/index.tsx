@@ -1,12 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import ImageHeader from "../-components/headers/ImageHeader";
-import LegalTabs from "../-components/LegalTabs";
+import LegalTabs, { type Tab } from "../-components/LegalTabs";
 
 export const Route = createFileRoute("/home/terms/")({
+  validateSearch: (search: Record<string, unknown>): { tab: Tab } => ({
+    tab: (["terms", "privacy", "cookie"].includes(search.tab as string)
+      ? search.tab
+      : "terms") as Tab,
+  }),
   component: RouteComponent,
 });
 
 function RouteComponent() {
+  const { tab } = Route.useSearch();
+  const navigate = useNavigate();
+
   return (
     <div className="bg-base-300">
       <ImageHeader
@@ -19,7 +27,10 @@ function RouteComponent() {
         }
         description="Review the terms, privacy standards, and cookie practices that guide how Guardmaster Institute manages learning, website use, and user information."
       />
-      <LegalTabs />
+      <LegalTabs
+        tab={tab}
+        onTabChange={(t) => navigate({ to: "/home/terms", search: { tab: t } })}
+      />
     </div>
   );
 }

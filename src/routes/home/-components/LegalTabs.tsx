@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Plus } from "lucide-react";
 
-type Tab = "terms" | "privacy" | "cookie";
+export type Tab = "terms" | "privacy" | "cookie";
 
 type AccordionItem = {
   title: string;
@@ -417,31 +416,35 @@ const content: Record<Tab, React.ReactNode> = {
   cookie: <CookieContent />,
 };
 
-export default function LegalTabs() {
-  const [active, setActive] = useState<Tab>("terms");
-
+export default function LegalTabs({
+  tab = "terms",
+  onTabChange,
+}: {
+  tab?: Tab;
+  onTabChange?: (tab: Tab) => void;
+}) {
   return (
     <section className="bg-base-200 py-16 ">
       <div className="container mx-auto ">
         <div className="mb-6 inline-flex rounded-xl border border-base-300 bg-base-100 shadow-xl px-4 py-2">
-          {tabs.map((tab) => (
+          {tabs.map((t) => (
             <button
-              key={tab.id}
-              onClick={() => setActive(tab.id)}
-              className={`rounded-xl px-5 py-2 font-bold  transition-colors ${
-                active === tab.id
+              key={t.id}
+              onClick={() => onTabChange?.(t.id)}
+              className={`rounded-xl px-5 py-2 font-bold transition-colors ${
+                tab === t.id
                   ? "bg-accent text-accent-content"
                   : " hover:text-base-content"
               }`}
             >
-              {tab.label}
+              {t.label}
             </button>
           ))}
         </div>
 
-        <div className=" bg-base-100 p-8  md:p-12">{content[active]}</div>
+        <div className=" bg-base-100 p-8  md:p-12">{content[tab]}</div>
 
-        <LegalAccordion key={active} tab={active} />
+        <LegalAccordion key={tab} tab={tab} />
       </div>
     </section>
   );
