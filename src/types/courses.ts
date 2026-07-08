@@ -65,11 +65,21 @@ export interface SingleCourse {
     isPublished: boolean;
     createdDate: string;
   };
+  courseOutcomes: CourseOutcome[];
   originalPriceFormat: string;
   discountPriceFormat: string | null;
   discountedPrice: string | null;
   discountFormat: string | null;
 }
+export interface CourseOutcome {
+  id: string;
+  description: string;
+  order: number;
+  createdDate: string;
+  updatedDate: string;
+  deletedDate: string | null;
+}
+
 export type CourseContentMediaType =
   | "video"
   | "image"

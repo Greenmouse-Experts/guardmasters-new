@@ -132,7 +132,9 @@ function RouteComponent() {
                   </>
                 }
                 description="Practical, board-ready competencies — not just theory. Designed for direct application the day you return to your organization."
-                outcomes={program.outcomes}
+                outcomes={[...course.courseOutcomes]
+                  .sort((a, b) => a.order - b.order)
+                  .map((o) => o.description)}
               />
               <Curriculum sections={resp.contents.data} />
               {/*<Modules modules={modules} />*/}
