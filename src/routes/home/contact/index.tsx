@@ -94,7 +94,7 @@ function RouteComponent() {
           {details.map(({ Icon, label, value }) => (
             <div
               key={label}
-              className="relative rounded-2xl bg-secondary/5 px-6 pt-12 pb-8 text-center shadow-lg"
+              className="relative rounded-2xl bg-white/10 px-6 pt-12 pb-8 text-center shadow-lg"
               // style={{
               //   backgroundImage: "url('/cert.jpeg')",
               //   backgroundSize: "400% 400%",
