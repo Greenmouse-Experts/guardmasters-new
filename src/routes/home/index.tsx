@@ -170,8 +170,6 @@ function RouteComponent() {
 
       <Opportunity />
 
-      <Testimonials />
-
       <section className="bg-base-100 px-6 py-20 md:px-16">
         <div className="container mx-auto">
           <div className="mb-12">
@@ -207,6 +205,8 @@ function RouteComponent() {
           </div>
         </div>
       </section>
+      <Testimonials />
+
       <FaqCert />
     </>
   );
