@@ -41,7 +41,7 @@ export default function ProgramCard({
         )}
 
         {/* Circle: course image or placeholder */}
-        <div className="absolute right-6 top-5 z-10 h-20 w-20 overflow-hidden rounded-full bg-base-300 shadow-md ring-4 ring-white transition-transform duration-500 group-hover:scale-105">
+        {/*<div className="absolute right-6 top-5 z-10 h-20 w-20 overflow-hidden rounded-full bg-base-300 shadow-md ring-4 ring-white transition-transform duration-500 group-hover:scale-105">
           {course.coverImage ? (
             <img
               src={"/favicon.png"}
@@ -49,7 +49,7 @@ export default function ProgramCard({
               className="h-full w-full object-cover"
             />
           ) : null}
-        </div>
+        </div>*/}
       </div>
 
       {/* ── Dark content area ── */}

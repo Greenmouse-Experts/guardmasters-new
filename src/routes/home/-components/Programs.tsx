@@ -57,8 +57,8 @@ export default function Programs() {
             </span>
           </div>
           <p className="mx-auto max-w-2xl text-lg text-base-content/60">
-            Comprehensive learning solutions tailored to empower security and
-            risk professionals at every stage of their career.
+            Comprehensive learning solutions tailored to empower corporate
+            security and risk professionals at every stage of their career.
           </p>
         </div>
 
