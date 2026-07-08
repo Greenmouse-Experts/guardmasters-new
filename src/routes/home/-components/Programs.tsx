@@ -52,7 +52,7 @@ export default function Programs() {
       <div className="container mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="text-5xl font-bold tracking-[0.18em] text-accent uppercase font-pop">
+            <span className="text-4xl font-bold tracking-[0.18em] text-accent uppercase font-pop">
               Our Program Offerings
             </span>
           </div>
@@ -62,7 +62,7 @@ export default function Programs() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map(({ icon: Icon, title, description }, i) => (
             <div
               key={title}
