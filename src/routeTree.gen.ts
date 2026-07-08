@@ -27,6 +27,7 @@ import { Route as UserNotificationsIndexRouteImport } from './routes/user/notifi
 import { Route as UserCoursesIndexRouteImport } from './routes/user/courses/index'
 import { Route as HomeTermsIndexRouteImport } from './routes/home/terms/index'
 import { Route as HomeProgramsIndexRouteImport } from './routes/home/programs/index'
+import { Route as HomeFaqIndexRouteImport } from './routes/home/faq/index'
 import { Route as HomeContactIndexRouteImport } from './routes/home/contact/index'
 import { Route as HomeBlogIndexRouteImport } from './routes/home/blog/index'
 import { Route as HomeAccreditationsIndexRouteImport } from './routes/home/accreditations/index'
@@ -130,6 +131,11 @@ const HomeProgramsIndexRoute = HomeProgramsIndexRouteImport.update({
   path: '/programs/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
+const HomeFaqIndexRoute = HomeFaqIndexRouteImport.update({
+  id: '/faq/',
+  path: '/faq/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 const HomeContactIndexRoute = HomeContactIndexRouteImport.update({
   id: '/contact/',
   path: '/contact/',
@@ -204,6 +210,7 @@ export interface FileRoutesByFullPath {
   '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/blog/': typeof HomeBlogIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
+  '/home/faq/': typeof HomeFaqIndexRoute
   '/home/programs/': typeof HomeProgramsIndexRoute
   '/home/terms/': typeof HomeTermsIndexRoute
   '/user/courses/': typeof UserCoursesIndexRoute
@@ -231,6 +238,7 @@ export interface FileRoutesByTo {
   '/home/accreditations': typeof HomeAccreditationsIndexRoute
   '/home/blog': typeof HomeBlogIndexRoute
   '/home/contact': typeof HomeContactIndexRoute
+  '/home/faq': typeof HomeFaqIndexRoute
   '/home/programs': typeof HomeProgramsIndexRoute
   '/home/terms': typeof HomeTermsIndexRoute
   '/user/courses': typeof UserCoursesIndexRoute
@@ -263,6 +271,7 @@ export interface FileRoutesById {
   '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/blog/': typeof HomeBlogIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
+  '/home/faq/': typeof HomeFaqIndexRoute
   '/home/programs/': typeof HomeProgramsIndexRoute
   '/home/terms/': typeof HomeTermsIndexRoute
   '/user/courses/': typeof UserCoursesIndexRoute
@@ -296,6 +305,7 @@ export interface FileRouteTypes {
     | '/home/accreditations/'
     | '/home/blog/'
     | '/home/contact/'
+    | '/home/faq/'
     | '/home/programs/'
     | '/home/terms/'
     | '/user/courses/'
@@ -323,6 +333,7 @@ export interface FileRouteTypes {
     | '/home/accreditations'
     | '/home/blog'
     | '/home/contact'
+    | '/home/faq'
     | '/home/programs'
     | '/home/terms'
     | '/user/courses'
@@ -354,6 +365,7 @@ export interface FileRouteTypes {
     | '/home/accreditations/'
     | '/home/blog/'
     | '/home/contact/'
+    | '/home/faq/'
     | '/home/programs/'
     | '/home/terms/'
     | '/user/courses/'
@@ -506,6 +518,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeProgramsIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
+    '/home/faq/': {
+      id: '/home/faq/'
+      path: '/faq'
+      fullPath: '/home/faq/'
+      preLoaderRoute: typeof HomeFaqIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
     '/home/contact/': {
       id: '/home/contact/'
       path: '/contact'
@@ -606,6 +625,7 @@ interface HomeRouteRouteChildren {
   HomeAccreditationsIndexRoute: typeof HomeAccreditationsIndexRoute
   HomeBlogIndexRoute: typeof HomeBlogIndexRoute
   HomeContactIndexRoute: typeof HomeContactIndexRoute
+  HomeFaqIndexRoute: typeof HomeFaqIndexRoute
   HomeProgramsIndexRoute: typeof HomeProgramsIndexRoute
   HomeTermsIndexRoute: typeof HomeTermsIndexRoute
   HomeAuthVerifyIndexRoute: typeof HomeAuthVerifyIndexRoute
@@ -621,6 +641,7 @@ const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeAccreditationsIndexRoute: HomeAccreditationsIndexRoute,
   HomeBlogIndexRoute: HomeBlogIndexRoute,
   HomeContactIndexRoute: HomeContactIndexRoute,
+  HomeFaqIndexRoute: HomeFaqIndexRoute,
   HomeProgramsIndexRoute: HomeProgramsIndexRoute,
   HomeTermsIndexRoute: HomeTermsIndexRoute,
   HomeAuthVerifyIndexRoute: HomeAuthVerifyIndexRoute,
