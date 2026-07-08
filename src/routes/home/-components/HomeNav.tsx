@@ -1,5 +1,12 @@
 import { Link, useLocation, useNavigate } from "@tanstack/react-router";
-import { ChevronDown, Mail, Menu, Phone, Search, ShoppingCart } from "lucide-react";
+import {
+  ChevronDown,
+  Mail,
+  Menu,
+  Phone,
+  Search,
+  ShoppingCart,
+} from "lucide-react";
 import { useAuth, useProfile } from "#/store/authStore.ts";
 import { useCartCount, useCartStore } from "#/store/cartStore.ts";
 import { useEffect, useState } from "react";
@@ -64,16 +71,16 @@ export default function HomeNav() {
   const dashboardPath =
     profile?.role === "admin" ? "/admin" : ("/user" as const);
 
-  // Transparent + overlaid on the landing page hero; solid accent elsewhere.
+  // Transparent only on the landing page hero; solid accent everywhere else.
   const pathname = useLocation({ select: (l) => l.pathname });
-  const isHome = true;
+  const isLandingPage = pathname === "/home";
 
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState("");
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
-    if (!isHome) return;
+    if (!isLandingPage) return;
 
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 50);
@@ -81,12 +88,12 @@ export default function HomeNav() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isLandingPage]);
 
   return (
     <div
       className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
-        hasScrolled ? "bg-accent/40 backdrop-blur-xs" : "bg-transparent"
+        !isLandingPage || hasScrolled ? "bg-accent/40 backdrop-blur-xs" : "bg-transparent"
       }`}
     >
       {/* Top contact strip */}
@@ -190,7 +197,10 @@ export default function HomeNav() {
               onChange={(e) => setSearchValue(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter" && searchValue.trim()) {
-                  navigate({ to: "/home/programs", search: { search: searchValue.trim() } });
+                  navigate({
+                    to: "/home/programs",
+                    search: { search: searchValue.trim() },
+                  });
                 }
               }}
               className="w-full bg-transparent text-sm text-white placeholder:text-white/50 focus:outline-none"
