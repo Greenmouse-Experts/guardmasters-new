@@ -31,7 +31,7 @@ export default function Featured() {
       <div className="bg-base-100 px-6 py-8 md:px-16">
         <div className="container mx-auto">
           <div className="mb-12">
-            <h2 className="text-2xl leading-tight font-semibold  md:text-5xl font-pop text-accent text-center">
+            <h2 className="text-4xl leading-tight font-semibold  md:text-4xl font-pop text-accent text-center">
               Training Programs and Certification Courses
             </h2>
           </div>

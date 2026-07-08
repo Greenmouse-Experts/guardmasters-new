@@ -57,7 +57,7 @@ export default function Offerings() {
     <section className="bg-accent px-6 py-20 md:px-16">
       <div className="container mx-auto">
         <div className="mb-4">
-          <h2 className="text-3xl text-primary text-center font-bold md:text-5xl font-pop">
+          <h2 className="text-4xl text-primary text-center font-bold font-pop">
             Trusted. Accredited.
             <br /> Recognized Worldwide.
           </h2>
