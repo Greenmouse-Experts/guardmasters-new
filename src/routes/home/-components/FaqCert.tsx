@@ -151,7 +151,7 @@ export default function FaqCert() {
           <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-2">
             <div className="text-center lg:text-left">
               <h3 className="text-4xl leading-[1.1] font-bold text-white md:text-5xl lg:text-6xl font-pop italic">
-                Your Journey
+                Your Future
                 <br />
                 <span className="text-primary">Starts Here.</span>
               </h3>
