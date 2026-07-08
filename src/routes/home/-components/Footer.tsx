@@ -99,9 +99,11 @@ export default function Footer() {
             <img src={"/logo.png"} className="mb-4 h-12" />
 
             <p className="text-lg leading-relaxed text-white/55">
-              We are an accredited professional security certifications training
-              institution. Guardmaster Institute is an ASIS International
-              Preferred CPE Provider.
+              Guardmaster Institute Canada is a professional certification
+              training and consulting organization. We offer accredited
+              professional training, courses, and certification programs in the
+              fields of Corporate Security, Loss Prevention, Asset Protection,
+              ISO International Standards, and Business Continuity Management
             </p>
           </div>
 
