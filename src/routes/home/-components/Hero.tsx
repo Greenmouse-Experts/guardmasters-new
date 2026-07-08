@@ -77,15 +77,6 @@ export default function Hero() {
           ))}
         </div>
       </div>
-      <div className="h-30 bg-accent/40 backdrop-blur-md absolute w-full  flex items-center bottom-0">
-        <div className="max-w-5xl mx-auto text-white  text-center">
-          Guardmaster Institute Canada is a professional certification training
-          and consulting organization. We offer accredited professional
-          training, courses, and certification programs in the fields of
-          Corporate Security, Loss Prevention, Asset Protection, ISO
-          International Standards, and Business Continuity Management.
-        </div>
-      </div>
     </section>
   );
 }
