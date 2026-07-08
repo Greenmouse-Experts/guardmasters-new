@@ -93,7 +93,9 @@ export default function HomeNav() {
   return (
     <div
       className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
-        !isLandingPage || hasScrolled ? "bg-accent/40 backdrop-blur-xs" : "bg-transparent"
+        !isLandingPage || hasScrolled
+          ? "bg-accent/40 backdrop-blur-xs"
+          : "bg-transparent"
       }`}
     >
       {/* Top contact strip */}
@@ -108,7 +110,7 @@ export default function HomeNav() {
                 className="flex items-center gap-2 pr-4 font-medium hover:opacity-70 "
               >
                 <Phone className="h-4 w-4 " />
-                +1 905-452-2470
+                +1 437-545-1684
               </a>
               <a
                 href="mailto:info@guardmasterinstitute.ca"
