@@ -24,7 +24,7 @@ export default function FaqCert() {
 
   return (
     <>
-      <section className="px-6 py-8 text-white md:px-16 bg-base-200">
+      <section className="px-6 pt-8 text-white md:px-16 bg-base-200">
         <div className="container mx-auto">
           {/* FAQ header banner */}
           <div className="mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-accent to-accent/70 px-8 py-12 md:px-12 md:py-16">
@@ -69,7 +69,7 @@ export default function FaqCert() {
           )}
 
           {/* View More FAQ button */}
-          <div className="mt-10 flex justify-center">
+          <div className="mt-20 flex justify-center">
             <a
               href="/home/faq"
               className="btn btn-xl text-accent font-bold btn-primary rounded-xl"
@@ -82,7 +82,7 @@ export default function FaqCert() {
           </div>
 
           {/* Still have questions banner */}
-          <div className="mt-6 flex flex-col gap-6 overflow-hidden rounded-2xl border border-dashed border-primary/40 bg-accent px-6 py-6 md:flex-row md:items-center">
+          <div className="mt-20 flex flex-col gap-6 overflow-hidden rounded-2xl border border-dashed border-primary/40 bg-accent px-6 py-6 md:flex-row md:items-center">
             {/* Left: copy */}
             <div className="shrink-0 md:max-w-[200px]">
               <p className="font-pop font-bold text-primary">
@@ -146,7 +146,7 @@ export default function FaqCert() {
           {/* CTA banner */}
         </div>
       </section>
-      <div className="bg-accent border-b border-primary/50">
+      <div className="bg-accent border-b border-primary/50 ">
         <div className="mt-16 overflow-hidden rounded-2xl bg-accent px-8 py-14 md:px-14 md:py-16 container mx-auto">
           <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-2">
             <div className="text-center lg:text-left">

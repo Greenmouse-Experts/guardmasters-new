@@ -207,14 +207,7 @@ function RouteComponent() {
           </div>
         </div>
       </section>
-
-      {/*<Courses />*/}
-      {/*<ForeFront />*/}
-      {/*<Experience />*/}
-      {/*<Accredition />*/}
-
       <FaqCert />
-      {/*<Footer />*/}
     </>
   );
 }
