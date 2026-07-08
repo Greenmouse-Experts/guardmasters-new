@@ -58,7 +58,7 @@ const socials: { Icon: ComponentType<IconProps>; label: string }[] = [
 
 function ColHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+    <h3 className="mb-6 text-lg font-bold uppercase tracking-[0.18em] text-primary">
       {children}
     </h3>
   );
@@ -66,7 +66,7 @@ function ColHeading({ children }: { children: React.ReactNode }) {
 
 function NavLink({ link }: { link: FooterLink }) {
   const cls =
-    "group flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white";
+    "group flex items-center gap-2 text-lg text-white/60 transition-colors hover:text-white";
 
   const inner = (
     <>
@@ -98,7 +98,7 @@ export default function Footer() {
             {/* GI badge */}
             <img src={"/logo.png"} className="mb-4 h-12" />
 
-            <p className="text-sm leading-relaxed text-white/55">
+            <p className="text-lg leading-relaxed text-white/55">
               We are an accredited professional security certifications training
               institution. Guardmaster Institute is an ASIS International
               Preferred CPE Provider.
@@ -132,7 +132,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <ColHeading>Contact Info</ColHeading>
-            <ul className="space-y-4 text-sm text-white/60">
+            <ul className="space-y-4 text-lg text-white/60">
               <li>+1 437-545-1684</li>
               <li>info@guardmasterinstitute.ca</li>
               <li className="leading-relaxed">
@@ -160,7 +160,7 @@ export default function Footer() {
         <div className="mt-14 h-px w-full bg-primary/50" />
 
         {/* Bottom bar */}
-        <p className="pt-8 text-center text-sm text-white/50">
+        <p className="pt-8 text-center text-lg text-white/50">
           © 2026 Guardmaster Institute Canada. <br /> All rights reserved.
         </p>
       </div>
