@@ -1,4 +1,4 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { ChevronDown, Mail, Menu, Phone, Search, ShoppingCart } from "lucide-react";
 import { useAuth, useProfile } from "#/store/authStore.ts";
 import { useCartCount, useCartStore } from "#/store/cartStore.ts";
@@ -68,6 +68,8 @@ export default function HomeNav() {
   const pathname = useLocation({ select: (l) => l.pathname });
   const isHome = true;
 
+  const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState("");
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
@@ -184,7 +186,14 @@ export default function HomeNav() {
             <input
               type="text"
               placeholder="Search..."
-              className="w-full bg-transparent text-sm text-neutral placeholder:text-neutral/40 focus:outline-none"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && searchValue.trim()) {
+                  navigate({ to: "/home/programs", search: { search: searchValue.trim() } });
+                }
+              }}
+              className="w-full bg-transparent text-sm text-white placeholder:text-white/50 focus:outline-none"
             />
           </label>
 

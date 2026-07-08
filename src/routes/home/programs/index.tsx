@@ -8,14 +8,21 @@ import type { ApiResponseV2 } from "#/types/api.js";
 import type { CourseProgram } from "#/types/courses.ts";
 
 export const Route = createFileRoute("/home/programs/")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    search: typeof search.search === "string" ? search.search : "",
+  }),
   component: RouteComponent,
 });
 
 function RouteComponent() {
+  const { search } = Route.useSearch();
+
   const query = useQuery<ApiResponseV2<CourseProgram[]>>({
-    queryKey: ["programs"],
+    queryKey: ["programs", search],
     queryFn: async () => {
-      let resp = await apiClient.get("/programs/public?page=1");
+      const params = new URLSearchParams({ page: "1" });
+      if (search) params.set("search", search);
+      let resp = await apiClient.get(`/programs/public?${params}`);
       return resp.data;
     },
   });
