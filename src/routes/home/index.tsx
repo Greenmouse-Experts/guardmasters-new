@@ -116,8 +116,8 @@ function RouteComponent() {
       <HomeNav />
 
       <Hero />
-      <div className="h-30 bg-accent backdrop-blur-md w-full  flex items-center bottom-0">
-        <div className="max-w-5xl mx-auto text-white  text-center">
+      <div className="bg-accent backdrop-blur-md w-full flex items-center bottom-0 py-4 px-4">
+        <div className="max-w-5xl mx-auto text-white text-center text-sm sm:text-base">
           Guardmaster Institute Canada is a professional certification training
           and consulting organization. We offer accredited professional
           training, courses, and certification programs in the fields of
