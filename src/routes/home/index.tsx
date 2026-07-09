@@ -31,37 +31,37 @@ const accreditations = [
     logo: "/accredition/asis.png",
     name: "ASIS Preferred CPE Provider",
     description:
-      "Learners earn credits from our Mini-MBA and Masterclass training programs.",
+      "Guardmaster Institute is an ASIS Preferred CPE Provider. Learners earn up to 40 CPE credits from our Mini-MBA and Masterclass training programs.",
   },
   {
     logo: "/accredition/ifpo.png",
     name: "IFPO Approved Training Centre",
     description:
-      "Authorized to deliver IFPO programs including CPO and CSSM certifications.",
+      "Guardmaster Institute is an IFPO Approved Training Centre authorized to deliver IFPO programs including CPO and CSSM certifications.",
   },
   {
     logo: "/accredition/csi.png",
     name: "CSI Approved Training Centre",
     description:
-      "Approved Training Centre for Covered Security Institute certifications.",
+      "Guardmaster Institute is an Approved Training Centre of Converged Security Institute (CSI). We offer accredited trainings for CSI certifications.",
   },
   {
     logo: "/accredition/iso.png",
     name: "Accredited ISO Standards Trainer",
     description:
-      "Accredited to deliver specialized ISO-based training for security professionals.",
+      "Guardmaster Institute is accredited to deliver specialized ISO based training that equips security professionals to implement and audit ISO standards.",
   },
   {
     logo: "/accredition/chlps.png",
     name: "ChLPS Accredited Training Provider",
     description:
-      "Accredited for certification courses and programs in loss prevention.",
+      "Guardmaster Institute is an Accredited Training Provider of ChLPS-Canada for certification courses and programs in the loss prevention field.",
   },
   {
     logo: "/accredition/actd.png",
     name: "ACTD Accredited Training Institution",
     description:
-      "Accredited by the American Council of Training and Development.",
+      "Guardmaster Institute has been accredited as a Professional Training Institution by the American Council of Training and Development (ACTD).",
   },
 ];
 
