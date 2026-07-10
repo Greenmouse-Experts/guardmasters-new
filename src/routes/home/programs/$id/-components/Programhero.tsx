@@ -64,8 +64,8 @@ export default function ProgramHero({
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:items-center">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="lg:col-span-1">
             {badge && (
               <span className="mb-6 inline-block rounded-md border border-white/10 bg-white/10 px-3 py-1.5 text-xs font-medium tracking-[0.15em] text-white/70 uppercase">
                 {badge}
@@ -147,7 +147,7 @@ export default function ProgramHero({
               <img
                 src={image}
                 alt={imageAlt ?? ""}
-                className="   w-full max-h-220 object-cover"
+                className="w-full h-[500px] lg:h-[600px] object-contain"
               />
             </div>
           )}
