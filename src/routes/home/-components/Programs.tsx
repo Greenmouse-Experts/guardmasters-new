@@ -53,7 +53,7 @@ export default function Programs() {
         <div className="mb-12 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
             <span className="text-4xl font-bold tracking-[0.18em] text-accent uppercase font-pop">
-              Our Program Offerings
+              EXPLORE OUR PROGRAMS
             </span>
           </div>
           <p className="mx-auto max-w-2xl text-lg text-base-content/60">
