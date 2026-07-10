@@ -111,7 +111,7 @@ export default function ProgramHero({
               </button>
             </div>
 
-            {stats.length > 0 ? (
+            {/*{stats.length > 0 ? (
               <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
                 {stats.map((stat) => (
                   <div key={stat.label}>
@@ -139,7 +139,7 @@ export default function ProgramHero({
                   </div>
                 ))}
               </div>
-            )}
+            )}*/}
           </div>
 
           {image && (
