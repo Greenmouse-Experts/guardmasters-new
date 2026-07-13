@@ -125,10 +125,10 @@ function RouteComponent() {
         className="bg-accent backdrop-blur-md w-full flex items-center bottom-0 py-4 px-4"
       >
         <div className="max-w-5xl mx-auto text-white text-center text-sm sm:text-base">
-          Guardmaster Institute Canada is a professional certifications
-          training, and consulting organization. We specialize in Corporate
-          Security, Loss Prevention, Asset Protection, Compliance, Business
-          Continuity Management, and ISO International Standards.
+          Guardmaster Institute is a professional training, certification, and
+          consulting organization. We deliver accredited training in Corporate
+          Security, Loss Prevention, Asset Protection, Regulatory Compliance,
+          Business Continuity Management, and ISO International Standards.
         </div>
       </div>
       <Programs />
