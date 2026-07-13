@@ -65,10 +65,10 @@ export default function FacultyProfile() {
   const modalRef = useRef<ModalHandle>(null);
 
   return (
-    <section className="bg-base-200 px-6 py-20 md:px-16 relative">
+    <section className="bg-base-200 px-6 pt-20 md:px-16 relative">
       <div className="container mx-auto grid grid-cols-3 gap-12  lg:gap-16">
         {/* Photo + areas of expertise */}
-        <div className="h-fit rounded-2xl bg-accent p-5">
+        <div className="h-fit rounded-2xl bg-accent p-5 pb-48">
           <div className="overflow-hidden  border-2 border-primary/60">
             <img
               src="/dr.png"
@@ -106,7 +106,7 @@ export default function FacultyProfile() {
             {credentials}
           </p>
 
-          <div className="mt-8 space-y-5 text-base leading-relaxed text-base-content/70">
+          <div className="mt-8 space-y-5 text-lg leading-relaxed text-base-content/90">
             <p>
               An accomplished corporate security, risk, business continuity
               management, and loss prevention expert with over{" "}
@@ -164,7 +164,7 @@ export default function FacultyProfile() {
       </div>
 
       {/* Floating stats bar */}
-      <div className="absolute inset-x-0 -bottom-12 md:-bottom-14">
+      <div className="absolute inset-x-0 md:bottom-8">
         <div className="container mx-auto px-6 md:px-16">
           <div className="grid grid-cols-1 divide-y divide-base-300 rounded-2xl border border-primary/50 bg-base-100 shadow-xl sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x">
             {stats.map((stat) => (
