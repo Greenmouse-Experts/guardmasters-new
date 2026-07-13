@@ -1,26 +1,101 @@
 import { useRef } from "react";
+import {
+  ShieldCheck,
+  TriangleAlert,
+  RefreshCw,
+  PackageCheck,
+  Search,
+  ClipboardCheck,
+  Banknote,
+  FileWarning,
+  ShieldBan,
+  CalendarDays,
+  Globe,
+  BadgeCheck,
+  IdCard,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
 
 const credentials =
   "PHD, MSC, MBA, PGCERT · CA, CFE, CFI, CAMS, CFCS, LPC, CHLPS, CPSM, CCLP, CPO, CPOI, CBRM, CBCS, ABCP, CC, CSCE, CSP, CSL, C-CSP, MSYI, M.ISRM, CMGR, MCMI, CPP®";
 
+const expertise: { icon: LucideIcon; label: string }[] = [
+  { icon: ShieldCheck, label: "Corporate Security Management" },
+  { icon: TriangleAlert, label: "Risk Management" },
+  { icon: RefreshCw, label: "Business Continuity & Resilience" },
+  { icon: PackageCheck, label: "Loss Prevention & Asset Protection" },
+  { icon: Search, label: "Investigations & Forensics" },
+  { icon: ClipboardCheck, label: "Regulatory Compliance" },
+  { icon: Banknote, label: "Anti-Money Laundering (AML)" },
+  { icon: FileWarning, label: "Financial Crime Prevention" },
+  { icon: ShieldBan, label: "Counter Terrorist Financing (CTF)" },
+];
+
+const stats: { icon: LucideIcon; value: string; label: string }[] = [
+  {
+    icon: CalendarDays,
+    value: "15+",
+    label: "Years of International Professional Experience",
+  },
+  {
+    icon: Globe,
+    value: "Global",
+    label: "Trainer, Consultant & Thought Leader",
+  },
+  {
+    icon: BadgeCheck,
+    value: "Accredited",
+    label: "Trainer & Faculty Member, Global Compliance Institute",
+  },
+  {
+    icon: IdCard,
+    value: "Dual Licensed",
+    label: "Security Guard & Private Investigator — Ontario",
+  },
+  {
+    icon: Users,
+    value: "Trusted",
+    label: "By Organizations & Professionals Across Multiple Sectors",
+  },
+];
+
 export default function FacultyProfile() {
   const modalRef = useRef<ModalHandle>(null);
 
   return (
-    <section className="bg-base-200 px-6 py-20 md:px-16">
-      <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,560px)_1fr] lg:gap-16">
-        {/* Photo */}
-        <div className="overflow-hidden rounded-2xl">
-          <img
-            src="/dr.png"
-            alt="Dr. Adegbenga William Koko"
-            className="h-full w-full object-cover"
-          />
+    <section className="bg-base-200 px-6 py-20 md:px-16 relative">
+      <div className="container mx-auto grid grid-cols-3 gap-12  lg:gap-16">
+        {/* Photo + areas of expertise */}
+        <div className="h-fit rounded-2xl bg-accent p-5">
+          <div className="overflow-hidden  border-2 border-primary/60">
+            <img
+              src="/dr.png"
+              alt="Dr. Adegbenga William Koko"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <h3 className="mt-8 font-pop text-sm font-bold tracking-[0.2em] text-primary uppercase">
+            Areas of Expertise
+          </h3>
+          <div className="mt-3 h-px w-full bg-white/10" />
+
+          <ul className="mt-2 ">
+            {expertise.map((item) => (
+              <li key={item.label} className="flex items-center gap-3 py-1">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg  text-primary">
+                  <item.icon className="h-4 w-4" strokeWidth={1.75} />
+                </span>
+                <span className="text-sm text-white/80">{item.label}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Bio (preview) */}
-        <div>
+        <div className="col-span-2">
           <div className="font-pop font-bold text-3xl mb-4">
             Lead Faculty &amp; Programs Director
           </div>
@@ -84,6 +159,33 @@ export default function FacultyProfile() {
                 />
               </svg>
             </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating stats bar */}
+      <div className="absolute inset-x-0 -bottom-12 md:-bottom-14">
+        <div className="container mx-auto px-6 md:px-16">
+          <div className="grid grid-cols-1 divide-y divide-base-300 rounded-2xl border border-primary/50 bg-base-100 shadow-xl sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x">
+            {stats.map((stat) => (
+              <div
+                key={stat.value}
+                className="flex items-center gap-4 px-6 py-6"
+              >
+                <stat.icon
+                  className="h-9 w-9 shrink-0 text-primary"
+                  strokeWidth={1.75}
+                />
+                <div>
+                  <div className="font-pop text-xl font-bold text-accent">
+                    {stat.value}
+                  </div>
+                  <div className="mt-0.5 text-xs leading-snug text-base-content/55">
+                    {stat.label}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
