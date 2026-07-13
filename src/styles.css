@@ -121,6 +121,7 @@
   --depth: 0;
   --noise: 0;
   --font-sans: "DM Sans";
+  --font-display: "Como", "DM Sans";
 }
 
 @theme {

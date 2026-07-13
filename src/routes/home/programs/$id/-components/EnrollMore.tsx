@@ -127,10 +127,13 @@ export default function EnrollMore({
                 </>
               )}
             </button>
-            <button className="btn btn-ghost btn-block mt-3 gap-2 font-medium text-base-content/60 hover:bg-transparent hover:text-base-content">
+            <Link
+              to="/home/contact"
+              className="btn btn-ghost btn-block mt-3 btn-lg text-base"
+            >
               Or speak to an advisor
               <ArrowRight className="h-4 w-4" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
