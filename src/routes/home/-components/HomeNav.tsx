@@ -73,7 +73,7 @@ export default function HomeNav() {
 
   // Transparent only on the landing page hero; solid accent everywhere else.
   const pathname = useLocation({ select: (l) => l.pathname });
-  const isLandingPage = pathname === "/home";
+  const isLandingPage = !pathname.includes("/blog");
 
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState("");

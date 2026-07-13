@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import type { ReactNode } from "react";
 import {
   ShieldCheck,
   TriangleAlert,
@@ -14,12 +14,16 @@ import {
   BadgeCheck,
   IdCard,
   Users,
+  UserRound,
+  GraduationCap,
+  BookOpen,
+  Award,
+  PenLine,
   type LucideIcon,
 } from "lucide-react";
-import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
 
 const credentials =
-  "PHD, MSC, MBA, PGCERT · CA, CFE, CFI, CAMS, CFCS, LPC, CHLPS, CPSM, CCLP, CPO, CPOI, CBRM, CBCS, ABCP, CC, CSCE, CSP, CSL, C-CSP, MSYI, M.ISRM, CMGR, MCMI, CPP®";
+  "PhD, MSc, MBA, CFE, CFCS, CAMS, ChLPS, LPC, CPO, CPOI, CBRM, ABCP, CMgr, CPP";
 
 const expertise: { icon: LucideIcon; label: string }[] = [
   { icon: ShieldCheck, label: "Corporate Security Management" },
@@ -61,9 +65,103 @@ const stats: { icon: LucideIcon; value: string; label: string }[] = [
   },
 ];
 
-export default function FacultyProfile() {
-  const modalRef = useRef<ModalHandle>(null);
+const bio: { icon: LucideIcon; content: ReactNode }[] = [
+  {
+    icon: UserRound,
+    content: (
+      <>
+        <strong className="font-semibold text-base-content">
+          Dr. Adegbenga William Koko
+        </strong>{" "}
+        is an accomplished corporate security executive, educator, and
+        management consultant with more than 15 years of international
+        professional experience spanning corporate security management, risk
+        management, business continuity, loss prevention, investigations,
+        regulatory compliance, financial crime prevention, and anti-money
+        laundering.
+      </>
+    ),
+  },
+  {
+    icon: GraduationCap,
+    content: (
+      <>
+        <strong className="font-semibold text-base-content">
+          As Lead Faculty and Programs Director
+        </strong>{" "}
+        at{" "}
+        <strong className="font-semibold text-base-content">
+          Guardmaster Institute Canada
+        </strong>
+        , he leads the design and delivery of executive education, Specialist
+        Mini MBA programs, professional certification courses, and corporate
+        training initiatives. He is recognized for combining academic excellence
+        with extensive industry experience to develop practical, globally
+        relevant learning programs.
+      </>
+    ),
+  },
+  {
+    icon: Globe,
+    content: (
+      <>
+        <strong className="font-semibold text-base-content">
+          A dual-licensed Security Guard and Private Investigator
+        </strong>{" "}
+        in Ontario, Canada, Dr. Koko is an accredited international trainer and
+        consultant who has delivered professional education and advisory
+        services across multiple sectors. He is also an Accredited Trainer and
+        Faculty Member of the Global Compliance Institute, Australia.
+      </>
+    ),
+  },
+  {
+    icon: BookOpen,
+    content: (
+      <>
+        <strong className="font-semibold text-base-content">
+          His academic foundation
+        </strong>{" "}
+        includes doctoral and postgraduate qualifications in Strategic
+        Management, International Security and Risk Management, Business
+        Administration, Finance and Corporate Strategy, Forensic Accounting, and
+        Business Continuity, earned across respected institutions in Canada, the
+        United Kingdom, Nigeria, and the United States.
+      </>
+    ),
+  },
+  {
+    icon: Award,
+    content: (
+      <>
+        <strong className="font-semibold text-base-content">
+          His professional credentials
+        </strong>{" "}
+        include internationally respected designations in corporate security,
+        investigations, fraud examination, financial crime compliance, business
+        continuity, information security, cyber security, logistics security,
+        occupational health and safety, and management. He is also a Chartered
+        Manager in the United Kingdom and Canada.
+      </>
+    ),
+  },
+  {
+    icon: PenLine,
+    content: (
+      <>
+        <strong className="font-semibold text-base-content">
+          As a trainer, author, and thought leader,
+        </strong>{" "}
+        Dr. Koko is dedicated to advancing professional excellence through
+        world-class education, practical research, and innovative learning
+        solutions that prepare security professionals to lead with confidence in
+        an increasingly complex global environment.
+      </>
+    ),
+  },
+];
 
+export default function FacultyProfile() {
   return (
     <section className="bg-base-200 px-6 pt-20 md:px-16 relative">
       <div className="container mx-auto grid grid-cols-3 gap-12  lg:gap-16">
@@ -94,71 +192,35 @@ export default function FacultyProfile() {
           </ul>
         </div>
 
-        {/* Bio (preview) */}
+        {/* Bio */}
         <div className="col-span-2">
-          <div className="font-pop font-bold text-3xl mb-4">
-            Lead Faculty &amp; Programs Director
+          {/* Eyebrow with rule */}
+          <div className="mb-6 flex items-center gap-3">
+            <UserRound className="h-6 w-6 shrink-0 text-primary" />
+            <span className="font-pop text-sm font-bold tracking-[0.2em] text-primary uppercase whitespace-nowrap">
+              Lead Faculty and Programs Director
+            </span>
+            <span className="h-px flex-1 bg-primary/30" />
           </div>
-          <h2 className="text-lg text-accent font-semibold md:text-5xl">
-            Dr. Adegbenga <span className="text-accent">William Koko</span>
+
+          <h2 className="font-pop text-4xl font-bold text-accent md:text-6xl">
+            Dr. Adegbenga William Koko
           </h2>
-          <p className="mt-4 text-sm leading-relaxed tracking-wide text-base-content/50 uppercase">
+          <p className="mt-4 text-lg font-semibold text-primary">
             {credentials}
           </p>
 
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-base-content/90">
-            <p>
-              An accomplished corporate security, risk, business continuity
-              management, and loss prevention expert with over{" "}
-              <strong className="font-semibold text-base-content">
-                15 years
-              </strong>{" "}
-              of progressive experience spanning corporate security operations,
-              auditing, regulatory compliance, financial forensics,
-              investigations, and anti-money laundering.
-            </p>
-            <p>
-              As a distinguished trainer, consultant, and thought leader, he is
-              dedicated to shaping the next generation of security and risk
-              professionals through immersive professional education and
-              strategic advisory. Dual-licensed by the Ontario Ministry of the
-              Solicitor General as a security professional and private
-              investigator, he leads the development and delivery of Guardmaster
-              Institute's cutting-edge professional training and certification
-              programs.
-            </p>
-            <p>
-              He serves as an Accredited Trainer and Faculty Member with the{" "}
-              <strong className="font-semibold text-base-content">
-                Global Compliance Institute (GCI), Australia
-              </strong>{" "}
-              delivering specialized certification training in AML, CTF, and
-              regulatory compliance frameworks. He is also an accredited trainer
-              by the{" "}
-              <strong className="font-semibold text-base-content">
-                CPD Group, UK.
-              </strong>
-            </p>
-
-            {/* Read more → opens modal */}
-            <button
-              onClick={() => modalRef.current?.open()}
-              className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent/80"
-            >
-              Read more
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="size-4"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
+          <div className="mt-8 divide-y divide-base-300">
+            {bio.map((item, i) => (
+              <div key={i} className="flex gap-4 py-5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+                  <item.icon className="h-5 w-5" strokeWidth={1.75} />
+                </span>
+                <p className="leading-relaxed text-base-content/70">
+                  {item.content}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -189,102 +251,6 @@ export default function FacultyProfile() {
           </div>
         </div>
       </div>
-
-      {/* ── Full bio modal ── */}
-      <Modal ref={modalRef} title="Dr. Adegbenga William Koko">
-        <div className="space-y-5 text-base leading-relaxed text-base-content/70">
-          <p>
-            An accomplished corporate security, risk, business continuity
-            management, and loss prevention expert with over{" "}
-            <strong className="font-semibold text-base-content">
-              15 years
-            </strong>{" "}
-            of progressive experience spanning corporate security operations,
-            auditing, regulatory compliance, financial forensics,
-            investigations, and anti-money laundering.
-          </p>
-          <p>
-            As a distinguished trainer, consultant, and thought leader, he is
-            dedicated to shaping the next generation of security and risk
-            professionals through immersive professional education and strategic
-            advisory. Dual-licensed by the Ontario Ministry of the Solicitor
-            General as a security professional and private investigator, he
-            leads the development and delivery of Guardmaster Institute's
-            cutting-edge professional training and certification programs.
-          </p>
-          <p>
-            He serves as an Accredited Trainer and Faculty Member with the{" "}
-            <strong className="font-semibold text-base-content">
-              Global Compliance Institute (GCI), Australia
-            </strong>{" "}
-            delivering specialized certification training in AML, CTF, and
-            regulatory compliance frameworks. He is also an accredited trainer
-            by the{" "}
-            <strong className="font-semibold text-base-content">
-              CPD Group, UK.
-            </strong>
-          </p>
-          <p>
-            He holds a{" "}
-            <strong className="font-semibold text-base-content">
-              Doctor of Philosophy (PhD) in Management
-            </strong>
-            , a Master of Science (MSc) in International Security &amp; Risk
-            Management, an MBA in Finance &amp; Corporate Strategy, an MSc in
-            Forensic Accounting &amp; Audit, and a Bachelor's degree (BBA) in
-            Corporate Security Management. He also holds Postgraduate
-            Certificates in Forensic Accounting, Project Management, Emergency
-            Management, Supply Chain Management, Global Logistics, and Risk
-            Management.
-          </p>
-          <p>
-            He is an alumnus of the{" "}
-            <strong className="font-semibold text-base-content">
-              University of West London, UK
-            </strong>
-            ; SMC University, Switzerland; Charisma University, Turks &amp;
-            Caicos Islands; Obafemi Awolowo University, Nigeria; George Brown
-            Polytechnic, Fanshawe College, Seneca Polytechnic, Algonquin
-            College, Centennial College, and York University — all in
-            Ontario/Canada; as well as Texila American University, Guyana. He is
-            also an alumnus of{" "}
-            <strong className="font-semibold text-base-content">
-              Zenith Bank International
-            </strong>{" "}
-            and{" "}
-            <strong className="font-semibold text-base-content">
-              PwC Canada
-            </strong>
-            .
-          </p>
-          <p>
-            His professional credentials reflect a rare depth of
-            multidisciplinary expertise: ASIS Board-Certified Protection
-            Professional (CPP), ISO-KLG Certified Physical Security Manager
-            (CPSM), IFPO Certified Protection Officer (CPO) &amp; Instructor
-            (CPOI), Certified Anti-Money Laundering Specialist (CAMS), Certified
-            Financial Crime Specialist (CFCS), Certified Business Resilience
-            Manager (CBRM), Associate Business Continuity Professional (ABCP),
-            Certified Business Continuity Specialist (CBCS), Certified Safety
-            Management Professional (CSMP), Certified Internal Controls Auditor
-            (CICA), Certified Fraud Examiner (CFE), Certified Compliance Manager
-            (CCM), Certified Forensic Investigator (CFI), Chartered Loss
-            Prevention Specialist (ChLPS), CITT Certified Logistics Professional
-            (CCLP), Loss Prevention Certified (LPC), Chartered Accountant (CA),
-            ISC² Certified in Cybersecurity (CC), Certified Converged Security
-            Professional (CSP), Converged Security Leader (CSL), Chartered
-            Converged Security Professional (C-CSP), and Professional Strategic
-            Risk Manager (M.ISRM). He is a Certified Lead Auditor and Lead
-            Implementer in{" "}
-            <strong className="font-semibold text-base-content">
-              ISO 27001, ISO 18788, ISO 31000, ISO 28000, ISO 22301, and ISO
-              42001
-            </strong>
-            , and holds the Chartered Manager (CMgr, MCMI) designation in both
-            the United Kingdom and Canada.
-          </p>
-        </div>
-      </Modal>
     </section>
   );
 }
