@@ -167,7 +167,7 @@ export default function FacultyProfile() {
       <div className="container mx-auto grid grid-cols-3 gap-12  lg:gap-16">
         {/* Photo + areas of expertise */}
         <div className="  bg-accent p-5 pb-48">
-          <div className="overflow-hidden  border-2 border-primary/60">
+          <div className="overflow-hidden  border-2 border-primary/60 rounded-xl">
             <img
               src="/dr.png"
               alt="Dr. Adegbenga William Koko"
