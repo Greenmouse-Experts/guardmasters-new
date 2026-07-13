@@ -105,7 +105,7 @@ function RouteComponent() {
 
       {/* FAQ */}
       <div className="rounded-lg border border-base-300 bg-base-100 p-6">
-        <h2 className="mb-4 text-lg font-semibold text-accent">
+        <h2 className="mb-4 text-lg font-semibold text-accent uppercase">
           Frequently asked questions
         </h2>
         {faqs.length === 0 ? (
@@ -116,7 +116,7 @@ function RouteComponent() {
           <div className="divide-y divide-base-300">
             {faqs.map((faq) => (
               <details key={faq.id} className="group py-4">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-accent uppercase">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-accent ">
                   {faq.question}
                   <span className="text-base-content/40 transition-transform group-open:rotate-45">
                     +
