@@ -166,7 +166,7 @@ export default function FacultyProfile() {
     <section className="bg-base-200 px-6 pt-20 md:px-16 relative">
       <div className="container mx-auto grid grid-cols-3 gap-12  lg:gap-16">
         {/* Photo + areas of expertise */}
-        <div className="h-fit rounded-2xl bg-accent p-5 pb-48">
+        <div className="  bg-accent p-5 pb-48">
           <div className="overflow-hidden  border-2 border-primary/60">
             <img
               src="/dr.png"
@@ -210,7 +210,7 @@ export default function FacultyProfile() {
             {credentials}
           </p>
 
-          <div className="mt-8 divide-y divide-base-300">
+          <div className="mt-8 divide-y divide-base-300 pb-48">
             {bio.map((item, i) => (
               <div key={i} className="flex gap-4 py-5">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
