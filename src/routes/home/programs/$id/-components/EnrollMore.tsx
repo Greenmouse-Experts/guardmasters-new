@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import type { ReactNode } from "react";
+import ProgramCard from "../../-components/ProgramCard";
 
 interface RelatedCourse {
   id: string;
@@ -177,43 +178,7 @@ export default function EnrollMore({
               return (
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                   {courses.map((course) => (
-                    <Link
-                      key={course.id}
-                      to="/home/programs/$id"
-                      params={{ id: course.id }}
-                      className="group flex flex-col overflow-hidden border border-base-300 bg-base-100 transition-shadow hover:shadow-lg"
-                    >
-                      <div className="h-40 w-full overflow-hidden bg-base-200">
-                        {course.coverImage && (
-                          <img
-                            src={course.coverImage}
-                            alt={course.title}
-                            className="h-full w-full object-contain bg-base-300 transition-transform duration-300 group-hover:scale-105"
-                          />
-                        )}
-                      </div>
-
-                      <div className="flex flex-1 flex-col p-6">
-                        <div className="mb-4 text-[11px] font-medium tracking-[0.15em] text-base-content/50 uppercase">
-                          {course.program?.title}
-                        </div>
-
-                        <h3 className="mb-6 line-clamp-2 text-xl font-medium text-accent">
-                          {course.title}
-                        </h3>
-
-                        <div className="mt-auto flex items-center justify-between border-t border-base-300 pt-5">
-                          <span className="font-medium text-base-content/70">
-                            {course.discountPriceFormat ??
-                              course.originalPriceFormat}
-                          </span>
-                          <span className="flex items-center gap-1 text-sm font-medium text-secondary group-hover:underline">
-                            View
-                            <ArrowUpRight className="h-4 w-4" />
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
+                    <ProgramCard course={course} key={course.id} />
                   ))}
                 </div>
               );
