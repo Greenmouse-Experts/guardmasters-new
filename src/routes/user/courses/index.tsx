@@ -103,7 +103,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
           <img
             src={item.course.coverImage}
             alt={item.course.title}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
           />
         )}
       </div>

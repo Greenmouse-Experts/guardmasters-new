@@ -116,7 +116,7 @@ function RouteComponent() {
           <div className="divide-y divide-base-300">
             {faqs.map((faq) => (
               <details key={faq.id} className="group py-4">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-accent">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-accent uppercase">
                   {faq.question}
                   <span className="text-base-content/40 transition-transform group-open:rotate-45">
                     +
