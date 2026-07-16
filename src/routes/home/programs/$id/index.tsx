@@ -144,8 +144,8 @@ function RouteComponent() {
                 title={
                   <>
                     One investment.{" "}
-                    <em className="text-secondary italic">Career-long</em>{" "}
-                    dividends.
+                    <em className="text-accent italic">Career-long</em>{" "}
+                    <em className="text-primary">dividends.</em>
                   </>
                 }
                 description="Talk to admissions about cohort dates, corporate group rates, and continuing-education credit transfer."
