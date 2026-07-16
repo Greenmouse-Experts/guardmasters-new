@@ -122,7 +122,7 @@ function ReviewsCarousel({
             {title}
           </h2>
 
-          <p className="leading-relaxed text-base-content/50">{description}</p>
+          <p className="leading-relaxed text-lg">{description}</p>
         </div>
 
         {hasReviews && (
@@ -188,13 +188,13 @@ function ReviewsCarousel({
                       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-accent">
                         <Quote className="h-4 w-4 fill-current" />
                       </span>
-                      <div className="flex items-center gap-1.5 text-sm font-semibold text-accent">
-                        <Star className="h-4 w-4 fill-secondary text-secondary" />
+                      <div className="flex items-center gap-1.5 text-sm text-accent font-bold">
+                        <Star className="h-4 w-4 fill-primary stroke-primary text-accent" />
                         {rating.toFixed(1)}
                       </div>
                     </div>
 
-                    <blockquote className="mb-6 leading-relaxed text-base-content/80">
+                    <blockquote className="mb-6 leading-relaxed  text-xl">
                       &ldquo;{review.comment}&rdquo;
                     </blockquote>
 
@@ -212,11 +212,7 @@ function ReviewsCarousel({
                       )}
                       <div>
                         <div className="font-semibold text-accent">{name}</div>
-                        {date && (
-                          <div className="text-xs text-base-content/50">
-                            {date}
-                          </div>
-                        )}
+                        {date && <div className="">{date}</div>}
                       </div>
                     </figcaption>
                   </figure>

@@ -85,7 +85,7 @@ export default function ProgramHero({
                 <button
                   type="button"
                   onClick={handleEnroll}
-                  className="btn h-auto gap-2 rounded-md border-none bg-primary px-6 py-4 font-medium text-primary-content hover:bg-primary/90"
+                  className="btn h-auto gap-2 rounded-md border-none bg-primary px-6 py-4 font-bold text-lg text-accent"
                 >
                   {inCart ? (
                     <>
@@ -106,22 +106,24 @@ export default function ProgramHero({
                       .getElementById("curriculum")
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="btn h-auto gap-2 rounded-md border border-white/20 bg-transparent px-6 py-4 font-medium text-white hover:bg-white/10"
+                  className="btn h-auto gap-2 rounded-md border border-white/20 bg-transparent px-6 py-4 font-medium text-white hover:bg-white/10 text-lg"
                 >
                   Explore curriculum
                 </button>
               </div>
 
-              {/*{stats.length > 0 ? (
-                <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
+              {stats.length > 0 ? (
+                <div className="grid ring p-6 rounded-xl ring-primary grid-cols-3 gap-6 border-t border-white/10 pt-8 divide divide-x divide-base-content/90">
                   {stats.map((stat) => (
-                    <div key={stat.label}>
-                      <stat.icon className="mb-2 h-5 w-5 text-primary" />
-                      <div className="text-[10px] font-medium tracking-[0.15em] text-white/50 uppercase">
-                        {stat.label}
-                      </div>
-                      <div className="mt-1 text-xl font-semibold">
-                        {stat.value}
+                    <div key={stat.label} className="flex gap-4 items-center">
+                      <stat.icon className="size-12 text-primary/80" />
+                      <div>
+                        <div className="text-sm font-medium tracking-[0.15em] text-white/70 uppercase">
+                          {stat.label}
+                        </div>
+                        <div className="mt-1 text-lg font-semibold">
+                          {stat.value}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -140,7 +142,7 @@ export default function ProgramHero({
                     </div>
                   ))}
                 </div>
-              )}*/}
+              )}
             </div>
 
             {image && (

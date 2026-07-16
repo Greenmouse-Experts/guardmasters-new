@@ -77,7 +77,7 @@ export default function EnrollMore({
   return (
     <section className="">
       {/* Enroll / pricing */}
-      <div className="bg-secondary/20 px-6 py-20 md:px-16 md:py-28">
+      <div className="bg-accent/15 px-6 py-20 md:px-16 md:py-28">
         <div className="container mx-auto grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
           {/* Left: copy */}
           <div>

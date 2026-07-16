@@ -76,7 +76,7 @@ function RouteComponent() {
                 title={
                   <>
                     What you'll{" "}
-                    <em className="text-secondary italic">walk away with.</em>
+                    <em className="text-primary italic">walk away with.</em>
                   </>
                 }
                 description="Practical, board-ready competencies — not just theory. Designed for direct application the day you return to your organization."

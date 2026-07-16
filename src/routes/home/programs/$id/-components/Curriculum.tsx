@@ -91,15 +91,15 @@ function SectionAccordion({
   return (
     <div className="border-b border-base-300 py-8">
       <div className="flex items-start gap-6">
-        <span className="mt-2 text-[11px] font-medium tracking-widest text-base-content/40">
+        <span className="mt-2 font-medium tracking-widest text-base-content text-lg">
           {number}
         </span>
 
         <button type="button" onClick={onToggle} className="flex-1 text-left">
-          <h3 className="text-2xl leading-tight font-medium text-accent md:text-3xl">
+          <h3 className="text-3xl leading-tight font-medium text-accent md:text-4xl">
             {section.title}
           </h3>
-          <p className="mt-1 text-sm text-base-content/45">
+          <p className="mt-1 text-lg ">
             {section.courseContentSubs.length} lesson
             {section.courseContentSubs.length !== 1 ? "s" : ""}
           </p>
@@ -109,7 +109,7 @@ function SectionAccordion({
           type="button"
           onClick={onToggle}
           aria-label={isOpen ? "Collapse section" : "Expand section"}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-base-300 text-base-content/50 hover:border-base-content/30"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-base-300 text-base-content hover:border-base-content/30"
         >
           {isOpen ? (
             <ChevronDown className="h-5 w-5" />
@@ -140,9 +140,9 @@ function SubItem({
   return (
     <li className="flex items-center gap-4 py-4">
       <MediaIcon type={sub.mediaType} />
-      <span className="flex-1 text-base-content/80">{sub.title}</span>
+      <span className="flex-1  text-lg">{sub.title}</span>
       {sub.duration > 0 && (
-        <span className="flex items-center gap-1 text-xs text-base-content/40">
+        <span className="flex items-center gap-1 ">
           <Clock className="h-3 w-3" />
           {sub.duration}m
         </span>
@@ -151,9 +151,9 @@ function SubItem({
         <button
           type="button"
           onClick={() => onPreview(sub)}
-          className="flex items-center gap-1.5 rounded-sm border border-secondary px-3 py-1.5 text-xs font-medium text-secondary hover:bg-secondary hover:text-secondary-content transition-colors"
+          className="btn btn-outline btn-lg btn-accent gap-4 items-center"
         >
-          <Eye className="h-3 w-3" />
+          <Eye className="size-5" />
           Preview
         </button>
       )}

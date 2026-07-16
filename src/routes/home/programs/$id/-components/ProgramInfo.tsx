@@ -24,13 +24,11 @@ export default function ProgramInfo({
             {badge}
           </span>
 
-          <h2 className="mb-6 text-4xl leading-tight font-light text-accent md:text-5xl">
+          <h2 className="mb-6 text-4xl leading-tight font-bold text-accent md:text-5xl">
             {title}
           </h2>
 
-          <p className="max-w-sm leading-relaxed text-base-content/50">
-            {description}
-          </p>
+          <p className="max-w-sm leading-relaxed text-lg">{description}</p>
         </div>
 
         <div className="max-h-[280px] overflow-y-auto grid grid-cols-1 gap-x-12 md:col-span-2 md:grid-cols-2">
@@ -39,10 +37,10 @@ export default function ProgramInfo({
               key={outcome}
               className="flex items-start gap-4 border-t border-base-300 py-6"
             >
-              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-primary/40">
-                <Check className="h-4 w-4 text-secondary" strokeWidth={3} />
+              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-primary">
+                <Check className="h-4 w-4 text-accent" strokeWidth={3} />
               </span>
-              <p className="leading-relaxed text-base-content/80">{outcome}</p>
+              <p className="leading-relaxed text-lg">{outcome}</p>
             </div>
           ))}
         </div>

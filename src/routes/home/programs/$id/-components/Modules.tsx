@@ -84,7 +84,7 @@ function ModuleAccordion({
                 type="button"
                 onClick={onToggle}
                 aria-label="Collapse module"
-                className="flex h-11 w-11 items-center justify-center rounded-sm bg-secondary text-secondary-content"
+                className="flex h-11 w-11 items-center justify-center rounded-sm bg-accent text-accent-content"
               >
                 <ChevronDown className="h-5 w-5" />
               </button>
@@ -114,7 +114,7 @@ function ModuleAccordion({
           <div className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-cols-2">
             {module.topics.map((topic) => (
               <div key={topic} className="flex items-start gap-3">
-                <span className="mt-2.5 h-px w-4 shrink-0 bg-secondary" />
+                <span className="mt-2.5 h-px w-4 shrink-0 bg-accent" />
                 <span className="text-base-content/70">{topic}</span>
               </div>
             ))}
