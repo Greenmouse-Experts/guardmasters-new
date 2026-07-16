@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { Inbox } from "lucide-react";
+import { CheckCheck, Inbox } from "lucide-react";
+import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
 import { PagerButton } from "#/components/PagerButton.tsx";
 import { usePagination } from "#/hooks/usePagination.ts";
+import { extract_message } from "#/helpers/apihelpers.tsx";
 import type { ApiResponseV2 } from "#/types/api.js";
 
 export const Route = createFileRoute("/user/notifications/")({
@@ -28,21 +30,42 @@ type Tab = "all" | "unread";
 function RouteComponent() {
   const [tab, setTab] = useState<Tab>("all");
   const { page, setPage, hasPrev, hasNext, totalPages } = usePagination();
+  const queryClient = useQueryClient();
+
+  const endpoint = tab === "unread" ? "notifications/unread" : "notifications/read";
 
   const query = useQuery<ApiResponseV2<Notification[]>>({
     queryKey: ["notifications", tab, page],
     queryFn: async () => {
-      const resp = await apiClient.get("notifications/student", {
-        params: { page, ...(tab === "unread" ? { read: false } : {}) },
-      });
+      const resp = await apiClient.get(endpoint, { params: { page } });
       return resp.data;
     },
     placeholderData: keepPreviousData,
   });
 
+  const markAllMutation = useMutation({
+    mutationFn: () => apiClient.patch("notifications/mark-all-as-read"),
+    onSuccess: () => {
+      toast.success("All notifications marked as read");
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
+    },
+    onError: (err) => toast.error(extract_message(err)),
+  });
+
   return (
     <div className="mx-auto max-w-3xl space-y-8">
-      <h1 className="text-2xl font-semibold text-accent">Notifications</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-semibold text-accent">Notifications</h1>
+        <button
+          type="button"
+          onClick={() => markAllMutation.mutate()}
+          disabled={markAllMutation.isPending}
+          className="flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent/70 disabled:opacity-50"
+        >
+          <CheckCheck className="h-4 w-4" />
+          Mark all as read
+        </button>
+      </div>
 
       {/* Tabs */}
       <div className="grid grid-cols-2 gap-1 rounded-lg border border-base-300 bg-base-200 p-1">
@@ -127,6 +150,14 @@ function TabButton({
 }
 
 function NotificationItem({ item }: { item: Notification }) {
+  const queryClient = useQueryClient();
+
+  const markRead = useMutation({
+    mutationFn: () => apiClient.patch(`notifications/mark-as-read/${item.id}`),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["notifications"] }),
+    onError: (err) => toast.error(extract_message(err)),
+  });
+
   return (
     <li
       className={`rounded-lg border p-4 ${
@@ -143,7 +174,13 @@ function NotificationItem({ item }: { item: Notification }) {
           </p>
         </div>
         {!item.isRead && (
-          <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-secondary" />
+          <button
+            type="button"
+            onClick={() => markRead.mutate()}
+            disabled={markRead.isPending}
+            aria-label="Mark as read"
+            className="mt-0.5 h-2.5 w-2.5 shrink-0 rounded-full bg-secondary transition-opacity hover:opacity-60 disabled:opacity-40"
+          />
         )}
       </div>
       <p className="mt-3 text-xs text-base-content/40">
