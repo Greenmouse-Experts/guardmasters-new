@@ -19,6 +19,7 @@ import { Route as HomeIndexRouteImport } from './routes/home/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as PaymentCallbackRouteImport } from './routes/payment/callback'
 import { Route as CertificateIdRouteImport } from './routes/certificate/$id'
+import { Route as VerifyIdIndexRouteImport } from './routes/verify/$id.index'
 import { Route as UserSupportIndexRouteImport } from './routes/user/support/index'
 import { Route as UserSettingsIndexRouteImport } from './routes/user/settings/index'
 import { Route as UserPurchaseHistoryIndexRouteImport } from './routes/user/purchase-history/index'
@@ -88,6 +89,11 @@ const PaymentCallbackRoute = PaymentCallbackRouteImport.update({
 const CertificateIdRoute = CertificateIdRouteImport.update({
   id: '/certificate/$id',
   path: '/certificate/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyIdIndexRoute = VerifyIdIndexRouteImport.update({
+  id: '/verify/$id/',
+  path: '/verify/$id/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UserSupportIndexRoute = UserSupportIndexRouteImport.update({
@@ -219,6 +225,7 @@ export interface FileRoutesByFullPath {
   '/user/purchase-history/': typeof UserPurchaseHistoryIndexRoute
   '/user/settings/': typeof UserSettingsIndexRoute
   '/user/support/': typeof UserSupportIndexRoute
+  '/verify/$id/': typeof VerifyIdIndexRoute
   '/home/auth/verify/': typeof HomeAuthVerifyIndexRoute
   '/home/blog/$id/': typeof HomeBlogIdIndexRoute
   '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
@@ -247,6 +254,7 @@ export interface FileRoutesByTo {
   '/user/purchase-history': typeof UserPurchaseHistoryIndexRoute
   '/user/settings': typeof UserSettingsIndexRoute
   '/user/support': typeof UserSupportIndexRoute
+  '/verify/$id': typeof VerifyIdIndexRoute
   '/home/auth/verify': typeof HomeAuthVerifyIndexRoute
   '/home/blog/$id': typeof HomeBlogIdIndexRoute
   '/home/programs/$id': typeof HomeProgramsIdIndexRoute
@@ -280,6 +288,7 @@ export interface FileRoutesById {
   '/user/purchase-history/': typeof UserPurchaseHistoryIndexRoute
   '/user/settings/': typeof UserSettingsIndexRoute
   '/user/support/': typeof UserSupportIndexRoute
+  '/verify/$id/': typeof VerifyIdIndexRoute
   '/home/auth/verify/': typeof HomeAuthVerifyIndexRoute
   '/home/blog/$id/': typeof HomeBlogIdIndexRoute
   '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
@@ -314,6 +323,7 @@ export interface FileRouteTypes {
     | '/user/purchase-history/'
     | '/user/settings/'
     | '/user/support/'
+    | '/verify/$id/'
     | '/home/auth/verify/'
     | '/home/blog/$id/'
     | '/home/programs/$id/'
@@ -342,6 +352,7 @@ export interface FileRouteTypes {
     | '/user/purchase-history'
     | '/user/settings'
     | '/user/support'
+    | '/verify/$id'
     | '/home/auth/verify'
     | '/home/blog/$id'
     | '/home/programs/$id'
@@ -374,6 +385,7 @@ export interface FileRouteTypes {
     | '/user/purchase-history/'
     | '/user/settings/'
     | '/user/support/'
+    | '/verify/$id/'
     | '/home/auth/verify/'
     | '/home/blog/$id/'
     | '/home/programs/$id/'
@@ -388,6 +400,7 @@ export interface RootRouteChildren {
   CertificateIdRoute: typeof CertificateIdRoute
   PaymentCallbackRoute: typeof PaymentCallbackRoute
   TestIndexRoute: typeof TestIndexRoute
+  VerifyIdIndexRoute: typeof VerifyIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -460,6 +473,13 @@ declare module '@tanstack/react-router' {
       path: '/certificate/$id'
       fullPath: '/certificate/$id'
       preLoaderRoute: typeof CertificateIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify/$id/': {
+      id: '/verify/$id/'
+      path: '/verify/$id'
+      fullPath: '/verify/$id/'
+      preLoaderRoute: typeof VerifyIdIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/user/support/': {
@@ -698,6 +718,7 @@ const rootRouteChildren: RootRouteChildren = {
   CertificateIdRoute: CertificateIdRoute,
   PaymentCallbackRoute: PaymentCallbackRoute,
   TestIndexRoute: TestIndexRoute,
+  VerifyIdIndexRoute: VerifyIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
