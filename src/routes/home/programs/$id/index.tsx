@@ -119,7 +119,7 @@ function RouteComponent() {
                 image="/students.jpg"
                 imageAlt="Students learning together"
               />
-              <Comments
+              {/*<Comments
                 badge="Reviews"
                 title={
                   <>
@@ -129,7 +129,7 @@ function RouteComponent() {
                 }
                 description="Real feedback from security professionals who've completed the program and applied it in the field."
                 courseId={String(course.id)}
-              />
+              />*/}
               <EnrollMore
                 badge="Enroll"
                 programId={resp.course.program.id}

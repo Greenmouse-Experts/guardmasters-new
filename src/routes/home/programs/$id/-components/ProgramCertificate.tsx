@@ -45,11 +45,13 @@ export default function ProgramCertificate({
             ))}
           </ul>
         </div>
-        <img
-          src={"/certificate.png"}
-          alt={imageAlt ?? "/certificate.png"}
-          className="h-full w-full object-cover"
-        />
+        <div className="h-fit bg-white p-4">
+          <img
+            src={"/certificate.png"}
+            alt={imageAlt ?? "/certificate.png"}
+            className="h-full w-full object-contain"
+          />
+        </div>
       </div>
     </section>
   );
