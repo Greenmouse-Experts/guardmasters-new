@@ -57,7 +57,7 @@ function RouteComponent() {
   }
 
   return (
-    <div className="min-h-screen bg-base-100">
+    <div className="min-h-screen bg-accent/15">
       {/* Hero */}
       <section className="bg-black px-6 pt-20 pb-16 md:px-16">
         <div className="container mx-auto">
@@ -76,7 +76,7 @@ function RouteComponent() {
 
       {/* Form */}
       <section className="px-6 py-16 md:px-16">
-        <div className="mx-auto max-w-2xl border border-base-300 bg-base-200 p-8 md:p-14">
+        <div className="mx-auto max-w-2xl border border-base-300 bg-white p-8 md:p-14">
           <div className="mb-12 flex flex-col items-center">
             <div className="flex items-center justify-center bg-accent px-8 py-5">
               <img
@@ -86,9 +86,12 @@ function RouteComponent() {
               />
             </div>
             <h2 className="mt-8 text-2xl font-medium text-accent md:text-3xl">
-              Begin Your Learning{" "}
-              <span className="text-secondary">Journey</span>
+              Begin Your Learning <span className="text-primary">Journey</span>
             </h2>
+            <p className="text-center max-w-sm text-lg">
+              Create your profile to access programs, certifications, and
+              student resources.
+            </p>
           </div>
 
           <FormProvider {...methods}>
@@ -121,7 +124,7 @@ function RouteComponent() {
 
               <div className="w-full space-y-2">
                 <div className="fieldset-label font-semibold">
-                  <span className="text-sm">Phone number</span>
+                  <span className="">Phone number</span>
                 </div>
                 <Controller
                   control={control}
@@ -143,16 +146,14 @@ function RouteComponent() {
                       numberInputProps={{
                         className: "grow bg-transparent focus:outline-none",
                       }}
-                      className={`input input-md input-bordered flex w-full items-center gap-2 text-sm ${
+                      className={`input input-md input-bordered flex w-full items-center gap-2  ${
                         errors.phone ? "input-error" : ""
                       }`}
                     />
                   )}
                 />
                 {errors.phone && (
-                  <p className="mt-1 text-sm text-error">
-                    {errors.phone.message}
-                  </p>
+                  <p className="mt-1  text-error">{errors.phone.message}</p>
                 )}
               </div>
 
@@ -178,17 +179,33 @@ function RouteComponent() {
               />
 
               <div>
-                <label className="flex items-start gap-3 text-sm text-base-content/70">
+                <label className="flex items-start gap-3  text-base-content/70">
                   <input
                     type="checkbox"
                     {...register("agree", {
                       required: "You must agree to continue",
                     })}
-                    className="checkbox checkbox-secondary checkbox-sm mt-0.5"
+                    className="checkbox checkbox-accent mt-0.5"
                   />
                   <span>
-                    I have read and agreed to Guardmaster Institute Privacy
-                    Policy and Terms of Use
+                    I have read and agreed to Guardmaster Institute{" "}
+                    <Link
+                      to="/home/terms"
+                      search={{ tab: "privacy" }}
+                      target="_blank"
+                      className="font-medium text-accent underline hover:text-accent/70"
+                    >
+                      Privacy Policy
+                    </Link>{" "}
+                    and{" "}
+                    <Link
+                      to="/home/terms"
+                      search={{ tab: "terms" }}
+                      target="_blank"
+                      className="font-medium text-accent underline hover:text-accent/70"
+                    >
+                      Terms of Use
+                    </Link>
                   </span>
                 </label>
                 {errors.agree && <FieldError message={errors.agree.message} />}
@@ -197,7 +214,7 @@ function RouteComponent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn btn-block h-auto gap-2 rounded-none border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90 disabled:opacity-60"
+                className="btn btn-block h-auto gap-2 rounded-xl border-none bg-accent py-4 font-medium text-accent-content hover:bg-accent/90 disabled:opacity-60"
               >
                 {isSubmitting ? "Creating account…" : "Create Account"}
                 <ArrowRight className="h-4 w-4" />
@@ -205,11 +222,11 @@ function RouteComponent() {
             </form>
           </FormProvider>
 
-          <p className="mt-8 text-center text-sm text-base-content/60">
+          <p className="mt-8 text-center  text-base-content/60">
             Already have an account?{" "}
             <Link
               to="/home/auth/login"
-              className="font-medium text-secondary hover:underline"
+              className="font-medium text-accent hover:underline"
             >
               Sign in
             </Link>
@@ -236,7 +253,7 @@ function RouteComponent() {
               modalRef.current?.close();
               navigate({ to: "/home/auth/login" });
             }}
-            className="btn mt-8 h-auto w-full gap-2 rounded-none border-none bg-secondary py-3.5 font-medium text-secondary-content hover:bg-secondary/90"
+            className="btn mt-8 h-auto w-full gap-2 rounded-none border-none bg-accent py-3.5 font-medium text-accent-content hover:bg-accent/90"
           >
             Sign in now
             <ArrowRight className="h-4 w-4" />

@@ -46,7 +46,7 @@ function RouteComponent() {
   }
 
   return (
-    <div className="min-h-screen bg-base-100">
+    <div className="min-h-screen bg-accent/15 ">
       {/* Hero */}
       <section className="bg-black px-6 pt-20 pb-16 md:px-16">
         <div className="container mx-auto">
@@ -54,11 +54,12 @@ function RouteComponent() {
             Sign in
           </span>
           <h1 className="text-4xl leading-tight font-light text-white md:text-6xl">
-            Sign In to your <span className="text-primary">account.</span>
+            Welcome back In to your{" "}
+            <span className="text-primary">account.</span>
           </h1>
-          <p className="mt-6 max-w-xl leading-relaxed text-white/50">
-            Join professionals advancing their careers in corporate security,
-            loss prevention, and risk management.
+          <p className="mt-6 max-w-xl leading-relaxed text-white">
+            Sign in to continue your professional training, access your
+            programs, and manage your student profile.
           </p>
         </div>
       </section>
@@ -76,7 +77,7 @@ function RouteComponent() {
             </div>
             <h2 className="mt-8 text-2xl font-medium text-accent md:text-3xl">
               Sign In to Continue Your{" "}
-              <span className="text-secondary">Training</span>
+              <span className="text-primary">Journey</span>
             </h2>
           </div>
 
@@ -112,7 +113,7 @@ function RouteComponent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn btn-block h-auto gap-2 rounded-none border-none bg-secondary py-4 font-medium text-secondary-content hover:bg-secondary/90 disabled:opacity-60"
+                className="btn btn-accent btn-lg rounded-xl btn-block"
               >
                 {isSubmitting ? "Signing in…" : "Sign In"}
                 <ArrowRight className="h-4 w-4" />
