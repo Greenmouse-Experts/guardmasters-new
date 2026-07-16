@@ -97,8 +97,9 @@ function CourseCard({ item }: { item: PurchaseItem }) {
   const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
 
   return (
-    <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
-      <div className="h-40 w-full overflow-hidden bg-base-200">
+    <div className="group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow hover:shadow-xl">
+      {/* Image header */}
+      <div className="relative h-52 overflow-hidden bg-white">
         {item.course.coverImage && (
           <img
             src={item.course.coverImage}
@@ -107,24 +108,27 @@ function CourseCard({ item }: { item: PurchaseItem }) {
           />
         )}
       </div>
-      <div className="p-5">
-        <h2 className="line-clamp-2 min-h-[3rem] font-medium text-accent">
+
+      {/* Dark content area */}
+      <div className="flex flex-1 flex-col bg-accent px-6 py-6 text-center">
+        <h2 className="mb-4 font-pop text-lg font-bold leading-snug text-accent-content line-clamp-2">
           {item.course.title}
         </h2>
 
-        <div className="mt-4 space-y-1">
-          <div className="flex items-center justify-between text-xs text-base-content/50">
+        {/* Progress */}
+        <div className="mb-6 space-y-1.5">
+          <div className="flex items-center justify-between text-xs text-accent-content/50">
             <span>Progress</span>
             <span>{pct}%</span>
           </div>
-          <div className="h-1.5 w-full overflow-hidden rounded-full bg-base-200">
+          <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/10">
             <div
-              className="h-full rounded-full bg-accent transition-all"
+              className="h-full rounded-full bg-primary transition-all"
               style={{ width: `${pct}%` }}
             />
           </div>
           {total > 0 && (
-            <p className="text-xs text-base-content/40">
+            <p className="text-xs text-accent-content/40">
               {completed} of {total} lessons completed
             </p>
           )}
@@ -133,7 +137,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
         <Link
           to="/user/courses/$id"
           params={{ id: item.course.id }}
-          className="mt-4 block rounded-sm bg-accent py-3 text-center text-sm font-medium text-primary-content transition-colors hover:bg-accent/90 text-white"
+          className="btn btn-block mt-auto h-auto justify-center rounded-xl border-none bg-primary py-3.5 text-base font-semibold text-primary-content hover:bg-primary/90"
         >
           {completed === 0 ? "Start Study" : "Continue Study"}
         </Link>
