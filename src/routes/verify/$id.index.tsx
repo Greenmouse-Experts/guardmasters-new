@@ -57,7 +57,7 @@ function RouteComponent() {
                   className={`mb-10 flex items-center gap-4 rounded-2xl px-6 py-5 ${
                     isRevoked
                       ? "bg-error/10 text-error"
-                      : "bg-success/10 text-success"
+                      : "bg-primary/10 text-primary-content"
                   }`}
                 >
                   {isRevoked ? (
