@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import ImagelessHeader from "../-components/headers/ImagelessHeader";
 import ProgramCard from "./-components/ProgramCard";
 import { useQuery } from "@tanstack/react-query";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
 import type { ApiResponseV2 } from "#/types/api.js";
 import type { CourseProgram } from "#/types/courses.ts";
+import SimpleHero from "./-components/SimpleHero";
 
 export const Route = createFileRoute("/home/programs/")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -28,22 +28,20 @@ function RouteComponent() {
   });
   return (
     <>
-      <ImagelessHeader
+      <SimpleHero
         title={
           <>
-            Start here. Get certified.{" "}
-            <span className="text-primary italic">Go places.</span>
+            Training Programs{" "}
+            <span className="text-primary">and Certification Courses.</span>
           </>
         }
-        description="Programs aligned with IFPO, ASIS, ChLPS, and ISO frameworks — developed for
-        relevance, credibility, and career advancement."
-        badge="training & certification"
+        description="Explore accredited security training and certification courses designed to strengthen your expertise and prepare you for greater career opportunities."
       />
       <PageLoader query={query}>
         {(resp) => {
           return (
             <>
-              <div className="container mx-auto px-6 py-16 md:px-16">
+              <div id="programs" className="container mx-auto px-6 py-16 md:px-16">
                 {resp.data.map((program) => (
                   <section key={program.id} className="mb-20 last:mb-0">
                     <h2 className="mb-8 text-3xl font-medium leading-tight text-gray-900 md:text-4xl">
