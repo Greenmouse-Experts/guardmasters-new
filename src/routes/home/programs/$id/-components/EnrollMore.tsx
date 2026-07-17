@@ -95,6 +95,7 @@ export default function EnrollMore({
               to="/home/programs"
               search={{
                 search: "",
+                programId: "",
               }}
               className="flex items-center gap-1.5 text-xl font-medium text-accent-content hover:underline"
             >

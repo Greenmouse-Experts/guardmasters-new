@@ -6,16 +6,18 @@ import PageLoader from "#/components/layout/PageLoader.tsx";
 import type { ApiResponseV2 } from "#/types/api.js";
 import type { CourseProgram } from "#/types/courses.ts";
 import SimpleHero from "./-components/SimpleHero";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/home/programs/")({
   validateSearch: (search: Record<string, unknown>) => ({
     search: typeof search.search === "string" ? search.search : "",
+    programId: typeof search.programId === "string" ? search.programId : "",
   }),
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const { search } = Route.useSearch();
+  const { search, programId } = Route.useSearch();
 
   const query = useQuery<ApiResponseV2<CourseProgram[]>>({
     queryKey: ["programs", search],
@@ -26,6 +28,16 @@ function RouteComponent() {
       return resp.data;
     },
   });
+
+  // Scroll to the selected program once its section is in the DOM
+  // (sections only render after the query resolves).
+  useEffect(() => {
+    if (!programId || !query.data) return;
+    const el = document.getElementById(programId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [programId, query.data]);
   return (
     <>
       <SimpleHero
@@ -43,7 +55,7 @@ function RouteComponent() {
             <>
               <div id="programs" className="container mx-auto px-6 py-16 md:px-16">
                 {resp.data.map((program) => (
-                  <section key={program.id} className="mb-20 last:mb-0">
+                  <section id={program.id} key={program.id} className="mb-20 last:mb-0">
                     <h2 className="mb-8 text-3xl font-medium leading-tight text-gray-900 md:text-4xl">
                       {program.title}
                     </h2>

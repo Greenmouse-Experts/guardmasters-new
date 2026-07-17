@@ -201,7 +201,7 @@ export default function HomeNav() {
                 if (e.key === "Enter" && searchValue.trim()) {
                   navigate({
                     to: "/home/programs",
-                    search: { search: searchValue.trim() },
+                    search: { search: searchValue.trim(), programId: "" },
                   });
                 }
               }}

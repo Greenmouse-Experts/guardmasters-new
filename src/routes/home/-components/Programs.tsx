@@ -1,5 +1,6 @@
 import apiClient from "#/client/api.ts";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import {
   ScrollText,
   Gem,
@@ -8,6 +9,8 @@ import {
   SquareStack,
   Target,
 } from "lucide-react";
+import type { ApiResponseV2 } from "#/types/api.js";
+import type { CourseProgram } from "#/types/courses.ts";
 
 const programs = [
   {
@@ -49,13 +52,25 @@ const programs = [
 ];
 
 export default function Programs() {
-  const query = useQuery({
+  const query = useQuery<ApiResponseV2<CourseProgram[]>>({
     queryKey: ["programs"],
     queryFn: async () => {
       let resp = await apiClient.get("/programs/public");
       return resp.data;
     },
   });
+
+  // Normalize whitespace/case so titles match even if the API has
+  // inconsistent spacing (e.g. "Professional Certification  Programs").
+  const normalize = (s: string) => s.replace(/\s+/g, " ").trim().toLowerCase();
+
+  const idByTitle: Record<string, string> = {};
+  if (query.data?.data) {
+    for (const p of query.data.data) {
+      idByTitle[normalize(p.title)] = p.id;
+    }
+  }
+
   return (
     <section className="bg-base-300 px-6 py-20 md:px-16">
       <div className="container mx-auto">
@@ -72,24 +87,29 @@ export default function Programs() {
         </div>
 
         <div className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {programs.map(({ icon: Icon, title, description }, i) => (
-            <div
-              key={title}
-              className="relative rounded-2xl bg-base-100 p-6 shadow-lg ring ring-primary/50 h-full"
-            >
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent">
-                <Icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
-              </div>
+          {programs.map(({ icon: Icon, title, description }) => {
+            const programId = idByTitle[normalize(title)] ?? "";
+            return (
+              <Link
+                key={title}
+                to="/home/programs"
+                search={{ search: "", programId }}
+                className="relative rounded-2xl bg-base-100 p-6 shadow-lg ring ring-primary/50 h-full block"
+              >
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent">
+                  <Icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                </div>
 
-              <h3 className="mb-3 pr-6 text-lg font-bold leading-snug text-base-content font-pop">
-                {title}
-              </h3>
-              <div className="mb-4 h-1 w-10 rounded-full bg-primary" />
-              <p className="text-sm leading-relaxed text-base-content/60">
-                {description}
-              </p>
-            </div>
-          ))}
+                <h3 className="mb-3 pr-6 text-lg font-bold leading-snug text-base-content font-pop">
+                  {title}
+                </h3>
+                <div className="mb-4 h-1 w-10 rounded-full bg-primary" />
+                <p className="text-sm leading-relaxed text-base-content/60">
+                  {description}
+                </p>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
