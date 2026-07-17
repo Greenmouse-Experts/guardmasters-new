@@ -18,6 +18,12 @@ const default_features = [
   "Career-focused",
 ];
 
+const highlights = [
+  { value: "Flexible", label: "Study options" },
+  { value: "Practical", label: "Course content" },
+  { value: "Recognized", label: "Certifications" },
+];
+
 export default function SimpleHero({
   title,
   description,
@@ -98,6 +104,29 @@ export default function SimpleHero({
                 {cardText}
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Bottom highlights strip */}
+        <div className="flex flex-col gap-8 border-t border-white/10 py-8 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="mb-2 text-xs font-bold tracking-[0.18em] text-primary uppercase">
+              Find your pathway
+            </p>
+            <p className="font-pop text-2xl font-medium text-white md:text-3xl">
+              Programs designed around your next move.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-8 divide-white/10 md:gap-0 md:divide-x">
+            {highlights.map((item) => (
+              <div key={item.value} className="md:px-8">
+                <div className="font-pop text-xl font-bold text-primary">
+                  {item.value}
+                </div>
+                <div className="mt-1 text-sm text-white/50">{item.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
