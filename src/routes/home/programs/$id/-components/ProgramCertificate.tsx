@@ -19,7 +19,7 @@ export default function ProgramCertificate({
   imageAlt,
 }: ProgramCertificateProps) {
   return (
-    <section className="relative overflow-hidden bg-black px-6 py-20 text-white md:px-16 md:py-28">
+    <section className="relative overflow-hidden bg-accent px-6 py-20 text-white md:px-16 md:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,40,40,0.25),transparent_60%)]" />
 
       <div className="relative container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">

@@ -12,15 +12,19 @@ interface ProgramCardProps {
   course: CardCourse;
   index?: number;
   programTitle?: string;
+  outline?: boolean;
 }
 
 export default function ProgramCard({
   course,
   index,
   programTitle,
+  outline = false,
 }: ProgramCardProps) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow hover:shadow-xl">
+    <div
+      className={`group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow hover:shadow-xl ${outline ? "border border-gray-200" : ""}`}
+    >
       {/* ── Header: white bg + yellow angled band + circle image ── */}
       <div className="relative h-52 overflow-hidden bg-white">
         <img src={course.coverImage}></img>

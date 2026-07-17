@@ -60,7 +60,11 @@ export default function ProgramHero({
               Home
             </Link>
             <ChevronRight className="h-3 w-3" />
-            <Link to="/home/programs" className="hover:text-white">
+            <Link
+              search={{ search: "" }}
+              to="/home/programs"
+              className="hover:text-white"
+            >
               Programs
             </Link>
           </div>

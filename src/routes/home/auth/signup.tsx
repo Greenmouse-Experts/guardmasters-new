@@ -50,7 +50,7 @@ function RouteComponent() {
       });
       setSubmittedEmail(values.email);
       modalRef.current?.open();
-    } catch (err: AxiosError<any>) {
+    } catch (err: any) {
       const axios_message = err.response?.data?.message;
       const message = axios_message ?? extract_message(err);
       toast.error(message);
