@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   GraduationCap,
   Target,
@@ -171,12 +171,15 @@ function RouteComponent() {
           </div>
 
           <div className="flex mt-8">
-            <button className="btn btn-xl btn-primary  mx-auto text-accent font-bold rounded-xl ">
+            <Link
+              to="/home/accreditations"
+              className="btn btn-xl btn-primary  mx-auto text-accent font-bold rounded-xl "
+            >
               Learn More{" "}
               <span className="p-2 bg-white ml-2 rounded-md">
                 <ArrowUpRight />
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </section>

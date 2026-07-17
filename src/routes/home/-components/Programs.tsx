@@ -1,3 +1,5 @@
+import apiClient from "#/client/api.ts";
+import { useQuery } from "@tanstack/react-query";
 import {
   ScrollText,
   Gem,
@@ -47,6 +49,13 @@ const programs = [
 ];
 
 export default function Programs() {
+  const query = useQuery({
+    queryKey: ["programs"],
+    queryFn: async () => {
+      let resp = await apiClient.get("/programs/public");
+      return resp.data;
+    },
+  });
   return (
     <section className="bg-base-300 px-6 py-20 md:px-16">
       <div className="container mx-auto">
