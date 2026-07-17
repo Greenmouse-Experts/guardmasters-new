@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 import type { ReactNode } from "react";
 
 interface ProgramInfoProps {
-  badge: string;
+  badge?: string;
   title: ReactNode;
   description: string;
   outcomes: string[];

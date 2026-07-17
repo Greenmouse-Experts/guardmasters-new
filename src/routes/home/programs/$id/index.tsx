@@ -94,7 +94,7 @@ function RouteComponent() {
               />
 
               <ProgramInfo
-                badge="Outcomes"
+                // badge="Outcomes"
                 title={
                   <>
                     What you'll{" "}
