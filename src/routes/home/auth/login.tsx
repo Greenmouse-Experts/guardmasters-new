@@ -7,6 +7,7 @@ import SimpleInput from "#/components/inputs/SimpleInput.tsx";
 import { set_profile_value, set_user_value } from "#/store/authStore.ts";
 import type { AuthUser, ProfileData } from "#/store/authStore.ts";
 import axios from "axios";
+import ImageHeader from "../-components/headers/ImageHeader";
 
 export const Route = createFileRoute("/home/auth/login")({
   component: RouteComponent,
@@ -48,7 +49,7 @@ function RouteComponent() {
   return (
     <div className="min-h-screen bg-accent/15 ">
       {/* Hero */}
-      <section className="bg-black px-6 pt-20 pb-16 md:px-16">
+      {/*<section className="bg-black px-6 pt-20 pb-16 md:px-16">
         <div className="container mx-auto">
           <span className="mb-6 inline-block mt-24 rounded-md bg-white/15 px-3 py-1 text-xs font-medium tracking-[0.18em] text-white/80 uppercase">
             Sign in
@@ -62,7 +63,22 @@ function RouteComponent() {
             programs, and manage your student profile.
           </p>
         </div>
-      </section>
+      </section>*/}
+      <ImageHeader
+        badge_outline={true}
+        fade={false}
+        badge="Sign in"
+        title={
+          <>
+            <h1 className="text-4xl leading-tight font-light text-white md:text-6xl">
+              Welcome back In to your{" "}
+              <span className="text-primary">account.</span>
+            </h1>
+          </>
+        }
+        image="/auth_bg.jpeg"
+        description="Sign in to continue your professional training, access your programs, and manage your student profile."
+      />
 
       {/* Form */}
       <section className="px-6 py-16 md:px-16">

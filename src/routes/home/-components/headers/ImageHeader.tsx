@@ -4,6 +4,7 @@ interface ImageHeaderProps {
   badge?: string;
   title?: ReactNode;
   image?: string;
+  badge_outline?: boolean;
   description?: any;
   fade?: boolean;
 }
@@ -12,6 +13,7 @@ export default function ImageHeader({
   badge,
   title,
   image,
+  badge_outline = false,
   description,
   fade = true,
 }: ImageHeaderProps) {
@@ -35,9 +37,17 @@ export default function ImageHeader({
 
       <div className="relative container mx-auto">
         {badge && (
-          <span className="bg-white text-secondary p-2 rounded-full px-4  uppercase ">
-            {badge}
-          </span>
+          <>
+            {badge_outline ? (
+              <span className="bg-white/20 p-2 ring rounded-full px-4 text-white">
+                {badge}
+              </span>
+            ) : (
+              <span className="bg-white text-secondary p-2 rounded-full px-4 uppercase ">
+                {badge}
+              </span>
+            )}
+          </>
         )}
         <h1 className="max-w-3xl text-4xl font-pop leading-tight  text-white mt-4 md:text-6xl font-semibold">
           {title}

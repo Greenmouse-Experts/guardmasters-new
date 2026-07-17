@@ -10,6 +10,7 @@ import SimpleInput from "#/components/inputs/SimpleInput.tsx";
 import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
 import { extract_message } from "#/helpers/auth.ts";
 import type { AxiosError } from "axios";
+import ImageHeader from "../-components/headers/ImageHeader";
 
 export const Route = createFileRoute("/home/auth/signup")({
   component: RouteComponent,
@@ -49,7 +50,7 @@ function RouteComponent() {
       });
       setSubmittedEmail(values.email);
       modalRef.current?.open();
-    } catch (err: AxiosError) {
+    } catch (err: AxiosError<any>) {
       const axios_message = err.response?.data?.message;
       const message = axios_message ?? extract_message(err);
       toast.error(message);
@@ -59,20 +60,30 @@ function RouteComponent() {
   return (
     <div className="min-h-screen bg-accent/15">
       {/* Hero */}
-      <section className="bg-black px-6 pt-20 pb-16 md:px-16">
-        <div className="container mx-auto">
-          <span className="mb-6 mt-24 inline-block rounded-md bg-white/15 px-3 py-1 text-xs font-medium tracking-[0.18em] text-white/80 uppercase">
-            Sign up
-          </span>
-          <h1 className="text-4xl leading-tight font-light text-white md:text-6xl">
-            Create your <span className="text-primary">account.</span>
-          </h1>
-          <p className="mt-6 max-w-xl leading-relaxed text-white/50">
-            Join professionals advancing their careers in corporate security,
-            loss prevention, and risk management.
-          </p>
-        </div>
-      </section>
+      <ImageHeader
+        badge={"Sign Up"}
+        badge_outline
+        image="/auth_bg.jpeg"
+        fade={false}
+        title={
+          <>
+            <h1 className="text-4xl leading-tight font-light text-white md:text-6xl">
+              Create your <span className="text-primary">account.</span>
+            </h1>
+          </>
+        }
+        description={
+          <>
+            <div className="container mx-auto">
+              <p className="mt-6 max-w-xl leading-relaxed text-white/50">
+                Join professionals advancing their careers in corporate
+                security, loss prevention, and risk management.
+              </p>
+            </div>
+          </>
+        }
+      />
+      {/*<section className="bg-black px-6 pt-20 pb-16 md:px-16"></section>*/}
 
       {/* Form */}
       <section className="px-6 py-16 md:px-16">
