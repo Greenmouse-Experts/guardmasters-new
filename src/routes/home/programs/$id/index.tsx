@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import ProgramHero from "./-components/Programhero";
 import ProgramCertificate from "./-components/ProgramCertificate";
 import EnrollMore from "./-components/EnrollMore";
@@ -11,7 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
 import type { CourseProgramSingle } from "#/types/courses.ts";
-import { ArrowUpRight, Check, ChevronRight, Link, Lock } from "lucide-react";
+import { ArrowUpRight, Check, ChevronRight, Lock } from "lucide-react";
 import { useCartStore, useIsInCart } from "#/store/cartStore.ts";
 
 export const Route = createFileRoute("/home/programs/$id/")({
@@ -251,7 +251,7 @@ function RouteComponent() {
                     {/* Advisor link */}
                     <Link
                       to="/home/contact"
-                      className="mt-4 flex items-center justify-center gap-1 text-sm text-white/50 transition-colors hover:text-white/80"
+                      className="btn btn-block btn-ghost text-white btn-lg hover:text-black rounded-xl mt-4"
                     >
                       Speak to an advisor
                       <ChevronRight className="h-4 w-4" />
