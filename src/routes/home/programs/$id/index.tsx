@@ -185,15 +185,20 @@ function RouteComponent() {
                   {/* Left: copy */}
                   <div>
                     <span className="mb-8 inline-block rounded-full border border-base-content/25 bg-base-100 px-5 py-1.5 text-xs font-bold tracking-[0.2em] text-accent uppercase">
-                      {course.program.title}
+                      Enroll
                     </span>
 
                     <h2 className="mb-8 font-pop text-5xl font-bold leading-tight text-accent md:text-6xl lg:text-7xl">
-                      {course.title}
+                      One Investment.
+                      <br />
+                      Career-long
+                      <br />
+                      <span className="text-primary">dividend</span>
                     </h2>
 
                     <p className="max-w-md font-bold text-lg leading-relaxed text-accent">
-                      {course.fullDesc}
+                      Talk to admissions about cohort dates, corporate group
+                      rates, and continuing-education credit transfer.
                     </p>
                   </div>
 
