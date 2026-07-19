@@ -79,11 +79,11 @@ export default function EnrollMore({
       {/* Enroll / pricing */}
 
       {/* Related courses */}
-      <div className="bg-accent px-6 py-20 md:px-16 md:py-24">
+      <div className="bg-accent px-6 py-20 md:px-16 ">
         <div className="container mx-auto">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <span className="mb-6 inline-block rounded-full border border-base-content/15 px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-secondary uppercase">
+              <span className="mb-6 inline-block rounded-full border border-base-content/15 px-4 py-1.5 text-lg font-semibold tracking-[0.18em] text-primary-content uppercase">
                 {relatedBadge}
               </span>
               <h2 className="text-4xl leading-tight font-light text-accent md:text-5xl">

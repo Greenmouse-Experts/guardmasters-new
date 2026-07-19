@@ -16,7 +16,7 @@ export default function Hero() {
         src="/home/hero.png"
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover blur-[2px]"
+        className="absolute inset-0 h-full w-full object-cover "
       />
       {/* Dark overlay — heavier on left for legibility */}
 

@@ -151,7 +151,7 @@ function RouteComponent() {
                       value={field.value}
                       onChange={(v) => field.onChange(v ?? "")}
                       onBlur={field.onBlur}
-                      defaultCountry="NG"
+                      defaultCountry="CA"
                       international
                       placeholder="Enter phone number"
                       numberInputProps={{

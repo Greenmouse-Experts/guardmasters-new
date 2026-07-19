@@ -83,14 +83,14 @@ const opportunities: Opportunity[] = [
     color: "bg-[#6B2D2D]",
     title: "Security Operations Manager",
     description:
-      "Identify risks and implement security controls across supply chains to safeguard goods, information, and business continuity.",
+      "Lead day-to-day security operations, teams, and technology to ensure efficiency, effectiveness, and continuous improvement.",
   },
   {
     Icon: Plane,
     color: "bg-[#C05621]",
     title: "Travel Security Manager",
     description:
-      "Develop and manage travel risk strategies to protect employees, executives, and operations globally.",
+      "dentify risks and implement security controls across supply chains to safeguard goods, information, and business continuity.",
   },
   {
     Icon: Truck,

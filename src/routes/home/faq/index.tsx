@@ -28,9 +28,9 @@ function RouteComponent() {
   const faqs = [...(query.data?.data ?? [])].sort((a, b) => a.order - b.order);
 
   return (
-    <>
+    <div className="bg-base-300">
       <section className="container mx-auto py-48">
-        <div className="mb-8 overflow-hidden rounded bg-gradient-to-r from-accent to-accent/70 px-8 py-12 md:px-12 md:py-16">
+        <div className="mb-8 overflow-hidden rounded bg-gradient-to-r from-accent to-accent px-8 py-12 md:px-12 md:py-16">
           <h2 className="text-4xl leading-tight font-bold font-pop md:text-6xl text-center">
             <span className="text-white">Frequently Asked</span>{" "}
             <span className="text-primary">Questions</span>
@@ -41,8 +41,9 @@ function RouteComponent() {
           </p>
         </div>
 
-        <section className="px-6 pt-8 text-white md:px-16 bg-base-200">
-          <div className="container mx-auto">
+        <section className="pt-8 ">
+          <h2 className="text-3xl font-bold mb-4 text-accent">All Questions</h2>
+          <div className="">
             {faqs.length === 0 ? (
               <p className="py-10 text-center text-black/60">
                 {query.isLoading ? "Loading FAQs..." : "No FAQs published yet."}
@@ -55,13 +56,13 @@ function RouteComponent() {
                     className="group h-fit rounded-xl bg-base-100 px-5 py-4 text-base-content shadow-sm [&_.chevron]:open:rotate-180"
                   >
                     <summary className="flex cursor-pointer list-none items-center gap-3">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold text-white">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent  font-bold text-white">
                         {i + 1}
                       </span>
                       <span className="flex-1 text-sm font-bold text-base-content">
                         {faq.question}
                       </span>
-                      <ChevronDown className="chevron h-4 w-4 shrink-0 text-base-content/50 transition-transform" />
+                      <ChevronDown className="chevron h-4 w-4 shrink-0  transition-transform" />
                     </summary>
                     <p className="mt-3 pl-10 text-sm leading-relaxed text-base-content/60">
                       {faq.answer}
@@ -72,12 +73,12 @@ function RouteComponent() {
             )}
 
             {/* Still have questions banner */}
-            <div className="mt-20 flex flex-col gap-6 overflow-hidden rounded-2xl border border-dashed border-primary/40 bg-accent px-6 py-6 md:flex-row md:items-center">
+            <div className="mt-20 flex flex-col gap-6 overflow-hidden rounded-2xl   px-6 py-6 md:flex-row md:items-center bg-white">
               <div className="shrink-0 md:max-w-[200px]">
                 <p className="font-pop font-bold text-primary">
                   Still have questions?
                 </p>
-                <p className="mt-1 text-sm leading-relaxed text-accent-content/60">
+                <p className="mt-1 text-sm leading-relaxed text-base-content/90">
                   Our admissions team is here to help you choose the right
                   program.
                 </p>
@@ -87,26 +88,24 @@ function RouteComponent() {
 
               <div className="flex flex-1 flex-col gap-5 sm:flex-row sm:items-center sm:justify-around">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 ring rounded-full ring-primary">
-                    <Phone className="h-5 w-5 shrink-0 text-accent-content/60" />
+                  <div className="p-3 ring rounded-full ring-primary bg-accent">
+                    <Phone className="h-5 w-5 shrink-0 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-accent-content/50">Call Us</p>
-                    <p className="text-sm font-semibold text-accent-content">
-                      +1 437 545 1684
-                    </p>
+                    <p className=" ">Call Us</p>
+                    <p className="text-sm font-semibold ">+1 437 545 1684</p>
                   </div>
                 </div>
 
                 <div className="hidden h-10 w-px bg-white/10 sm:block" />
 
                 <div className="flex items-center gap-3">
-                  <div className="p-3 ring rounded-full ring-primary">
-                    <Mail className="h-5 w-5 shrink-0 text-accent-content/60" />
+                  <div className="p-3 ring rounded-full ring-primary bg-accent">
+                    <Mail className="h-5 w-5 shrink-0 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-accent-content/50">Email Us</p>
-                    <p className="text-sm font-semibold text-accent-content">
+                    <p className=" ">Email Us</p>
+                    <p className="text-sm font-semibold text-base-content">
                       info@guardmasterinstitute.ca
                     </p>
                   </div>
@@ -115,14 +114,12 @@ function RouteComponent() {
                 <div className="hidden h-10 w-px bg-white/10 sm:block" />
 
                 <div className="flex items-center gap-3">
-                  <div className="p-3 ring rounded-full ring-primary">
-                    <Globe className="h-5 w-5 shrink-0 text-accent-content/60" />
+                  <div className="p-3 ring rounded-full ring-primary bg-accent">
+                    <Globe className="h-5 w-5 shrink-0 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-accent-content/50">
-                      Visit Our Website
-                    </p>
-                    <p className="text-sm font-semibold text-accent-content">
+                    <p className=" ">Visit Our Website</p>
+                    <p className="text-sm font-semibold text-base-content">
                       guardmasterinstitute.ca
                     </p>
                   </div>
@@ -162,6 +159,6 @@ function RouteComponent() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
