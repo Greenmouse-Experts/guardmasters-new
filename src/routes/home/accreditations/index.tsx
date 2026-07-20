@@ -88,7 +88,7 @@ function RouteComponent() {
               </div>
 
               <div>
-                <div className="mb-2 text-[11px] font-medium tracking-[0.15em] text-base-content/50 uppercase">
+                <div className="mb-2  text-sm  font-medium tracking-[0.15em] uppercase">
                   {item.role}
                 </div>
                 <h3 className="text-2xl  text-accent md:text-3xl">
