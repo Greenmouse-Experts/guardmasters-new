@@ -141,7 +141,7 @@ function RouteComponent() {
               Trusted. Accredited. <br /> Recognized Worldwide.
             </span>
           </div>
-          <p className="mx-auto mb-12 max-w-2xl text-center text-white/60 t4ext">
+          <p className="mx-auto mb-12 max-w-2xl text-center text-white">
             Our accreditations and partnerships reflect our commitment to
             delivering world-class education and training that meets global
             standards.
@@ -163,9 +163,7 @@ function RouteComponent() {
                 <h3 className="mb-3 text-base font-bold leading-snug text-base-content font-pop">
                   {item.name}
                 </h3>
-                <p className=" leading-relaxed text-base-content/60">
-                  {item.description}
-                </p>
+                <p className=" leading-relaxed ">{item.description}</p>
               </div>
             ))}
           </div>
@@ -211,11 +209,11 @@ function RouteComponent() {
                   <Icon className="h-8 w-8 text-white" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h3 className="mb-2 font-pop font-bold text-accent-content">
+                  <h3 className="mb-2 font-pop font-bold text-accent-content text-lg">
                     {title}
                   </h3>
                   <div className="mb-3 h-0.5 w-6 rounded-full bg-primary" />
-                  <p className=" leading-relaxed text-accent-content/60">
+                  <p className=" leading-relaxed text-white text-lg">
                     {description}
                   </p>
                 </div>

@@ -136,9 +136,7 @@ export default function Opportunity() {
                 <h3 className="mb-1.5 font-bold text-accent-content">
                   {title}
                 </h3>
-                <p className=" leading-relaxed text-accent-content/55">
-                  {description}
-                </p>
+                <p className=" leading-relaxed text-white">{description}</p>
               </div>
             </div>
           ))}
