@@ -183,9 +183,9 @@ export default function HomeNav() {
                   to={link.path}
                 >
                   {link.name}
-                  {link.name === "Training Programs" && (
+                  {/*{link.name === "Training Programs" && (
                     <ChevronDown className="h-4 w-4 text-primary" />
-                  )}
+                  )}*/}
                 </Link>
               </li>
             ))}
