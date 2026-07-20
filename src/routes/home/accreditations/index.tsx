@@ -91,16 +91,14 @@ function RouteComponent() {
                 <div className="mb-2 text-[11px] font-medium tracking-[0.15em] text-base-content/50 uppercase">
                   {item.role}
                 </div>
-                <h3 className="text-2xl font-light text-accent md:text-3xl">
+                <h3 className="text-2xl  text-accent md:text-3xl">
                   {item.name}
                 </h3>
               </div>
 
               <div>
-                <div className="mb-2  text-base-content/50">{item.org}</div>
-                <p className="leading-relaxed text-base-content/80">
-                  {item.description}
-                </p>
+                <div className="mb-2  ">{item.org}</div>
+                <p className="leading-relaxed text-lg">{item.description}</p>
               </div>
 
               <BadgeCheck className="h-6 w-6 shrink-0 text-secondary md:justify-self-end" />
