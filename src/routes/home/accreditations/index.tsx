@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BadgeCheck } from "lucide-react";
 import ImagelessHeader from "../-components/headers/ImagelessHeader";
+import ImageHeader from "../-components/headers/ImageHeader";
 
 export const Route = createFileRoute("/home/accreditations/")({
   component: RouteComponent,
@@ -60,7 +61,8 @@ const accreditations = [
 function RouteComponent() {
   return (
     <>
-      <ImagelessHeader
+      <ImageHeader
+        image="/acc.png"
         badge="Trust & Recognition"
         title={
           <>
