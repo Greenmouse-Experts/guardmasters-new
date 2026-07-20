@@ -206,7 +206,7 @@ export default function FacultyProfile() {
           <h2 className="font-pop text-3xl font-bold text-accent md:text-6xl">
             Dr. Adegbenga William Koko
           </h2>
-          <p className="mt-4 text-lg font-semibold text-accent">
+          <p className="mt-4 text-lg font-semibold text-secondary">
             {credentials}
           </p>
 
