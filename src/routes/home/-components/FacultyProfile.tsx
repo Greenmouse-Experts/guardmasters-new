@@ -22,8 +22,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-const credentials =
-  "PhD, MSc, MBA, CFE, CFCS, CAMS, ChLPS, LPC, CPO, CPOI, CBRM, ABCP, CMgr, CPP";
+const credentials = `CA, CFE, CFI, CAMS, CFCS, LPC, ChLPS, CPSM, CPO, CPOI, CBRM, CBCS, ABCP, CC, CSCE, CSP, CSL, C-CSP, MSyI, M.ISRM, CMgr, MCMI, CPP®
+  Chartered Converged Security Practitioner, Chartered Loss Prevention Specialist, Chartered Manager, Chartered Accountant
+  Certified Lead Auditor & Lead Implementer -  ISO 27001, 22301, 18788, 31000, 42001, & 28000
+`;
 
 const expertise: { icon: LucideIcon; label: string }[] = [
   { icon: ShieldCheck, label: "Corporate Security Management" },
@@ -203,7 +205,7 @@ export default function FacultyProfile() {
             <span className="h-px flex-1 bg-primary/30" />
           </div>
 
-          <h2 className="font-pop text-3xl font-bold text-accent md:text-6xl">
+          <h2 className="font-pop text-3xl font-bold text-accent md:text-4xl">
             Dr. Adegbenga William Koko
           </h2>
           <p className="mt-4 text-lg font-semibold text-secondary">
