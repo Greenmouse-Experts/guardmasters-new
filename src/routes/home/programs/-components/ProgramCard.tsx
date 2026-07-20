@@ -62,7 +62,7 @@ export default function ProgramCard({
           {course.title}
         </h3>
 
-        <p className="mb-6 line-clamp-3  leading-relaxed ">
+        <p className="mb-6 line-clamp-3  leading-relaxed text-white">
           {course.shortDesc}
         </p>
 
