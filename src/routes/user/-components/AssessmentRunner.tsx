@@ -175,7 +175,7 @@ function Quiz({
       </div>
 
       <div className="rounded-lg border border-base-300 p-5">
-        <p className="text-xs tracking-wide text-base-content/45 uppercase">
+        <p className=" tracking-wide text-base-content/45 uppercase">
           Question {index + 1} of {questions.length}
         </p>
         <p className="mt-2 font-medium text-accent">{question.question}</p>
@@ -335,7 +335,7 @@ function Results({
           <p className=" font-medium text-base-content/60">
             Your submission was received, but the result is not available yet.
           </p>
-          <p className="mt-1 text-xs text-base-content/40">
+          <p className="mt-1  text-base-content/40">
             Please check back shortly or contact support if this persists.
           </p>
         </div>
@@ -354,7 +354,7 @@ function Results({
     <div className="space-y-5">
       {/* Score summary */}
       <div className="rounded-lg bg-base-200 py-5 text-center">
-        <p className="text-xs tracking-wide text-base-content/50 uppercase">
+        <p className=" tracking-wide text-base-content/50 uppercase">
           Your Score
         </p>
         <div className="mt-2 flex items-center justify-center gap-4">
@@ -406,12 +406,12 @@ function Results({
                       : "border-error/40 bg-error/10 text-error"
                   }`}
                 >
-                  <p className="text-xs text-base-content/55">Your answer</p>
+                  <p className=" text-base-content/55">Your answer</p>
                   <p className="font-medium">{q.options[answer.choice]}</p>
                 </div>
                 {!correct && (
                   <div className="rounded-md border border-success/40 bg-success/10 px-3 py-2 text-success">
-                    <p className="text-xs text-base-content/55">
+                    <p className=" text-base-content/55">
                       Correct answer
                     </p>
                     <p className="font-medium">{q.options[q.correctOption]}</p>
@@ -419,7 +419,7 @@ function Results({
                 )}
               </div>
 
-              <p className="mt-2 text-xs text-base-content/45">
+              <p className="mt-2  text-base-content/45">
                 {q.point} point{q.point !== 1 ? "s" : ""}
               </p>
             </li>

@@ -164,13 +164,13 @@ function RouteComponent() {
                 />
                 {/* Location overlay card */}
                 <div className="absolute bottom-4 left-4 max-w-[200px] rounded-xl bg-base-100 p-4 shadow-lg">
-                  <p className="mb-0.5 text-xs font-semibold text-amber-500">
+                  <p className="mb-0.5  font-semibold text-amber-500">
                     Pinned Location
                   </p>
                   <p className=" font-semibold text-base-content">
                     Guardmaster Institute
                   </p>
-                  <p className="mt-1 text-xs text-base-content/60">
+                  <p className="mt-1  text-base-content/60">
                     405 Victoria Avenue{"\n"}Windsor, Ontario N9A 4N1{"\n"}
                     Canada
                   </p>
@@ -263,7 +263,7 @@ function RouteComponent() {
                     className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content focus:border-secondary focus:outline-none"
                   />
                   {errors.message && (
-                    <p className="mt-1 text-xs text-error">
+                    <p className="mt-1  text-error">
                       {errors.message.message}
                     </p>
                   )}
@@ -326,7 +326,7 @@ function Field({
         {...register(name, rules)}
         className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content focus:border-secondary focus:outline-none"
       />
-      {error && <p className="mt-1 text-xs text-error">{error}</p>}
+      {error && <p className="mt-1  text-error">{error}</p>}
     </div>
   );
 }

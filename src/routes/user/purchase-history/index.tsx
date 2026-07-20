@@ -17,7 +17,7 @@ const columns: columnType<Order>[] = [
     key: "number",
     label: "Order",
     render: (value: string) => (
-      <span className="font-mono text-xs text-base-content/70">{value}</span>
+      <span className="font-mono  text-base-content/70">{value}</span>
     ),
   },
   {
@@ -84,7 +84,7 @@ function StatusBadge({ status }: { status: string }) {
         : "bg-base-300 text-base-content/60";
   return (
     <span
-      className={`rounded-full px-3 py-1 text-xs font-medium capitalize ${tone}`}
+      className={`rounded-full px-3 py-1  font-medium capitalize ${tone}`}
     >
       {status}
     </span>

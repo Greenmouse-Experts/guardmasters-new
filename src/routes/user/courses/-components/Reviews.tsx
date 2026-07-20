@@ -137,9 +137,7 @@ function AddReview({ id, onDone }: { id: string; onDone: () => void }) {
       onSubmit={handleSubmit((values) => mutation.mutate(values))}
     >
       <div>
-        <label className="mb-2 block  font-medium text-accent">
-          Rating
-        </label>
+        <label className="mb-2 block  font-medium text-accent">Rating</label>
         <Controller
           control={control}
           name="rating"
@@ -166,14 +164,12 @@ function AddReview({ id, onDone }: { id: string; onDone: () => void }) {
           )}
         />
         {errors.rating && (
-          <p className="mt-1 text-xs text-error">{errors.rating.message}</p>
+          <p className="mt-1  text-error">{errors.rating.message}</p>
         )}
       </div>
 
       <div>
-        <label className="mb-2 block  font-medium text-accent">
-          Review
-        </label>
+        <label className="mb-2 block  font-medium text-accent">Review</label>
         <textarea
           {...register("comment", { required: "Please write a review" })}
           rows={4}
@@ -181,7 +177,7 @@ function AddReview({ id, onDone }: { id: string; onDone: () => void }) {
           className="w-full rounded-md border border-base-300 bg-base-100 p-3  text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
         />
         {errors.comment && (
-          <p className="mt-1 text-xs text-error">{errors.comment.message}</p>
+          <p className="mt-1  text-error">{errors.comment.message}</p>
         )}
       </div>
 

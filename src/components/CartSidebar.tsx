@@ -45,7 +45,7 @@ export default function CartSidebar() {
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-semibold text-accent">Cart</h2>
             {items.length > 0 && (
-              <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-primary px-1.5 text-xs font-bold text-primary-content">
+              <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-primary px-1.5  font-bold text-primary-content">
                 {items.length}
               </span>
             )}

@@ -73,7 +73,7 @@ export default function Offerings() {
               key={title}
               className="group relative rounded-2xl bg-base-100 p-6 shadow-lg transition-transform hover:-translate-y-1"
             >
-              <span className="absolute top-6 right-6 flex h-7 w-7 items-center justify-center rounded-full bg-base-200 text-xs font-bold text-base-content/50">
+              <span className="absolute top-6 right-6 flex h-7 w-7 items-center justify-center rounded-full bg-base-200  font-bold text-base-content/50">
                 {i + 1}
               </span>
 

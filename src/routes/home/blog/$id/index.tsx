@@ -82,7 +82,7 @@ function Article({ post }: { post: BlogPost }) {
 
       {/* Category */}
       {category && (
-        <p className="mb-3 text-xs font-semibold tracking-[0.18em] text-secondary uppercase">
+        <p className="mb-3  font-semibold tracking-[0.18em] text-secondary uppercase">
           {category}
         </p>
       )}
@@ -131,7 +131,7 @@ function Article({ post }: { post: BlogPost }) {
               {post.tags.map((tag) => (
                 <span
                   key={tag.id}
-                  className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold tracking-wide text-secondary uppercase"
+                  className="rounded-full bg-secondary/10 px-3 py-1  font-semibold tracking-wide text-secondary uppercase"
                 >
                   {tag.tag}
                 </span>
@@ -178,7 +178,7 @@ function ShareCard({ title }: { title: string }) {
 
   return (
     <div className="rounded-2xl border border-base-300 p-6">
-      <p className="mb-4 text-xs font-semibold tracking-[0.18em] text-base-content/40 uppercase">
+      <p className="mb-4  font-semibold tracking-[0.18em] text-base-content/40 uppercase">
         Share Article
       </p>
       <div className="grid grid-cols-2 gap-3">
@@ -220,7 +220,7 @@ function NewsletterCard() {
 
   return (
     <div className="rounded-2xl bg-accent p-6 text-accent-content">
-      <p className="mb-3 text-xs font-semibold tracking-[0.18em] text-accent-content/50 uppercase">
+      <p className="mb-3  font-semibold tracking-[0.18em] text-accent-content/50 uppercase">
         Newsletter
       </p>
       <p className="mb-6 text-xl leading-snug font-semibold">

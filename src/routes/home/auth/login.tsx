@@ -51,7 +51,7 @@ function RouteComponent() {
       {/* Hero */}
       {/*<section className="bg-black px-6 pt-20 pb-16 md:px-16">
         <div className="container mx-auto">
-          <span className="mb-6 inline-block mt-24 rounded-md bg-white/15 px-3 py-1 text-xs font-medium tracking-[0.18em] text-white/80 uppercase">
+          <span className="mb-6 inline-block mt-24 rounded-md bg-white/15 px-3 py-1  font-medium tracking-[0.18em] text-white/80 uppercase">
             Sign in
           </span>
           <h1 className="text-4xl leading-tight font-light text-white md:text-6xl">
@@ -102,7 +102,7 @@ function RouteComponent() {
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-2 block text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase"
+                  className="mb-2 block  font-medium tracking-[0.15em] text-base-content/50 uppercase"
                 >
                   Email
                 </label>
@@ -113,7 +113,7 @@ function RouteComponent() {
                   className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
                 />
                 {errors.email && (
-                  <p className="mt-1 text-xs text-error">
+                  <p className="mt-1  text-error">
                     {errors.email.message}
                   </p>
                 )}

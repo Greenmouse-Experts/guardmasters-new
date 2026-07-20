@@ -24,7 +24,7 @@ export default function ProgramCertificate({
 
       <div className="relative container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
         <div>
-          <span className="mb-8 inline-block rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-primary uppercase">
+          <span className="mb-8 inline-block rounded-full border border-white/15 bg-white/5 px-4 py-1.5  font-semibold tracking-[0.18em] text-primary uppercase">
             {badge}
           </span>
 

@@ -89,7 +89,7 @@ function RouteComponent() {
                       <li className="flex items-start gap-3">
                         <Hash className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                         <div>
-                          <p className="text-xs font-medium tracking-widest text-base-content/50 uppercase">
+                          <p className=" font-medium tracking-widest text-base-content/50 uppercase">
                             Certificate Number
                           </p>
                           <p className="mt-0.5 font-semibold text-base-content">
@@ -100,7 +100,7 @@ function RouteComponent() {
                       <li className="flex items-start gap-3">
                         <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                         <div>
-                          <p className="text-xs font-medium tracking-widest text-base-content/50 uppercase">
+                          <p className=" font-medium tracking-widest text-base-content/50 uppercase">
                             Issue Date
                           </p>
                           <p className="mt-0.5 font-semibold text-base-content">
@@ -112,7 +112,7 @@ function RouteComponent() {
                         <li className="flex items-start gap-3">
                           <FileText className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                           <div>
-                            <p className="text-xs font-medium tracking-widest text-base-content/50 uppercase">
+                            <p className=" font-medium tracking-widest text-base-content/50 uppercase">
                               Course
                             </p>
                             <p className="mt-0.5 font-semibold text-base-content">
@@ -167,7 +167,7 @@ function RouteComponent() {
                     <div className="mt-6 flex items-start gap-3">
                       <User className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <div>
-                        <p className="text-xs font-medium tracking-widest text-base-content/50 uppercase">
+                        <p className=" font-medium tracking-widest text-base-content/50 uppercase">
                           Role
                         </p>
                         <p className="mt-0.5 font-semibold capitalize text-base-content">

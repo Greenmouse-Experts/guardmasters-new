@@ -52,7 +52,7 @@ export default function FaqCert() {
                   className="group h-fit rounded-xl bg-base-100 px-5 py-4 text-base-content shadow-sm [&_.chevron]:open:rotate-180"
                 >
                   <summary className="flex cursor-pointer list-none items-center gap-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold text-white">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent  font-bold text-white">
                       {i + 1}
                     </span>
                     <span className="flex-1  font-bold text-base-content">
@@ -104,7 +104,7 @@ export default function FaqCert() {
                   <Phone className="h-5 w-5 shrink-0 text-accent-content/60" />
                 </div>
                 <div>
-                  <p className="text-xs text-accent-content/50">Call Us</p>
+                  <p className=" text-accent-content/50">Call Us</p>
                   <p className=" font-semibold text-accent-content">
                     +1 437 545 1684
                   </p>
@@ -118,7 +118,7 @@ export default function FaqCert() {
                   <Mail className="h-5 w-5 shrink-0 text-accent-content/60 " />
                 </div>
                 <div>
-                  <p className="text-xs text-accent-content/50">Email Us</p>
+                  <p className=" text-accent-content/50">Email Us</p>
                   <p className=" font-semibold text-accent-content">
                     info@guardmasterinstitute.ca
                   </p>
@@ -132,7 +132,7 @@ export default function FaqCert() {
                   <Globe className="h-5 w-5 shrink-0 text-accent-content/60" />
                 </div>
                 <div>
-                  <p className="text-xs text-accent-content/50">
+                  <p className=" text-accent-content/50">
                     Visit Our Website
                   </p>
                   <p className=" font-semibold text-accent-content">

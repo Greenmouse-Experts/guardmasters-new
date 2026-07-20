@@ -50,7 +50,7 @@ export default function CoursePlayer({ courseId }: { courseId: string }) {
       <div className="flex items-center justify-between gap-4 px-1 py-3">
         <h2 className="font-medium text-accent">{lesson.title}</h2>
         {lesson.duration > 0 && (
-          <span className="shrink-0 text-xs text-base-content/45">
+          <span className="shrink-0  text-base-content/45">
             {lesson.duration} Min(s)
           </span>
         )}

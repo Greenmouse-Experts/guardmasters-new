@@ -180,7 +180,7 @@ function MessageForm({ onDone }: { onDone: () => void }) {
           className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5  text-base-content focus:border-secondary focus:outline-none"
         />
         {errors.name && (
-          <p className="mt-1 text-xs text-error">{errors.name.message}</p>
+          <p className="mt-1  text-error">{errors.name.message}</p>
         )}
       </div>
 
@@ -192,7 +192,7 @@ function MessageForm({ onDone }: { onDone: () => void }) {
           className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5  text-base-content focus:border-secondary focus:outline-none"
         />
         {errors.email && (
-          <p className="mt-1 text-xs text-error">{errors.email.message}</p>
+          <p className="mt-1  text-error">{errors.email.message}</p>
         )}
       </div>
 
@@ -205,7 +205,7 @@ function MessageForm({ onDone }: { onDone: () => void }) {
           className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5  text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
         />
         {errors.message && (
-          <p className="mt-1 text-xs text-error">{errors.message.message}</p>
+          <p className="mt-1  text-error">{errors.message.message}</p>
         )}
       </div>
 

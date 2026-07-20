@@ -190,7 +190,7 @@ function NotificationItem({ item }: { item: Notification }) {
           />
         )}
       </div>
-      <p className="mt-3 text-xs text-base-content/40">
+      <p className="mt-3  text-base-content/40">
         {new Date(item.createdDate).toLocaleString(undefined, {
           day: "2-digit",
           month: "short",

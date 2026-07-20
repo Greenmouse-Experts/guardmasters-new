@@ -55,7 +55,7 @@ export default function ProgramHero({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)] bg-size-[28px_28px]" />
 
         <div className="relative container mx-auto">
-          <div className="mb-8 flex items-center gap-2 text-xs font-medium tracking-[0.18em] text-white/50 uppercase">
+          <div className="mb-8 flex items-center gap-2  font-medium tracking-[0.18em] text-white/50 uppercase">
             <Link to="/home" className="hover:text-white">
               Home
             </Link>
@@ -72,7 +72,7 @@ export default function ProgramHero({
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
             <div className="lg:col-span-1">
               {badge && (
-                <span className="mb-6 inline-block rounded-md border border-white/10 bg-white/10 px-3 py-1.5 text-xs font-medium tracking-[0.15em] text-white/70 uppercase">
+                <span className="mb-6 inline-block rounded-md border border-white/10 bg-white/10 px-3 py-1.5  font-medium tracking-[0.15em] text-white/70 uppercase">
                   {badge}
                 </span>
               )}

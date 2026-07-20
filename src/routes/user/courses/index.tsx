@@ -117,7 +117,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
 
         {/* Progress */}
         <div className="mb-6 space-y-1.5">
-          <div className="flex items-center justify-between text-xs text-accent-content/50">
+          <div className="flex items-center justify-between  text-accent-content/50">
             <span>Progress</span>
             <span>{pct}%</span>
           </div>
@@ -128,7 +128,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
             />
           </div>
           {total > 0 && (
-            <p className="text-xs text-accent-content/40">
+            <p className=" text-accent-content/40">
               {completed} of {total} lessons completed
             </p>
           )}

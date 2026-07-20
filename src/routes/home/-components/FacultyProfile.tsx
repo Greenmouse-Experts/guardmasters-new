@@ -242,7 +242,7 @@ export default function FacultyProfile() {
                   <div className="font-pop text-xl font-bold text-accent">
                     {stat.value}
                   </div>
-                  <div className="mt-0.5 text-xs leading-snug text-base-content/55">
+                  <div className="mt-0.5  leading-snug text-base-content/55">
                     {stat.label}
                   </div>
                 </div>

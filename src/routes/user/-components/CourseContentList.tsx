@@ -133,7 +133,7 @@ function Section({
       )}
 
       {isOpen && section.courseContentSubs.length === 0 && (
-        <p className="px-5 pb-4 text-xs text-base-content/40">
+        <p className="px-5 pb-4  text-base-content/40">
           No lessons in this section yet.
         </p>
       )}
@@ -214,7 +214,7 @@ function LessonRow({
       </button>
 
       {sub.duration > 0 && (
-        <span className="mt-0.5 shrink-0 text-xs text-base-content/40">
+        <span className="mt-0.5 shrink-0  text-base-content/40">
           {sub.duration} Min(s)
         </span>
       )}

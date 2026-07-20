@@ -93,7 +93,7 @@ function RouteComponent() {
                   className="h-9 w-9 rounded-full border border-base-300 object-cover"
                 />
               ) : (
-                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-base-300 bg-base-100 text-xs font-semibold text-accent">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-base-300 bg-base-100  font-semibold text-accent">
                   {initials}
                 </div>
               )}

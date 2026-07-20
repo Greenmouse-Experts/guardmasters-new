@@ -99,7 +99,7 @@ export default function PopUp(props: {
                 <li key={action.key}>
                   <a
                     onClick={() => action.action(props.item, nav)}
-                    className="text-xs"
+                    className=""
                   >
                     {action.label}
                   </a>

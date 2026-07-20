@@ -114,7 +114,7 @@ function ReviewsCarousel({
       {/* Header */}
       <div className="mb-12 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
-          <span className="mb-8 inline-block rounded-full border border-base-content/15 px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-secondary uppercase">
+          <span className="mb-8 inline-block rounded-full border border-base-content/15 px-4 py-1.5  font-semibold tracking-[0.18em] text-secondary uppercase">
             {badge}
           </span>
 

@@ -184,7 +184,7 @@ function RouteComponent() {
                 <div className="container mx-auto grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
                   {/* Left: copy */}
                   <div>
-                    <span className="mb-8 inline-block rounded-full border border-base-content/25 bg-base-100 px-5 py-1.5 text-xs font-bold tracking-[0.2em] text-accent uppercase">
+                    <span className="mb-8 inline-block rounded-full border border-base-content/25 bg-base-100 px-5 py-1.5  font-bold tracking-[0.2em] text-accent uppercase">
                       Enroll
                     </span>
 
@@ -258,7 +258,7 @@ function RouteComponent() {
                     </Link>
 
                     {/* Trust line */}
-                    <p className="mt-4 flex items-center justify-center gap-1.5 text-xs text-white/30">
+                    <p className="mt-4 flex items-center justify-center gap-1.5  text-white/30">
                       <Lock className="h-3 w-3" />
                       Secure enrollment · Immediate confirmation
                     </p>

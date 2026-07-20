@@ -78,7 +78,7 @@ function TestimonyForm({ onDone }: { onDone: () => void }) {
           className="w-full rounded-md border border-base-300 bg-base-100 p-3  text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
         />
         {errors.testimony && (
-          <p className="mt-1 text-xs text-error">{errors.testimony.message}</p>
+          <p className="mt-1  text-error">{errors.testimony.message}</p>
         )}
       </div>
 

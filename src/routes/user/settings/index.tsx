@@ -134,7 +134,7 @@ function ReadonlyRow({ label, value }: { label: string; value: string }) {
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <label className="mb-2 block text-xs font-medium tracking-[0.15em] text-base-content/50 uppercase">
+    <label className="mb-2 block  font-medium tracking-[0.15em] text-base-content/50 uppercase">
       {children}
     </label>
   );

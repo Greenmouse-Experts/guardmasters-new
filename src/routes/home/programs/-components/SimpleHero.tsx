@@ -96,7 +96,7 @@ export default function SimpleHero({
             <div className="absolute bottom-8 left-0 max-w-xs bg-base-100 p-6 shadow-xl lg:left-8">
               <div className="mb-2 flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                <span className="text-xs font-bold tracking-[0.18em] text-accent uppercase">
+                <span className=" font-bold tracking-[0.18em] text-accent uppercase">
                   {cardEyebrow}
                 </span>
               </div>
@@ -110,7 +110,7 @@ export default function SimpleHero({
         {/* Bottom highlights strip */}
         <div className="flex flex-col gap-8 border-t border-white/10 py-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="mb-2 text-xs font-bold tracking-[0.18em] text-primary uppercase">
+            <p className="mb-2  font-bold tracking-[0.18em] text-primary uppercase">
               Find your pathway
             </p>
             <p className="font-pop text-2xl font-medium text-white md:text-3xl">

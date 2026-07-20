@@ -101,7 +101,7 @@ function BlogContent({ posts }: { posts: BlogPost[] }) {
       <div>
         <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-semibold tracking-[0.18em] text-base-content/45 uppercase">
+            <p className=" font-semibold tracking-[0.18em] text-base-content/45 uppercase">
               Blog feed
             </p>
             <h2 className="mt-1 text-3xl font-semibold text-accent">
@@ -169,7 +169,7 @@ function Featured({ post }: { post: BlogPost }) {
   return (
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
       <div>
-        <span className="inline-block rounded-full border border-base-content/15 px-3 py-1 text-xs font-medium text-base-content/60">
+        <span className="inline-block rounded-full border border-base-content/15 px-3 py-1  font-medium text-base-content/60">
           Featured Post
         </span>
 
@@ -218,7 +218,7 @@ function Featured({ post }: { post: BlogPost }) {
           />
         )}
         <div className="absolute bottom-5 left-5 max-w-xs rounded-lg bg-base-100/85 p-4 backdrop-blur-sm">
-          <p className="text-xs font-medium tracking-wide text-base-content/50 uppercase">
+          <p className=" font-medium tracking-wide text-base-content/50 uppercase">
             Trending Topic
           </p>
           <p className="mt-1 line-clamp-2  font-semibold text-accent">

@@ -276,5 +276,5 @@ function RouteComponent() {
 }
 
 function FieldError({ message }: { message?: string }) {
-  return <p className="mt-1 text-xs text-error">{message}</p>;
+  return <p className="mt-1  text-error">{message}</p>;
 }

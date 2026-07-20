@@ -22,7 +22,7 @@ export default function BlogItem({ post }: { post: BlogPost }) {
 
       <div className="mt-5">
         {category && (
-          <p className="text-xs font-semibold tracking-[0.12em] text-secondary uppercase">
+          <p className=" font-semibold tracking-[0.12em] text-secondary uppercase">
             {category}
           </p>
         )}
