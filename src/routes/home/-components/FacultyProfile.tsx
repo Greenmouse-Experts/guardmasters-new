@@ -72,7 +72,7 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: UserRound,
     content: (
       <>
-        <strong className="font-semibold text-base-content">
+        <strong className="font-semibold text-black">
           Dr. Adegbenga William Koko
         </strong>{" "}
         is an accomplished corporate security executive, educator, and
@@ -88,11 +88,11 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: GraduationCap,
     content: (
       <>
-        <strong className="font-semibold text-base-content">
+        <strong className="font-semibold text-black">
           As Lead Faculty and Programs Director
         </strong>{" "}
         at{" "}
-        <strong className="font-semibold text-base-content">
+        <strong className="font-semibold text-black">
           Guardmaster Institute Canada
         </strong>
         , he leads the design and delivery of executive education, Specialist
@@ -107,7 +107,7 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: Globe,
     content: (
       <>
-        <strong className="font-semibold text-base-content">
+        <strong className="font-semibold text-black">
           A dual-licensed Security Guard and Private Investigator
         </strong>{" "}
         in Ontario, Canada, Dr. Koko is an accredited international trainer and
@@ -121,7 +121,7 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: BookOpen,
     content: (
       <>
-        <strong className="font-semibold text-base-content">
+        <strong className="font-semibold text-black">
           His academic foundation
         </strong>{" "}
         includes doctoral and postgraduate qualifications in Strategic
@@ -136,7 +136,7 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: Award,
     content: (
       <>
-        <strong className="font-semibold text-base-content">
+        <strong className="font-semibold text-black">
           His professional credentials
         </strong>{" "}
         include internationally respected designations in corporate security,
@@ -151,7 +151,7 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: PenLine,
     content: (
       <>
-        <strong className="font-semibold text-base-content">
+        <strong className="font-semibold text-black">
           As a trainer, author, and thought leader,
         </strong>{" "}
         Dr. Koko is dedicated to advancing professional excellence through
@@ -218,9 +218,7 @@ export default function FacultyProfile() {
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
                   <item.icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
-                <p className="leading-relaxed text-base-content/70">
-                  {item.content}
-                </p>
+                <p className="leading-relaxed text-lg">{item.content}</p>
               </div>
             ))}
           </div>
@@ -244,7 +242,7 @@ export default function FacultyProfile() {
                   <div className="font-pop text-xl font-bold text-accent">
                     {stat.value}
                   </div>
-                  <div className="mt-0.5  leading-snug text-base-content/55">
+                  <div className="mt-0.5  leading-snug text-black/55">
                     {stat.label}
                   </div>
                 </div>
