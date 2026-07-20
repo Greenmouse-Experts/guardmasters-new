@@ -158,9 +158,7 @@ function RouteComponent() {
                           {student.firstName.toLowerCase()}{" "}
                           {student.lastName.toLowerCase()}
                         </p>
-                        <p className=" text-base-content/60">
-                          {student.email}
-                        </p>
+                        <p className=" text-base-content/60">{student.email}</p>
                       </div>
                     </div>
 

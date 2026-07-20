@@ -1,6 +1,12 @@
 import { useRef, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { CheckSquare, ChevronDown, ChevronUp, Loader2, Square } from "lucide-react";
+import {
+  CheckSquare,
+  ChevronDown,
+  ChevronUp,
+  Loader2,
+  Square,
+} from "lucide-react";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
 import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
@@ -56,9 +62,7 @@ export default function CourseContentList({
             courseId={courseId}
             onOpenAssessment={openAssessment}
             isOpen={openIndex === index}
-            onToggle={() =>
-              setOpenIndex((cur) => (cur === index ? -1 : index))
-            }
+            onToggle={() => setOpenIndex((cur) => (cur === index ? -1 : index))}
           />
         ))}
       </div>
@@ -167,9 +171,7 @@ function LessonRow({
       queryClient.invalidateQueries({ queryKey: ["my-course", courseId] });
     },
     onError: (err: any) => {
-      toast.error(
-        err?.response?.data?.message ?? "Could not update progress.",
-      );
+      toast.error(err?.response?.data?.message ?? "Could not update progress.");
     },
   });
 
@@ -249,9 +251,7 @@ function AssessmentRow({
         </span>
         <span className="flex flex-1 items-center gap-2">
           <MediaIcon type={sub.mediaType} />
-          <span className="flex-1  text-base-content/80">
-            {sub.title}
-          </span>
+          <span className="flex-1  text-base-content/80">{sub.title}</span>
         </span>
         <span className="shrink-0 rounded-full bg-secondary/10 px-2 py-0.5 text-[10px] font-medium tracking-wide text-secondary uppercase">
           {done ? "Done" : "Assessment"}

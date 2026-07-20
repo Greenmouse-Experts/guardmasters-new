@@ -113,9 +113,7 @@ function RouteComponent() {
                   className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
                 />
                 {errors.email && (
-                  <p className="mt-1  text-error">
-                    {errors.email.message}
-                  </p>
+                  <p className="mt-1  text-error">{errors.email.message}</p>
                 )}
               </div>
 

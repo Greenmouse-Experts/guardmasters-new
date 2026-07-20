@@ -83,9 +83,7 @@ function StatusBadge({ status }: { status: string }) {
         ? "bg-warning/10 text-warning"
         : "bg-base-300 text-base-content/60";
   return (
-    <span
-      className={`rounded-full px-3 py-1  font-medium capitalize ${tone}`}
-    >
+    <span className={`rounded-full px-3 py-1  font-medium capitalize ${tone}`}>
       {status}
     </span>
   );

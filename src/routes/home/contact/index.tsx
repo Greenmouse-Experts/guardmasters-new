@@ -128,9 +128,7 @@ function RouteComponent() {
               //   backgroundRepeat: "repeat-x",
               // }}
             >
-              <p className="mb-1  font-semibold text-secondary">
-                Our Location
-              </p>
+              <p className="mb-1  font-semibold text-secondary">Our Location</p>
               <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h2 className="mb-1 text-3xl font-semibold text-base-content">
@@ -263,9 +261,7 @@ function RouteComponent() {
                     className="w-full border border-base-300 bg-base-100 px-4 py-3 text-base-content focus:border-secondary focus:outline-none"
                   />
                   {errors.message && (
-                    <p className="mt-1  text-error">
-                      {errors.message.message}
-                    </p>
+                    <p className="mt-1  text-error">{errors.message.message}</p>
                   )}
                 </div>
 
@@ -314,10 +310,7 @@ function Field({
 }: FieldProps) {
   return (
     <div>
-      <label
-        htmlFor={name}
-        className="mb-1.5 block  text-base-content/70"
-      >
+      <label htmlFor={name} className="mb-1.5 block  text-base-content/70">
         {label}
       </label>
       <input

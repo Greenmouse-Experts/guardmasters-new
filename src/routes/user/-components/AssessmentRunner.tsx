@@ -411,9 +411,7 @@ function Results({
                 </div>
                 {!correct && (
                   <div className="rounded-md border border-success/40 bg-success/10 px-3 py-2 text-success">
-                    <p className=" text-base-content/55">
-                      Correct answer
-                    </p>
+                    <p className=" text-base-content/55">Correct answer</p>
                     <p className="font-medium">{q.options[q.correctOption]}</p>
                   </div>
                 )}

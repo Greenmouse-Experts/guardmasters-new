@@ -132,9 +132,7 @@ export default function FaqCert() {
                   <Globe className="h-5 w-5 shrink-0 text-accent-content/60" />
                 </div>
                 <div>
-                  <p className=" text-accent-content/50">
-                    Visit Our Website
-                  </p>
+                  <p className=" text-accent-content/50">Visit Our Website</p>
                   <p className=" font-semibold text-accent-content">
                     guardmasterinstitute.ca
                   </p>

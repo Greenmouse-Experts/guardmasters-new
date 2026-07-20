@@ -50,11 +50,31 @@ const YoutubeIcon = (props: IconProps) => (
   </svg>
 );
 
-const socials: { Icon: ComponentType<IconProps>; label: string; href: string }[] = [
-  { Icon: LinkedinIcon, label: "LinkedIn", href: "https://www.linkedin.com/company/guardmasterinstitute/" },
-  { Icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/GuardmasterInstituteCanada" },
-  { Icon: YoutubeIcon, label: "YouTube", href: "https://www.youtube.com/@GuardmasterInstitute" },
-  { Icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/guardmasterinstitutecanada" },
+const socials: {
+  Icon: ComponentType<IconProps>;
+  label: string;
+  href: string;
+}[] = [
+  {
+    Icon: LinkedinIcon,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/guardmasterinstitute/",
+  },
+  {
+    Icon: FacebookIcon,
+    label: "Facebook",
+    href: "https://www.facebook.com/GuardmasterInstituteCanada",
+  },
+  {
+    Icon: YoutubeIcon,
+    label: "YouTube",
+    href: "https://www.youtube.com/@GuardmasterInstitute",
+  },
+  {
+    Icon: InstagramIcon,
+    label: "Instagram",
+    href: "https://www.instagram.com/guardmasterinstitutecanada",
+  },
 ];
 
 function ColHeading({ children }: { children: React.ReactNode }) {
@@ -67,7 +87,7 @@ function ColHeading({ children }: { children: React.ReactNode }) {
 
 function NavLink({ link }: { link: FooterLink }) {
   const cls =
-    "group flex items-center gap-2 text-lg text-white/60 transition-colors hover:text-white";
+    "group flex items-center gap-2 text-lg text-white transition-colors hover:text-white";
 
   const inner = (
     <>
@@ -99,7 +119,7 @@ export default function Footer() {
             {/* GI badge */}
             <img src={"/logo.png"} className="mb-4 h-12" />
 
-            <p className="text-lg leading-relaxed text-white/55">
+            <p className="text-lg leading-relaxed ">
               Guardmaster Institute Canada is an accredited professional
               security certifications training institution. Accredited by the
               American Council of Training & Development. Guardmaster Institute
@@ -134,7 +154,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <ColHeading>Contact Info</ColHeading>
-            <ul className="space-y-4 text-lg text-white/60">
+            <ul className="space-y-4 text-lg text-white">
               <li>+1 437-545-1684</li>
               <li>info@guardmasterinstitute.ca</li>
               <li className="leading-relaxed">
