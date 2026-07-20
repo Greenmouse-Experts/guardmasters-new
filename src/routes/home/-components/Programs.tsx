@@ -80,7 +80,7 @@ export default function Programs() {
               EXPLORE OUR PROGRAMS
             </span>
           </div>
-          <p className="mx-auto max-w-2xl text-lg text-base-content/60">
+          <p className="mx-auto max-w-2xl text-lg text-base-content/90">
             Comprehensive learning solutions tailored to empower corporate
             security and risk professionals at every stage of their career.
           </p>
@@ -104,7 +104,7 @@ export default function Programs() {
                   {title}
                 </h3>
                 <div className="mb-4 h-1 w-10 rounded-full bg-primary" />
-                <p className="text-sm leading-relaxed text-base-content/60">
+                <p className="leading-relaxed text-base-content/80">
                   {description}
                 </p>
               </Link>

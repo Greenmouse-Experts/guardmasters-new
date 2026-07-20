@@ -8,10 +8,10 @@ export default function AboutIntro() {
     <>
       <section className="relative overflow-hidden bg-base-100 px-6 py-16 md:px-16">
         <img
-          src="/aff_frame.png"
-          alt=""
-          aria-hidden
-          className="absolute left-0 top-0 right-0 inset-0 w-full h-full"
+        // src="/aff_frame.png"
+        // alt=""
+        // aria-hidden
+        // className="absolute left-0 top-0 right-0 inset-0 w-full h-full"
         />
         <div className="container relative mx-auto">
           <h2 className="mb-8 text-3xl font-bold  md:text-4xl font-pop text-accent">
