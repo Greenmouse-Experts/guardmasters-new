@@ -226,7 +226,7 @@ function RouteComponent() {
                             className="h-4 w-4 shrink-0 text-primary"
                             strokeWidth={3}
                           />
-                          <span className="text-sm text-white/80">{item}</span>
+                          <span className=" text-white/80">{item}</span>
                         </li>
                       ))}
                     </ul>

@@ -205,7 +205,7 @@ function LessonRow({
       >
         <MediaIcon type={sub.mediaType} />
         <span
-          className={`flex-1 text-sm ${
+          className={`flex-1  ${
             active ? "font-medium text-accent" : "text-base-content/80"
           }`}
         >
@@ -249,7 +249,7 @@ function AssessmentRow({
         </span>
         <span className="flex flex-1 items-center gap-2">
           <MediaIcon type={sub.mediaType} />
-          <span className="flex-1 text-sm text-base-content/80">
+          <span className="flex-1  text-base-content/80">
             {sub.title}
           </span>
         </span>

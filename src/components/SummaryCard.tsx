@@ -13,7 +13,7 @@ export default function SummaryCard({
         className="bg-base-100 shadow-md ring ring-current/10 rounded-box"
       >
         <div className="stat">
-          <div className="fieldset-label text-sm">{item.title}</div>
+          <div className="fieldset-label ">{item.title}</div>
           <div className="stat-value">{item.value}</div>
         </div>
       </div>

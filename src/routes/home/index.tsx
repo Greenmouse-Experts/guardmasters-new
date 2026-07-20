@@ -124,7 +124,7 @@ function RouteComponent() {
         }}
         className="bg-accent backdrop-blur-md w-full flex items-center bottom-0 py-4 px-4"
       >
-        <div className="max-w-5xl mx-auto text-white text-center text-sm sm:text-base">
+        <div className="max-w-5xl mx-auto text-white text-center  sm:text-base">
           Guardmaster Institute is a professional training, certification, and
           consulting organization. We deliver accredited training in Corporate
           Security, Loss Prevention, Asset Protection, Regulatory Compliance,
@@ -163,7 +163,7 @@ function RouteComponent() {
                 <h3 className="mb-3 text-base font-bold leading-snug text-base-content font-pop">
                   {item.name}
                 </h3>
-                <p className="text-sm leading-relaxed text-base-content/60">
+                <p className=" leading-relaxed text-base-content/60">
                   {item.description}
                 </p>
               </div>
@@ -215,7 +215,7 @@ function RouteComponent() {
                     {title}
                   </h3>
                   <div className="mb-3 h-0.5 w-6 rounded-full bg-primary" />
-                  <p className="text-sm leading-relaxed text-accent-content/60">
+                  <p className=" leading-relaxed text-accent-content/60">
                     {description}
                   </p>
                 </div>

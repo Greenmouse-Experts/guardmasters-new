@@ -304,7 +304,7 @@ function TermsContent() {
 
       <div className="my-6 border-t border-base-300" />
 
-      <div className="mb-6 flex flex-wrap gap-8 text-sm">
+      <div className="mb-6 flex flex-wrap gap-8 ">
         <div>
           <p className="mb-1 font-semibold uppercase tracking-widest text-base-content/50">
             Last Updated
@@ -321,7 +321,7 @@ function TermsContent() {
         </div>
       </div>
 
-      <div className="mt-8 inline-block rounded-xl bg-accent px-6 py-4 text-sm text-accent-content">
+      <div className="mt-8 inline-block rounded-xl bg-accent px-6 py-4  text-accent-content">
         <p className="mb-1 font-semibold">Need clarification?</p>
         <a
           href="mailto:info@guardmasterinstitute.ca"
@@ -352,7 +352,7 @@ function PrivacyContent() {
 
       <div className="my-6 border-t border-base-300" />
 
-      <div className="mb-6 flex flex-wrap gap-8 text-sm">
+      <div className="mb-6 flex flex-wrap gap-8 ">
         <div>
           <p className="mb-1 font-semibold uppercase tracking-widest text-base-content/50">
             Last Updated
@@ -368,7 +368,7 @@ function PrivacyContent() {
           </p>
         </div>
       </div>
-      <div className="mt-8 inline-block rounded-xl bg-accent px-6 py-4 text-sm text-accent-content">
+      <div className="mt-8 inline-block rounded-xl bg-accent px-6 py-4  text-accent-content">
         <p className="mb-1 font-semibold">Need clarification?</p>
         <a
           href="mailto:info@guardmasterinstitute.ca"
@@ -397,7 +397,7 @@ function CookieContent() {
         how we use them, and your choices.
       </Para>
 
-      <div className="mt-8 inline-block rounded-xl bg-accent px-6 py-4 text-sm text-accent-content">
+      <div className="mt-8 inline-block rounded-xl bg-accent px-6 py-4  text-accent-content">
         <p className="mb-1 font-semibold">Cookie questions?</p>
         <a
           href="mailto:info@guardmasterinstitute.ca"

@@ -71,7 +71,7 @@ function RouteComponent() {
                         ? "Certificate Revoked"
                         : "Certificate Verified"}
                     </p>
-                    <p className="text-sm opacity-80">
+                    <p className=" opacity-80">
                       {isRevoked
                         ? "This certificate has been revoked and is no longer valid."
                         : "This is an authentic certificate issued by Guardmaster Institute Canada."}
@@ -158,9 +158,7 @@ function RouteComponent() {
                           {student.firstName.toLowerCase()}{" "}
                           {student.lastName.toLowerCase()}
                         </p>
-                        <p className="text-sm text-base-content/60">
-                          {student.email}
-                        </p>
+                        <p className=" text-base-content/60">{student.email}</p>
                       </div>
                     </div>
 
@@ -177,7 +175,7 @@ function RouteComponent() {
                     </div>
 
                     <div className="mt-8 rounded-xl bg-accent/10 px-5 py-4">
-                      <p className="text-sm text-base-content/70">
+                      <p className=" text-base-content/70">
                         This certificate was issued by{" "}
                         <span className="font-semibold text-accent">
                           Guardmaster Institute Canada™

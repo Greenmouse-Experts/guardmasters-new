@@ -59,12 +59,12 @@ function RouteComponent() {
                       <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent  font-bold text-white">
                         {i + 1}
                       </span>
-                      <span className="flex-1 text-sm font-bold text-base-content">
+                      <span className="flex-1  font-bold text-base-content">
                         {faq.question}
                       </span>
                       <ChevronDown className="chevron h-4 w-4 shrink-0  transition-transform" />
                     </summary>
-                    <p className="mt-3 pl-10 text-sm leading-relaxed text-base-content/60">
+                    <p className="mt-3 pl-10  leading-relaxed text-base-content/60">
                       {faq.answer}
                     </p>
                   </details>
@@ -78,7 +78,7 @@ function RouteComponent() {
                 <p className="font-pop font-bold text-primary">
                   Still have questions?
                 </p>
-                <p className="mt-1 text-sm leading-relaxed text-base-content/90">
+                <p className="mt-1  leading-relaxed text-base-content/90">
                   Our admissions team is here to help you choose the right
                   program.
                 </p>
@@ -93,7 +93,7 @@ function RouteComponent() {
                   </div>
                   <div>
                     <p className=" ">Call Us</p>
-                    <p className="text-sm font-semibold ">+1 437 545 1684</p>
+                    <p className=" font-semibold ">+1 437 545 1684</p>
                   </div>
                 </div>
 
@@ -105,7 +105,7 @@ function RouteComponent() {
                   </div>
                   <div>
                     <p className=" ">Email Us</p>
-                    <p className="text-sm font-semibold text-base-content">
+                    <p className=" font-semibold text-base-content">
                       info@guardmasterinstitute.ca
                     </p>
                   </div>
@@ -119,7 +119,7 @@ function RouteComponent() {
                   </div>
                   <div>
                     <p className=" ">Visit Our Website</p>
-                    <p className="text-sm font-semibold text-base-content">
+                    <p className=" font-semibold text-base-content">
                       guardmasterinstitute.ca
                     </p>
                   </div>

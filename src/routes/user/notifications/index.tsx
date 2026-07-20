@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  keepPreviousData,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { CheckCheck, Inbox } from "lucide-react";
 import { toast } from "sonner";
@@ -32,7 +37,8 @@ function RouteComponent() {
   const { page, setPage, hasPrev, hasNext, totalPages } = usePagination();
   const queryClient = useQueryClient();
 
-  const endpoint = tab === "unread" ? "notifications/unread" : "notifications/read";
+  const endpoint =
+    tab === "unread" ? "notifications/unread" : "notifications/read";
 
   const query = useQuery<ApiResponseV2<Notification[]>>({
     queryKey: ["notifications", tab, page],
@@ -60,7 +66,7 @@ function RouteComponent() {
           type="button"
           onClick={() => markAllMutation.mutate()}
           disabled={markAllMutation.isPending}
-          className="flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent/70 disabled:opacity-50"
+          className="flex items-center gap-1.5  font-medium text-accent hover:text-accent/70 disabled:opacity-50"
         >
           <CheckCheck className="h-4 w-4" />
           Mark all as read
@@ -101,7 +107,7 @@ function RouteComponent() {
               </ul>
 
               <div className="flex items-center justify-end gap-4">
-                <p className="text-sm text-base-content/60">
+                <p className=" text-base-content/60">
                   Page {page} of {totalPages(data.count)}
                 </p>
                 <div className="flex gap-2">
@@ -138,7 +144,7 @@ function TabButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-md py-2.5 text-sm font-medium transition-colors ${
+      className={`rounded-md py-2.5  font-medium transition-colors ${
         active
           ? "bg-accent text-accent-content"
           : "text-base-content/60 hover:text-base-content"
@@ -154,7 +160,8 @@ function NotificationItem({ item }: { item: Notification }) {
 
   const markRead = useMutation({
     mutationFn: () => apiClient.patch(`notifications/mark-as-read/${item.id}`),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["notifications"] }),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ["notifications"] }),
     onError: (err) => toast.error(extract_message(err)),
   });
 
@@ -169,7 +176,7 @@ function NotificationItem({ item }: { item: Notification }) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="font-medium text-accent">{item.title}</p>
-          <p className="mt-1 text-sm leading-relaxed text-base-content/60">
+          <p className="mt-1  leading-relaxed text-base-content/60">
             {item.message}
           </p>
         </div>

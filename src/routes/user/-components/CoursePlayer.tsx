@@ -33,7 +33,7 @@ export default function CoursePlayer({ courseId }: { courseId: string }) {
     return (
       <div className="flex aspect-video w-full flex-col items-center justify-center gap-3 bg-base-300 text-center text-base-content/50">
         <PlaySquare className="h-10 w-10" />
-        <p className="text-sm">Select a lesson to begin</p>
+        <p className="">Select a lesson to begin</p>
       </div>
     );
   }
@@ -97,7 +97,7 @@ function Media({
       <p className="text-base-content/70">This lesson is an assessment.</p>
       <button
         type="button"
-        className="rounded-sm bg-secondary px-6 py-2.5 text-sm font-medium text-secondary-content hover:bg-secondary/90"
+        className="rounded-sm bg-secondary px-6 py-2.5  font-medium text-secondary-content hover:bg-secondary/90"
       >
         Start Assessment
       </button>

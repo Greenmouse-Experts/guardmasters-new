@@ -128,7 +128,7 @@ function RouteComponent() {
               //   backgroundRepeat: "repeat-x",
               // }}
             >
-              <p className="mb-1 text-sm font-semibold text-secondary">
+              <p className="mb-1  font-semibold text-secondary">
                 Our Location
               </p>
               <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -136,7 +136,7 @@ function RouteComponent() {
                   <h2 className="mb-1 text-3xl font-semibold text-base-content">
                     Find Guardmaster Institute
                   </h2>
-                  <p className="text-sm text-base-content">
+                  <p className=" text-base-content">
                     405 Victoria Avenue, Windsor,
                     <br />
                     Ontario N9A 4N1, Canada
@@ -146,7 +146,7 @@ function RouteComponent() {
                   href={GMAPS_HREF}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-base-300 px-4 py-2.5 text-sm font-medium text-base-content transition-colors hover:bg-base-200"
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-base-300 px-4 py-2.5  font-medium text-base-content transition-colors hover:bg-base-200"
                 >
                   Open in Google Maps
                   <ArrowRight className="h-3.5 w-3.5 -rotate-45" />
@@ -167,7 +167,7 @@ function RouteComponent() {
                   <p className="mb-0.5 text-xs font-semibold text-amber-500">
                     Pinned Location
                   </p>
-                  <p className="text-sm font-semibold text-base-content">
+                  <p className=" font-semibold text-base-content">
                     Guardmaster Institute
                   </p>
                   <p className="mt-1 text-xs text-base-content/60">
@@ -180,13 +180,13 @@ function RouteComponent() {
 
             {/* Form card */}
             <div className="rounded-2xl  p-8 shadow-sm md:p-10  ring ring-current/10 bg-base-100">
-              <p className="mb-1 text-sm font-semibold text-secondary">
+              <p className="mb-1  font-semibold text-secondary">
                 Send A Message
               </p>
               <h2 className="mb-1 text-3xl font-semibold text-base-content">
                 Tell us what you need
               </h2>
-              <p className="mb-8 text-sm text-base-content/55">
+              <p className="mb-8  text-base-content/55">
                 Complete the form below and our admissions or support team will
                 get back to you shortly.
               </p>
@@ -230,7 +230,7 @@ function RouteComponent() {
                 <div className="mt-5">
                   <label
                     htmlFor="interestedIn"
-                    className="mb-1.5 block text-sm text-base-content/70"
+                    className="mb-1.5 block  text-base-content/70"
                   >
                     Interested In
                   </label>
@@ -250,7 +250,7 @@ function RouteComponent() {
                 <div className="mt-5">
                   <label
                     htmlFor="message"
-                    className="mb-1.5 block text-sm text-base-content/70"
+                    className="mb-1.5 block  text-base-content/70"
                   >
                     Message
                   </label>
@@ -316,7 +316,7 @@ function Field({
     <div>
       <label
         htmlFor={name}
-        className="mb-1.5 block text-sm text-base-content/70"
+        className="mb-1.5 block  text-base-content/70"
       >
         {label}
       </label>

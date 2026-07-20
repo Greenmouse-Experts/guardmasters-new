@@ -77,7 +77,7 @@ export default function SimpleHero({
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary">
                     <Check className="h-3 w-3 text-accent" strokeWidth={3} />
                   </span>
-                  <span className="text-sm text-white/70">{feature}</span>
+                  <span className=" text-white/70">{feature}</span>
                 </div>
               ))}
             </div>
@@ -124,7 +124,7 @@ export default function SimpleHero({
                 <div className="font-pop text-xl font-bold text-primary">
                   {item.value}
                 </div>
-                <div className="mt-1 text-sm text-white/50">{item.label}</div>
+                <div className="mt-1  text-white/50">{item.label}</div>
               </div>
             ))}
           </div>

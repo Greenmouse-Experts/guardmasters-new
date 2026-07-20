@@ -90,7 +90,7 @@ export default function CustomTable(props: CustomTableProps) {
 
       {/* Dummy Paginator */}
       <div className="flex items-center justify-between px-4 py-3 bg-base-200/30 border-t border-base-300">
-        <div className="text-sm text-base-content/60">
+        <div className=" text-base-content/60">
           Showing <span className="font-medium">1</span> to{" "}
           <span className="font-medium">{props.data?.length || 0}</span> of{" "}
           <span className="font-medium">{props.data?.length || 0}</span> results

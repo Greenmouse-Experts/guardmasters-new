@@ -130,7 +130,7 @@ function RouteComponent() {
               ? "Complete the course to unlock your certificate"
               : undefined
           }
-          className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md bg-accent px-3 py-2 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60 sm:px-4"
+          className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md bg-accent px-3 py-2  font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60 sm:px-4"
         >
           {generateCertificate.isPending ? (
             <Loader2 className="h-4 w-4 animate-spin" />
@@ -182,9 +182,7 @@ function CertificateView({
           Certificate Issued
         </h3>
         {certificate.course?.title && (
-          <p className="text-sm text-base-content/60">
-            {certificate.course.title}
-          </p>
+          <p className=" text-base-content/60">{certificate.course.title}</p>
         )}
       </div>
 
@@ -216,7 +214,7 @@ function CertificateView({
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between gap-4 px-4 py-3 text-sm">
+    <div className="flex items-center justify-between gap-4 px-4 py-3 ">
       <dt className="text-base-content/55">{label}</dt>
       <dd className="font-medium text-accent">{value}</dd>
     </div>
@@ -226,7 +224,7 @@ function Row({ label, value }: { label: string; value: string }) {
 function NavLink({ item, id }: { item: NavItem; id: string }) {
   const { icon: Icon, label, to, exact } = item;
   const base =
-    "flex items-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors sm:px-4";
+    "flex items-center gap-2 whitespace-nowrap rounded-md px-3 py-2  font-medium transition-colors sm:px-4";
 
   return (
     <Link

@@ -47,7 +47,7 @@ function RouteComponent() {
                     <Link
                       to="/home/blog"
                       search={{ page: 1 }}
-                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:underline"
+                      className="mt-4 inline-flex items-center gap-1.5  font-medium text-secondary hover:underline"
                     >
                       <ArrowLeft className="h-4 w-4" />
                       Back to blog
@@ -74,7 +74,7 @@ function Article({ post }: { post: BlogPost }) {
       <Link
         to="/home/blog"
         search={{ page: 1 }}
-        className="group mb-8 inline-flex items-center gap-1.5 text-sm font-semibold text-base-content/55 transition-colors hover:text-base-content"
+        className="group mb-8 inline-flex items-center gap-1.5  font-semibold text-base-content/55 transition-colors hover:text-base-content"
       >
         <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         Back to Blog
@@ -93,7 +93,7 @@ function Article({ post }: { post: BlogPost }) {
       </h1>
 
       {/* Meta */}
-      <div className="mt-5 mb-10 flex items-center gap-3 text-sm text-base-content/45">
+      <div className="mt-5 mb-10 flex items-center gap-3  text-base-content/45">
         <span>{formatBlogDate(post.createdDate)}</span>
         <span className="inline-block h-1 w-1 rounded-full bg-base-300" />
         <span className="flex items-center gap-1.5">
@@ -188,7 +188,7 @@ function ShareCard({ title }: { title: string }) {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center rounded-xl border border-base-300 py-2.5 text-sm font-medium text-base-content/70 transition-colors hover:bg-base-200"
+            className="flex items-center justify-center rounded-xl border border-base-300 py-2.5  font-medium text-base-content/70 transition-colors hover:bg-base-200"
           >
             {link.label}
           </a>
@@ -196,7 +196,7 @@ function ShareCard({ title }: { title: string }) {
         <button
           type="button"
           onClick={copyLink}
-          className="flex items-center justify-center gap-1.5 rounded-xl border border-base-300 py-2.5 text-sm font-medium text-base-content/70 transition-colors hover:bg-base-200"
+          className="flex items-center justify-center gap-1.5 rounded-xl border border-base-300 py-2.5  font-medium text-base-content/70 transition-colors hover:bg-base-200"
         >
           {copied ? (
             <>
@@ -229,7 +229,7 @@ function NewsletterCard() {
       <button
         type="button"
         onClick={() => navigate({ to: "/home/blog", search: { page: 1 } })}
-        className="w-full rounded-xl bg-base-100 py-3 text-sm font-semibold text-accent transition-colors hover:bg-base-200"
+        className="w-full rounded-xl bg-base-100 py-3  font-semibold text-accent transition-colors hover:bg-base-200"
       >
         View All Articles
       </button>

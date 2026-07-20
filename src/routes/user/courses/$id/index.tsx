@@ -73,7 +73,7 @@ function Learn({ data }: { data: CourseLearnResponse }) {
 
       {/* Right: content list */}
       <div className="space-y-4">
-        <div className="flex items-center gap-4 rounded-lg border border-base-300 bg-base-100 px-5 py-4 text-sm">
+        <div className="flex items-center gap-4 rounded-lg border border-base-300 bg-base-100 px-5 py-4 ">
           <span className="flex items-center gap-1.5 text-base-content/60">
             <ListChecks className="h-4 w-4" />
             {contents.total} modules
@@ -127,11 +127,11 @@ function CourseTabs({ data }: { data: CourseLearnResponse }) {
                 {course.title}
               </h1>
               {course.program?.title && (
-                <p className="text-sm text-base-content/60">
+                <p className=" text-base-content/60">
                   Program: {course.program.title}
                 </p>
               )}
-              <p className="whitespace-pre-line text-sm leading-relaxed text-base-content/60">
+              <p className="whitespace-pre-line  leading-relaxed text-base-content/60">
                 {course.shortDesc}
               </p>
             </div>
@@ -157,7 +157,7 @@ function TabButton({
     <button
       type="button"
       onClick={onClick}
-      className={`-mb-px border-b-2 py-3 text-sm font-medium transition-colors ${
+      className={`-mb-px border-b-2 py-3  font-medium transition-colors ${
         active
           ? "border-secondary text-secondary"
           : "border-transparent text-base-content/55 hover:text-base-content"

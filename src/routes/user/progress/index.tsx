@@ -61,7 +61,7 @@ function RouteComponent() {
               </div>
 
               <div className="flex items-center justify-end gap-4">
-                <p className="text-sm text-base-content/60">
+                <p className=" text-base-content/60">
                   Page {page} of {totalPages(data.count)}
                 </p>
                 <div className="flex gap-2">
@@ -109,7 +109,7 @@ function ProgressCard({ item }: { item: Assesmnt }) {
         <h2 className="text-lg font-medium text-accent">{course.title}</h2>
 
         <div className="space-y-2">
-          <div className="flex items-center justify-between text-sm">
+          <div className="flex items-center justify-between ">
             <span className="font-medium text-accent">Completed</span>
             <span className="font-semibold text-success">{percent}%</span>
           </div>
@@ -121,7 +121,7 @@ function ProgressCard({ item }: { item: Assesmnt }) {
           </div>
         </div>
 
-        <div className="flex items-center justify-between border-t border-base-200 pt-4 text-sm">
+        <div className="flex items-center justify-between border-t border-base-200 pt-4 ">
           <span className="font-medium text-accent">Assessments</span>
           <span className="font-semibold text-base-content/70">
             {done}/{total}
@@ -132,13 +132,13 @@ function ProgressCard({ item }: { item: Assesmnt }) {
           <button
             type="button"
             disabled={!isComplete}
-            className="rounded-sm border border-base-300 bg-base-200 px-5 py-2.5 text-sm font-medium text-base-content/70 transition-colors hover:bg-base-300 disabled:cursor-not-allowed disabled:opacity-60"
+            className="rounded-sm border border-base-300 bg-base-200 px-5 py-2.5  font-medium text-base-content/70 transition-colors hover:bg-base-300 disabled:cursor-not-allowed disabled:opacity-60"
           >
             Get Certification
           </button>
           <button
             type="button"
-            className="rounded-sm bg-accent px-5 py-2.5 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90"
+            className="rounded-sm bg-accent px-5 py-2.5  font-medium text-accent-content transition-colors hover:bg-accent/90"
           >
             View Assessment Results
           </button>

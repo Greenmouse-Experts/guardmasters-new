@@ -62,20 +62,20 @@ function Intro({ sub, onStart }: { sub: LessonSub; onStart: () => void }) {
         <ClipboardList className="h-8 w-8" />
       </span>
       <h3 className="text-lg font-semibold text-accent">{sub.title}</h3>
-      <p className="text-sm text-base-content/60">
+      <p className=" text-base-content/60">
         Duration:{" "}
         <span className="font-semibold text-base-content">
           {sub.duration} min{sub.duration !== 1 ? "s" : ""}
         </span>
       </p>
-      <p className="max-w-sm text-sm leading-relaxed text-base-content/55">
+      <p className="max-w-sm  leading-relaxed text-base-content/55">
         The timer starts as soon as you begin. Your answers are submitted
         automatically when the time runs out.
       </p>
       <button
         type="button"
         onClick={onStart}
-        className="mt-2 w-full max-w-xs rounded-md bg-accent py-3 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90"
+        className="mt-2 w-full max-w-xs rounded-md bg-accent py-3  font-medium text-accent-content transition-colors hover:bg-accent/90"
       >
         Start Assessment
       </button>
@@ -155,7 +155,7 @@ function Quiz({
 
   if (isError || questions.length === 0) {
     return (
-      <p className="py-16 text-center text-sm text-base-content/55">
+      <p className="py-16 text-center  text-base-content/55">
         No questions are available for this assessment.
       </p>
     );
@@ -169,7 +169,7 @@ function Quiz({
     <div className="space-y-5">
       <div className="flex items-center justify-between gap-3">
         <Timer minutes={sub.duration} onTimeout={handleSubmit} />
-        <p className="text-sm font-medium text-base-content/60">
+        <p className=" font-medium text-base-content/60">
           {questions.length} Question{questions.length !== 1 ? "s" : ""}
         </p>
       </div>
@@ -190,7 +190,7 @@ function Quiz({
                 type="button"
                 key={i}
                 onClick={() => selectOption(question.id, value)}
-                className={`flex items-center gap-3 rounded-md border px-4 py-3 text-left text-sm transition-colors ${
+                className={`flex items-center gap-3 rounded-md border px-4 py-3 text-left  transition-colors ${
                   active
                     ? "border-secondary bg-secondary/10 text-accent"
                     : "border-base-300 hover:bg-base-200"
@@ -217,7 +217,7 @@ function Quiz({
           type="button"
           onClick={() => setIndex((i) => Math.max(0, i - 1))}
           disabled={index === 0}
-          className="rounded-md border border-base-300 px-6 py-2 text-sm font-medium text-base-content/70 transition-colors hover:bg-base-200 disabled:invisible"
+          className="rounded-md border border-base-300 px-6 py-2  font-medium text-base-content/70 transition-colors hover:bg-base-200 disabled:invisible"
         >
           Prev
         </button>
@@ -227,7 +227,7 @@ function Quiz({
             type="button"
             onClick={handleSubmit}
             disabled={submit.isPending}
-            className="flex items-center gap-2 rounded-md bg-secondary px-6 py-2 text-sm font-medium text-secondary-content transition-colors hover:bg-secondary/90 disabled:opacity-60"
+            className="flex items-center gap-2 rounded-md bg-secondary px-6 py-2  font-medium text-secondary-content transition-colors hover:bg-secondary/90 disabled:opacity-60"
           >
             {submit.isPending && <Loader2 className="h-4 w-4 animate-spin" />}
             {submit.isPending ? "Submitting" : "Submit"}
@@ -238,7 +238,7 @@ function Quiz({
             onClick={() =>
               setIndex((i) => Math.min(questions.length - 1, i + 1))
             }
-            className="rounded-md bg-secondary px-6 py-2 text-sm font-medium text-secondary-content transition-colors hover:bg-secondary/90"
+            className="rounded-md bg-secondary px-6 py-2  font-medium text-secondary-content transition-colors hover:bg-secondary/90"
           >
             Next
           </button>
@@ -279,7 +279,7 @@ function Timer({
 
   return (
     <span
-      className={`flex items-center gap-2 rounded-md px-3 py-1.5 text-sm font-semibold ${
+      className={`flex items-center gap-2 rounded-md px-3 py-1.5  font-semibold ${
         low ? "bg-error/10 text-error" : "bg-base-200 text-base-content/70"
       }`}
     >
@@ -320,7 +320,7 @@ function Results({
 
   if (isError || !data) {
     return (
-      <p className="py-16 text-center text-sm text-error">
+      <p className="py-16 text-center  text-error">
         Could not load this attempt.
       </p>
     );
@@ -332,7 +332,7 @@ function Results({
     return (
       <div className="space-y-5">
         <div className="rounded-lg bg-base-200 py-10 text-center">
-          <p className="text-sm font-medium text-base-content/60">
+          <p className=" font-medium text-base-content/60">
             Your submission was received, but the result is not available yet.
           </p>
           <p className="mt-1 text-xs text-base-content/40">
@@ -342,7 +342,7 @@ function Results({
         <button
           type="button"
           onClick={onClose}
-          className="w-full rounded-md bg-accent py-3 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90"
+          className="w-full rounded-md bg-accent py-3  font-medium text-accent-content transition-colors hover:bg-accent/90"
         >
           Close
         </button>
@@ -398,7 +398,7 @@ function Results({
                 </span>
               </div>
 
-              <div className="mt-3 space-y-2 text-sm">
+              <div className="mt-3 space-y-2 ">
                 <div
                   className={`rounded-md border px-3 py-2 ${
                     correct
@@ -430,7 +430,7 @@ function Results({
       <button
         type="button"
         onClick={onClose}
-        className="w-full rounded-md bg-accent py-3 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90"
+        className="w-full rounded-md bg-accent py-3  font-medium text-accent-content transition-colors hover:bg-accent/90"
       >
         Close
       </button>

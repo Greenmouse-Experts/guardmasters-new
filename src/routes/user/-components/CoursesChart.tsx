@@ -39,7 +39,7 @@ export default function CoursesChart() {
         </span>
         <div>
           <h2 className="text-lg font-semibold text-accent">Courses Chart</h2>
-          <p className="text-sm text-base-content/55">
+          <p className=" text-base-content/55">
             Visualize your course progress with real time analytic.
           </p>
         </div>
@@ -47,56 +47,55 @@ export default function CoursesChart() {
 
       <div className="flex flex-1 flex-col">
         <QueryCompLayout query={query}>
-        {(data) => {
-          const slices = statusMeta.map((meta) => ({
-            label: meta.label,
-            color: meta.color,
-            value: data[meta.key] ?? 0,
-          }));
-          const total = slices.reduce((sum, s) => sum + s.value, 0);
+          {(data) => {
+            const slices = statusMeta.map((meta) => ({
+              label: meta.label,
+              color: meta.color,
+              value: data[meta.key] ?? 0,
+            }));
+            const total = slices.reduce((sum, s) => sum + s.value, 0);
 
-          let cursor = 0;
-          const gradient = slices
-            .map((slice) => {
-              const start = (cursor / total) * 360;
-              cursor += slice.value;
-              const end = (cursor / total) * 360;
-              return `${slice.color} ${start}deg ${end}deg`;
-            })
-            .join(", ");
+            let cursor = 0;
+            const gradient = slices
+              .map((slice) => {
+                const start = (cursor / total) * 360;
+                cursor += slice.value;
+                const end = (cursor / total) * 360;
+                return `${slice.color} ${start}deg ${end}deg`;
+              })
+              .join(", ");
 
-          return (
-            <div className="flex flex-1 flex-col items-center justify-center gap-8 sm:flex-row sm:justify-around">
-              <div
-                className="aspect-square w-full max-w-[18rem] shrink-0 rounded-full bg-base-200"
-                style={
-                  total > 0
-                    ? { background: `conic-gradient(${gradient})` }
-                    : undefined
-                }
-                role="img"
-                aria-label="Courses progress pie chart"
-              />
-              <ul className="w-full max-w-xs space-y-2 sm:w-auto">
-                {slices.map((slice) => (
-                  <li
-                    key={slice.label}
-                    className="flex items-center gap-2 text-sm"
-                  >
-                    <span
-                      className="h-3 w-3 rounded-sm"
-                      style={{ background: slice.color }}
-                    />
-                    <span className="text-base-content/70">{slice.label}</span>
-                    <span className="ml-auto font-medium text-accent">
-                      {slice.value}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        }}
+            return (
+              <div className="flex flex-1 flex-col items-center justify-center gap-8 sm:flex-row sm:justify-around">
+                <div
+                  className="aspect-square w-full max-w-[18rem] shrink-0 rounded-full bg-base-200"
+                  style={
+                    total > 0
+                      ? { background: `conic-gradient(${gradient})` }
+                      : undefined
+                  }
+                  role="img"
+                  aria-label="Courses progress pie chart"
+                />
+                <ul className="w-full max-w-xs space-y-2 sm:w-auto">
+                  {slices.map((slice) => (
+                    <li key={slice.label} className="flex items-center gap-2 ">
+                      <span
+                        className="h-3 w-3 rounded-sm"
+                        style={{ background: slice.color }}
+                      />
+                      <span className="text-base-content/70">
+                        {slice.label}
+                      </span>
+                      <span className="ml-auto font-medium text-accent">
+                        {slice.value}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          }}
         </QueryCompLayout>
       </div>
     </div>

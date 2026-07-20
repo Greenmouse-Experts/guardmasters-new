@@ -74,7 +74,7 @@ export default function CartSidebar() {
                 closeCart();
                 navigate({ to: "/home/programs" });
               }}
-              className="rounded-sm bg-secondary px-6 py-2.5 text-sm font-medium text-secondary-content hover:bg-secondary/90"
+              className="rounded-sm bg-secondary px-6 py-2.5  font-medium text-secondary-content hover:bg-secondary/90"
             >
               Browse programs
             </button>
@@ -93,7 +93,7 @@ export default function CartSidebar() {
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="line-clamp-2 text-sm font-semibold text-accent">
+                  <h3 className="line-clamp-2  font-semibold text-accent">
                     {item.title}
                   </h3>
                   <p className="mt-1 font-bold text-secondary">

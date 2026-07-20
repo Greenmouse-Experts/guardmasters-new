@@ -139,7 +139,7 @@ function BlogContent({ posts }: { posts: BlogPost[] }) {
         )}
 
         {/* Pagination */}
-        <div className="mt-14 flex items-center justify-center gap-6 text-sm">
+        <div className="mt-14 flex items-center justify-center gap-6 ">
           <button
             type="button"
             onClick={() => setPage(page - 1)}
@@ -174,7 +174,7 @@ function Featured({ post }: { post: BlogPost }) {
         </span>
 
         {category && (
-          <p className="mt-6 text-sm font-semibold tracking-[0.12em] text-secondary uppercase">
+          <p className="mt-6  font-semibold tracking-[0.12em] text-secondary uppercase">
             {category}
           </p>
         )}
@@ -187,7 +187,7 @@ function Featured({ post }: { post: BlogPost }) {
           {post.description}
         </p>
 
-        <div className="mt-6 flex items-center gap-5 text-sm text-base-content/45">
+        <div className="mt-6 flex items-center gap-5  text-base-content/45">
           <span>{formatBlogDate(post.createdDate)}</span>
           <span className="flex items-center gap-1.5">
             <Clock className="h-4 w-4" />
@@ -198,7 +198,7 @@ function Featured({ post }: { post: BlogPost }) {
         <Link
           to="/home/blog/$id"
           params={{ id: post.id }}
-          className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3  font-medium text-accent-content transition-colors hover:bg-accent/90"
         >
           Read Article
           <ArrowRight className="h-4 w-4" />
@@ -221,7 +221,7 @@ function Featured({ post }: { post: BlogPost }) {
           <p className="text-xs font-medium tracking-wide text-base-content/50 uppercase">
             Trending Topic
           </p>
-          <p className="mt-1 line-clamp-2 text-sm font-semibold text-accent">
+          <p className="mt-1 line-clamp-2  font-semibold text-accent">
             {post.title}
           </p>
         </div>
@@ -243,7 +243,7 @@ function FilterPill({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+      className={`rounded-full px-4 py-1.5  font-medium transition-colors ${
         active
           ? "bg-accent text-accent-content"
           : "bg-base-200 text-base-content/70 hover:bg-base-300"

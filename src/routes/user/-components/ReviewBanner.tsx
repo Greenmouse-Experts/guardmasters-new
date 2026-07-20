@@ -24,7 +24,7 @@ export default function ReviewBanner() {
         <button
           type="button"
           onClick={() => modalRef.current?.open()}
-          className="mt-6 rounded-sm bg-secondary px-6 py-3 text-sm font-medium text-secondary-content transition-colors hover:bg-secondary/90"
+          className="mt-6 rounded-sm bg-secondary px-6 py-3  font-medium text-secondary-content transition-colors hover:bg-secondary/90"
         >
           Write a Review
         </button>
@@ -68,14 +68,14 @@ function TestimonyForm({ onDone }: { onDone: () => void }) {
       onSubmit={handleSubmit((values) => mutation.mutate(values))}
     >
       <div>
-        <label className="mb-2 block text-sm font-medium text-accent">
-          Testimony
-        </label>
+        <label className="mb-2 block  font-medium text-accent">Testimony</label>
         <textarea
-          {...register("testimony", { required: "Please write your testimony" })}
+          {...register("testimony", {
+            required: "Please write your testimony",
+          })}
           rows={5}
           placeholder="Tell us about your experience…"
-          className="w-full rounded-md border border-base-300 bg-base-100 p-3 text-sm text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
+          className="w-full rounded-md border border-base-300 bg-base-100 p-3  text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
         />
         {errors.testimony && (
           <p className="mt-1 text-xs text-error">{errors.testimony.message}</p>

@@ -95,9 +95,7 @@ function RouteComponent() {
               </div>
 
               <div>
-                <div className="mb-2 text-sm text-base-content/50">
-                  {item.org}
-                </div>
+                <div className="mb-2  text-base-content/50">{item.org}</div>
                 <p className="leading-relaxed text-base-content/80">
                   {item.description}
                 </p>

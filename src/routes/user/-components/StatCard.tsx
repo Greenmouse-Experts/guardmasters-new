@@ -14,7 +14,7 @@ export default function StatCard({ icon: Icon, value, label }: StatCardProps) {
       </span>
       <div>
         <p className="text-2xl font-semibold text-accent">{value}</p>
-        <p className="text-sm text-base-content/60">{label}</p>
+        <p className=" text-base-content/60">{label}</p>
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ export default function PageLoader<TData>(props: PageLoaderProps<TData>) {
           <h3 className="text-lg font-semibold tracking-tight text-base-content/80">
             {loadingText}
           </h3>
-          {/*<p className="text-sm text-base-content/50 max-w-[200px] leading-relaxed">
+          {/*<p className=" text-base-content/50 max-w-[200px] leading-relaxed">
             Please wait while we prepare your dashboard experience.
           </p>*/}
         </div>
@@ -62,7 +62,7 @@ export default function PageLoader<TData>(props: PageLoaderProps<TData>) {
           <h3 className="text-lg font-semibold text-base-content">
             Access Denied
           </h3>
-          <p className="mt-1 text-sm text-base-content/60 max-w-xs">
+          <p className="mt-1  text-base-content/60 max-w-xs">
             You don't have permission to view this resource. Contact support or
             a Super Admin to request access.
           </p>
@@ -78,12 +78,12 @@ export default function PageLoader<TData>(props: PageLoaderProps<TData>) {
         <h3 className="text-lg font-semibold text-base-content">
           Something went wrong
         </h3>
-        <p className="mt-1 text-sm text-base-content/60 max-w-xs">
+        <p className="mt-1  text-base-content/60 max-w-xs">
           {extract_message(query.error)}
         </p>
         <button
           onClick={() => query.refetch()}
-          className="mt-6 flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-content hover:opacity-90 transition-all active:scale-95"
+          className="mt-6 flex items-center gap-2 rounded-lg bg-primary px-4 py-2  font-medium text-primary-content hover:opacity-90 transition-all active:scale-95"
         >
           <RefreshCcw className="h-4 w-4" />
           Try Again

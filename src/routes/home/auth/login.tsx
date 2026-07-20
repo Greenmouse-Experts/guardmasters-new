@@ -137,7 +137,7 @@ function RouteComponent() {
             </form>
           </FormProvider>
 
-          <p className="mt-8 text-center text-sm text-base-content/60">
+          <p className="mt-8 text-center  text-base-content/60">
             Don&apos;t have an account?{" "}
             <Link
               to="/home/auth/signup"

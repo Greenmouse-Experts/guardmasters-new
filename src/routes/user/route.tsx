@@ -97,7 +97,7 @@ function RouteComponent() {
                   {initials}
                 </div>
               )}
-              <span className="hidden text-sm font-semibold tracking-wide text-accent uppercase sm:inline">
+              <span className="hidden  font-semibold tracking-wide text-accent uppercase sm:inline">
                 {name}
               </span>
               <ChevronDown className="h-4 w-4 text-base-content/50" />
@@ -110,7 +110,7 @@ function RouteComponent() {
               <li>
                 <Link
                   to="/home"
-                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-base-content hover:bg-base-200"
+                  className="flex items-center gap-2 rounded-md px-3 py-2  text-base-content hover:bg-base-200"
                 >
                   <Home className="h-4 w-4" />
                   Home
@@ -119,7 +119,7 @@ function RouteComponent() {
               <li>
                 <Link
                   to="/user/settings"
-                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-base-content hover:bg-base-200"
+                  className="flex items-center gap-2 rounded-md px-3 py-2  text-base-content hover:bg-base-200"
                 >
                   <Settings className="h-4 w-4" />
                   Settings
@@ -129,7 +129,7 @@ function RouteComponent() {
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-error hover:bg-error/10"
+                  className="flex w-full items-center gap-2 rounded-md px-3 py-2  text-error hover:bg-error/10"
                 >
                   <LogOut className="h-4 w-4" />
                   Logout
@@ -190,7 +190,7 @@ function SidebarNav({
         <button
           type="button"
           onClick={onLogout}
-          className="flex items-center gap-3 px-4 py-3 text-sm text-accent-content/70 transition-colors hover:bg-white/10 hover:text-accent-content"
+          className="flex items-center gap-3 px-4 py-3  text-accent-content/70 transition-colors hover:bg-white/10 hover:text-accent-content"
         >
           <LogOut className="h-5 w-5" />
           Logout
@@ -209,7 +209,7 @@ function SidebarItem({
 }) {
   const { icon: Icon, label, to } = link;
   const base =
-    "flex items-center gap-3 px-4 py-3 text-sm transition-colors hover:bg-white/10";
+    "flex items-center gap-3 px-4 py-3  transition-colors hover:bg-white/10";
 
   if (!to) {
     return (

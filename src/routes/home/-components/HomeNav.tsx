@@ -104,7 +104,7 @@ export default function HomeNav() {
         className={`bg-white ${hasScrolled && "border-b  border-current/20"}`}
       >
         <div className="hidden bg-accent text-white  md:block">
-          <div className="container mx-auto flex items-center justify-between px-4 py-2 text-sm md:px-10">
+          <div className="container mx-auto flex items-center justify-between px-4 py-2  md:px-10">
             <div className="flex items-center divide-x divide-neutral/20 ">
               <a
                 href="tel:+19054522470"
@@ -208,7 +208,7 @@ export default function HomeNav() {
                   });
                 }
               }}
-              className="w-full bg-transparent text-sm text-white placeholder:text-white/50 focus:outline-none"
+              className="w-full bg-transparent  text-white placeholder:text-white/50 focus:outline-none"
             />
           </label>
 

@@ -35,7 +35,7 @@ export default function ContainerRow(props: ContainerRowProps) {
             <label className="fieldset-label">Search</label>
             <input
               {...form.register("search")}
-              className="input join-item text-sm flex-1"
+              className="input join-item  flex-1"
               placeholder="Search...."
             />
           </div>

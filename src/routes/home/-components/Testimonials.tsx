@@ -100,7 +100,7 @@ export default function Testimonials() {
                       </div>
 
                       <div className="mt-8 flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-accent">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary  font-bold text-accent">
                           {t.initials}
                         </div>
                         <div>

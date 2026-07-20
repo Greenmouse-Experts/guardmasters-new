@@ -60,7 +60,7 @@ function RouteComponent() {
         </span>
         <div>
           <h1 className="text-2xl font-semibold text-accent">Support</h1>
-          <p className="text-sm text-base-content/55">
+          <p className=" text-base-content/55">
             Need a hand? Reach out and our team will get back to you.
           </p>
         </div>
@@ -78,7 +78,7 @@ function RouteComponent() {
               <channel.icon className="h-5 w-5" />
             </span>
             <div>
-              <p className="text-sm text-base-content/55">{channel.label}</p>
+              <p className=" text-base-content/55">{channel.label}</p>
               <p className="font-medium text-accent">{channel.value}</p>
             </div>
           </a>
@@ -93,7 +93,7 @@ function RouteComponent() {
             <MessageCircle className="h-5 w-5" />
           </span>
           <div>
-            <p className="text-sm text-base-content/55">Send a message</p>
+            <p className=" text-base-content/55">Send a message</p>
             <p className="font-medium text-accent">We'll reply by email</p>
           </div>
         </button>
@@ -109,7 +109,7 @@ function RouteComponent() {
           Frequently asked questions
         </h2>
         {faqs.length === 0 ? (
-          <p className="py-6 text-center text-sm text-base-content/50">
+          <p className="py-6 text-center  text-base-content/50">
             {faqQuery.isLoading ? "Loading FAQs..." : "No FAQs available yet."}
           </p>
         ) : (
@@ -122,7 +122,7 @@ function RouteComponent() {
                     +
                   </span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-base-content/60">
+                <p className="mt-3  leading-relaxed text-base-content/60">
                   {faq.answer}
                 </p>
               </details>
@@ -174,12 +174,10 @@ function MessageForm({ onDone }: { onDone: () => void }) {
       onSubmit={handleSubmit((values) => mutation.mutate(values))}
     >
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-accent">
-          Name
-        </label>
+        <label className="mb-1.5 block  font-medium text-accent">Name</label>
         <input
           {...register("name", { required: "Name is required" })}
-          className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5 text-sm text-base-content focus:border-secondary focus:outline-none"
+          className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5  text-base-content focus:border-secondary focus:outline-none"
         />
         {errors.name && (
           <p className="mt-1 text-xs text-error">{errors.name.message}</p>
@@ -187,13 +185,11 @@ function MessageForm({ onDone }: { onDone: () => void }) {
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-accent">
-          Email
-        </label>
+        <label className="mb-1.5 block  font-medium text-accent">Email</label>
         <input
           type="email"
           {...register("email", { required: "Email is required" })}
-          className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5 text-sm text-base-content focus:border-secondary focus:outline-none"
+          className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5  text-base-content focus:border-secondary focus:outline-none"
         />
         {errors.email && (
           <p className="mt-1 text-xs text-error">{errors.email.message}</p>
@@ -201,14 +197,12 @@ function MessageForm({ onDone }: { onDone: () => void }) {
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-accent">
-          Message
-        </label>
+        <label className="mb-1.5 block  font-medium text-accent">Message</label>
         <textarea
           rows={5}
           {...register("message", { required: "Message is required" })}
           placeholder="How can we help?"
-          className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5 text-sm text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
+          className="w-full rounded-md border border-base-300 bg-base-100 px-4 py-2.5  text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
         />
         {errors.message && (
           <p className="mt-1 text-xs text-error">{errors.message.message}</p>

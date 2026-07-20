@@ -82,7 +82,7 @@ export default function ProfilePhoto() {
         <h2 className="text-lg font-semibold tracking-wide text-accent uppercase">
           {name}
         </h2>
-        <span className="flex items-center gap-2 text-sm font-medium text-success">
+        <span className="flex items-center gap-2  font-medium text-success">
           <span className="h-2.5 w-2.5 rounded-full bg-success" />
           Active
         </span>

@@ -75,7 +75,7 @@ export default function ActivityTimeline() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-base-200 text-base-content/40">
                     <Bell className="h-5 w-5" />
                   </span>
-                  <p className="text-sm text-base-content/50">
+                  <p className=" text-base-content/50">
                     No recent activity yet.
                   </p>
                 </li>
@@ -109,11 +109,11 @@ export default function ActivityTimeline() {
                             {activity.title}
                           </p>
                           {activity.description && (
-                            <p className="text-sm text-base-content/60">
+                            <p className=" text-base-content/60">
                               {activity.description}
                             </p>
                           )}
-                          <p className="text-sm text-base-content/50">
+                          <p className=" text-base-content/50">
                             {formatTime(activity.timestamp)}
                           </p>
                         </div>

@@ -127,7 +127,7 @@ function ReviewsCarousel({
 
         {hasReviews && (
           <div className="flex shrink-0 items-center gap-6">
-            <span className="font-pop text-sm font-bold tracking-widest text-base-content/50">
+            <span className="font-pop  font-bold tracking-widest text-base-content/50">
               {String(selected + 1).padStart(2, "0")}
               <span className="text-base-content/30">
                 {" "}
@@ -188,7 +188,7 @@ function ReviewsCarousel({
                       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-accent">
                         <Quote className="h-4 w-4 fill-current" />
                       </span>
-                      <div className="flex items-center gap-1.5 text-sm text-accent font-bold">
+                      <div className="flex items-center gap-1.5  text-accent font-bold">
                         <Star className="h-4 w-4 fill-primary stroke-primary text-accent" />
                         {rating.toFixed(1)}
                       </div>
@@ -206,7 +206,7 @@ function ReviewsCarousel({
                           className="h-11 w-11 shrink-0 rounded-full object-cover"
                         />
                       ) : (
-                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent  font-semibold text-white">
                           {initials}
                         </span>
                       )}

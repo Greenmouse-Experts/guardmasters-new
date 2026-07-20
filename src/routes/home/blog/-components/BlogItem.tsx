@@ -29,9 +29,9 @@ export default function BlogItem({ post }: { post: BlogPost }) {
         <h3 className="mt-2 line-clamp-2 text-lg font-semibold text-accent group-hover:underline">
           {post.title}
         </h3>
-        <p className="mt-3 text-sm text-base-content/50">
-          {formatBlogDate(post.createdDate)} •{" "}
-          {readingTime(post.description)} min read
+        <p className="mt-3  text-base-content/50">
+          {formatBlogDate(post.createdDate)} • {readingTime(post.description)}{" "}
+          min read
         </p>
       </div>
     </Link>

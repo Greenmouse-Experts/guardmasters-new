@@ -175,7 +175,7 @@ export default function FacultyProfile() {
             />
           </div>
 
-          <h3 className="mt-8 font-pop text-sm font-bold tracking-[0.2em] text-primary uppercase">
+          <h3 className="mt-8 font-pop  font-bold tracking-[0.2em] text-primary uppercase">
             Areas of Expertise
           </h3>
           <div className="mt-3 h-px w-full bg-white/10" />
@@ -186,7 +186,7 @@ export default function FacultyProfile() {
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg  text-primary">
                   <item.icon className="h-4 w-4" strokeWidth={1.75} />
                 </span>
-                <span className="text-sm text-white/80">{item.label}</span>
+                <span className=" text-white/80">{item.label}</span>
               </li>
             ))}
           </ul>

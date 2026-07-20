@@ -50,7 +50,7 @@ function RouteComponent() {
                 </p>
                 <Link
                   to="/home/programs"
-                  className="mt-2 rounded-sm bg-accent px-6 py-3 text-sm font-medium text-accent-content hover:bg-accent/90"
+                  className="mt-2 rounded-sm bg-accent px-6 py-3  font-medium text-accent-content hover:bg-accent/90"
                 >
                   Explore programs
                 </Link>
@@ -67,7 +67,7 @@ function RouteComponent() {
               </div>
 
               <div className="flex items-center justify-end gap-4">
-                <p className="text-sm text-base-content/60">
+                <p className=" text-base-content/60">
                   Page {page} of {totalPages(resp.count)}
                 </p>
                 <div className="flex gap-2">
@@ -160,7 +160,7 @@ function PagerButton({
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className="rounded-sm bg-accent px-4 py-1.5 text-sm font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:bg-base-300 disabled:text-base-content/40"
+      className="rounded-sm bg-accent px-4 py-1.5  font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:bg-base-300 disabled:text-base-content/40"
     >
       {label}
     </button>

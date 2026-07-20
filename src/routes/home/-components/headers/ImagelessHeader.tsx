@@ -21,7 +21,7 @@ export default function ImagelessHeader({
       />
 
       <div className="relative container mx-auto">
-        <span className="mb-6 inline-block rounded-full border border-white/20 px-4 py-1.5 font-medium tracking-[0.18em] text-white/60 uppercase bg-white/20 text-sm">
+        <span className="mb-6 inline-block rounded-full border border-white/20 px-4 py-1.5 font-medium tracking-[0.18em] text-white/60 uppercase bg-white/20 ">
           {badge}
         </span>
         <h1 className="max-w-3xl font-pop text-4xl leading-tight font-light text-white md:text-6xl">

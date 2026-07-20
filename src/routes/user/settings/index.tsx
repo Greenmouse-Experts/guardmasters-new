@@ -114,7 +114,7 @@ function RouteComponent() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="rounded-sm bg-secondary px-8 py-3 text-sm font-medium text-secondary-content transition-colors hover:bg-secondary/90 disabled:opacity-60"
+          className="rounded-sm bg-secondary px-8 py-3  font-medium text-secondary-content transition-colors hover:bg-secondary/90 disabled:opacity-60"
         >
           {isSubmitting ? "Saving…" : "Save Changes"}
         </button>
@@ -126,7 +126,7 @@ function RouteComponent() {
 function ReadonlyRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="grid grid-cols-1 gap-1 py-4 sm:grid-cols-3 sm:items-center">
-      <dt className="text-sm font-medium text-base-content/50">{label}</dt>
+      <dt className=" font-medium text-base-content/50">{label}</dt>
       <dd className="text-base-content sm:col-span-2">{value}</dd>
     </div>
   );

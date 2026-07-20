@@ -122,7 +122,7 @@ export default function ProgramHero({
                     <div key={stat.label} className="flex gap-4 items-center">
                       <stat.icon className="size-12 text-primary/80" />
                       <div>
-                        <div className="text-sm font-medium tracking-[0.15em] text-white/70 uppercase">
+                        <div className=" font-medium tracking-[0.15em] text-white/70 uppercase">
                           {stat.label}
                         </div>
                         <div className="mt-1 text-lg font-semibold">

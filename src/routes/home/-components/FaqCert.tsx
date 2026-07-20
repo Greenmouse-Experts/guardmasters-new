@@ -55,12 +55,12 @@ export default function FaqCert() {
                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold text-white">
                       {i + 1}
                     </span>
-                    <span className="flex-1 text-sm font-bold text-base-content">
+                    <span className="flex-1  font-bold text-base-content">
                       {faq.question}
                     </span>
                     <ChevronDown className="chevron h-4 w-4 shrink-0 text-base-content/50 transition-transform" />
                   </summary>
-                  <p className="mt-3 pl-10 text-sm leading-relaxed text-base-content/60">
+                  <p className="mt-3 pl-10  leading-relaxed text-base-content/60">
                     {faq.answer}
                   </p>
                 </details>
@@ -88,7 +88,7 @@ export default function FaqCert() {
               <p className="font-pop font-bold text-primary">
                 Still have questions?
               </p>
-              <p className="mt-1 text-sm leading-relaxed text-accent-content/60">
+              <p className="mt-1  leading-relaxed text-accent-content/60">
                 Our admissions team is here to help you choose the right
                 program.
               </p>
@@ -105,7 +105,7 @@ export default function FaqCert() {
                 </div>
                 <div>
                   <p className="text-xs text-accent-content/50">Call Us</p>
-                  <p className="text-sm font-semibold text-accent-content">
+                  <p className=" font-semibold text-accent-content">
                     +1 437 545 1684
                   </p>
                 </div>
@@ -119,7 +119,7 @@ export default function FaqCert() {
                 </div>
                 <div>
                   <p className="text-xs text-accent-content/50">Email Us</p>
-                  <p className="text-sm font-semibold text-accent-content">
+                  <p className=" font-semibold text-accent-content">
                     info@guardmasterinstitute.ca
                   </p>
                 </div>
@@ -135,7 +135,7 @@ export default function FaqCert() {
                   <p className="text-xs text-accent-content/50">
                     Visit Our Website
                   </p>
-                  <p className="text-sm font-semibold text-accent-content">
+                  <p className=" font-semibold text-accent-content">
                     guardmasterinstitute.ca
                   </p>
                 </div>

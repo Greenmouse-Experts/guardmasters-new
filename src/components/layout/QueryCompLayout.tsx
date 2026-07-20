@@ -61,7 +61,7 @@ export default function QueryCompLayout<TData>(
               <h3 className="text-lg font-semibold text-base-content">
                 Access Denied
               </h3>
-              <p className="text-sm text-base-content/60">
+              <p className=" text-base-content/60">
                 You don't have permission to view this resource. Contact support
                 or a Super Admin to request access.
               </p>

@@ -47,7 +47,7 @@ const LoadReviews = ({ id }: { id: string }) => {
         <button
           type="button"
           onClick={() => modalRef.current?.open()}
-          className="flex items-center gap-1.5 rounded-md border border-base-300 px-3 py-1.5 text-sm font-medium text-base-content/70 transition-colors hover:bg-base-200"
+          className="flex items-center gap-1.5 rounded-md border border-base-300 px-3 py-1.5  font-medium text-base-content/70 transition-colors hover:bg-base-200"
         >
           <Plus className="h-4 w-4" />
           Add review
@@ -68,7 +68,7 @@ const LoadReviews = ({ id }: { id: string }) => {
                 </span>
                 <div>
                   <Stars value={avg} />
-                  <p className="mt-1 text-sm text-base-content/55">
+                  <p className="mt-1  text-base-content/55">
                     {resp.count} review{resp.count !== 1 ? "s" : ""}
                   </p>
                 </div>
@@ -76,7 +76,7 @@ const LoadReviews = ({ id }: { id: string }) => {
 
               {/* List */}
               {results.length === 0 ? (
-                <p className="py-8 text-center text-sm text-base-content/50">
+                <p className="py-8 text-center  text-base-content/50">
                   There are no reviews for this course yet.
                 </p>
               ) : (
@@ -137,7 +137,7 @@ function AddReview({ id, onDone }: { id: string; onDone: () => void }) {
       onSubmit={handleSubmit((values) => mutation.mutate(values))}
     >
       <div>
-        <label className="mb-2 block text-sm font-medium text-accent">
+        <label className="mb-2 block  font-medium text-accent">
           Rating
         </label>
         <Controller
@@ -171,14 +171,14 @@ function AddReview({ id, onDone }: { id: string; onDone: () => void }) {
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-accent">
+        <label className="mb-2 block  font-medium text-accent">
           Review
         </label>
         <textarea
           {...register("comment", { required: "Please write a review" })}
           rows={4}
           placeholder="Share your experience with this course…"
-          className="w-full rounded-md border border-base-300 bg-base-100 p-3 text-sm text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
+          className="w-full rounded-md border border-base-300 bg-base-100 p-3  text-base-content placeholder:text-base-content/40 focus:border-secondary focus:outline-none"
         />
         {errors.comment && (
           <p className="mt-1 text-xs text-error">{errors.comment.message}</p>
@@ -213,7 +213,7 @@ function ReviewRow({ review }: { review: ReviewItem }) {
           className="h-11 w-11 shrink-0 rounded-full object-cover"
         />
       ) : (
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-sm font-semibold text-secondary">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary/10  font-semibold text-secondary">
           {initials}
         </span>
       )}
@@ -221,7 +221,7 @@ function ReviewRow({ review }: { review: ReviewItem }) {
         <p className="font-medium text-accent">{name}</p>
         <Stars value={Number(review.rating) || 0} />
         {review.comment && (
-          <p className="mt-1.5 text-sm leading-relaxed text-base-content/65">
+          <p className="mt-1.5  leading-relaxed text-base-content/65">
             {review.comment}
           </p>
         )}
