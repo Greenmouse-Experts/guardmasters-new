@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Check, Clock, Copy } from "lucide-react";
 import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
 import { formatBlogDate, readingTime, type BlogPost } from "#/types/blog.ts";
@@ -116,14 +117,18 @@ function Article({ post }: { post: BlogPost }) {
       {/* Two columns */}
       <div className="items-start gap-x-14 lg:flex">
         {/* Body */}
-        <div className="min-w-0 lg:w-[63%]">
+        <div className="min-w-0 flex-1">
           {post.brief && post.brief !== post.title && (
             <p className="mb-6 text-lg leading-relaxed font-medium text-accent">
               {post.brief}
             </p>
           )}
-          <div className="prose prose-slate max-w-none prose-headings:font-pop prose-headings:text-accent prose-a:text-secondary prose-strong:text-base-content prose-img:rounded-xl prose-code:text-secondary prose-blockquote:border-primary prose-blockquote:text-base-content/70">
-            <Markdown>{post.description}</Markdown>
+          <div className="prose prose-slate  prose-headings:font-pop prose-headings:text-accent prose-a:text-secondary prose-strong:text-base-content prose-img:rounded-xl prose-code:text-secondary prose-blockquote:border-primary prose-blockquote:text-base-content/70 wrap-anywhere">
+            {/*<div
+              className="bg-red-200 "
+              dangerouslySetInnerHTML={{ __html: post.description }}
+            />*/}
+            <Markdown rehypePlugins={[rehypeRaw]}>{post.description}</Markdown>
           </div>
 
           {post.tags && post.tags.length > 0 && (
@@ -141,7 +146,7 @@ function Article({ post }: { post: BlogPost }) {
         </div>
 
         {/* Sidebar */}
-        <aside className="mt-12 space-y-5 lg:sticky lg:top-8 lg:mt-0 lg:w-[37%]">
+        <aside className="mt-12 shrink-0 space-y-5 lg:sticky lg:top-8 lg:mt-0 lg:w-80">
           <ShareCard title={post.title} />
           <NewsletterCard />
         </aside>

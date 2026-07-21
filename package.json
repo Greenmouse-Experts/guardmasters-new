@@ -31,6 +31,7 @@
     "react-markdown": "^10.1.0",
     "react-phone-number-input": "^3.4.17",
     "react-popper": "^2.3.0",
+    "rehype-raw": "^7.0.0",
     "sonner": "^2.0.7",
     "tailwindcss": "^4.1.18",
     "valto": "^0.0.0-temp.d2a27aa51b863ea2",
