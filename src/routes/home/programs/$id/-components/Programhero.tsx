@@ -116,7 +116,7 @@ export default function ProgramHero({
                 </button>
               </div>
 
-              {stats.length > 0 ? (
+              {/*{stats.length > 0 ? (
                 <div className="grid ring p-6 rounded-xl ring-primary grid-cols-3 gap-6 border-t border-white/10 pt-8 divide divide-x divide-base-content/90">
                   {stats.map((stat) => (
                     <div key={stat.label} className="flex gap-4 items-center">
@@ -146,7 +146,7 @@ export default function ProgramHero({
                     </div>
                   ))}
                 </div>
-              )}
+              )}*/}
             </div>
 
             {image && (
