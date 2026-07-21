@@ -48,8 +48,7 @@ export default function CartSidebar() {
               <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-primary px-1.5  font-bold text-primary-content">
                 {items.length}
               </span>
-            )}
-            -semibold-semibold-semibold-semibold{" "}
+            )}{" "}
           </div>
           <button
             type="button"
