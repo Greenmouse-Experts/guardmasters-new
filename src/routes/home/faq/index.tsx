@@ -20,7 +20,9 @@ function RouteComponent() {
   const query = useQuery<ApiResponseV2<FaqItem[]>>({
     queryKey: ["faq-cert"],
     queryFn: async () => {
-      let resp = await axios.get(new_url + "faqs/published");
+      let resp = await axios.get(new_url + "faqs/published", {
+        params: { limit: 20 },
+      });
       return resp.data;
     },
   });
