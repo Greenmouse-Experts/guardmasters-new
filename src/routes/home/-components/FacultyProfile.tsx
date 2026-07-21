@@ -165,11 +165,11 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
 
 export default function FacultyProfile() {
   return (
-    <section className="bg-base-200 px-6 pt-20 md:px-16 relative">
-      <div className="container mx-auto grid grid-cols-3 gap-12  lg:gap-16">
+    <section className="relative bg-base-200 px-6 pt-20 md:px-16">
+      <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
         {/* Photo + areas of expertise */}
-        <div className="  bg-accent p-5 pb-48">
-          <div className="overflow-hidden  border-2 border-primary/60 rounded-xl">
+        <div className="bg-accent p-5 pb-8 lg:pb-48">
+          <div className="overflow-hidden rounded-xl border-2 border-primary/60">
             <img
               src="/dr.png"
               alt="Dr. Adegbenga William Koko"
@@ -177,58 +177,58 @@ export default function FacultyProfile() {
             />
           </div>
 
-          <h3 className="mt-8 font-pop  font-bold tracking-[0.2em] text-primary uppercase">
+          <h3 className="mt-8 font-pop font-bold tracking-[0.2em] text-primary uppercase">
             Areas of Expertise
           </h3>
           <div className="mt-3 h-px w-full bg-white/10" />
 
-          <ul className="mt-2 ">
+          <ul className="mt-2">
             {expertise.map((item) => (
               <li key={item.label} className="flex items-center gap-3 py-1">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg  text-primary">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-primary">
                   <item.icon className="h-4 w-4" strokeWidth={1.75} />
                 </span>
-                <span className=" text-white/80">{item.label}</span>
+                <span className="text-white/80">{item.label}</span>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Bio */}
-        <div className="col-span-2">
+        <div className="lg:col-span-2 ">
           {/* Eyebrow with rule */}
-          <div className="mb-6 flex items-center gap-3">
-            <UserRound className="h-6 w-6 shrink-0 text-primary" />
-            <span className="font-pop text-xl font-bold tracking-[0.2em] text-primary uppercase whitespace-nowrap">
+          <div className="mb-6 flex flex-wrap items-center gap-3">
+            <UserRound className="h-5 w-5 shrink-0 text-primary" />
+            <span className="font-pop text-base font-bold tracking-[0.18em] text-primary uppercase md:text-lg">
               Lead Faculty and Programs Director
             </span>
-            <span className="h-px flex-1 bg-primary/30" />
+            <span className="hidden h-px flex-1 bg-primary/30 lg:block" />
           </div>
 
-          <h2 className="font-pop text-3xl font-bold text-accent md:text-4xl">
+          <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-4xl">
             Dr. Adegbenga William Koko
           </h2>
-          <p className="mt-4 text-lg font-semibold text-secondary">
+          <p className="mt-4 text-base font-semibold text-secondary md:text-lg">
             {credentials}
           </p>
 
-          <div className="mt-8 divide-y divide-base-300 pb-48">
+          <div className="mt-8 divide-y divide-base-300 pb-8 lg:pb-48">
             {bio.map((item, i) => (
               <div key={i} className="flex gap-4 py-5">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
                   <item.icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
-                <p className="leading-relaxed text-lg">{item.content}</p>
+                <p className="leading-relaxed">{item.content}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Floating stats bar */}
-      <div className="absolute inset-x-0 md:bottom-8">
+      {/* Stats bar — inline on mobile, floating on desktop */}
+      <div className="lg:absolute lg:inset-x-0 lg:bottom-8">
         <div className="container mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 divide-y divide-base-300 rounded-2xl border border-primary/50 bg-base-100 shadow-xl sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x">
+          <div className="grid grid-cols-1 divide-y divide-base-300 rounded-2xl border border-primary/50 bg-base-100 shadow-xl sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x lg:divide-y-0">
             {stats.map((stat) => (
               <div
                 key={stat.value}
@@ -242,7 +242,7 @@ export default function FacultyProfile() {
                   <div className="font-pop text-xl font-bold text-accent">
                     {stat.value}
                   </div>
-                  <div className="mt-0.5  leading-snug text-black/55">
+                  <div className="mt-0.5 leading-snug text-black/55">
                     {stat.label}
                   </div>
                 </div>
