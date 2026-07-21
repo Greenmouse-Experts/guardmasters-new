@@ -30,14 +30,13 @@ function RouteComponent() {
   async function onSubmit(values: LoginFields) {
     try {
       const { data } = await axios.post<any>(new_url + "auth/signin", values);
+      if (data.data.role === "admin") {
+        toast.error("Admin accounts must sign in through the admin portal.");
+        return;
+      }
       set_user_value(data as AuthUser);
       const profile = await apiClient.get<ProfileData>("auth/profile");
-      // console.log("user_data", data.data);
       set_profile_value(profile.data);
-      // console.log("profile", profile.data, data.user);
-      if (data.data.role === "admin") {
-        return navigate({ to: "/admin" });
-      }
       navigate({ to: "/user" });
     } catch (err: any) {
       const message =

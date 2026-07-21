@@ -105,6 +105,10 @@ function Media({
   );
 }
 
+function isPptx(src: string) {
+  return /\.pptx($|\?)/i.test(src);
+}
+
 function DocumentMedia({ src }: { src: string }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -125,9 +129,14 @@ function DocumentMedia({ src }: { src: string }) {
     }
   }
 
+  // PPTX — route through Office Online viewer
+  const embedSrc = isPptx(src)
+    ? `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(src)}`
+    : src;
+
   return (
     <div ref={wrapperRef} className="relative h-full w-full bg-base-100">
-      <iframe src={src} title="Document" className="h-full w-full" />
+      <iframe src={embedSrc} title="Document" className="h-full w-full" />
       <button
         type="button"
         onClick={toggleFullscreen}

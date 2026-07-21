@@ -161,6 +161,14 @@ function SubItem({
   );
 }
 
+function pptxEmbedUrl(src: string) {
+  return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(src)}`;
+}
+
+function isPptx(src: string) {
+  return /\.pptx($|\?)/i.test(src);
+}
+
 function PreviewMedia({ sub }: { sub: CourseContentSub }) {
   const src = sub.previewUrl;
   if (!src) return null;
@@ -179,10 +187,11 @@ function PreviewMedia({ sub }: { sub: CourseContentSub }) {
     );
   }
 
-  // document (PDF and other embeddable files)
+  // PPTX — route through Office Online viewer
+  const embedSrc = isPptx(src) ? pptxEmbedUrl(src) : src;
   return (
     <iframe
-      src={src}
+      src={embedSrc}
       title={sub.title}
       className="h-[70vh] w-full rounded border border-base-300"
     />
