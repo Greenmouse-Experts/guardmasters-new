@@ -13,10 +13,10 @@ export default function Hero() {
       {/* Full-bleed background image */}
       <div className="absolute inset-0 bg-black" />
       <img
-        src="/home/hero.png"
+        src="/home/hero.jpeg"
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover "
+        className="absolute inset-0 h-full w-full object-cover brightness-50"
       />
       {/* Dark overlay — heavier on left for legibility */}
 
