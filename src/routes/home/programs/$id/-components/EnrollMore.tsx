@@ -79,7 +79,7 @@ export default function EnrollMore({
       {/* Enroll / pricing */}
 
       {/* Related courses */}
-      <div className="bg-accent px-6 py-20 md:px-16 ">
+      <div className="bg-base-300 px-6 py-20 md:px-16 ">
         <div className="container mx-auto">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
@@ -97,7 +97,7 @@ export default function EnrollMore({
                 search: "",
                 programId: "",
               }}
-              className="flex items-center gap-1.5 text-xl font-medium text-accent-content hover:underline"
+              className="flex items-center gap-1.5 text-xl font-medium  hover:underline"
             >
               All programs
               <ArrowUpRight className="h-4 w-4" />
