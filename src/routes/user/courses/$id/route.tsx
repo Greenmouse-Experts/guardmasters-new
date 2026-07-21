@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import {
@@ -36,6 +36,24 @@ interface CertificateResponse {
   student?: { firstName: string; lastName: string };
 }
 
+interface GenerateResponse {
+  jobId?: string;
+  certificateUrl?: string;
+  id?: string;
+  certificateNumber?: string;
+  issuedAt?: string;
+  createdDate?: string;
+  message?: string;
+  course?: { title: string };
+  student?: { firstName: string; lastName: string };
+}
+
+interface JobStatusResponse {
+  status: "in_progress" | "completed" | "failed";
+  certificate?: CertificateResponse;
+  message?: string;
+}
+
 interface CourseProgressResponse {
   message?: string;
   data: {
@@ -52,6 +70,8 @@ interface CourseProgressResponse {
 function RouteComponent() {
   const { id } = Route.useParams();
   const modalRef = useRef<ModalHandle>(null);
+  const [jobId, setJobId] = useState<string | null>(null);
+  const [certificate, setCertificate] = useState<CertificateResponse | null>(null);
 
   const items: NavItem[] = [
     { label: "Dashboard", icon: LayoutGrid, to: "/user", exact: true },
@@ -70,43 +90,66 @@ function RouteComponent() {
 
   const isCompleted = progressQuery.data?.data?.isCompleted ?? false;
 
+  // Poll job status every 4 s while a jobId is active.
+  const jobStatusQuery = useQuery<JobStatusResponse>({
+    queryKey: ["certificate-job", jobId],
+    queryFn: async () => {
+      const { data } = await apiClient.get<JobStatusResponse>(
+        `certificates/generate/${jobId}/status`,
+      );
+      return data;
+    },
+    enabled: !!jobId,
+    refetchInterval: 4000,
+    refetchIntervalInBackground: false,
+  });
+
+  useEffect(() => {
+    if (!jobStatusQuery.data) return;
+    const { status, certificate: cert, message } = jobStatusQuery.data;
+    if (status === "completed") {
+      setJobId(null); // stops polling
+      if (cert) {
+        setCertificate(cert);
+        toast.success(message ?? "Certificate ready.");
+        modalRef.current?.open();
+      } else {
+        toast.error("Certificate completed but no data returned.");
+      }
+    } else if (status === "failed") {
+      setJobId(null);
+      toast.error(message ?? "Certificate generation failed. Please try again.");
+    }
+  }, [jobStatusQuery.data]);
+
   const generateCertificate = useMutation({
     mutationFn: async () => {
-      // Try the existing certificate first; generate one if none exists yet.
-      let cert: CertificateResponse | undefined;
-      try {
-        const { data } = await apiClient.get<CertificateResponse>(
-          "certificates/course/" + id,
-        );
-        cert = data ?? undefined;
-      } catch {
-        cert = undefined;
-      }
-
-      if (!cert?.certificateUrl) {
-        const { data } = await apiClient.post<CertificateResponse>(
-          "certificates/generate",
-          { courseId: id },
-        );
-        cert = data;
-      }
-
-      return cert;
+      const { data } = await apiClient.post<GenerateResponse>(
+        "certificates/generate",
+        { courseId: id },
+      );
+      return data;
     },
     onSuccess: (data) => {
-      if (!data?.certificateUrl) {
-        toast.error("Could not retrieve your certificate.");
-        return;
+      if (data.jobId) {
+        // First-time generation — background job started.
+        setJobId(data.jobId);
+        toast.info("Generating your certificate in the background…");
+      } else if (data.certificateUrl) {
+        // Already generated — returned directly.
+        setCertificate(data as CertificateResponse);
+        toast.success(data.message ?? "Certificate ready.");
+        modalRef.current?.open();
+      } else {
+        toast.error("Unexpected response. Please try again.");
       }
-      toast.success(data?.message ?? "Certificate ready.");
-      modalRef.current?.open();
     },
     onError: (err) => {
       toast.error(extract_message(err));
     },
   });
 
-  const certificate = generateCertificate.data;
+  const isGenerating = generateCertificate.isPending || !!jobId;
 
   return (
     <section className="flex flex-1 flex-col">
@@ -120,11 +163,7 @@ function RouteComponent() {
         <button
           type="button"
           onClick={() => generateCertificate.mutate()}
-          disabled={
-            generateCertificate.isPending ||
-            progressQuery.isLoading ||
-            !isCompleted
-          }
+          disabled={isGenerating || progressQuery.isLoading || !isCompleted}
           title={
             !isCompleted
               ? "Complete the course to unlock your certificate"
@@ -132,12 +171,12 @@ function RouteComponent() {
           }
           className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md bg-accent px-3 py-2  font-medium text-accent-content transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60 sm:px-4"
         >
-          {generateCertificate.isPending ? (
+          {isGenerating ? (
             <Loader2 className="h-4 w-4 animate-spin" />
           ) : (
             <Award className="h-4 w-4" />
           )}
-          {generateCertificate.isPending ? "Generating..." : "Get Certificate"}
+          {isGenerating ? "Generating..." : "Get Certificate"}
         </button>
       </header>
 
