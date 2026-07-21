@@ -183,9 +183,10 @@ function Featured({ post }: { post: BlogPost }) {
           {post.title}
         </h1>
 
-        <p className="mt-5 line-clamp-3 leading-relaxed text-base-content/55">
-          {post.description}
-        </p>
+        <p
+          dangerouslySetInnerHTML={{ __html: post.brief }}
+          className="mt-5 line-clamp-3 leading-relaxed text-base-content/55"
+        ></p>
 
         <div className="mt-6 flex items-center gap-5  text-base-content/45">
           <span>{formatBlogDate(post.createdDate)}</span>
