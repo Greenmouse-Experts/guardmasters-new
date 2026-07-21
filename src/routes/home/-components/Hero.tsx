@@ -22,7 +22,7 @@ export default function Hero() {
 
       <div className="relative z-10 container mx-auto flex h-full min-h-[inherit] flex-col justify-center px-6 pt-28 pb-24 md:px-16 md:pt-36 md:pb-28">
         {/* Heading */}
-        <h1 className="mb-8 max-w-2xl text-4xl leading-[1.1] font-bold text-white md:text-4xl font-pop">
+        <h1 className="mb-8 max-w-2xl text-4xl leading-[1.1] font-bold text-white md:text-5xl font-pop">
           {" "}
           Professional Training for the{" "}
           <span className="text-primary italic">Certifications</span> you need
