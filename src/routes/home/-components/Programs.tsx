@@ -94,17 +94,22 @@ export default function Programs() {
                 key={title}
                 to="/home/programs"
                 search={{ search: "", programId }}
-                className="relative rounded-2xl bg-base-100 p-6 shadow-lg ring ring-primary/50 h-full block"
+                className="relative rounded-2xl bg-aceent p-6 shadow-lg ring ring-primary/50 h-full block"
               >
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent">
-                  <Icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                  <Icon
+                    className="h-6 w-6 text-primary-content"
+                    strokeWidth={1.5}
+                  />
                 </div>
 
-                <h3 className="mb-3 pr-6 text-lg font-bold leading-snug text-base-content font-pop">
+                <h3 className="mb-3 pr-6 text-lg font-bold leading-snug text-white font-pop">
                   {title}
                 </h3>
                 <div className="mb-4 h-1 w-10 rounded-full bg-primary" />
-                <p className="leading-relaxed text-lg">{description}</p>
+                <p className="leading-relaxed text-lg text-white">
+                  {description}
+                </p>
               </Link>
             );
           })}
