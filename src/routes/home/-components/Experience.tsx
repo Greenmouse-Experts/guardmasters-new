@@ -39,7 +39,7 @@ export default function Experience() {
             Hear From <span className="text-primary">Our Learners</span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-base-content/60">
+          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-black">
             Real stories from security professionals who have advanced their
             careers and made an impact through our programs.
           </p>

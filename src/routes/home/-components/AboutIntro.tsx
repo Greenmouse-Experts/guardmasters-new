@@ -15,7 +15,8 @@ export default function AboutIntro() {
         />
         <div className="container relative mx-auto">
           <h2 className="mb-8 text-3xl font-bold  md:text-4xl font-pop text-accent">
-            About Guardmaster Institute Canada
+            <span className="text-primary">About</span> Guardmaster Institute
+            Canada
           </h2>
           <div className=" space-y-5 text-xl leading-relaxed text-base-content/80">
             <p>

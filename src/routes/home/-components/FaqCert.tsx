@@ -62,9 +62,7 @@ export default function FaqCert() {
                     </span>
                     <ChevronDown className="chevron h-4 w-4 shrink-0 text-base-content/50 transition-transform" />
                   </summary>
-                  <p className="mt-3 pl-10  leading-relaxed text-base-content/60">
-                    {faq.answer}
-                  </p>
+                  <p className="mt-3 pl-10  leading-relaxed ">{faq.answer}</p>
                 </details>
               ))}
             </div>

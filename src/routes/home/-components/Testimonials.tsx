@@ -65,7 +65,7 @@ export default function Testimonials() {
             <span className="text-accent">Hear From </span>
             <span className="text-primary">Our Learners</span>
           </h2>
-          <p className="mt-4 mx-auto max-w-lg text-lg text-base-content/60">
+          <p className="mt-4 mx-auto max-w-lg text-lg text-black">
             Real stories from satisfied professionals who have advanced their
             careers and made an impact through our programs
           </p>
