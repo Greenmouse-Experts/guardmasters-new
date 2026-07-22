@@ -93,14 +93,14 @@ export default function SimpleHero({
             <div className="absolute inset-0 bg-linear-90 from-accent to-transparent"></div>
 
             {/* Floating card */}
-            <div className="absolute bottom-8 left-0 max-w-xs bg-base-100 p-6 shadow-xl lg:left-8">
+            <div className="absolute bottom-8 left-0 max-w-xs bg-accent ring ring-primary p-6 shadow-xl lg:left-8 ">
               <div className="mb-2 flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                <span className=" font-bold tracking-[0.18em] text-accent uppercase">
+                <span className=" font-bold tracking-[0.18em] text-accent-content uppercase">
                   {cardEyebrow}
                 </span>
               </div>
-              <p className="text-lg leading-snug font-medium text-accent">
+              <p className="text-lg leading-snug font-medium text-accent-content">
                 {cardText}
               </p>
             </div>
