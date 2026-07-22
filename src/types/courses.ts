@@ -88,6 +88,7 @@ export type CourseContentMediaType =
 
 export interface CourseContentSub {
   title: string;
+  description: string | null;
   duration: number;
   previewUrl: string | null;
   mediaType: CourseContentMediaType;

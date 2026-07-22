@@ -140,7 +140,12 @@ function SubItem({
   return (
     <li className="flex items-center gap-4 py-4">
       <MediaIcon type={sub.mediaType} />
-      <span className="flex-1  text-lg">{sub.title}</span>
+      <div className="flex-1">
+        <span className="text-lg">{sub.title}</span>
+        {sub.description && (
+          <p className="mt-0.5 text-base-content/55">{sub.description}</p>
+        )}
+      </div>
       {sub.duration > 0 && (
         <span className="flex items-center gap-1 ">
           <Clock className="h-3 w-3" />
