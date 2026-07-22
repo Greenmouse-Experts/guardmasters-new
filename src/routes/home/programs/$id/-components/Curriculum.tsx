@@ -166,12 +166,16 @@ function SubItem({
   );
 }
 
-function pptxEmbedUrl(src: string) {
+function officeEmbedUrl(src: string) {
   return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(src)}`;
 }
 
 function isPptx(src: string) {
-  return /\.pptx($|\?)/i.test(src);
+  return /\.(pptx?|ppt)($|\?)/i.test(src);
+}
+
+function isDocx(src: string) {
+  return /\.docx?($|\?)/i.test(src);
 }
 
 function PreviewMedia({ sub }: { sub: CourseContentSub }) {
@@ -192,11 +196,29 @@ function PreviewMedia({ sub }: { sub: CourseContentSub }) {
     );
   }
 
-  // PPTX — route through Office Online viewer
-  const embedSrc = isPptx(src) ? pptxEmbedUrl(src) : src;
+  if (isPptx(src)) {
+    return (
+      <iframe
+        src={`https://docs.google.com/gview?url=${encodeURIComponent(src)}&embedded=true`}
+        title={sub.title}
+        className="h-[70vh] w-full rounded border border-base-300"
+      />
+    );
+  }
+
+  if (isDocx(src)) {
+    return (
+      <iframe
+        src={officeEmbedUrl(src)}
+        title={sub.title}
+        className="h-[70vh] w-full rounded border border-base-300"
+      />
+    );
+  }
+
   return (
     <iframe
-      src={embedSrc}
+      src={src}
       title={sub.title}
       className="h-[70vh] w-full rounded border border-base-300"
     />
