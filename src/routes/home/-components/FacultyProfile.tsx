@@ -23,9 +23,9 @@ import {
 } from "lucide-react";
 
 const credentials = `CA, CFE, CFI, CAMS, CFCS, LPC, ChLPS, CPSM, CPO, CPOI, CBRM, CBCS, ABCP, CC, CSCE, CSP, CSL, C-CSP, MSyI, M.ISRM, CMgr, MCMI, CPP®
-  Chartered Converged Security Practitioner, Chartered Loss Prevention Specialist, Chartered Manager, Chartered Accountant
-  Certified Lead Auditor & Lead Implementer -  ISO 27001, 22301, 18788, 31000, 42001, & 28000
 `;
+const acoolades = `Chartered Converged Security Practitioner, Chartered Loss Prevention Specialist, Chartered Manager, Chartered Accountant
+Certified Lead Auditor & Lead Implementer -  ISO 27001, 22301, 18788, 31000, 42001, & 28000`;
 
 const expertise: { icon: LucideIcon; label: string }[] = [
   { icon: ShieldCheck, label: "Corporate Security Management" },
@@ -211,7 +211,9 @@ export default function FacultyProfile() {
           <p className="mt-4 text-base font-semibold text-secondary md:text-lg">
             {credentials}
           </p>
-
+          <p className="mt-4 text-base font-semibold text-secondary md:text-lg text-center">
+            {acoolades}
+          </p>
           <div className="mt-8 divide-y divide-base-300 pb-8 lg:pb-48">
             {bio.map((item, i) => (
               <div key={i} className="flex gap-4 py-5">
