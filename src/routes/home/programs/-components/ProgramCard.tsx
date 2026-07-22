@@ -22,7 +22,9 @@ export default function ProgramCard({
   outline = false,
 }: ProgramCardProps) {
   return (
-    <div
+    <Link
+      to="/home/programs/$id"
+      params={{ id: course.id }}
       className={`group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow hover:shadow-xl ${outline ? "border border-gray-200" : ""}`}
     >
       {/* ── Header: white bg + yellow angled band + circle image ── */}
@@ -80,6 +82,6 @@ export default function ProgramCard({
           Enroll
         </Link>
       </div>
-    </div>
+    </Link>
   );
 }
