@@ -13,6 +13,7 @@ const quickLinks: FooterLink[] = [
   { name: "About Us", path: "/home/about" },
   { name: "Training Programs", path: "/home/programs" },
   { name: "News & Blogs", path: "/home/blog" },
+  { name: "FAQ", path: "/home/faq" },
   { name: "Contact Us", path: "/home/contact" },
 ];
 
