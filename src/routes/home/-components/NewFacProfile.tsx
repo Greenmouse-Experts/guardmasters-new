@@ -158,12 +158,11 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     content: (
       <>
         <strong className="font-semibold text-black">
-          As a trainer, author, and thought leader,
+          His practical approach,
         </strong>{" "}
-        Dr. Koko is dedicated to advancing professional excellence through
-        world-class education, practical research, and innovative learning
-        solutions that prepare security professionals to lead with confidence in
-        an increasingly complex global environment.
+        deep technical knowledge, and commitment to excellence make him a
+        trusted advisor, trainer, and partner in building world-class management
+        systems.
       </>
     ),
   },
@@ -178,7 +177,7 @@ export default function NewFacProf() {
           <div className="overflow-hidden rounded-xl border-2 border-primary/60">
             <img
               src="/femi_2png"
-              alt="Dr. Adegbenga William Koko"
+              alt="Femi Awosedo"
               className="h-full w-full object-cover"
             />
           </div>
@@ -206,18 +205,18 @@ export default function NewFacProf() {
           <div className="mb-6 flex flex-wrap items-center gap-3">
             <UserRound className="h-5 w-5 shrink-0 text-primary" />
             <span className="font-pop text-base font-bold tracking-[0.18em] text-primary uppercase md:text-lg">
-              Lead Faculty and Programs Director
+              Lead ISO Consultant & Trainer
             </span>
             <span className="hidden h-px flex-1 bg-primary/30 lg:block" />
           </div>
 
           <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-4xl">
-            Dr. Adegbenga William Koko
+            Femi Awosedo
           </h2>
           <p className="mt-4 text-base font-semibold text-secondary md:text-lg">
             {credentials}
           </p>
-          <p className="mt-4 text-base font-semibold text-secondary md:text-lg text-center">
+          <p className="mt-4 text-base font-semibold text-secondary md:text-lg">
             {acoolades}
           </p>
           <div className="mt-8 divide-y divide-base-300 pb-8 lg:pb-48">
