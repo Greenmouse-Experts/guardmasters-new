@@ -1,24 +1,30 @@
 import type { ReactNode } from "react";
 import {
   ShieldCheck,
+  TriangleAlert,
   BadgeCheck,
   Leaf,
   Scale,
   Lock,
-  TriangleAlert,
   RefreshCw,
+  PackageCheck,
+  Search,
+  ClipboardCheck,
+  Banknote,
   HardHat,
   Lightbulb,
   Shield,
   CreditCard,
-  ClipboardCheck,
+  FileWarning,
+  ShieldBan,
   CalendarDays,
   Globe,
-  Award,
   IdCard,
   Users,
   UserRound,
   GraduationCap,
+  BookOpen,
+  Award,
   PenLine,
   type LucideIcon,
 } from "lucide-react";
@@ -29,7 +35,19 @@ ISO 56001 | ISO/IEC 27002 | ISO/IEC 27005 | ISO/IEC 27032 | ISO/IEC 27034 | ISO/
 ISO/IEC 42001 | ISO 26000 | ISO 21502 | ESG & Sustainability | DORA | SOC 2 | PCI DSS`;
 
 const expertise: { icon: LucideIcon; label: string }[] = [
-  { icon: ShieldCheck, label: "Information Security Management (ISO/IEC 27001)" },
+  { icon: ShieldCheck, label: "Corporate Security Management" },
+  { icon: TriangleAlert, label: "Risk Management" },
+  { icon: RefreshCw, label: "Business Continuity & Resilience" },
+  { icon: PackageCheck, label: "Loss Prevention & Asset Protection" },
+  { icon: Search, label: "Investigations & Forensics" },
+  { icon: ClipboardCheck, label: "Regulatory Compliance" },
+  { icon: Banknote, label: "Anti-Money Laundering (AML)" },
+  { icon: FileWarning, label: "Financial Crime Prevention" },
+  { icon: ShieldBan, label: "Counter Terrorist Financing (CTF)" },
+  {
+    icon: ShieldCheck,
+    label: "Information Security Management (ISO/IEC 27001)",
+  },
   { icon: BadgeCheck, label: "Quality Management (ISO 9001)" },
   { icon: Leaf, label: "Environmental Management (ISO 14001)" },
   { icon: Scale, label: "Anti-Bribery Management (ISO 37001)" },
@@ -55,12 +73,12 @@ const stats: { icon: LucideIcon; value: string; label: string }[] = [
     label: "Organizations Consulted",
   },
   {
-    icon: Award,
-    value: "CMSA",
-    label: "Certified IPC Management Systems Auditor",
+    icon: BadgeCheck,
+    value: "Accredited",
+    label: "Trainer & Faculty Member, Global Compliance Institute",
   },
   {
-    icon: IdCard,
+    icon: Award,
     value: "U.S. Data Privacy Officer",
     label: "Certified Data Privacy Professional",
   },
@@ -88,7 +106,8 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     content: (
       <>
         <strong className="font-semibold text-black">
-          He has consulted for more than 20 organizations
+          As Lead Faculty and Programs Director He has consulted for more than
+          20 organizations
         </strong>{" "}
         across fintech, oil and gas, card payment, government, and data center
         sectors, providing strategic guidance on training, implementation,
@@ -101,7 +120,9 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: Globe,
     content: (
       <>
-        <strong className="font-semibold text-black">His expertise covers</strong>{" "}
+        <strong className="font-semibold text-black">
+          His expertise covers
+        </strong>{" "}
         ISO/IEC 27001, ISO 9001, ISO 14001, ISO 37001, ISO/IEC 27701, ISO/IEC
         27002, ISO/IEC 27005, ISO/IEC 27032, ISO/IEC 27034, ISO/IEC 27035,
         ISO/IEC 42001, ISO 26001, ISO 31000, ISO 21502, ISO 45001, ESG and
@@ -127,8 +148,8 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
       <>
         <strong className="font-semibold text-black">Femi is passionate</strong>{" "}
         about helping organizations strengthen governance, manage risk, ensure
-        compliance, and build resilient systems that drive sustainable growth and
-        long-term value.
+        compliance, and build resilient systems that drive sustainable growth
+        and long-term value.
       </>
     ),
   },
@@ -137,16 +158,18 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     content: (
       <>
         <strong className="font-semibold text-black">
-          His practical approach,
+          As a trainer, author, and thought leader,
         </strong>{" "}
-        deep technical knowledge, and commitment to excellence make him a trusted
-        advisor, trainer, and partner in building world-class management systems.
+        Dr. Koko is dedicated to advancing professional excellence through
+        world-class education, practical research, and innovative learning
+        solutions that prepare security professionals to lead with confidence in
+        an increasingly complex global environment.
       </>
     ),
   },
 ];
 
-export default function FacultyProfile() {
+export default function NewFacProf() {
   return (
     <section className="relative bg-base-200 px-6 pt-20 md:px-16">
       <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
@@ -154,8 +177,8 @@ export default function FacultyProfile() {
         <div className="bg-accent p-5 pb-8 lg:pb-48">
           <div className="overflow-hidden rounded-xl border-2 border-primary/60">
             <img
-              src="/dr.png"
-              alt="Femi Awosedo"
+              src="/femi_2png"
+              alt="Dr. Adegbenga William Koko"
               className="h-full w-full object-cover"
             />
           </div>
@@ -183,18 +206,18 @@ export default function FacultyProfile() {
           <div className="mb-6 flex flex-wrap items-center gap-3">
             <UserRound className="h-5 w-5 shrink-0 text-primary" />
             <span className="font-pop text-base font-bold tracking-[0.18em] text-primary uppercase md:text-lg">
-              Lead ISO Consultant & Trainer
+              Lead Faculty and Programs Director
             </span>
             <span className="hidden h-px flex-1 bg-primary/30 lg:block" />
           </div>
 
           <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-4xl">
-            Femi Awosedo
+            Dr. Adegbenga William Koko
           </h2>
           <p className="mt-4 text-base font-semibold text-secondary md:text-lg">
             {credentials}
           </p>
-          <p className="mt-4 text-base font-semibold text-secondary md:text-lg">
+          <p className="mt-4 text-base font-semibold text-secondary md:text-lg text-center">
             {acoolades}
           </p>
           <div className="mt-8 divide-y divide-base-300 pb-8 lg:pb-48">
