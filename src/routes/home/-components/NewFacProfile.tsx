@@ -176,7 +176,7 @@ export default function NewFacProf() {
         <div className="bg-accent p-5 pb-8 lg:pb-48">
           <div className="overflow-hidden rounded-xl border-2 border-primary/60">
             <img
-              src="/femi_2png"
+              src="/femi_2.png"
               alt="Femi Awosedo"
               className="h-full w-full object-cover"
             />
