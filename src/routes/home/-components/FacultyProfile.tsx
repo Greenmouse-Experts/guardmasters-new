@@ -1,73 +1,66 @@
 import type { ReactNode } from "react";
 import {
   ShieldCheck,
-  BadgeCheck,
-  Leaf,
-  Scale,
-  Lock,
   TriangleAlert,
   RefreshCw,
-  HardHat,
-  Lightbulb,
-  Shield,
-  CreditCard,
-  ClipboardCheck,
+  Lock,
+  Search,
+  Scale,
+  CircleDollarSign,
+  FileWarning,
+  ShieldBan,
   CalendarDays,
   Globe,
-  Award,
+  BadgeCheck,
   IdCard,
   Users,
   UserRound,
   GraduationCap,
+  BookOpen,
+  Award,
   PenLine,
   type LucideIcon,
 } from "lucide-react";
 
-const credentials = `ISO Committee Professional | CMSA | U.S Data Privacy Officer`;
-const acoolades = `ISO/IEC 27001 | ISO 9001 | ISO 14001 | ISO 37001 | ISO/IEC 27701 | ISO 31000 | ISO 45001
-ISO 56001 | ISO/IEC 27002 | ISO/IEC 27005 | ISO/IEC 27032 | ISO/IEC 27034 | ISO/IEC 27035
-ISO/IEC 42001 | ISO 26000 | ISO 21502 | ESG & Sustainability | DORA | SOC 2 | PCI DSS`;
+const credentials = `PhD, MSc, MBA, CFE, CFCS, CAMS, ChLPS, LPC, CPO, CPOI, CBRM, ABCP, CMgr, CPP`;
 
 const expertise: { icon: LucideIcon; label: string }[] = [
-  { icon: ShieldCheck, label: "Information Security Management (ISO/IEC 27001)" },
-  { icon: BadgeCheck, label: "Quality Management (ISO 9001)" },
-  { icon: Leaf, label: "Environmental Management (ISO 14001)" },
-  { icon: Scale, label: "Anti-Bribery Management (ISO 37001)" },
-  { icon: Lock, label: "Privacy Information Management (ISO/IEC 27701)" },
-  { icon: TriangleAlert, label: "Risk Management (ISO 31000)" },
-  { icon: RefreshCw, label: "Business Continuity & Disaster Recovery" },
-  { icon: HardHat, label: "Occupational Health & Safety (ISO 45001)" },
-  { icon: Lightbulb, label: "Innovation Management (ISO 56001)" },
-  { icon: Shield, label: "Data Privacy & Governance" },
-  { icon: CreditCard, label: "SOC 2 & PCI DSS Compliance" },
-  { icon: ClipboardCheck, label: "Audit, Compliance & Assurance" },
+  { icon: ShieldCheck, label: "Corporate Security Management" },
+  { icon: TriangleAlert, label: "Risk Management" },
+  { icon: RefreshCw, label: "Business Continuity & Resilience" },
+  { icon: Lock, label: "Loss Prevention & Asset Protection" },
+  { icon: Search, label: "Investigations & Forensics" },
+  { icon: Scale, label: "Regulatory Compliance" },
+  { icon: CircleDollarSign, label: "Anti-Money Laundering (AML)" },
+  { icon: FileWarning, label: "Financial Crime Prevention" },
+  { icon: ShieldBan, label: "Counter Terrorist Financing (CTF)" },
 ];
 
 const stats: { icon: LucideIcon; value: string; label: string }[] = [
   {
     icon: CalendarDays,
-    value: "18+",
+    value: "15+",
     label: "Years of International Professional Experience",
   },
   {
     icon: Globe,
-    value: "20+",
-    label: "Organizations Consulted",
+    value: "Global",
+    label: "Trainer, Consultant & Thought Leader",
   },
   {
-    icon: Award,
-    value: "CMSA",
-    label: "Certified IPC Management Systems Auditor",
+    icon: BadgeCheck,
+    value: "Accredited",
+    label: "Trainer & Faculty Member, Global Compliance Institute",
   },
   {
     icon: IdCard,
-    value: "U.S. Data Privacy Officer",
-    label: "Certified Data Privacy Professional",
+    value: "Dual Licensed",
+    label: "Security Guard & Private Investigator — Ontario",
   },
   {
     icon: Users,
-    value: "Global Expertise",
-    label: "Fintech | Oil & Gas | Government | Payments | Data Centers | More",
+    value: "Trusted",
+    label: "By Organizations & Professionals Across Multiple Sectors",
   },
 ];
 
@@ -76,10 +69,15 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: UserRound,
     content: (
       <>
-        <strong className="font-semibold text-black">Femi Awosedo</strong> is a
-        seasoned professional member of ISO Committee with over 18 years of
-        expertise spanning a wide range of ISO standards, governance frameworks,
-        data privacy, risk management, auditing, and organizational resilience.
+        <strong className="font-semibold text-black">
+          Dr. Adegbenga William Koko
+        </strong>{" "}
+        is an accomplished corporate security executive, educator, and
+        management consultant with more than 15 years of international
+        professional experience spanning corporate security management, risk
+        management, business continuity, loss prevention, investigations,
+        regulatory compliance, financial crime prevention, and anti-money
+        laundering.
       </>
     ),
   },
@@ -88,12 +86,17 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     content: (
       <>
         <strong className="font-semibold text-black">
-          He has consulted for more than 20 organizations
+          As Lead Faculty and Programs Director
         </strong>{" "}
-        across fintech, oil and gas, card payment, government, and data center
-        sectors, providing strategic guidance on training, implementation,
-        certification, recertification, and continuous improvement of Management
-        Systems.
+        at{" "}
+        <strong className="font-semibold text-black">
+          Guardmaster Institute Canada
+        </strong>
+        , he leads the design and delivery of executive education, Specialist
+        Mini MBA programs, professional certification courses, and corporate
+        training initiatives. He is recognized for combining academic excellence
+        with extensive industry experience to develop practical, globally
+        relevant learning programs.
       </>
     ),
   },
@@ -101,23 +104,28 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: Globe,
     content: (
       <>
-        <strong className="font-semibold text-black">His expertise covers</strong>{" "}
-        ISO/IEC 27001, ISO 9001, ISO 14001, ISO 37001, ISO/IEC 27701, ISO/IEC
-        27002, ISO/IEC 27005, ISO/IEC 27032, ISO/IEC 27034, ISO/IEC 27035,
-        ISO/IEC 42001, ISO 26001, ISO 31000, ISO 21502, ISO 45001, ESG and
-        Sustainability, DORA, ISO 56001, SOC 2, Disaster Recovery, and PCI DSS.
+        <strong className="font-semibold text-black">
+          A dual-licensed Security Guard and Private Investigator
+        </strong>{" "}
+        in Ontario, Canada, Dr. Koko is an accredited international trainer and
+        consultant who has delivered professional education and advisory
+        services across multiple sectors. He is also an Accredited Trainer and
+        Faculty Member of the Global Compliance Institute, Australia.
       </>
     ),
   },
   {
-    icon: IdCard,
+    icon: BookOpen,
     content: (
       <>
         <strong className="font-semibold text-black">
-          He is a Certified IPC Management Systems Auditor (CMSA),
+          His academic foundation
         </strong>{" "}
-        U.S Data Privacy Officer, and proficient in both internal and external
-        audit, ensuring compliance, performance, and operational excellence.
+        includes doctoral and postgraduate qualifications in Strategic
+        Management, International Security and Risk Management, Business
+        Administration, Finance and Corporate Strategy, Forensic Accounting, and
+        Business Continuity, earned across respected institutions in Canada, the
+        United Kingdom, Nigeria, and the United States.
       </>
     ),
   },
@@ -125,10 +133,14 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     icon: Award,
     content: (
       <>
-        <strong className="font-semibold text-black">Femi is passionate</strong>{" "}
-        about helping organizations strengthen governance, manage risk, ensure
-        compliance, and build resilient systems that drive sustainable growth and
-        long-term value.
+        <strong className="font-semibold text-black">
+          His professional credentials
+        </strong>{" "}
+        include internationally respected designations in corporate security,
+        investigations, fraud examination, financial crime compliance, business
+        continuity, information security, cyber security, logistics security,
+        occupational health and safety, and management. He is also a Chartered
+        Manager in the United Kingdom and Canada.
       </>
     ),
   },
@@ -137,10 +149,12 @@ const bio: { icon: LucideIcon; content: ReactNode }[] = [
     content: (
       <>
         <strong className="font-semibold text-black">
-          His practical approach,
+          As a trainer, author, and thought leader,
         </strong>{" "}
-        deep technical knowledge, and commitment to excellence make him a trusted
-        advisor, trainer, and partner in building world-class management systems.
+        Dr. Koko is dedicated to advancing professional excellence through
+        world-class education, practical research, and innovative learning
+        solutions that prepare security professionals to lead with confidence in
+        an increasingly complex global environment.
       </>
     ),
   },
@@ -155,7 +169,7 @@ export default function FacultyProfile() {
           <div className="overflow-hidden rounded-xl border-2 border-primary/60">
             <img
               src="/dr.png"
-              alt="Femi Awosedo"
+              alt="Dr. Adegbenga William Koko"
               className="h-full w-full object-cover"
             />
           </div>
@@ -183,19 +197,16 @@ export default function FacultyProfile() {
           <div className="mb-6 flex flex-wrap items-center gap-3">
             <UserRound className="h-5 w-5 shrink-0 text-primary" />
             <span className="font-pop text-base font-bold tracking-[0.18em] text-primary uppercase md:text-lg">
-              Lead ISO Consultant & Trainer
+              Lead Faculty and Programs Director
             </span>
             <span className="hidden h-px flex-1 bg-primary/30 lg:block" />
           </div>
 
           <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-4xl">
-            Femi Awosedo
+            Dr. Adegbenga William Koko
           </h2>
           <p className="mt-4 text-base font-semibold text-secondary md:text-lg">
             {credentials}
-          </p>
-          <p className="mt-4 text-base font-semibold text-secondary md:text-lg">
-            {acoolades}
           </p>
           <div className="mt-8 divide-y divide-base-300 pb-8 lg:pb-48">
             {bio.map((item, i) => (

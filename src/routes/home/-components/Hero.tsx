@@ -56,7 +56,7 @@ export default function Hero() {
         </div>
 
         {/* Stats pill */}
-        <div className="mt-12 flex w-full items-center divide-x divide-primary rounded-2xl bg-accent/80 px-4 py-4 shadow-xl backdrop-blur-sm ring ring-primary md:absolute md:bottom-12 md:right-16 md:mt-0 md:w-auto md:px-6">
+        <div className="mt-12 flex w-full items-center divide-x divide-primary rounded-2xl bg-accent/90 px-4 py-4 shadow-xl backdrop-blur-sm ring ring-primary md:absolute md:bottom-12 md:right-16 md:mt-0 md:w-auto md:px-6">
           {stats.map(({ icon: Icon, value, lines }) => (
             <div
               key={value}
