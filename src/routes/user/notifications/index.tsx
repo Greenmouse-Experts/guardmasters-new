@@ -30,10 +30,10 @@ interface Notification {
   createdDate: string;
 }
 
-type Tab = "all" | "unread";
+type Tab = "read" | "unread";
 
 function RouteComponent() {
-  const [tab, setTab] = useState<Tab>("all");
+  const [tab, setTab] = useState<Tab>("read");
   const { page, setPage, hasPrev, hasNext, totalPages } = usePagination();
   const queryClient = useQueryClient();
 
@@ -75,8 +75,8 @@ function RouteComponent() {
 
       {/* Tabs */}
       <div className="grid grid-cols-2 gap-1 rounded-lg border border-base-300 bg-base-200 p-1">
-        <TabButton active={tab === "all"} onClick={() => setTab("all")}>
-          All
+        <TabButton active={tab === "read"} onClick={() => setTab("read")}>
+          Read
         </TabButton>
         <TabButton active={tab === "unread"} onClick={() => setTab("unread")}>
           Unread
