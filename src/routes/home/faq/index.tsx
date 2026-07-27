@@ -21,7 +21,7 @@ function RouteComponent() {
     queryKey: ["faq-cert"],
     queryFn: async () => {
       let resp = await axios.get(new_url + "faqs/published", {
-        params: { limit: 20 },
+        params: { pageSize: 20 },
       });
       return resp.data;
     },

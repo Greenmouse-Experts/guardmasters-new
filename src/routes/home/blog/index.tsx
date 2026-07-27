@@ -15,7 +15,7 @@ import BlogItem from "./-components/BlogItem";
 import type { ApiResponseV2 } from "#/types/api.js";
 import ImagelessHeader from "../-components/headers/ImagelessHeader";
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 9;
 
 export const Route = createFileRoute("/home/blog/")({
   component: RouteComponent,
@@ -31,7 +31,7 @@ function RouteComponent() {
     queryKey: ["blogs", page],
     queryFn: async () => {
       const resp = await apiClient.get("/blog/view-posts", {
-        params: { limit: PAGE_SIZE, page },
+        params: { pageSize: PAGE_SIZE, page },
       });
       return resp.data;
     },
