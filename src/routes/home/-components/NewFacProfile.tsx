@@ -35,15 +35,6 @@ ISO 56001 | ISO/IEC 27002 | ISO/IEC 27005 | ISO/IEC 27032 | ISO/IEC 27034 | ISO/
 ISO/IEC 42001 | ISO 26000 | ISO 21502 | ESG & Sustainability | DORA | SOC 2 | PCI DSS`;
 
 const expertise: { icon: LucideIcon; label: string }[] = [
-  { icon: ShieldCheck, label: "Corporate Security Management" },
-  { icon: TriangleAlert, label: "Risk Management" },
-  { icon: RefreshCw, label: "Business Continuity & Resilience" },
-  { icon: PackageCheck, label: "Loss Prevention & Asset Protection" },
-  { icon: Search, label: "Investigations & Forensics" },
-  { icon: ClipboardCheck, label: "Regulatory Compliance" },
-  { icon: Banknote, label: "Anti-Money Laundering (AML)" },
-  { icon: FileWarning, label: "Financial Crime Prevention" },
-  { icon: ShieldBan, label: "Counter Terrorist Financing (CTF)" },
   {
     icon: ShieldCheck,
     label: "Information Security Management (ISO/IEC 27001)",
