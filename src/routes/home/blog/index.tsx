@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Clock } from "lucide-react";
@@ -25,10 +25,14 @@ export const Route = createFileRoute("/home/blog/")({
 });
 
 function RouteComponent() {
+  const { page, setPage, totalPages } = usePagination(PAGE_SIZE);
+
   const query = useQuery<ApiResponseV2<BlogPost[]>>({
-    queryKey: ["blogs"],
+    queryKey: ["blogs", page],
     queryFn: async () => {
-      let resp = await apiClient.get("/blog/view-posts");
+      const resp = await apiClient.get("/blog/view-posts", {
+        params: { limit: PAGE_SIZE, page },
+      });
       return resp.data;
     },
   });
@@ -47,7 +51,14 @@ function RouteComponent() {
       <div className="bg-base-100 px-6 py-16 md:px-16 md:py-24">
         <div className="container mx-auto">
           <PageLoader query={query} loadingText="Loading articles...">
-            {(posts) => <BlogContent posts={posts.data ?? []} />}
+            {(resp) => (
+              <BlogContent
+                posts={resp.data ?? []}
+                page={page}
+                setPage={setPage}
+                pageCount={totalPages(resp.count ?? 0)}
+              />
+            )}
           </PageLoader>
         </div>
       </div>
@@ -55,35 +66,34 @@ function RouteComponent() {
   );
 }
 
-function BlogContent({ posts }: { posts: BlogPost[] }) {
-  const { page, setPage, totalPages } = usePagination(PAGE_SIZE);
+function BlogContent({
+  posts,
+  page,
+  setPage,
+  pageCount,
+}: {
+  posts: BlogPost[];
+  page: number;
+  setPage: (p: number) => void;
+  pageCount: number;
+}) {
   const [activeSlug, setActiveSlug] = useState<string>("all");
 
-  // Unique categories across all posts.
+  // Unique categories across the current page's posts.
   const categories = useMemo(() => {
     const map = new Map<string, BlogTag>();
     posts.forEach((p) => p.tags?.forEach((t) => map.set(t.slug, t)));
     return Array.from(map.values());
   }, [posts]);
 
-  const filtered = useMemo(
+  const featured = posts[0];
+  const paged = useMemo(
     () =>
       activeSlug === "all"
         ? posts
         : posts.filter((p) => p.tags?.some((t) => t.slug === activeSlug)),
     [posts, activeSlug],
   );
-
-  // Reset to the first page whenever the filter changes.
-  useEffect(() => {
-    setPage(1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeSlug]);
-
-  const featured = posts[0];
-  const pageCount = totalPages(filtered.length);
-  const start = (page - 1) * PAGE_SIZE;
-  const paged = filtered.slice(start, start + PAGE_SIZE);
 
   if (posts.length === 0) {
     return (
