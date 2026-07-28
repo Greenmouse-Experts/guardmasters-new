@@ -46,7 +46,7 @@ export default function SimpleHero({
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Left: copy */}
           <div className="flex flex-col justify-center  pt-32 pb-16 md:pt-40 md:pb-20">
-            <h1 className="font-pop text-5xl leading-[1.05] font-bold text-white md:text-7xl">
+            <h1 className="font-pop text-4xl leading-[1.05]  text-white md:text-6xl">
               {title}
             </h1>
 
