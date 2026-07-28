@@ -63,11 +63,11 @@ const stats: { icon: LucideIcon; value: string; label: string }[] = [
     value: "20+",
     label: "Organizations Consulted",
   },
-  {
-    icon: BadgeCheck,
-    value: "Accredited",
-    label: "Trainer & Faculty Member, Global Compliance Institute",
-  },
+  // {
+  //   icon: BadgeCheck,
+  //   value: "Accredited",
+  //   label: "Trainer & Faculty Member, Global Compliance Institute",
+  // },
   {
     icon: Award,
     value: "U.S. Data Privacy Officer",
