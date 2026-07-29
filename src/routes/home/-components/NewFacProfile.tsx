@@ -197,13 +197,13 @@ export default function NewFacProf() {
             <span className="hidden h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent sm:block" />
           </div>
 
-          <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-4xl">
+          <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-5xl">
             Femi Awosedo
           </h2>
           <p className="mt-4 text-base font-semibold text-accent max-w-xl md:text-lg">
             {credentials}
           </p>
-          <p className="mt-4 text-base font-semibold text-accent md:text-lg">
+          <p className="mt-4 text-base font-semibold text-accent/80  ">
             {acoolades}
           </p>
           <div className="mt-8 divide-y divide-base-300 pb-8 lg:pb-48">
