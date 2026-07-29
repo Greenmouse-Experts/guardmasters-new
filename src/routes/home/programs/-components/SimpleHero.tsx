@@ -120,7 +120,7 @@ export default function SimpleHero({
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-8 divide-white/10 md:gap-0 md:divide-x">
+          <div className="grid grid-cols-1 gap-8 divide-white/10 md:grid-cols-3 md:gap-0 md:divide-x">
             {highlights.map((item) => (
               <div key={item.value} className="md:px-8">
                 <div className="font-pop text-xl font-bold text-primary">
