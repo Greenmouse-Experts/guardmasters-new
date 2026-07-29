@@ -195,12 +195,14 @@ export default function FacultyProfile() {
         {/* Bio */}
         <div className="lg:col-span-2 ">
           {/* Eyebrow with rule */}
-          <div className="mb-6 flex flex-wrap items-center gap-3">
-            <UserRound className="h-5 w-5 shrink-0 text-accent" />
-            <span className="font-pop text-base font-bold tracking-[0.18em] text-accent uppercase md:text-lg">
+          <div className="mb-6 flex items-center gap-4">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+              <UserRound className="h-5 w-5" strokeWidth={1.75} />
+            </span>
+            <span className="font-pop text-sm font-bold tracking-[0.18em] text-accent uppercase md:text-base">
               Lead Faculty and Programs Director
             </span>
-            <span className="hidden h-px flex-1 bg-primary/30 lg:block" />
+            <span className="hidden h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent sm:block" />
           </div>
 
           <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-5xl">

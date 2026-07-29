@@ -29,7 +29,14 @@ export default function FaqCert() {
       <section className="px-6 pt-8 text-white md:px-16 bg-base-200">
         <div className="container mx-auto">
           {/* FAQ header banner */}
-          <div className="mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-accent to-accent/70 px-8 py-12 md:px-12 md:py-16">
+          <div
+            className="mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-accent to-accent/70 px-8 py-12 md:px-12 md:py-16"
+            style={{
+              backgroundImage: "url(/faq.jpeg)",
+              backgroundSize: "100% 100%",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
             <h2 className="text-4xl leading-tight font-bold font-pop  text-center uppercase">
               <span className="text-white">Frequently Asked</span>{" "}
               <span className="text-primary">Questions</span>
