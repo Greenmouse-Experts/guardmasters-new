@@ -57,7 +57,7 @@ export default function SimpleHero({
                 {title}
               </h1>
 
-              <p className="mt-6 max-w-md leading-relaxed text-white">
+              <p className="mt-6 max-w-md leading-relaxed text-white font-semibold text-lg">
                 {description}
               </p>
 
