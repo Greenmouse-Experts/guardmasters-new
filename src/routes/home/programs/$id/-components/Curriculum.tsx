@@ -35,6 +35,9 @@ export default function Curriculum({ sections = [] }: CurriculumProps) {
         id="curriculum"
         className="scroll-mt-24 bg-base-100 px-6 md:px-16 pb-8"
       >
+        <h2 className="text-3xl font-bold  text-accent uppercase container mx-auto">
+          Program <span className="text-primary">Curriculum</span>
+        </h2>
         <div className="container mx-auto mt-12">
           {sections.length === 0 ? (
             <div className="flex flex-col items-center justify-center gap-4 border-b border-base-300 py-20 text-center">
