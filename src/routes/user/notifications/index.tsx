@@ -25,8 +25,8 @@ export const Route = createFileRoute("/user/notifications/")({
 interface Notification {
   id: string;
   title: string;
-  message: string;
-  isRead: boolean;
+  body: string;
+  read: boolean;
   createdDate: string;
 }
 
@@ -159,16 +159,19 @@ function NotificationItem({ item }: { item: Notification }) {
   const queryClient = useQueryClient();
 
   const markRead = useMutation({
-    mutationFn: () => apiClient.patch(`notifications/mark-as-read/${item.id}`),
+    mutationFn: () => apiClient.patch(`notifications/${item.id}/read`),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: ["notifications"] }),
     onError: (err) => toast.error(extract_message(err)),
   });
 
   return (
-    <li
-      className={`rounded-lg border p-4 ${
-        item.isRead
+    <div
+      onClick={() => {
+        if (!item.read && !markRead.isPending) markRead.mutate();
+      }}
+      className={`rounded-lg border  p-4 ${
+        item.read
           ? "border-base-300 bg-base-100"
           : "border-secondary/30 bg-secondary/5"
       }`}
@@ -177,10 +180,10 @@ function NotificationItem({ item }: { item: Notification }) {
         <div>
           <p className="font-medium text-accent">{item.title}</p>
           <p className="mt-1  leading-relaxed text-base-content/60">
-            {item.message}
+            {item.body}
           </p>
         </div>
-        {!item.isRead && (
+        {!item.read && (
           <button
             type="button"
             onClick={() => markRead.mutate()}
@@ -199,6 +202,6 @@ function NotificationItem({ item }: { item: Notification }) {
           minute: "2-digit",
         })}
       </p>
-    </li>
+    </div>
   );
 }
