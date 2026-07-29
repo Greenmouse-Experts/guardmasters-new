@@ -38,75 +38,77 @@ export default function SimpleHero({
   }
 
   return (
-    <section className="relative overflow-hidden bg-base-100">
-      {/* Full-bleed background image */}
-      <img
-        src={image}
-        alt={imageAlt ?? ""}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      {/* Light wash so the copy stays legible on the left */}
-      <div className="absolute inset-0 bg-gradient-to-r  from-base-100/10  to-base-100/30 lg:to-transparent" />
+    <>
+      <section className="relative overflow-hidden bg-base-100">
+        {/* Full-bleed background image */}
+        <img
+          src={image}
+          alt={imageAlt ?? ""}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        {/* Light wash so the copy stays legible on the left */}
+        <div className="absolute inset-0 bg-gradient-to-r  from-base-100/10  to-base-100/30 lg:to-transparent" />
 
-      <div className="relative container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          {/* Left: copy */}
-          <div className="flex flex-col justify-center pt-32 pb-16 md:pt-40 md:pb-24 lg:min-h-[640px]">
-            <h1 className="font-pop text-4xl leading-[1.05] font-medium text-accent md:text-6xl">
-              {title}
-            </h1>
+        <div className="relative container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Left: copy */}
+            <div className="flex flex-col justify-center pt-32 pb-16 md:pt-40 md:pb-24 lg:min-h-[640px]">
+              <h1 className="font-pop text-4xl leading-[1.05] font-medium text-accent md:text-6xl">
+                {title}
+              </h1>
 
-            <p className="mt-6 max-w-md leading-relaxed text-white">
-              {description}
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <button
-                type="button"
-                onClick={scrollToPrograms}
-                className="btn h-auto gap-2 rounded-md border-none bg-primary px-6 py-4 text-base font-bold text-accent hover:bg-primary/90"
-              >
-                Explore Programs
-                <ArrowUpRight className="h-4 w-4" />
-              </button>
-              <Link
-                to="/home/contact"
-                className="btn h-auto gap-2 rounded-md border-none bg-white px-6 py-4 text-base font-medium text-accent shadow-sm hover:bg-white/90"
-              >
-                Speak with an Advisor
-              </Link>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
-              {features.map((feature) => (
-                <div key={feature} className="flex items-center gap-2">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary">
-                    <Check className="h-3 w-3 text-accent" strokeWidth={3} />
-                  </span>
-                  <span className="text-white">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right: floating card over the image */}
-          <div className="relative hidden lg:block">
-            <div className="absolute right-0 bottom-8 max-w-xs rounded-xl bg-accent p-6 shadow-xl ring ring-primary lg:right-4">
-              <div className="mb-2 flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                <span className="font-bold tracking-[0.18em] text-accent-content uppercase">
-                  {cardEyebrow}
-                </span>
-              </div>
-              <p className="text-lg leading-snug font-medium text-accent-content">
-                {cardText}
+              <p className="mt-6 max-w-md leading-relaxed text-white">
+                {description}
               </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <button
+                  type="button"
+                  onClick={scrollToPrograms}
+                  className="btn h-auto gap-2 rounded-md border-none bg-primary px-6 py-4 text-base font-bold text-accent hover:bg-primary/90"
+                >
+                  Explore Programs
+                  <ArrowUpRight className="h-4 w-4" />
+                </button>
+                <Link
+                  to="/home/contact"
+                  className="btn h-auto gap-2 rounded-md border-none bg-white px-6 py-4 text-base font-medium text-accent shadow-sm hover:bg-white/90"
+                >
+                  Speak with an Advisor
+                </Link>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+                {features.map((feature) => (
+                  <div key={feature} className="flex items-center gap-2">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary">
+                      <Check className="h-3 w-3 text-accent" strokeWidth={3} />
+                    </span>
+                    <span className="text-white">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: floating card over the image */}
+            <div className="relative hidden lg:block">
+              <div className="absolute right-0 bottom-8 max-w-xs rounded-xl bg-accent p-6 shadow-xl ring ring-primary lg:right-4">
+                <div className="mb-2 flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+                  <span className="font-bold tracking-[0.18em] text-accent-content uppercase">
+                    {cardEyebrow}
+                  </span>
+                </div>
+                <p className="text-lg leading-snug font-medium text-accent-content">
+                  {cardText}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom highlights strip */}
+        {/* Bottom highlights strip */}
+      </section>
       <div className="relative bg-accent">
         <div className="container mx-auto flex flex-col gap-8 py-8 md:flex-row md:items-center md:justify-between">
           <div>
@@ -130,6 +132,6 @@ export default function SimpleHero({
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 }
