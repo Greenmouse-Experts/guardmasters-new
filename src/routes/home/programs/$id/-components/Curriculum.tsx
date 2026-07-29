@@ -54,21 +54,19 @@ export default function Curriculum({ sections = [] }: CurriculumProps) {
               </p>
             </div>
           ) : (
-            sections
-              .slice(0, 2)
-              .map((section, index) => (
-                <SectionAccordion
-                  key={section.title}
-                  number={String(index + 1).padStart(2, "0")}
-                  section={section}
-                  sectionIndex={index}
-                  isOpen={openIndex === index}
-                  onToggle={() =>
-                    setOpenIndex((cur) => (cur === index ? -1 : index))
-                  }
-                  onPreview={openPreview}
-                />
-              ))
+            sections.map((section, index) => (
+              <SectionAccordion
+                key={section.title}
+                number={String(index + 1).padStart(2, "0")}
+                section={section}
+                sectionIndex={index}
+                isOpen={openIndex === index}
+                onToggle={() =>
+                  setOpenIndex((cur) => (cur === index ? -1 : index))
+                }
+                onPreview={openPreview}
+              />
+            ))
           )}
         </div>
       </section>
