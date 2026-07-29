@@ -61,6 +61,7 @@ export default function Curriculum({ sections = [] }: CurriculumProps) {
                   key={section.title}
                   number={String(index + 1).padStart(2, "0")}
                   section={section}
+                  sectionIndex={index}
                   isOpen={openIndex === index}
                   onToggle={() =>
                     setOpenIndex((cur) => (cur === index ? -1 : index))
@@ -82,6 +83,7 @@ export default function Curriculum({ sections = [] }: CurriculumProps) {
 interface SectionAccordionProps {
   number: string;
   section: CourseContentSection;
+  sectionIndex: number;
   isOpen: boolean;
   onToggle: () => void;
   onPreview: (sub: CourseContentSub) => void;
@@ -90,6 +92,7 @@ interface SectionAccordionProps {
 function SectionAccordion({
   number,
   section,
+  sectionIndex,
   isOpen,
   onToggle,
   onPreview,
@@ -127,8 +130,13 @@ function SectionAccordion({
 
       {isOpen && section.courseContentSubs.length > 0 && (
         <ul className="mt-6 ml-6 divide-y divide-base-300 border-t border-base-300 md:ml-12">
-          {section.courseContentSubs.map((sub) => (
-            <SubItem key={sub.title} sub={sub} onPreview={onPreview} />
+          {section.courseContentSubs.map((sub, lessonIndex) => (
+            <SubItem
+              key={sub.title}
+              sub={sub}
+              showPreview={sectionIndex === 0 && lessonIndex < 2}
+              onPreview={onPreview}
+            />
           ))}
         </ul>
       )}
@@ -138,9 +146,11 @@ function SectionAccordion({
 
 function SubItem({
   sub,
+  showPreview,
   onPreview,
 }: {
   sub: CourseContentSub;
+  showPreview: boolean;
   onPreview: (sub: CourseContentSub) => void;
 }) {
   return (
@@ -166,7 +176,7 @@ function SubItem({
             {sub.duration}m
           </span>
         )}
-        {sub.previewUrl && (
+        {showPreview && sub.previewUrl && (
           <button
             type="button"
             onClick={() => onPreview(sub)}
