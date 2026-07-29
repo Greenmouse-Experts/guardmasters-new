@@ -72,11 +72,11 @@ function RouteComponent() {
       />
 
       <section className="bg-base-200 px-6 py-16 md:px-16 md:py-20">
-        <div className="container mx-auto overflow-hidden border border-base-300 bg-base-100">
+        <div className="container mx-auto overflow-hidden border border-base-300 bg-base-100 divide-y divide-primary/80">
           {accreditations.map((item) => (
             <div
               key={item.name}
-              className="grid grid-cols-1 items-start gap-6 border-b border-base-300 p-8 last:border-b-0 md:grid-cols-[120px_1fr_1.4fr_auto] md:gap-10 md:p-10"
+              className="grid grid-cols-1 items-start gap-6  p-8 last:border-b-0 md:grid-cols-[120px_1fr_1.4fr_auto] md:gap-10 md:p-10"
             >
               <div className="flex h-24 w-24 items-center justify-center">
                 <img
