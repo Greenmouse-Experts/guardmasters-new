@@ -200,7 +200,7 @@ export default function NewFacProf() {
           <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-4xl">
             Femi Awosedo
           </h2>
-          <p className="mt-4 text-base font-semibold text-accent md:text-lg">
+          <p className="mt-4 text-base font-semibold text-accent max-w-xl md:text-lg">
             {credentials}
           </p>
           <p className="mt-4 text-base font-semibold text-accent md:text-lg">
