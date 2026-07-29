@@ -55,8 +55,8 @@ const stats: { icon: LucideIcon; value: string; label: string }[] = [
   },
   {
     icon: IdCard,
-    value: "Dual Licensed",
-    label: "Security Guard & Private Investigator — Ontario",
+    value: "CPD UK Accredited",
+    label: "Accredited trainer by the CPD Group United Kingdom",
   },
   {
     icon: Users,
