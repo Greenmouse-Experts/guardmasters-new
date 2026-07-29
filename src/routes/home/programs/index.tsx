@@ -53,25 +53,34 @@ function RouteComponent() {
         {(resp) => {
           return (
             <>
-              <div id="programs" className="container mx-auto px-6 py-16 md:px-16">
-                {resp.data.map((program) => (
-                  <section id={program.id} key={program.id} className="mb-20 last:mb-0">
-                    <h2 className="mb-8 text-3xl font-medium leading-tight text-gray-900 md:text-4xl">
-                      {program.title}
-                    </h2>
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                      {program.courses.map((course, index) => (
-                        <ProgramCard
-                          key={course.id}
-                          course={course}
-                          index={index}
-                          programTitle={program.title}
-                        />
-                      ))}
-                    </div>
-                  </section>
-                ))}
-              </div>
+              <section className="py-8 bg-base-100 mt-4">
+                <div id="programs" className=" mx-auto  py-16 ">
+                  {resp.data.map((program) => (
+                    <section
+                      id={program.id}
+                      key={program.id}
+                      className="mb-20 last:mb-0"
+                    >
+                      <h2 className="container mx-auto mb-8 text-3xl font-medium leading-tight text-accent md:text-4xl">
+                        {program.title}
+                      </h2>
+                      <section className="py-8  bg-accent mt-4">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 container mx-auto py-8">
+                          {program.courses.map((course, index) => (
+                            <ProgramCard
+                              outline
+                              key={course.id}
+                              course={course}
+                              index={index}
+                              programTitle={program.title}
+                            />
+                          ))}
+                        </div>
+                      </section>
+                    </section>
+                  ))}
+                </div>
+              </section>
             </>
           );
         }}
