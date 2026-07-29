@@ -196,17 +196,17 @@ export default function FacultyProfile() {
         <div className="lg:col-span-2 ">
           {/* Eyebrow with rule */}
           <div className="mb-6 flex flex-wrap items-center gap-3">
-            <UserRound className="h-5 w-5 shrink-0 text-primary" />
-            <span className="font-pop text-base font-bold tracking-[0.18em] text-primary uppercase md:text-lg">
+            <UserRound className="h-5 w-5 shrink-0 text-accent" />
+            <span className="font-pop text-base font-bold tracking-[0.18em] text-accent uppercase md:text-lg">
               Lead Faculty and Programs Director
             </span>
             <span className="hidden h-px flex-1 bg-primary/30 lg:block" />
           </div>
 
-          <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-4xl">
+          <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-5xl">
             Dr. Adegbenga William Koko
           </h2>
-          <p className="mt-4 text-base font-semibold text-secondary md:text-lg">
+          <p className="mt-4 text-base font-semibold text-accent max-w-xl ">
             {credentials}
           </p>
           <div className="mt-8 divide-y divide-base-300 pb-8 lg:pb-48">
