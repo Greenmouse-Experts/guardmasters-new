@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
+import PptxViewer from "#/components/PptxViewer.tsx";
 import { useCurrentLesson } from "#/store/playerStore.ts";
 
 export default function CoursePlayer({ courseId }: { courseId: string }) {
@@ -129,14 +130,13 @@ function DocumentMedia({ src }: { src: string }) {
     }
   }
 
-  // PPTX — route through Office Online viewer
-  const embedSrc = isPptx(src)
-    ? `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(src)}`
-    : src;
-
   return (
     <div ref={wrapperRef} className="relative h-full w-full bg-base-100">
-      <iframe src={embedSrc} title="Document" className="h-full w-full" />
+      {isPptx(src) ? (
+        <PptxViewer src={src} title="Presentation" className="h-full w-full" />
+      ) : (
+        <iframe src={src} title="Document" className="h-full w-full" />
+      )}
       <button
         type="button"
         onClick={toggleFullscreen}
