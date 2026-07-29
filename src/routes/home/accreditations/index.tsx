@@ -78,7 +78,7 @@ function RouteComponent() {
               key={item.name}
               className="grid grid-cols-1 items-start gap-6  p-8 last:border-b-0 md:grid-cols-[120px_1fr_1.4fr_auto] md:gap-10 md:p-10"
             >
-              <div className="flex h-24 w-24 items-center justify-center">
+              <div className="flex h-full items-center justify-center">
                 <img
                   src={item.logo}
                   alt={item.name}
@@ -86,12 +86,12 @@ function RouteComponent() {
                 />
               </div>
 
-              <div>
+              <div className="my-auto">
                 <div className="mb-2  text-sm  font-medium tracking-[0.15em] uppercase">
                   {item.role}
                 </div>
-                <h3 className="text-2xl  text-accent md:text-3xl">
-                  {item.name}
+                <h3 className="text-2xl  text-black md:text-3xl font-bold">
+                  {item.org}
                 </h3>
               </div>
 
