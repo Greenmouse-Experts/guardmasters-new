@@ -159,7 +159,7 @@ function NotificationItem({ item }: { item: Notification }) {
   const queryClient = useQueryClient();
 
   const markRead = useMutation({
-    mutationFn: () => apiClient.patch(`notifications/${item.id}/read`),
+    mutationFn: () => apiClient.patch(`notifications/mark-as-read/${item.id}`),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: ["notifications"] }),
     onError: (err) => toast.error(extract_message(err)),
