@@ -27,7 +27,7 @@ const highlights = [
 export default function SimpleHero({
   title,
   description,
-  image,
+  image = "/new_hero_bg.png",
   imageAlt,
   features = default_features,
   cardEyebrow = "Learn with purpose",
@@ -38,19 +38,25 @@ export default function SimpleHero({
   }
 
   return (
-    <section
-      className="relative overflow-hidden bg-accent pt-8
-      "
-    >
-      <div className="container mx-auto">
+    <section className="relative overflow-hidden bg-base-100">
+      {/* Full-bleed background image */}
+      <img
+        src={image}
+        alt={imageAlt ?? ""}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      {/* Light wash so the copy stays legible on the left */}
+      <div className="absolute inset-0 bg-gradient-to-r  from-base-100/10  to-base-100/30 lg:to-transparent" />
+
+      <div className="relative container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Left: copy */}
-          <div className="flex flex-col justify-center  pt-32 pb-16 md:pt-40 md:pb-20">
-            <h1 className="font-pop text-4xl leading-[1.05]  text-white md:text-6xl">
+          <div className="flex flex-col justify-center pt-32 pb-16 md:pt-40 md:pb-24 lg:min-h-[640px]">
+            <h1 className="font-pop text-4xl leading-[1.05] font-medium text-accent md:text-6xl">
               {title}
             </h1>
 
-            <p className="mt-6 max-w-md leading-relaxed text-white/50">
+            <p className="mt-6 max-w-md leading-relaxed text-white">
               {description}
             </p>
 
@@ -65,7 +71,7 @@ export default function SimpleHero({
               </button>
               <Link
                 to="/home/contact"
-                className="btn h-auto gap-2 rounded-md border-none bg-white px-6 py-4 text-base font-medium text-accent hover:bg-white/90"
+                className="btn h-auto gap-2 rounded-md border-none bg-white px-6 py-4 text-base font-medium text-accent shadow-sm hover:bg-white/90"
               >
                 Speak with an Advisor
               </Link>
@@ -77,26 +83,18 @@ export default function SimpleHero({
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary">
                     <Check className="h-3 w-3 text-accent" strokeWidth={3} />
                   </span>
-                  <span className=" text-white/70">{feature}</span>
+                  <span className="text-white">{feature}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right: image space */}
-          <div className="relative min-h-[360px] lg:min-h-[640px] ">
-            <img
-              src={"/program.png"}
-              alt={imageAlt ?? ""}
-              className="h-full w-full object-contain"
-            />
-            <div className="absolute inset-0 bg-linear-90 from-accent to-transparent"></div>
-
-            {/* Floating card */}
-            <div className="absolute bottom-8 left-0 max-w-xs bg-accent/70 backdrop-blur-sm ring ring-primary p-6 shadow-xl lg:left-8 rounded-xl">
+          {/* Right: floating card over the image */}
+          <div className="relative hidden lg:block">
+            <div className="absolute right-0 bottom-8 max-w-xs rounded-xl bg-accent p-6 shadow-xl ring ring-primary lg:right-4">
               <div className="mb-2 flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                <span className=" font-bold tracking-[0.18em] text-accent-content uppercase">
+                <span className="font-bold tracking-[0.18em] text-accent-content uppercase">
                   {cardEyebrow}
                 </span>
               </div>
@@ -106,15 +104,17 @@ export default function SimpleHero({
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom highlights strip */}
-        <div className="flex flex-col gap-8 border-t border-white/10 py-8 md:flex-row md:items-center md:justify-between">
+      {/* Bottom highlights strip */}
+      <div className="relative bg-accent">
+        <div className="container mx-auto flex flex-col gap-8 py-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="mb-2  font-bold tracking-[0.18em] text-primary uppercase">
+            <p className="mb-2 font-bold tracking-[0.18em] text-primary uppercase">
               Find your pathway
             </p>
             <p className="font-pop text-2xl font-medium text-white md:text-3xl">
-              Programs designed around your next move.
+              Programs designed around your next career move.
             </p>
           </div>
 
@@ -124,7 +124,7 @@ export default function SimpleHero({
                 <div className="font-pop text-xl font-bold text-primary">
                   {item.value}
                 </div>
-                <div className="mt-1  text-white/50">{item.label}</div>
+                <div className="mt-1 text-white/50">{item.label}</div>
               </div>
             ))}
           </div>

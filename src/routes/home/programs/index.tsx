@@ -44,7 +44,7 @@ function RouteComponent() {
         title={
           <>
             Training Programs{" "}
-            <span className="text-primary">and Certification Courses.</span>
+            <span className="text-white">and Certification Courses.</span>
           </>
         }
         description="Explore accredited security training and certification courses designed to strengthen your expertise and prepare you for greater career opportunities."
