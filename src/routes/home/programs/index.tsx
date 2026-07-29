@@ -53,8 +53,8 @@ function RouteComponent() {
         {(resp) => {
           return (
             <>
-              <section className="py-8 bg-base-100 mt-4">
-                <div id="programs" className=" mx-auto  py-16 ">
+              <section className="py-8 bg-base-100 ">
+                <div id="programs" className=" mx-auto  ">
                   {resp.data.map((program) => (
                     <section
                       id={program.id}

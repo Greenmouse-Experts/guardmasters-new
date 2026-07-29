@@ -95,7 +95,7 @@ export default function HomeNav() {
     <div
       className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
         !isLandingPage || hasScrolled
-          ? "bg-accent/40 backdrop-blur-xs"
+          ? "bg-accent/80 backdrop-blur-sm"
           : "bg-transparent"
       }`}
     >
