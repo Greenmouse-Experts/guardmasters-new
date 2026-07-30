@@ -135,7 +135,11 @@ function DocumentMedia({ src }: { src: string }) {
       {isPptx(src) ? (
         <PptxViewer src={src} title="Presentation" className="h-full w-full" />
       ) : (
-        <iframe src={src} title="Document" className="h-full w-full" />
+        <>
+          <iframe src={src} title="Document" className="h-full w-full" />
+          {/* Covers the Office Online top toolbar where the download button sits */}
+          <div className="absolute inset-x-0 top-0 h-10 bg-white pointer-events-none z-20" />
+        </>
       )}
       <button
         type="button"

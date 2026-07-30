@@ -58,7 +58,9 @@ interface CourseProgressResponse {
 function RouteComponent() {
   const { id } = Route.useParams();
   const modalRef = useRef<ModalHandle>(null);
-  const [certificate, setCertificate] = useState<CertificateResponse | null>(null);
+  const [certificate, setCertificate] = useState<CertificateResponse | null>(
+    null,
+  );
 
   const items: NavItem[] = [
     { label: "Dashboard", icon: LayoutGrid, to: "/user", exact: true },
