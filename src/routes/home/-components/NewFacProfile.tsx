@@ -188,8 +188,8 @@ export default function NewFacProf() {
         {/* Bio */}
         <div className="lg:col-span-2 ">
           {/* Eyebrow with rule */}
-          <div className="mb-6 flex items-center gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+          <div className=" flex items-center gap-4">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-accent">
               <UserRound className="h-5 w-5" strokeWidth={1.75} />
             </span>
             <span className="font-pop text-sm font-bold tracking-[0.18em] text-accent uppercase md:text-base">
@@ -197,7 +197,7 @@ export default function NewFacProf() {
             </span>
             <span className="hidden h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent sm:block" />
           </div>
-
+          <div className="bg-linear-90 from-accent via-accent/20 from-30% via-30%  to-accent/20 h-0.5 w-full mb-4"></div>
           <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-5xl">
             Femi Awosedo
           </h2>
