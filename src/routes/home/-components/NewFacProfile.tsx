@@ -223,7 +223,7 @@ export default function NewFacProf() {
       {/* Stats bar — inline on mobile, floating on desktop */}
       <div className="lg:absolute lg:inset-x-0 lg:bottom-8">
         <div className="container mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 divide-y divide-base-300 rounded-2xl border border-primary/50 bg-base-100 shadow-xl sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x lg:divide-y-0">
+          <div className="grid grid-cols-1 divide-y divide-base-300 rounded-2xl border border-primary/50 bg-base-100 shadow-xl sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x lg:divide-y-0 mx-4">
             {stats.map((stat) => (
               <div
                 key={stat.value}

@@ -35,7 +35,7 @@ export default function ProgramInfo({
           <p className="max-w-sm leading-relaxed text-lg">{description}</p>
         </div>
 
-        <div className="max-h-[280px] overflow-y-auto grid grid-cols-1 gap-x-12 md:col-span-2 md:grid-cols-2">
+        <div className="max-h-[280px] overflow-y-auto grid grid-cols-1 gap-x-12  md:grid-cols-2">
           {outcomes.map((outcome) => (
             <div
               key={outcome}
