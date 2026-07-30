@@ -173,7 +173,7 @@ export default function NewFacProf() {
           </h3>
           <div className="mt-3 h-px w-full bg-linear-90 from-primary/50" />
 
-          <ul className="mt-2">
+          <ul className="mt-2 mb-12">
             {expertise.map((item) => (
               <li key={item.label} className="flex items-center gap-3 py-1">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-primary">
