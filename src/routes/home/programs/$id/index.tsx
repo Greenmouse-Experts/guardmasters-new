@@ -160,7 +160,7 @@ function RouteComponent() {
                       Enroll
                     </span>
 
-                    <h2 className="mb-8 font-pop text-5xl font-bold leading-tight text-accent md:text-6xl lg:text-7xl">
+                    <h2 className="mb-8 font-pop text-5xl leading-tight text-accent md:text-6xl lg:text-7xl">
                       One Investment.
                       <br />
                       Career-long
