@@ -63,7 +63,7 @@ function Learn({ data }: { data: CourseLearnResponse }) {
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_24rem]">
       {/* Left: player + meta */}
-      <div className="min-w-0 space-y-6 sticky top-0">
+      <div className="min-w-0 space-y-6 sticky top-4 self-start">
         <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
           <CoursePlayer courseId={String(course.id)} />
         </div>

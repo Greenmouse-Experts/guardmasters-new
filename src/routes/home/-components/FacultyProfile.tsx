@@ -209,9 +209,11 @@ export default function FacultyProfile() {
           <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-5xl">
             Dr. Adegbenga William Koko
           </h2>
-          <p className="mt-4 text-base font-semibold text-accent max-w-xl ">
-            {credentials}
-          </p>
+          <div className="max-w-xl">
+            <pre className="mt-4 text-base font-semibold text-accent max-w-xl  wrap-break-word whitespace-pre-wrap">
+              {credentials}
+            </pre>
+          </div>
           <div className="mt-8 divide-y divide-base-300 pb-8 lg:pb-48">
             {bio.map((item, i) => (
               <div key={i} className="flex gap-4 py-5">
