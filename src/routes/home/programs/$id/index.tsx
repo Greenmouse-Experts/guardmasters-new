@@ -145,7 +145,7 @@ function RouteComponent() {
                 badge="Reviews"
                 title={
                   <>
-                    What graduates{" "}
+                    What our graduates{" "}
                     <em className="text-primary italic">are saying.</em>
                   </>
                 }

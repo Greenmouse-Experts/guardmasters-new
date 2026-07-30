@@ -202,9 +202,10 @@ export default function FacultyProfile() {
             <span className="font-pop text-sm font-bold tracking-[0.18em] text-accent uppercase md:text-base">
               Lead Faculty and Programs Director
             </span>
+
             <span className="hidden h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent sm:block" />
           </div>
-
+          <div className="bg-linear from-accent to-red w-full h-2"></div>
           <h2 className="font-pop text-2xl font-bold text-accent md:text-3xl lg:text-5xl">
             Dr. Adegbenga William Koko
           </h2>
