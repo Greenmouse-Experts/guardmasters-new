@@ -34,7 +34,7 @@ export default function Curriculum({ sections = [] }: CurriculumProps) {
     <>
       <section
         id="curriculum"
-        className="scroll-mt-24  px-6 md:px-16 pb-8 bg-base-200 py-6 "
+        className="scroll-mt-24  px-6 md:px-16 pb-8 bg-base-200 py-12 border-t-primary border-t "
       >
         <h2 className="container mx-auto">
           <div className="text-3xl font-bold text-accent uppercase  w-fit  bg-white py-2 ring-current/40 px-7 rounded-full  ring self-start shadow">
