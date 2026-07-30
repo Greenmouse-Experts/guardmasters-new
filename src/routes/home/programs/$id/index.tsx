@@ -141,34 +141,6 @@ function RouteComponent() {
                 image="/students.jpg"
                 imageAlt="Students learning together"
               />
-              <section className="">
-                <EnrollMore
-                  badge="Enroll"
-                  programId={resp.course.program.id}
-                  currentCourseId={String(resp.course.id)}
-                  cartItem={{
-                    id: String(course.id),
-                    coverImg: course.coverImage,
-                    title: course.title,
-                    price: course.price,
-                    fmprice: course.originalPriceFormat,
-                  }}
-                  title={
-                    <>
-                      One investment.{" "}
-                      <em className="text-accent italic">Career-long</em>{" "}
-                      <em className="text-primary">dividends.</em>
-                    </>
-                  }
-                  description="Talk to admissions about cohort dates, corporate group rates, and continuing-education credit transfer."
-                  price={price}
-                  priceNote="per enrollment"
-                  includes={includes}
-                  relatedBadge="More courses"
-                  relatedTitle="Continue your pathway."
-                />
-              </section>
-
               <Comments
                 badge="Reviews"
                 title={
@@ -265,6 +237,33 @@ function RouteComponent() {
                   </div>
                 </div>
               </div>
+              <section className="">
+                <EnrollMore
+                  badge="Enroll"
+                  programId={resp.course.program.id}
+                  currentCourseId={String(resp.course.id)}
+                  cartItem={{
+                    id: String(course.id),
+                    coverImg: course.coverImage,
+                    title: course.title,
+                    price: course.price,
+                    fmprice: course.originalPriceFormat,
+                  }}
+                  title={
+                    <>
+                      One investment.{" "}
+                      <em className="text-accent italic">Career-long</em>{" "}
+                      <em className="text-primary">dividends.</em>
+                    </>
+                  }
+                  description="Talk to admissions about cohort dates, corporate group rates, and continuing-education credit transfer."
+                  price={price}
+                  priceNote="per enrollment"
+                  includes={includes}
+                  relatedBadge="More courses"
+                  relatedTitle="Continue your pathway."
+                />
+              </section>
             </>
           );
         }}
