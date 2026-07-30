@@ -22,8 +22,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-const credentials = `CA, CFE, CFI, CAMS, CFCS, LPC, ChLPS, CPO, CPOI, CBRM, ABCP, CSP, MSyI, CMgr, MCMI, CPP®
-Lead Auditor & Lead Implementer - ISO 27001, 27701, 22301, 21502, 18788, 31000, 42001, 28000`;
+const credentials = `PhD, MSc, MBA, CFE, CFCS, CAMS, ChLPS, LPC, CPO, CPOI, CBRM, ABCP, CMgr, CPP
+Lead Auditor & Lead Implementer - ISO 27001, 27701, 22301, 21502, 18788, 31000,
+42001, 28000`;
 
 const expertise: { icon: LucideIcon; label: string }[] = [
   { icon: ShieldCheck, label: "Corporate Security Management" },

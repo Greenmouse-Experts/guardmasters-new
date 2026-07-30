@@ -261,7 +261,7 @@ function RouteComponent() {
                   priceNote="per enrollment"
                   includes={includes}
                   relatedBadge="More courses"
-                  relatedTitle="Continue your pathway."
+                  relatedTitle={`Continue your <span class='text-primary'>lesson</span>.`}
                 />
               </section>
             </>
