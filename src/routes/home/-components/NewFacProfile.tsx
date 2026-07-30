@@ -188,10 +188,8 @@ export default function NewFacProf() {
         {/* Bio */}
         <div className="lg:col-span-2 ">
           {/* Eyebrow with rule */}
-          <div className=" flex items-center gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-accent">
-              <UserRound className="h-5 w-5" strokeWidth={1.75} />
-            </span>
+          <div className=" flex items-center gap-2">
+            <img src="/user_icon.png" className=" m-1 size-6 rounded-full" />
             <span className="font-pop text-sm font-bold tracking-[0.18em] text-accent uppercase md:text-base">
               Lead ISO Consultant & Trainer
             </span>

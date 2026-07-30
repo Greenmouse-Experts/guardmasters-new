@@ -14,12 +14,12 @@ import {
   BadgeCheck,
   IdCard,
   Users,
-  UserRound,
   GraduationCap,
   BookOpen,
   Award,
   PenLine,
   type LucideIcon,
+  UserRound,
 } from "lucide-react";
 
 const credentials = `PhD, MSc, MBA, CFE, CFCS, CAMS, ChLPS, LPC, CPO, CPOI, CBRM, ABCP, CMgr, CPP
@@ -197,8 +197,8 @@ export default function FacultyProfile() {
         <div className="lg:col-span-2 ">
           {/* Eyebrow with rule */}
           <div className=" flex items-center gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-accent">
-              <UserRound className="h-5 w-5" strokeWidth={1.75} />
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full  text-accent">
+              <img src="/user_icon.png" className=" m-1 size-6 rounded-full" />
             </span>
             <span className="font-pop text-sm font-bold tracking-[0.18em] text-accent uppercase md:text-base">
               Lead Faculty and Programs Director
