@@ -232,10 +232,10 @@ export default function NewFacProf() {
                   strokeWidth={1.75}
                 />
                 <div>
-                  <div className="font-pop text-xl font-bold text-accent">
+                  <div className="font-pop text-base font-bold text-accent">
                     {stat.value}
                   </div>
-                  <div className="mt-0.5 leading-snug text-black/55">
+                  <div className="mt-0.5 leading-snug text-sm text-black/90">
                     {stat.label}
                   </div>
                 </div>
