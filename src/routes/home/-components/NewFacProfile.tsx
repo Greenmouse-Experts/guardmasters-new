@@ -171,7 +171,7 @@ export default function NewFacProf() {
           <h3 className="mt-8 font-pop font-bold tracking-[0.2em] text-primary uppercase">
             Areas of Expertise
           </h3>
-          <div className="mt-3 h-px w-full bg-white/10" />
+          <div className="mt-3 h-px w-full bg-linear-90 from-primary/50" />
 
           <ul className="mt-2">
             {expertise.map((item) => (
