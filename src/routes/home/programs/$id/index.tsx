@@ -123,7 +123,7 @@ function RouteComponent() {
                     On successful completion of this program, you will receive a
                     Guardmaster Institute Certificate of Completion, & Other
                     Applicable Certification from the relevant professional
-                    body. Guardmaster Institute is an
+                    body. Guardmaster Institute is an{" "}
                     <span className="text-primary">
                       ASIS-International Preferred CPE Provider
                     </span>{" "}
