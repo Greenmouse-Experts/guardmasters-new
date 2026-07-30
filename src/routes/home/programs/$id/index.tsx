@@ -108,7 +108,39 @@ function RouteComponent() {
               />
               <Curriculum sections={resp.contents.data} />
               {/*<Modules modules={modules} />*/}
-
+              <ProgramCertificate
+                badge="Certificate of Completion"
+                title={
+                  <>
+                    You earn a credential
+                    <br />
+                    the industry{" "}
+                    <em className="text-white italic">already trusts.</em>
+                  </>
+                }
+                description={
+                  <>
+                    On successful completion of this program, you will receive a
+                    Guardmaster Institute Certificate of Completion, & Other
+                    Applicable Certification from the relevant professional
+                    body. Guardmaster Institute is an
+                    <span className="text-primary">
+                      ASIS-International Preferred CPE Provider
+                    </span>{" "}
+                    <span className="text-primary">
+                      and ACTD-accredited training institution.
+                    </span>
+                  </>
+                }
+                features={[
+                  "Up to 40 ASIS-International CPE credits",
+                  "Verifiable digital certificate of completion",
+                  "Issued under the Guardmaster Institute seal",
+                  "Recognized internationally by ASIS, IFPO, and ChLPS",
+                ]}
+                image="/students.jpg"
+                imageAlt="Students learning together"
+              />
               <section className="">
                 <EnrollMore
                   badge="Enroll"
@@ -136,39 +168,7 @@ function RouteComponent() {
                   relatedTitle="Continue your pathway."
                 />
               </section>
-              <ProgramCertificate
-                badge="Certificate of Completion"
-                title={
-                  <>
-                    You earn a credential
-                    <br />
-                    the industry{" "}
-                    <em className="text-white italic">already trusts.</em>
-                  </>
-                }
-                description={
-                  <>
-                    On successful completion you receive the{" "}
-                    <span className="font-medium text-white">
-                      Guardmaster {course.title}
-                    </span>
-                    , issued by Guardmaster Institute of Corporate Security
-                    Management Canada — an{" "}
-                    <span className="text-primary">
-                      ASIS-International Preferred CPE Provider
-                    </span>{" "}
-                    and ACTD-accredited training institution.
-                  </>
-                }
-                features={[
-                  "Up to 40 ASIS-International CPE credits",
-                  "Verifiable digital certificate of completion",
-                  "Issued under the Guardmaster Institute seal",
-                  "Recognized internationally by ASIS, IFPO, and ChLPS",
-                ]}
-                image="/students.jpg"
-                imageAlt="Students learning together"
-              />
+
               <Comments
                 badge="Reviews"
                 title={
