@@ -32,7 +32,7 @@ export default function Principles() {
     <section
       className=" px-6 py-20 md:px-16"
       style={{
-        backgroundImage: "url(/FOOTER.jpeg)",
+        backgroundImage: "url(/four_princ.jpeg)",
         backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
       }}
