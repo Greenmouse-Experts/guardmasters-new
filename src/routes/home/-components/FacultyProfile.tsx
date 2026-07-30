@@ -210,7 +210,7 @@ export default function FacultyProfile() {
             Dr. Adegbenga William Koko
           </h2>
           <div className="max-w-xl">
-            <pre className="mt-4 text-base font-semibold text-accent max-w-xl  wrap-break-word whitespace-pre-wrap">
+            <pre className="mt-4 text-base  text-accent/80 max-w-xl whitespace-pre-wrap  md:text-lg">
               {credentials}
             </pre>
           </div>
