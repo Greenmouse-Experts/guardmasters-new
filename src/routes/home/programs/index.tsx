@@ -61,7 +61,7 @@ function RouteComponent() {
                       key={program.id}
                       className="mb-20 last:mb-0"
                     >
-                      <h2 className="container mx-auto mb-8 text-3xl font-medium leading-tight text-accent md:text-4xl">
+                      <h2 className="container mx-auto mb-8 text-3xl  leading-tight text-accent md:text-4xl font-black">
                         {program.title}
                       </h2>
                       <section className="py-8  bg-accent mt-4">

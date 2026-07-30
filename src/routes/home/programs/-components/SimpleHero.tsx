@@ -68,7 +68,7 @@ export default function SimpleHero({
                   className="btn h-auto gap-2 rounded-md border-none bg-primary px-6 py-4 text-base font-bold text-accent hover:bg-primary/90"
                 >
                   Explore Programs
-                  <ArrowUpRight className="h-4 w-4" />
+                  <ArrowUpRight className="h-4 w-4 text-white" />
                 </button>
                 <Link
                   to="/home/contact"
