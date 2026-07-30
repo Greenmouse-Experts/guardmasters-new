@@ -137,7 +137,7 @@ function RouteComponent() {
                 />
               </section>
               <ProgramCertificate
-                badge="Credentials"
+                badge="Certificate of Completion"
                 title={
                   <>
                     You earn a credential
