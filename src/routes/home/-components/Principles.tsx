@@ -29,7 +29,14 @@ const principles = [
 
 export default function Principles() {
   return (
-    <section className="bg-base-200 px-6 py-20 md:px-16">
+    <section
+      className=" px-6 py-20 md:px-16"
+      style={{
+        backgroundImage: "url(/FOOTER.jpeg)",
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container mx-auto">
         <h2 className="mb-16 text-center text-4xl font-bold  md:text-5xl text-accent">
           Four principles. One mission.
