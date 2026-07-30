@@ -111,7 +111,14 @@ function NavLink({ link }: { link: FooterLink }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-accent text-white">
+    <footer
+      className="bg-accent text-white"
+      style={{
+        backgroundImage: "url(/FOOTER.jpeg)",
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container mx-auto px-6 py-16 md:px-12">
         {/* ── Main grid ── */}
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
