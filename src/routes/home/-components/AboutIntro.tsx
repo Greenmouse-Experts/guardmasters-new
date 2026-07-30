@@ -81,12 +81,15 @@ export default function AboutIntro() {
         <div className="container mx-auto">
           <div className="card bg-accent text-white shadow-2xl rounded-4xl">
             <div className="card-body gap-6 p-8 md:p-12">
-              <div className="avatar placeholder">
-                <div className="bg-primary text-accent rounded-full w-14 grid place-items-center">
-                  <Eye className="h-7 w-7" />
+              <div className="flex items-center gap-4">
+                {" "}
+                <div className="avatar placeholder">
+                  <div className="bg-primary text-accent rounded-full w-14 grid place-items-center">
+                    <Eye className="h-7 w-7" />
+                  </div>
                 </div>
+                <h3 className="card-title text-4xl  font-pop">Our Mission</h3>
               </div>
-              <h3 className="card-title text-4xl  font-pop">Our Mission</h3>
               <div className="space-y-4 text-xl">
                 <p>
                   At Guardmaster Institute Canada, our mission is to advance

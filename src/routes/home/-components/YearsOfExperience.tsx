@@ -9,7 +9,7 @@ const stats = [
 
 export default function YearsOfExperience() {
   return (
-    <section className="bg-base-100 px-6 py-20 md:px-16">
+    <section className="bg-base-200 px-6 py-20 md:px-16">
       <div className="container mx-auto">
         <div className="mb-14 flex flex-col items-center text-center">
           <h2 className="mb-4 text-4xl font-bold text-base-content md:text-5xl">

@@ -39,7 +39,7 @@ export default function Principles() {
           {principles.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="flex flex-col items-center shadow-lg rounded-xl"
+              className="flex flex-col items-center shadow-lg rounded-xl bg-white"
             >
               <div className="relative z-10 -mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-accent shadow-lg">
                 <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
