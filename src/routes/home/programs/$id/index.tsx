@@ -97,8 +97,11 @@ function RouteComponent() {
                 // badge="Outcomes"
                 title={
                   <>
-                    Lesson Objectives{" "}
-                    <em className="text-primary italic"> & Outcomes.</em>
+                    Program Objectives{" "}
+                    <em className="text-primary italic">
+                      {" "}
+                      & Learning Outcomes.
+                    </em>
                   </>
                 }
                 description="Practical, board-ready competencies — not just theory. Designed for direct application the day you return to your organization."
@@ -168,10 +171,10 @@ function RouteComponent() {
                       <span className="text-primary">dividend</span>
                     </h2>
 
-                    <p className="max-w-md font-bold text-lg leading-relaxed text-accent">
+                    {/*<p className="max-w-md font-bold text-lg leading-relaxed text-accent">
                       Talk to admissions about cohort dates, corporate group
                       rates, and continuing-education credit transfer.
-                    </p>
+                    </p>*/}
                   </div>
 
                   {/* Right: dark pricing card */}
@@ -256,7 +259,7 @@ function RouteComponent() {
                       <em className="text-primary">dividends.</em>
                     </>
                   }
-                  description="Talk to admissions about cohort dates, corporate group rates, and continuing-education credit transfer."
+                  description=""
                   price={price}
                   priceNote="per enrollment"
                   includes={includes}
