@@ -143,22 +143,37 @@ function Media({
 }
 
 function isPptx(src: string) {
-  return /\.pptx($|\?)/i.test(src);
+  return /\.pptx?($|\?)/i.test(src);
+}
+
+function isPdf(src: string) {
+  return /\.pdf($|\?)/i.test(src);
 }
 
 function DocumentMedia({ src }: { src: string }) {
+  if (isPptx(src)) {
+    return (
+      <div className="h-full w-full bg-base-100">
+        <PptxViewer src={src} title="Presentation" className="h-full w-full" />
+      </div>
+    );
+  }
+
+  if (isPdf(src)) {
+    // #toolbar=0&navpanes=0 hides the browser PDF viewer's toolbar natively.
+    const pdfSrc = src.split("#")[0] + "#toolbar=0&navpanes=0";
+    return (
+      <iframe src={pdfSrc} title="Document" className="h-full w-full bg-base-100" />
+    );
+  }
+
+  // Everything else (docx, etc.) via Office Online
+  const officeSrc = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(src)}`;
   return (
     <div className="relative h-full w-full bg-base-100">
-      {isPptx(src) ? (
-        <PptxViewer src={src} title="Presentation" className="h-full w-full" />
-      ) : (
-        <>
-          <iframe src={src} title="Document" className="h-full w-full" />
-          {/* Covers the Office Online top toolbar (taller on narrow screens
-              where the toolbar wraps) so the download button stays hidden. */}
-          <div className="absolute inset-x-0 top-0   bg-white pointer-events-none sm:h-11 md:h-[11%] z-20" />
-        </>
-      )}
+      <iframe src={officeSrc} title="Document" className="h-full w-full" />
+      {/* Overlay to hide the Office Online download toolbar */}
+      <div className="absolute inset-x-0 top-0 z-20 h-12 bg-white pointer-events-none sm:h-11 md:h-10" />
     </div>
   );
 }
