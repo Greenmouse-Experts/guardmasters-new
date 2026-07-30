@@ -15,6 +15,24 @@ import { useCurrentLesson } from "#/store/playerStore.ts";
 export default function CoursePlayer({ courseId }: { courseId: string }) {
   const [lesson] = useCurrentLesson();
   const queryClient = useQueryClient();
+  const stageRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  // Keep state in sync with browser fullscreen changes (incl. Esc to exit).
+  useEffect(() => {
+    const onChange = () =>
+      setIsFullscreen(document.fullscreenElement === stageRef.current);
+    document.addEventListener("fullscreenchange", onChange);
+    return () => document.removeEventListener("fullscreenchange", onChange);
+  }, []);
+
+  function toggleFullscreen() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.();
+    } else {
+      stageRef.current?.requestFullscreen?.();
+    }
+  }
 
   const markRead = useMutation({
     mutationFn: async (lessonId: string) => {
@@ -41,12 +59,30 @@ export default function CoursePlayer({ courseId }: { courseId: string }) {
 
   return (
     <div className="w-full">
-      <div className="aspect-video w-full overflow-hidden bg-black">
+      <div
+        ref={stageRef}
+        className={`group relative w-full overflow-hidden bg-black ${
+          isFullscreen ? "flex h-full items-center" : "aspect-video"
+        }`}
+      >
         <Media
           key={lesson.id}
           lesson={lesson}
           onEnded={() => markRead.mutate(lesson.id)}
         />
+
+        <button
+          type="button"
+          onClick={toggleFullscreen}
+          aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+          className="absolute bottom-3 right-3 z-30 flex h-9 w-9 items-center justify-center rounded-md bg-black/60 text-white opacity-0 transition-opacity hover:bg-black/80 focus-visible:opacity-100 group-hover:opacity-100"
+        >
+          {isFullscreen ? (
+            <Minimize className="h-4 w-4" />
+          ) : (
+            <Maximize className="h-4 w-4" />
+          )}
+        </button>
       </div>
       <div className="flex items-center justify-between gap-4 px-1 py-3">
         <h2 className="font-medium text-accent">{lesson.title}</h2>
@@ -111,48 +147,18 @@ function isPptx(src: string) {
 }
 
 function DocumentMedia({ src }: { src: string }) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  // Keep state in sync with browser fullscreen changes (incl. Esc to exit).
-  useEffect(() => {
-    const onChange = () =>
-      setIsFullscreen(document.fullscreenElement === wrapperRef.current);
-    document.addEventListener("fullscreenchange", onChange);
-    return () => document.removeEventListener("fullscreenchange", onChange);
-  }, []);
-
-  function toggleFullscreen() {
-    if (document.fullscreenElement) {
-      document.exitFullscreen?.();
-    } else {
-      wrapperRef.current?.requestFullscreen?.();
-    }
-  }
-
   return (
-    <div ref={wrapperRef} className="relative h-full w-full bg-base-100">
+    <div className="relative h-full w-full bg-base-100">
       {isPptx(src) ? (
         <PptxViewer src={src} title="Presentation" className="h-full w-full" />
       ) : (
         <>
           <iframe src={src} title="Document" className="h-full w-full" />
-          {/* Covers the Office Online top toolbar where the download button sits */}
-          <div className="absolute inset-x-0 top-0 h-10 bg-white pointer-events-none z-20" />
+          {/* Covers the Office Online top toolbar (taller on narrow screens
+              where the toolbar wraps) so the download button stays hidden. */}
+          <div className="absolute inset-x-0 top-0   bg-white pointer-events-none sm:h-11 md:h-[11%] z-20" />
         </>
       )}
-      <button
-        type="button"
-        onClick={toggleFullscreen}
-        aria-label={isFullscreen ? "Exit fullscreen" : "View fullscreen"}
-        className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-md bg-black/60 text-white transition-colors hover:bg-black/80"
-      >
-        {isFullscreen ? (
-          <Minimize className="h-4 w-4" />
-        ) : (
-          <Maximize className="h-4 w-4" />
-        )}
-      </button>
     </div>
   );
 }

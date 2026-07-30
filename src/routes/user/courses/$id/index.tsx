@@ -61,9 +61,9 @@ function Learn({ data }: { data: CourseLearnResponse }) {
   const { course, contents } = data;
 
   return (
-    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_24rem]">
+    <div className="flex flex-col gap-8 lg:flex-row lg:items-start ">
       {/* Left: player + meta */}
-      <div className="min-w-0 space-y-6 sticky top-4 self-start">
+      <div className="min-w-0 flex-1 space-y-6 lg:sticky  ">
         <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
           <CoursePlayer courseId={String(course.id)} />
         </div>
@@ -72,7 +72,7 @@ function Learn({ data }: { data: CourseLearnResponse }) {
       </div>
 
       {/* Right: content list */}
-      <div className="space-y-4">
+      <div className="w-full space-y-4 lg:w-96 lg:shrink-0">
         <div className="flex items-center gap-4 rounded-lg border border-base-300 bg-base-100 px-5 py-4 ">
           <span className="flex items-center gap-1.5 text-base-content/60">
             <ListChecks className="h-4 w-4" />
