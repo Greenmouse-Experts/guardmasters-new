@@ -196,7 +196,7 @@ export default function FacultyProfile() {
         {/* Bio */}
         <div className="lg:col-span-2 ">
           {/* Eyebrow with rule */}
-          <div className=" flex items-center gap-4">
+          <div className=" flex items-center gap-2">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full  text-accent">
               <img src="/user_icon.png" className=" m-1 size-6 rounded-full" />
             </span>
