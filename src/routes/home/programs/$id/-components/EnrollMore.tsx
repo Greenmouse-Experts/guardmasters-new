@@ -83,7 +83,7 @@ export default function EnrollMore({
         <div className="container mx-auto">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <span className="mb-6 inline-block rounded-full border border-base-content/15 px-4 py-1.5 text-lg font-semibold tracking-[0.18em] text-accent bg-white uppercase">
+              <span className="mb-6 inline-block rounded-full border border-base-content/15 px-4 py-1.5 text-lg font-semibold tracking-[0.18em] text-accent  uppercase bg-base-200/70">
                 {relatedBadge}
               </span>
               <div

@@ -99,7 +99,7 @@ export default function ProgramHero({
                   ) : (
                     <>
                       {price ? `Enroll — ${price}` : "Enroll"}
-                      <ArrowUpRight className="h-4 w-4" />
+                      <ArrowUpRight className="h-4 w-4 text-white" />
                     </>
                   )}
                 </button>

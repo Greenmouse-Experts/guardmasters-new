@@ -149,14 +149,14 @@ function RouteComponent() {
                     <em className="text-primary italic">are saying.</em>
                   </>
                 }
-                description="Real feedback from security professionals who've completed the program and applied it in the field."
+                description="Real Feedback from learners and professionals who have completed the program and applied the lessons learnt in their fields."
                 courseId={String(course.id)}
               />
               <div className="bg-accent/15 px-6 py-20 md:px-16 md:py-28">
                 <div className="container mx-auto grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
                   {/* Left: copy */}
                   <div>
-                    <span className="mb-8 inline-block rounded-full border border-base-content/25 bg-base-100 px-5 py-1.5  font-bold tracking-[0.2em] text-accent uppercase">
+                    <span className="mb-8 inline-block rounded-full border border-base-content/25  px-5 py-1.5  font-bold tracking-[0.2em] text-accent uppercase bg-base-200/70">
                       Enroll
                     </span>
 

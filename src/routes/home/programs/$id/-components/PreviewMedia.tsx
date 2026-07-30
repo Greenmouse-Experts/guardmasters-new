@@ -18,7 +18,7 @@ export default function PreviewMedia({ sub }: { sub: CourseContentSub }) {
   if (!src) return null;
 
   if (sub.mediaType === "video") {
-    return <video src={src} controls autoPlay className="w-full rounded" />;
+    return <video src={src} controls controlsList="nodownload" autoPlay className="w-full rounded" />;
   }
 
   if (sub.mediaType === "image") {
@@ -39,11 +39,15 @@ export default function PreviewMedia({ sub }: { sub: CourseContentSub }) {
 
   if (isDocx(src)) {
     return (
-      <iframe
-        src={officeEmbedUrl(src)}
-        title={sub.title}
-        className="h-[70vh] w-full rounded border border-base-300"
-      />
+      <div className="relative h-[70vh] w-full rounded border border-base-300 overflow-hidden">
+        <iframe
+          src={officeEmbedUrl(src)}
+          title={sub.title}
+          className="h-full w-full"
+        />
+        {/* Covers the Office Online top toolbar where the download button sits */}
+        <div className="absolute inset-x-0 top-0 h-10 bg-white pointer-events-none" />
+      </div>
     );
   }
 
