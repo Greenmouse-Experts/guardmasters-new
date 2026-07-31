@@ -63,7 +63,7 @@ function Learn({ data }: { data: CourseLearnResponse }) {
   return (
     <div className="flex flex-col gap-8 lg:flex-row lg:items-start ">
       {/* Left: player + meta */}
-      <div className="min-w-0 flex-1 space-y-6 lg:sticky  ">
+      <div className="min-w-0 flex-1 space-y-6 lg:sticky  top-20">
         <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
           <CoursePlayer courseId={String(course.id)} />
         </div>

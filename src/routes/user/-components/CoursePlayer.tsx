@@ -58,7 +58,7 @@ export default function CoursePlayer({ courseId }: { courseId: string }) {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full  ">
       <div
         ref={stageRef}
         className={`group relative w-full overflow-hidden bg-black ${
@@ -163,7 +163,11 @@ function DocumentMedia({ src }: { src: string }) {
     // #toolbar=0&navpanes=0 hides the browser PDF viewer's toolbar natively.
     const pdfSrc = src.split("#")[0] + "#toolbar=0&navpanes=0";
     return (
-      <iframe src={pdfSrc} title="Document" className="h-full w-full bg-base-100" />
+      <iframe
+        src={pdfSrc}
+        title="Document"
+        className="h-full w-full bg-base-100"
+      />
     );
   }
 
