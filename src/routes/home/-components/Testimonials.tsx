@@ -8,7 +8,7 @@ interface Testimonial {
   name: string;
   role: string;
   cohort: string;
-  image: string;
+  image?: string | null;
   initials: string;
 }
 
@@ -19,7 +19,7 @@ const testimonials: Testimonial[] = [
     name: "A. Mensah, CPP",
     role: "Head of Corporate Security",
     cohort: "Cohort 2024",
-    image: "/testimonials/mensah.jpg",
+    image: "/testimonials/test_1.jpeg",
     initials: "A",
   },
   {
@@ -28,7 +28,7 @@ const testimonials: Testimonial[] = [
     name: "T. Okafor, CSM",
     role: "Director of Security Operations",
     cohort: "Cohort 2023",
-    image: "/testimonials/okafor.jpg",
+    image: "/testimonials/test_2.jpeg",
     initials: "T",
   },
   {
@@ -37,25 +37,24 @@ const testimonials: Testimonial[] = [
     name: "S. Adeyemi, CBCP",
     role: "Business Continuity Consultant",
     cohort: "Cohort 2024",
-    image: "/testimonials/adeyemi.jpg",
+    image: "/experience/experience.png",
     initials: "S",
   },
-  {
-    quote:
-      "I completed the ISO 27001 Lead Auditor program and within three months landed a role at a top-tier firm. The training was rigorous and exactly what the industry demands.",
-    name: "R. Thompson, CISM",
-    role: "Information Security Manager",
-    cohort: "Cohort 2023",
-    image: "/testimonials/thompson.jpg",
-    initials: "R",
-  },
+  // {
+  //   quote:
+  //     "I completed the ISO 27001 Lead Auditor program and within three months landed a role at a top-tier firm. The training was rigorous and exactly what the industry demands.",
+  //   name: "R. Thompson, CISM",
+  //   role: "Information Security Manager",
+  //   cohort: "Cohort 2023",
+  //   image: null,
+  //   initials: "R",
+  // },
 ];
 
 export default function Testimonials() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true },
-    [Autoplay({ delay: 5000, stopOnInteraction: false })],
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 5000, stopOnInteraction: false }),
+  ]);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -116,9 +115,9 @@ export default function Testimonials() {
                       </div>
                     </div>
                     {/* Image side */}
-                    <div className="h-60 w-full bg-secondary/20 md:h-110 md:w-2/5">
+                    <div className="h-60 w-full bg-secondary/20 md:h-140 md:w-2/5">
                       <img
-                        src={"/experience/experience.png"}
+                        src={t.image ?? "/experience/experience.png"}
                         alt={t.name}
                         className="h-full w-full object-cover"
                         onError={(e) => {

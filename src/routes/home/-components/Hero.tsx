@@ -13,7 +13,7 @@ export default function Hero() {
       {/* Full-bleed background image */}
       <div className="absolute inset-0 bg-black" />
       <img
-        src="/home/hero.jpeg"
+        src="/new_hero.jpeg"
         alt=""
         aria-hidden
         className="absolute inset-0 h-full w-full object-cover brightness-50"
