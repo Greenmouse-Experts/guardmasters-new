@@ -65,27 +65,6 @@ function Learn({ data }: { data: CourseLearnResponse }) {
     <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
       {/* Left: player + meta */}
       <div className="min-w-0 flex-1 space-y-6 lg:sticky lg:self-start top-20">
-        {/* Toggle button — only visible on desktop */}
-        <div className="hidden lg:flex lg:justify-end">
-          <button
-            type="button"
-            onClick={() => setSidebarOpen((v) => !v)}
-            className="flex items-center gap-1.5 rounded-md border border-base-300 bg-base-100 px-3 py-1.5 text-sm text-base-content/60 transition-colors hover:text-base-content"
-          >
-            {sidebarOpen ? (
-              <>
-                <PanelRightClose className="h-4 w-4" />
-                Hide content list
-              </>
-            ) : (
-              <>
-                <PanelRightOpen className="h-4 w-4" />
-                Show content list
-              </>
-            )}
-          </button>
-        </div>
-
         <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
           <CoursePlayer courseId={String(course.id)} />
         </div>
@@ -93,12 +72,25 @@ function Learn({ data }: { data: CourseLearnResponse }) {
         <CourseTabs data={data} />
       </div>
 
+      {/* Collapsed state: slim button to reopen the list (desktop only) */}
+      {!sidebarOpen && (
+        <button
+          type="button"
+          onClick={() => setSidebarOpen(true)}
+          aria-label="Show content list"
+          title="Show content list"
+          className="hidden lg:sticky lg:self-start lg:top-20 lg:flex lg:h-11 lg:w-11 lg:shrink-0 lg:items-center lg:justify-center rounded-lg border border-base-300 bg-base-100 text-base-content/60 transition-colors hover:text-base-content"
+        >
+          <PanelRightOpen className="h-5 w-5" />
+        </button>
+      )}
+
       {/* Right: content list — sticky with its own scroll, hidden when toggled */}
       <div
         className={`w-full lg:w-96 lg:shrink-0 lg:sticky lg:self-start lg:top-20 lg:max-h-[calc(100vh-5rem)] lg:overflow-y-auto ${sidebarOpen ? "block" : "hidden lg:hidden"}`}
       >
         <div className="space-y-4">
-          <div className="flex items-center justify-between gap-4 rounded-lg border border-base-300 bg-base-100 px-5 py-4">
+          <div className="flex items-center justify-between gap-3 rounded-lg border border-base-300 bg-base-100 px-5 py-4">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1.5 text-base-content/60">
                 <ListChecks className="h-4 w-4" />
@@ -109,6 +101,15 @@ function Learn({ data }: { data: CourseLearnResponse }) {
                 {contents.totalDuration} Min(s)
               </span>
             </div>
+            <button
+              type="button"
+              onClick={() => setSidebarOpen(false)}
+              aria-label="Hide content list"
+              title="Hide content list"
+              className="hidden shrink-0 rounded-md p-1 text-base-content/50 transition-colors hover:text-base-content lg:block"
+            >
+              <PanelRightClose className="h-5 w-5" />
+            </button>
           </div>
           <CourseContentList
             sections={contents.data}
