@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import {
   Award,
@@ -36,11 +36,15 @@ interface CertificateResponse {
   student?: { firstName: string; lastName: string };
 }
 
+// The generate endpoint returns either the finished certificate, or — while a
+// job is still running — a 202 with just a jobId. We poll until the cert lands.
 interface GenerateResponse {
   statusCode: number;
   message?: string;
-  data: CertificateResponse;
+  data: CertificateResponse & { jobId?: string };
 }
+
+const POLL_INTERVAL_MS = 5000;
 
 interface CourseProgressResponse {
   message?: string;
@@ -79,30 +83,46 @@ function RouteComponent() {
 
   const isCompleted = progressQuery.data?.data?.isCompleted ?? false;
 
-  const generateCertificate = useMutation({
-    mutationFn: async () => {
+  const [isGenerating, setIsGenerating] = useState(false);
+  const pollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Poll the generate endpoint: it returns the certificate once ready, or a
+  // 202 with a jobId while the job is still running — in which case retry.
+  const runGenerate = useCallback(async () => {
+    try {
       const { data } = await apiClient.post<GenerateResponse>(
         "certificates/generate",
         { courseId: id },
       );
-      return data;
-    },
-    onSuccess: (data) => {
       const cert = data.data;
       if (cert?.certificateUrl) {
         setCertificate(cert);
+        setIsGenerating(false);
         toast.success(data.message ?? "Certificate ready.");
         modalRef.current?.open();
-      } else {
-        toast.error("Unexpected response. Please try again.");
+        return;
       }
-    },
-    onError: (err) => {
+      // Still in progress (jobId only) — check again shortly.
+      pollTimer.current = setTimeout(runGenerate, POLL_INTERVAL_MS);
+    } catch (err) {
+      setIsGenerating(false);
       toast.error(extract_message(err));
-    },
-  });
+    }
+  }, [id]);
 
-  const isGenerating = generateCertificate.isPending;
+  const startGenerate = useCallback(() => {
+    if (isGenerating) return;
+    setIsGenerating(true);
+    runGenerate();
+  }, [isGenerating, runGenerate]);
+
+  // Stop polling if the user navigates away mid-generation.
+  useEffect(
+    () => () => {
+      if (pollTimer.current) clearTimeout(pollTimer.current);
+    },
+    [],
+  );
 
   return (
     <section className="flex flex-1 flex-col">
@@ -115,7 +135,7 @@ function RouteComponent() {
 
         <button
           type="button"
-          onClick={() => generateCertificate.mutate()}
+          onClick={startGenerate}
           disabled={isGenerating || progressQuery.isLoading || !isCompleted}
           title={
             !isCompleted
