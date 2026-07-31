@@ -1,14 +1,42 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { LogIn, ShoppingBag, Trash2, UserPlus, X } from "lucide-react";
-import PaymentModal from "#/components/cart/PaymentModal.tsx";
+import {
+  Loader2,
+  LogIn,
+  ShoppingBag,
+  Trash2,
+  UserPlus,
+  X,
+} from "lucide-react";
+import { toast } from "sonner";
+import apiClient from "#/client/api.ts";
 import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
 import { useAuth } from "#/store/authStore.ts";
 import {
   useCartItems,
   useCartStore,
   useCartSubtotal,
+  type CartOrder,
 } from "#/store/cartStore.ts";
+
+interface CreateOrderResponse {
+  message?: string;
+  data?: {
+    reference?: string;
+    status?: string;
+    authorization_url?: string;
+    subAmount?: number;
+    taxAmount?: number;
+  };
+}
+
+function money(n: number) {
+  return `$${n.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
+}
 
 export default function CartSidebar() {
   const navigate = useNavigate();
@@ -16,19 +44,78 @@ export default function CartSidebar() {
   const closeCart = useCartStore((s) => s.closeCart);
   const removeItem = useCartStore((s) => s.removeItem);
   const clearCart = useCartStore((s) => s.clearCart);
+  const order = useCartStore((s) => s.order);
+  const setOrder = useCartStore((s) => s.setOrder);
   const items = useCartItems();
   const subtotal = useCartSubtotal();
   const authModalRef = useRef<ModalHandle>(null);
-  const paymentModalRef = useRef<ModalHandle>(null);
+  const token = user?.accessToken;
+
+  // Create/refresh the order whenever the cart changes (authenticated only).
+  const createOrder = useMutation({
+    mutationFn: async () => {
+      const { data } = await apiClient.post<CreateOrderResponse>(
+        "orders/create",
+        {
+          courses: items.map(({ id, price }) => ({ id, price })),
+          amount: subtotal,
+          callback_url: `${window.location.origin}/payment/callback`,
+        },
+      );
+      return data;
+    },
+    onSuccess: (data) => {
+      const d = data?.data;
+      if (!d) return;
+      const next: CartOrder = {
+        reference: d.reference ?? "",
+        status: d.status ?? "",
+        authorizationUrl: d.authorization_url ?? "",
+        subAmount: d.subAmount ?? subtotal,
+        taxAmount: d.taxAmount ?? 0,
+      };
+      setOrder(next);
+    },
+    onError: (err: any) => {
+      toast.error(
+        err?.response?.data?.message ?? "Could not calculate your order.",
+      );
+    },
+  });
+
+  const { mutate: refreshOrder } = createOrder;
+
+  // Recompute the order when the cart contents change (only when logged in).
+  useEffect(() => {
+    if (!token || items.length === 0) return;
+    refreshOrder();
+  }, [items, token, refreshOrder]);
 
   function handleCheckout() {
-    // Keep the cart drawer open — the modals are nested inside it, so closing
-    // the drawer would hide them. Require auth before checking out.
-    if (!user?.accessToken) {
+    // Keep the cart drawer open — the auth modal is nested inside it, so
+    // closing the drawer would hide it. Require auth before checking out.
+    if (!token) {
       authModalRef.current?.open();
       return;
     }
-    paymentModalRef.current?.open();
+    // Order (with the Stripe URL) is created on cart changes — redirect to it.
+    if (order?.authorizationUrl) {
+      if (order.reference) {
+        sessionStorage.setItem("gi_payment_reference", order.reference);
+      }
+      window.location.href = order.authorizationUrl;
+      return;
+    }
+    // No order yet (e.g. just signed in) — create one, then redirect.
+    createOrder.mutate(undefined, {
+      onSuccess: (data) => {
+        const d = data?.data;
+        if (d?.reference) {
+          sessionStorage.setItem("gi_payment_reference", d.reference);
+        }
+        if (d?.authorization_url) window.location.href = d.authorization_url;
+      },
+    });
   }
 
   function goToAuth(to: "/home/auth/login" | "/home/auth/signup") {
@@ -71,7 +158,10 @@ export default function CartSidebar() {
               type="button"
               onClick={() => {
                 closeCart();
-                navigate({ to: "/home/programs" });
+                navigate({
+                  to: "/home/programs",
+                  search: { search: "", programId: "" },
+                });
               }}
               className="rounded-sm bg-secondary px-6 py-2.5  font-medium text-secondary-content hover:bg-secondary/90"
             >
@@ -115,17 +205,41 @@ export default function CartSidebar() {
         {/* Footer */}
         {items.length > 0 && (
           <div className="border-t border-base-300 px-6 py-5">
-            <div className="mb-5 flex items-center justify-between">
-              <span className="text-base-content/60">Subtotal</span>
-              <span className="text-xl font-bold text-accent">
-                ${subtotal.toLocaleString()}
-              </span>
+            <div className="mb-5 space-y-2">
+              <div className="flex items-center justify-between text-base-content/60">
+                <span>Subtotal</span>
+                <span className="font-medium text-accent">
+                  {money(order?.subAmount ?? subtotal)}
+                </span>
+              </div>
+              <div className="flex items-center justify-between text-base-content/60">
+                <span>Tax</span>
+                <span className="font-medium text-accent">
+                  {token && createOrder.isPending && !order ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    money(order?.taxAmount ?? 0)
+                  )}
+                </span>
+              </div>
+              <div className="flex items-center justify-between border-t border-base-300 pt-2">
+                <span className="text-base-content/60">Total</span>
+                <span className="text-xl font-bold text-accent">
+                  {money(
+                    (order?.subAmount ?? subtotal) + (order?.taxAmount ?? 0),
+                  )}
+                </span>
+              </div>
             </div>
             <button
               type="button"
               onClick={handleCheckout}
-              className="w-full rounded-md bg-primary py-3.5 font-semibold text-primary-content transition-colors hover:bg-primary/90"
+              disabled={createOrder.isPending}
+              className="flex w-full items-center justify-center gap-2 rounded-md bg-primary py-3.5 font-semibold text-primary-content transition-colors hover:bg-primary/90 disabled:opacity-60"
             >
+              {createOrder.isPending && (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              )}
               Checkout
             </button>
             <button
@@ -168,8 +282,6 @@ export default function CartSidebar() {
           </div>
         </div>
       </Modal>
-
-      <PaymentModal ref={paymentModalRef} items={items} amount={subtotal} />
     </>
   );
 }

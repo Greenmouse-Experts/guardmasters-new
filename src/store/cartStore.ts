@@ -10,13 +10,26 @@ export interface CartItem {
   fmprice: string;
 }
 
+// Pricing + Stripe checkout details returned by `orders/create`, refreshed
+// whenever the cart contents change.
+export interface CartOrder {
+  reference: string;
+  status: string;
+  authorizationUrl: string;
+  subAmount: number;
+  taxAmount: number;
+}
+
 interface CartState {
   // Keyed by course id so adding the same course twice is a no-op (dedup).
   items: Record<string, CartItem>;
   isOpen: boolean;
+  // Server-computed order (tax, totals, Stripe URL); null until (re)computed.
+  order: CartOrder | null;
   addItem: (item: CartItem) => void;
   removeItem: (id: string) => void;
   clearCart: () => void;
+  setOrder: (order: CartOrder | null) => void;
   openCart: () => void;
   closeCart: () => void;
 }
@@ -26,23 +39,28 @@ export const useCartStore = create<CartState>()(
     (set) => ({
       items: {},
       isOpen: false,
+      order: null,
       addItem: (item) =>
         set((state) => ({
           items: { ...state.items, [item.id]: item },
+          // Contents changed — invalidate the stale order/pricing.
+          order: null,
           isOpen: true,
         })),
       removeItem: (id) =>
         set((state) => {
           const next = { ...state.items };
           delete next[id];
-          return { items: next };
+          return { items: next, order: null };
         }),
-      clearCart: () => set({ items: {} }),
+      clearCart: () => set({ items: {}, order: null }),
+      setOrder: (order) => set({ order }),
       openCart: () => set({ isOpen: true }),
       closeCart: () => set({ isOpen: false }),
     }),
     {
       name: "guard-cart",
+      // Persist only items — the order (esp. the Stripe URL) is short-lived.
       partialize: (state) => ({ items: state.items }),
     },
   ),

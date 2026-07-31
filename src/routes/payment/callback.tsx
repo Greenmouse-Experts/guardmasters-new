@@ -12,8 +12,16 @@ export const Route = createFileRoute("/payment/callback")({
 });
 
 function RouteComponent() {
-  const { reference } = Route.useSearch();
+  const { reference: referenceFromUrl } = Route.useSearch();
   const navigate = useNavigate();
+
+  // Stripe returns the user to this page but the reference isn't always in the
+  // URL (it's generated server-side when the session is created). Fall back to
+  // the value stashed in sessionStorage before the redirect.
+  const reference =
+    referenceFromUrl ??
+    sessionStorage.getItem("gi_payment_reference") ??
+    undefined;
 
   const query = useQuery({
     queryKey: ["payment", reference],
@@ -30,6 +38,7 @@ function RouteComponent() {
   // On a confirmed payment, send the user to their courses.
   useEffect(() => {
     if (!query.isSuccess) return;
+    sessionStorage.removeItem("gi_payment_reference");
     toast.success(query.data?.message ?? "Payment confirmed successfully.");
     const t = setTimeout(
       () => navigate({ to: "/user/courses", search: { page: 1 } }),

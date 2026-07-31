@@ -2,10 +2,9 @@ import { forwardRef, useImperativeHandle, useRef } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { CreditCard, Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import PaystackPop from "@paystack/inline-js";
 import apiClient from "#/client/api.ts";
 import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
-import { useCartStore, type CartItem } from "#/store/cartStore.ts";
+import { type CartItem } from "#/store/cartStore.ts";
 
 interface PaymentModalProps {
   items: CartItem[];
@@ -16,18 +15,15 @@ interface CreateOrderResponse {
   message?: string;
   data?: {
     reference?: string;
-    access_code?: string;
-    authorization_url?: string;
     status?: string;
+    // Stripe Checkout Session hosted-page URL
+    authorization_url?: string;
+    url?: string;
   };
 }
 
 const PaymentModal = forwardRef<ModalHandle, PaymentModalProps>(
   ({ items, amount }, ref) => {
-    const clearCart = useCartStore((s) => s.clearCart);
-
-    // Keep an internal handle so we can close this dialog ourselves — its
-    // top-layer backdrop would otherwise sit over the Paystack popup.
     const modalRef = useRef<ModalHandle>(null);
     useImperativeHandle(ref, () => ({
       open: () => modalRef.current?.open(),
@@ -47,30 +43,22 @@ const PaymentModal = forwardRef<ModalHandle, PaymentModalProps>(
         return data;
       },
       onSuccess: (data) => {
-        // The server initializes the transaction; resume it inline with the
-        // Paystack popup using its access code (last segment of the URL).
-        const accessCode =
-          data?.data?.access_code ??
-          data?.data?.authorization_url?.split("/").pop();
-
-        if (!accessCode) {
+        // Backend creates the Stripe Checkout Session and returns its hosted
+        // URL; send the user there. Stripe returns to `callback_url` after.
+        const url = data?.data?.authorization_url ?? data?.data?.url;
+        if (!url) {
           toast.error(data?.message ?? "Failed to initialize payment.");
           return;
         }
-
-        // Close our dialog first so it doesn't cover the Paystack popup.
+        // The reference is generated server-side and returned here, so it can't
+        // be baked into callback_url beforehand. Stash it so the callback page
+        // can confirm the payment when Stripe redirects the user back.
+        const reference = data?.data?.reference;
+        if (reference) {
+          sessionStorage.setItem("gi_payment_reference", reference);
+        }
         modalRef.current?.close();
-
-        const paystack = new PaystackPop();
-        paystack.resumeTransaction(accessCode, {
-          onSuccess: (trx) => {
-            clearCart();
-            window.location.href = `${window.location.origin}/payment/callback?reference=${trx.reference}`;
-          },
-          onCancel: () => toast.info("Payment was cancelled."),
-          onError: (err) =>
-            toast.error(err?.message ?? "Payment could not be completed."),
-        });
+        window.location.href = url;
       },
       onError: (err: any) => {
         toast.error(
