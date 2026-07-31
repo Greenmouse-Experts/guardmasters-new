@@ -47,31 +47,8 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Trigger Dokploy deployment
-        run: |
-          APP_ID=$(curl -sS \
-            "${{ secrets.DOKPLOY_URL }}/api/project.all" \
-            -H "Accept: application/json" \
-            -H "X-API-Key: ${{ secrets.DOKPLOY_API_KEY }}" \
-            | jq -r '.[] | select(.name == "guardmasters") | .applications[]? | select(.name == "web") | .applicationId')
-
-          if [ -z "$APP_ID" ] || [ "$APP_ID" = "null" ]; then
-            echo "Error: Could not find application 'web' in project 'guardmasters'"
-            exit 1
-          fi
-
-          echo "Found application ID: $APP_ID"
-
-          HTTP_CODE=$(curl -sS -o /dev/null -w "%{http_code}" \
-            -X POST \
-            "${{ secrets.DOKPLOY_URL }}/api/application.deploy" \
-            -H "Accept: application/json" \
-            -H "Content-Type: application/json" \
-            -H "X-API-Key: ${{ secrets.DOKPLOY_API_KEY }}" \
-            -d "{\"applicationId\": \"$APP_ID\"}")
-
-          if [ "$HTTP_CODE" -ne 200 ]; then
-            echo "Deploy failed with HTTP status: $HTTP_CODE"
-            exit 1
-          fi
-
-          echo "Deployment triggered successfully"
+        uses: qbix-tech/dokploy-deploy-action@v1
+        with:
+          dokploy_url: ${{ secrets.DOKPLOY_URL }}
+          api_key: ${{ secrets.DOKPLOY_API_KEY }}
+          application_id: ${{ secrets.DOKPLOY_APPLICATION_ID }}
