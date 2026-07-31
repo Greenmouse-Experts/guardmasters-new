@@ -13,6 +13,10 @@ function isDocx(src: string) {
   return /\.docx?($|\?)/i.test(src);
 }
 
+function isPdf(src: string) {
+  return /\.pdf($|\?)/i.test(src);
+}
+
 export default function PreviewMedia({ sub }: { sub: CourseContentSub }) {
   const src = sub.previewUrl;
   if (!src) return null;
@@ -48,6 +52,17 @@ export default function PreviewMedia({ sub }: { sub: CourseContentSub }) {
         {/* Covers the Office Online top toolbar where the download button sits */}
         <div className="absolute inset-x-0 top-0 h-10 bg-white pointer-events-none" />
       </div>
+    );
+  }
+
+  if (isPdf(src)) {
+    const pdfSrc = src.split("#")[0] + "#toolbar=0&navpanes=0";
+    return (
+      <iframe
+        src={pdfSrc}
+        title={sub.title}
+        className="h-[70vh] w-full rounded border border-base-300"
+      />
     );
   }
 
