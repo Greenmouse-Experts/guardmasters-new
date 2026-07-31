@@ -4,6 +4,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
+import { useCartStore } from "#/store/cartStore.ts";
 
 export const Route = createFileRoute("/payment/callback")({
   component: RouteComponent,
@@ -14,6 +15,7 @@ export const Route = createFileRoute("/payment/callback")({
 function RouteComponent() {
   const { reference: referenceFromUrl } = Route.useSearch();
   const navigate = useNavigate();
+  const clearCart = useCartStore((s) => s.clearCart);
 
   // Stripe returns the user to this page but the reference isn't always in the
   // URL (it's generated server-side when the session is created). Fall back to
@@ -39,13 +41,14 @@ function RouteComponent() {
   useEffect(() => {
     if (!query.isSuccess) return;
     sessionStorage.removeItem("gi_payment_reference");
+    clearCart();
     toast.success(query.data?.message ?? "Payment confirmed successfully.");
     const t = setTimeout(
       () => navigate({ to: "/user/courses", search: { page: 1 } }),
       1500,
     );
     return () => clearTimeout(t);
-  }, [query.isSuccess, query.data, navigate]);
+  }, [query.isSuccess, query.data, navigate, clearCart]);
 
   const noReference = !reference;
   const isError = noReference || query.isError;
