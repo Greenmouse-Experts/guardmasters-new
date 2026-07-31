@@ -42,4 +42,4 @@ jobs:
           dokploy_url: ${{ secrets.DOKPLOY_URL }}
           api_key: ${{ secrets.DOKPLOY_API_KEY }}
           project_name: guardmasters
-          app_name: web
+          app_name: guardmasters-web
