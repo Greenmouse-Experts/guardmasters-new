@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { Clock, ListChecks } from "lucide-react";
+import { Clock, ListChecks, PanelRightClose, PanelRightOpen } from "lucide-react";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
 import { useCurrentLesson } from "#/store/playerStore.ts";
@@ -35,6 +35,7 @@ function RouteComponent() {
 
 function Learn({ data }: { data: CourseLearnResponse }) {
   const [, setLesson] = useCurrentLesson();
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const readIds = useMemo(
     () => new Set(data.reads.map((r) => r.contentSub.id)),
@@ -61,9 +62,30 @@ function Learn({ data }: { data: CourseLearnResponse }) {
   const { course, contents } = data;
 
   return (
-    <div className="flex flex-col gap-8 lg:flex-row lg:items-start ">
+    <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
       {/* Left: player + meta */}
-      <div className="min-w-0 flex-1 space-y-6 lg:sticky  top-20">
+      <div className="min-w-0 flex-1 space-y-6 lg:sticky lg:self-start top-20">
+        {/* Toggle button — only visible on desktop */}
+        <div className="hidden lg:flex lg:justify-end">
+          <button
+            type="button"
+            onClick={() => setSidebarOpen((v) => !v)}
+            className="flex items-center gap-1.5 rounded-md border border-base-300 bg-base-100 px-3 py-1.5 text-sm text-base-content/60 transition-colors hover:text-base-content"
+          >
+            {sidebarOpen ? (
+              <>
+                <PanelRightClose className="h-4 w-4" />
+                Hide content list
+              </>
+            ) : (
+              <>
+                <PanelRightOpen className="h-4 w-4" />
+                Show content list
+              </>
+            )}
+          </button>
+        </div>
+
         <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100">
           <CoursePlayer courseId={String(course.id)} />
         </div>
@@ -71,24 +93,30 @@ function Learn({ data }: { data: CourseLearnResponse }) {
         <CourseTabs data={data} />
       </div>
 
-      {/* Right: content list */}
-      <div className="w-full space-y-4 lg:w-96 lg:shrink-0">
-        <div className="flex items-center gap-4 rounded-lg border border-base-300 bg-base-100 px-5 py-4 ">
-          <span className="flex items-center gap-1.5 text-base-content/60">
-            <ListChecks className="h-4 w-4" />
-            {contents.total} modules
-          </span>
-          <span className="flex items-center gap-1.5 text-base-content/60">
-            <Clock className="h-4 w-4" />
-            {contents.totalDuration} Min(s)
-          </span>
+      {/* Right: content list — sticky with its own scroll, hidden when toggled */}
+      <div
+        className={`w-full lg:w-96 lg:shrink-0 lg:sticky lg:self-start lg:top-20 lg:max-h-[calc(100vh-5rem)] lg:overflow-y-auto ${sidebarOpen ? "block" : "hidden lg:hidden"}`}
+      >
+        <div className="space-y-4">
+          <div className="flex items-center justify-between gap-4 rounded-lg border border-base-300 bg-base-100 px-5 py-4">
+            <div className="flex items-center gap-4">
+              <span className="flex items-center gap-1.5 text-base-content/60">
+                <ListChecks className="h-4 w-4" />
+                {contents.total} modules
+              </span>
+              <span className="flex items-center gap-1.5 text-base-content/60">
+                <Clock className="h-4 w-4" />
+                {contents.totalDuration} Min(s)
+              </span>
+            </div>
+          </div>
+          <CourseContentList
+            sections={contents.data}
+            readIds={readIds}
+            doneIds={doneIds}
+            courseId={String(course.id)}
+          />
         </div>
-        <CourseContentList
-          sections={contents.data}
-          readIds={readIds}
-          doneIds={doneIds}
-          courseId={String(course.id)}
-        />
       </div>
 
       {/* Hidden anchor for title context on small screens */}
