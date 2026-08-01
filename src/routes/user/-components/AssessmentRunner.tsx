@@ -121,6 +121,7 @@ function Quiz({
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["my-course", courseId] });
+      queryClient.invalidateQueries({ queryKey: ["course-progress", courseId] });
       onSubmitted();
     },
     onError: (err: any) => {

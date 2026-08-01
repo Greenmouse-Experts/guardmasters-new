@@ -169,6 +169,7 @@ function LessonRow({
     onSuccess: () => {
       toast.success("Marked as completed.");
       queryClient.invalidateQueries({ queryKey: ["my-course", courseId] });
+      queryClient.invalidateQueries({ queryKey: ["course-progress", courseId] });
     },
     onError: (err: any) => {
       toast.error(err?.response?.data?.message ?? "Could not update progress.");
