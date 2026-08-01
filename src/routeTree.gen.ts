@@ -9,46 +9,41 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AdminRouteRouteImport } from './routes/admin/route'
-import { Route as HomeRouteRouteImport } from './routes/home/route'
 import { Route as UserRouteRouteImport } from './routes/user/route'
-import { Route as AdminIndexRouteImport } from './routes/admin/index'
-import { Route as CertificateIdRouteImport } from './routes/certificate/$id'
-import { Route as HomeIndexRouteImport } from './routes/home/index'
-import { Route as PaymentCallbackRouteImport } from './routes/payment/callback'
-import { Route as TestIndexRouteImport } from './routes/test/index'
+import { Route as HomeRouteRouteImport } from './routes/home/route'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as UserIndexRouteImport } from './routes/user/index'
-import { Route as HomeAboutIndexRouteImport } from './routes/home/about/index'
-import { Route as HomeAccreditationsIndexRouteImport } from './routes/home/accreditations/index'
-import { Route as HomeAuthLoginRouteImport } from './routes/home/auth/login'
-import { Route as HomeAuthSignupRouteImport } from './routes/home/auth/signup'
-import { Route as HomeBlogIndexRouteImport } from './routes/home/blog/index'
-import { Route as HomeContactIndexRouteImport } from './routes/home/contact/index'
-import { Route as HomeFaqIndexRouteImport } from './routes/home/faq/index'
-import { Route as HomeProgramsIndexRouteImport } from './routes/home/programs/index'
-import { Route as HomeTermsIndexRouteImport } from './routes/home/terms/index'
-import { Route as UserCoursesIndexRouteImport } from './routes/user/courses/index'
-import { Route as UserCoursesIdRouteRouteImport } from './routes/user/courses/$id/route'
-import { Route as UserNotificationsIndexRouteImport } from './routes/user/notifications/index'
-import { Route as UserProgressIndexRouteImport } from './routes/user/progress/index'
-import { Route as UserPurchaseHistoryIndexRouteImport } from './routes/user/purchase-history/index'
-import { Route as UserSettingsIndexRouteImport } from './routes/user/settings/index'
-import { Route as UserSupportIndexRouteImport } from './routes/user/support/index'
+import { Route as TestIndexRouteImport } from './routes/test/index'
+import { Route as HomeIndexRouteImport } from './routes/home/index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as PaymentCallbackRouteImport } from './routes/payment/callback'
+import { Route as CertificateIdRouteImport } from './routes/certificate/$id'
 import { Route as VerifyIdIndexRouteImport } from './routes/verify/$id.index'
-import { Route as HomeAuthVerifyIndexRouteImport } from './routes/home/auth/verify/index'
-import { Route as HomeBlogIdIndexRouteImport } from './routes/home/blog/$id/index'
-import { Route as HomeProgramsIdIndexRouteImport } from './routes/home/programs/$id/index'
+import { Route as UserSupportIndexRouteImport } from './routes/user/support/index'
+import { Route as UserSettingsIndexRouteImport } from './routes/user/settings/index'
+import { Route as UserPurchaseHistoryIndexRouteImport } from './routes/user/purchase-history/index'
+import { Route as UserProgressIndexRouteImport } from './routes/user/progress/index'
+import { Route as UserNotificationsIndexRouteImport } from './routes/user/notifications/index'
+import { Route as UserCoursesIndexRouteImport } from './routes/user/courses/index'
+import { Route as HomeTermsIndexRouteImport } from './routes/home/terms/index'
+import { Route as HomeProgramsIndexRouteImport } from './routes/home/programs/index'
+import { Route as HomeFaqIndexRouteImport } from './routes/home/faq/index'
+import { Route as HomeContactIndexRouteImport } from './routes/home/contact/index'
+import { Route as HomeBlogIndexRouteImport } from './routes/home/blog/index'
+import { Route as HomeAccreditationsIndexRouteImport } from './routes/home/accreditations/index'
+import { Route as HomeAboutIndexRouteImport } from './routes/home/about/index'
+import { Route as HomeAuthSignupRouteImport } from './routes/home/auth/signup'
+import { Route as HomeAuthLoginRouteImport } from './routes/home/auth/login'
+import { Route as UserCoursesIdRouteRouteImport } from './routes/user/courses/$id/route'
 import { Route as UserCoursesIdIndexRouteImport } from './routes/user/courses/$id/index'
+import { Route as HomeProgramsIdIndexRouteImport } from './routes/home/programs/$id/index'
+import { Route as HomeBlogIdIndexRouteImport } from './routes/home/blog/$id/index'
+import { Route as HomeAuthVerifyIndexRouteImport } from './routes/home/auth/verify/index'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRouteRoute = AdminRouteRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const UserRouteRoute = UserRouteRouteImport.update({
+  id: '/user',
+  path: '/user',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRouteRoute = HomeRouteRouteImport.update({
@@ -56,34 +51,14 @@ const HomeRouteRoute = HomeRouteRouteImport.update({
   path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UserRouteRoute = UserRouteRouteImport.update({
-  id: '/user',
-  path: '/user',
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminIndexRoute = AdminIndexRouteImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const CertificateIdRoute = CertificateIdRouteImport.update({
-  id: '/certificate/$id',
-  path: '/certificate/$id',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HomeIndexRoute = HomeIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => HomeRouteRoute,
-} as any)
-const PaymentCallbackRoute = PaymentCallbackRouteImport.update({
-  id: '/payment/callback',
-  path: '/payment/callback',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TestIndexRoute = TestIndexRouteImport.update({
-  id: '/test/',
-  path: '/test/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UserIndexRoute = UserIndexRouteImport.update({
@@ -91,69 +66,44 @@ const UserIndexRoute = UserIndexRouteImport.update({
   path: '/',
   getParentRoute: () => UserRouteRoute,
 } as any)
-const HomeAboutIndexRoute = HomeAboutIndexRouteImport.update({
-  id: '/about/',
-  path: '/about/',
+const TestIndexRoute = TestIndexRouteImport.update({
+  id: '/test/',
+  path: '/test/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeIndexRoute = HomeIndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
-const HomeAccreditationsIndexRoute = HomeAccreditationsIndexRouteImport.update({
-  id: '/accreditations/',
-  path: '/accreditations/',
-  getParentRoute: () => HomeRouteRoute,
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
-const HomeAuthLoginRoute = HomeAuthLoginRouteImport.update({
-  id: '/auth/login',
-  path: '/auth/login',
-  getParentRoute: () => HomeRouteRoute,
+const PaymentCallbackRoute = PaymentCallbackRouteImport.update({
+  id: '/payment/callback',
+  path: '/payment/callback',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const HomeAuthSignupRoute = HomeAuthSignupRouteImport.update({
-  id: '/auth/signup',
-  path: '/auth/signup',
-  getParentRoute: () => HomeRouteRoute,
+const CertificateIdRoute = CertificateIdRouteImport.update({
+  id: '/certificate/$id',
+  path: '/certificate/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const HomeBlogIndexRoute = HomeBlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
-  getParentRoute: () => HomeRouteRoute,
+const VerifyIdIndexRoute = VerifyIdIndexRouteImport.update({
+  id: '/verify/$id/',
+  path: '/verify/$id/',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const HomeContactIndexRoute = HomeContactIndexRouteImport.update({
-  id: '/contact/',
-  path: '/contact/',
-  getParentRoute: () => HomeRouteRoute,
-} as any)
-const HomeFaqIndexRoute = HomeFaqIndexRouteImport.update({
-  id: '/faq/',
-  path: '/faq/',
-  getParentRoute: () => HomeRouteRoute,
-} as any)
-const HomeProgramsIndexRoute = HomeProgramsIndexRouteImport.update({
-  id: '/programs/',
-  path: '/programs/',
-  getParentRoute: () => HomeRouteRoute,
-} as any)
-const HomeTermsIndexRoute = HomeTermsIndexRouteImport.update({
-  id: '/terms/',
-  path: '/terms/',
-  getParentRoute: () => HomeRouteRoute,
-} as any)
-const UserCoursesIndexRoute = UserCoursesIndexRouteImport.update({
-  id: '/courses/',
-  path: '/courses/',
+const UserSupportIndexRoute = UserSupportIndexRouteImport.update({
+  id: '/support/',
+  path: '/support/',
   getParentRoute: () => UserRouteRoute,
 } as any)
-const UserCoursesIdRouteRoute = UserCoursesIdRouteRouteImport.update({
-  id: '/courses/$id',
-  path: '/courses/$id',
-  getParentRoute: () => UserRouteRoute,
-} as any)
-const UserNotificationsIndexRoute = UserNotificationsIndexRouteImport.update({
-  id: '/notifications/',
-  path: '/notifications/',
-  getParentRoute: () => UserRouteRoute,
-} as any)
-const UserProgressIndexRoute = UserProgressIndexRouteImport.update({
-  id: '/progress/',
-  path: '/progress/',
+const UserSettingsIndexRoute = UserSettingsIndexRouteImport.update({
+  id: '/settings/',
+  path: '/settings/',
   getParentRoute: () => UserRouteRoute,
 } as any)
 const UserPurchaseHistoryIndexRoute =
@@ -162,24 +112,79 @@ const UserPurchaseHistoryIndexRoute =
     path: '/purchase-history/',
     getParentRoute: () => UserRouteRoute,
   } as any)
-const UserSettingsIndexRoute = UserSettingsIndexRouteImport.update({
-  id: '/settings/',
-  path: '/settings/',
+const UserProgressIndexRoute = UserProgressIndexRouteImport.update({
+  id: '/progress/',
+  path: '/progress/',
   getParentRoute: () => UserRouteRoute,
 } as any)
-const UserSupportIndexRoute = UserSupportIndexRouteImport.update({
-  id: '/support/',
-  path: '/support/',
+const UserNotificationsIndexRoute = UserNotificationsIndexRouteImport.update({
+  id: '/notifications/',
+  path: '/notifications/',
   getParentRoute: () => UserRouteRoute,
 } as any)
-const VerifyIdIndexRoute = VerifyIdIndexRouteImport.update({
-  id: '/verify/$id/',
-  path: '/verify/$id/',
-  getParentRoute: () => rootRouteImport,
+const UserCoursesIndexRoute = UserCoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
+  getParentRoute: () => UserRouteRoute,
 } as any)
-const HomeAuthVerifyIndexRoute = HomeAuthVerifyIndexRouteImport.update({
-  id: '/auth/verify/',
-  path: '/auth/verify/',
+const HomeTermsIndexRoute = HomeTermsIndexRouteImport.update({
+  id: '/terms/',
+  path: '/terms/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeProgramsIndexRoute = HomeProgramsIndexRouteImport.update({
+  id: '/programs/',
+  path: '/programs/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeFaqIndexRoute = HomeFaqIndexRouteImport.update({
+  id: '/faq/',
+  path: '/faq/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeContactIndexRoute = HomeContactIndexRouteImport.update({
+  id: '/contact/',
+  path: '/contact/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeBlogIndexRoute = HomeBlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeAccreditationsIndexRoute = HomeAccreditationsIndexRouteImport.update({
+  id: '/accreditations/',
+  path: '/accreditations/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeAboutIndexRoute = HomeAboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeAuthSignupRoute = HomeAuthSignupRouteImport.update({
+  id: '/auth/signup',
+  path: '/auth/signup',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeAuthLoginRoute = HomeAuthLoginRouteImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const UserCoursesIdRouteRoute = UserCoursesIdRouteRouteImport.update({
+  id: '/courses/$id',
+  path: '/courses/$id',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserCoursesIdIndexRoute = UserCoursesIdIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => UserCoursesIdRouteRoute,
+} as any)
+const HomeProgramsIdIndexRoute = HomeProgramsIdIndexRouteImport.update({
+  id: '/programs/$id/',
+  path: '/programs/$id/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
 const HomeBlogIdIndexRoute = HomeBlogIdIndexRouteImport.update({
@@ -187,15 +192,10 @@ const HomeBlogIdIndexRoute = HomeBlogIdIndexRouteImport.update({
   path: '/blog/$id/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
-const HomeProgramsIdIndexRoute = HomeProgramsIdIndexRouteImport.update({
-  id: '/programs/$id/',
-  path: '/programs/$id/',
+const HomeAuthVerifyIndexRoute = HomeAuthVerifyIndexRouteImport.update({
+  id: '/auth/verify/',
+  path: '/auth/verify/',
   getParentRoute: () => HomeRouteRoute,
-} as any)
-const UserCoursesIdIndexRoute = UserCoursesIdIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => UserCoursesIdRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -405,18 +405,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteRouteImport
+    '/user': {
+      id: '/user'
+      path: '/user'
+      fullPath: '/user'
+      preLoaderRoute: typeof UserRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -426,46 +419,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/user': {
-      id: '/user'
-      path: '/user'
-      fullPath: '/user'
-      preLoaderRoute: typeof UserRouteRouteImport
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/': {
-      id: '/admin/'
+    '/': {
+      id: '/'
       path: '/'
-      fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/certificate/$id': {
-      id: '/certificate/$id'
-      path: '/certificate/$id'
-      fullPath: '/certificate/$id'
-      preLoaderRoute: typeof CertificateIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/home/': {
-      id: '/home/'
-      path: '/'
-      fullPath: '/home/'
-      preLoaderRoute: typeof HomeIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
-    }
-    '/payment/callback': {
-      id: '/payment/callback'
-      path: '/payment/callback'
-      fullPath: '/payment/callback'
-      preLoaderRoute: typeof PaymentCallbackRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/test/': {
-      id: '/test/'
-      path: '/test'
-      fullPath: '/test/'
-      preLoaderRoute: typeof TestIndexRouteImport
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/user/': {
@@ -475,102 +440,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UserIndexRouteImport
       parentRoute: typeof UserRouteRoute
     }
-    '/home/about/': {
-      id: '/home/about/'
-      path: '/about'
-      fullPath: '/home/about/'
-      preLoaderRoute: typeof HomeAboutIndexRouteImport
+    '/test/': {
+      id: '/test/'
+      path: '/test'
+      fullPath: '/test/'
+      preLoaderRoute: typeof TestIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home/': {
+      id: '/home/'
+      path: '/'
+      fullPath: '/home/'
+      preLoaderRoute: typeof HomeIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
-    '/home/accreditations/': {
-      id: '/home/accreditations/'
-      path: '/accreditations'
-      fullPath: '/home/accreditations/'
-      preLoaderRoute: typeof HomeAccreditationsIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/home/auth/login': {
-      id: '/home/auth/login'
-      path: '/auth/login'
-      fullPath: '/home/auth/login'
-      preLoaderRoute: typeof HomeAuthLoginRouteImport
-      parentRoute: typeof HomeRouteRoute
+    '/payment/callback': {
+      id: '/payment/callback'
+      path: '/payment/callback'
+      fullPath: '/payment/callback'
+      preLoaderRoute: typeof PaymentCallbackRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/home/auth/signup': {
-      id: '/home/auth/signup'
-      path: '/auth/signup'
-      fullPath: '/home/auth/signup'
-      preLoaderRoute: typeof HomeAuthSignupRouteImport
-      parentRoute: typeof HomeRouteRoute
+    '/certificate/$id': {
+      id: '/certificate/$id'
+      path: '/certificate/$id'
+      fullPath: '/certificate/$id'
+      preLoaderRoute: typeof CertificateIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/home/blog/': {
-      id: '/home/blog/'
-      path: '/blog'
-      fullPath: '/home/blog/'
-      preLoaderRoute: typeof HomeBlogIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
+    '/verify/$id/': {
+      id: '/verify/$id/'
+      path: '/verify/$id'
+      fullPath: '/verify/$id/'
+      preLoaderRoute: typeof VerifyIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/home/contact/': {
-      id: '/home/contact/'
-      path: '/contact'
-      fullPath: '/home/contact/'
-      preLoaderRoute: typeof HomeContactIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
-    }
-    '/home/faq/': {
-      id: '/home/faq/'
-      path: '/faq'
-      fullPath: '/home/faq/'
-      preLoaderRoute: typeof HomeFaqIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
-    }
-    '/home/programs/': {
-      id: '/home/programs/'
-      path: '/programs'
-      fullPath: '/home/programs/'
-      preLoaderRoute: typeof HomeProgramsIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
-    }
-    '/home/terms/': {
-      id: '/home/terms/'
-      path: '/terms'
-      fullPath: '/home/terms/'
-      preLoaderRoute: typeof HomeTermsIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
-    }
-    '/user/courses/': {
-      id: '/user/courses/'
-      path: '/courses'
-      fullPath: '/user/courses/'
-      preLoaderRoute: typeof UserCoursesIndexRouteImport
-      parentRoute: typeof UserRouteRoute
-    }
-    '/user/courses/$id': {
-      id: '/user/courses/$id'
-      path: '/courses/$id'
-      fullPath: '/user/courses/$id'
-      preLoaderRoute: typeof UserCoursesIdRouteRouteImport
-      parentRoute: typeof UserRouteRoute
-    }
-    '/user/notifications/': {
-      id: '/user/notifications/'
-      path: '/notifications'
-      fullPath: '/user/notifications/'
-      preLoaderRoute: typeof UserNotificationsIndexRouteImport
-      parentRoute: typeof UserRouteRoute
-    }
-    '/user/progress/': {
-      id: '/user/progress/'
-      path: '/progress'
-      fullPath: '/user/progress/'
-      preLoaderRoute: typeof UserProgressIndexRouteImport
-      parentRoute: typeof UserRouteRoute
-    }
-    '/user/purchase-history/': {
-      id: '/user/purchase-history/'
-      path: '/purchase-history'
-      fullPath: '/user/purchase-history/'
-      preLoaderRoute: typeof UserPurchaseHistoryIndexRouteImport
+    '/user/support/': {
+      id: '/user/support/'
+      path: '/support'
+      fullPath: '/user/support/'
+      preLoaderRoute: typeof UserSupportIndexRouteImport
       parentRoute: typeof UserRouteRoute
     }
     '/user/settings/': {
@@ -580,25 +496,116 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UserSettingsIndexRouteImport
       parentRoute: typeof UserRouteRoute
     }
-    '/user/support/': {
-      id: '/user/support/'
-      path: '/support'
-      fullPath: '/user/support/'
-      preLoaderRoute: typeof UserSupportIndexRouteImport
+    '/user/purchase-history/': {
+      id: '/user/purchase-history/'
+      path: '/purchase-history'
+      fullPath: '/user/purchase-history/'
+      preLoaderRoute: typeof UserPurchaseHistoryIndexRouteImport
       parentRoute: typeof UserRouteRoute
     }
-    '/verify/$id/': {
-      id: '/verify/$id/'
-      path: '/verify/$id'
-      fullPath: '/verify/$id/'
-      preLoaderRoute: typeof VerifyIdIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/user/progress/': {
+      id: '/user/progress/'
+      path: '/progress'
+      fullPath: '/user/progress/'
+      preLoaderRoute: typeof UserProgressIndexRouteImport
+      parentRoute: typeof UserRouteRoute
     }
-    '/home/auth/verify/': {
-      id: '/home/auth/verify/'
-      path: '/auth/verify'
-      fullPath: '/home/auth/verify/'
-      preLoaderRoute: typeof HomeAuthVerifyIndexRouteImport
+    '/user/notifications/': {
+      id: '/user/notifications/'
+      path: '/notifications'
+      fullPath: '/user/notifications/'
+      preLoaderRoute: typeof UserNotificationsIndexRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/user/courses/': {
+      id: '/user/courses/'
+      path: '/courses'
+      fullPath: '/user/courses/'
+      preLoaderRoute: typeof UserCoursesIndexRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/home/terms/': {
+      id: '/home/terms/'
+      path: '/terms'
+      fullPath: '/home/terms/'
+      preLoaderRoute: typeof HomeTermsIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/programs/': {
+      id: '/home/programs/'
+      path: '/programs'
+      fullPath: '/home/programs/'
+      preLoaderRoute: typeof HomeProgramsIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/faq/': {
+      id: '/home/faq/'
+      path: '/faq'
+      fullPath: '/home/faq/'
+      preLoaderRoute: typeof HomeFaqIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/contact/': {
+      id: '/home/contact/'
+      path: '/contact'
+      fullPath: '/home/contact/'
+      preLoaderRoute: typeof HomeContactIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/blog/': {
+      id: '/home/blog/'
+      path: '/blog'
+      fullPath: '/home/blog/'
+      preLoaderRoute: typeof HomeBlogIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/accreditations/': {
+      id: '/home/accreditations/'
+      path: '/accreditations'
+      fullPath: '/home/accreditations/'
+      preLoaderRoute: typeof HomeAccreditationsIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/about/': {
+      id: '/home/about/'
+      path: '/about'
+      fullPath: '/home/about/'
+      preLoaderRoute: typeof HomeAboutIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/auth/signup': {
+      id: '/home/auth/signup'
+      path: '/auth/signup'
+      fullPath: '/home/auth/signup'
+      preLoaderRoute: typeof HomeAuthSignupRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/home/auth/login': {
+      id: '/home/auth/login'
+      path: '/auth/login'
+      fullPath: '/home/auth/login'
+      preLoaderRoute: typeof HomeAuthLoginRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/user/courses/$id': {
+      id: '/user/courses/$id'
+      path: '/courses/$id'
+      fullPath: '/user/courses/$id'
+      preLoaderRoute: typeof UserCoursesIdRouteRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/user/courses/$id/': {
+      id: '/user/courses/$id/'
+      path: '/'
+      fullPath: '/user/courses/$id/'
+      preLoaderRoute: typeof UserCoursesIdIndexRouteImport
+      parentRoute: typeof UserCoursesIdRouteRoute
+    }
+    '/home/programs/$id/': {
+      id: '/home/programs/$id/'
+      path: '/programs/$id'
+      fullPath: '/home/programs/$id/'
+      preLoaderRoute: typeof HomeProgramsIdIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
     '/home/blog/$id/': {
@@ -608,19 +615,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeBlogIdIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
-    '/home/programs/$id/': {
-      id: '/home/programs/$id/'
-      path: '/programs/$id'
-      fullPath: '/home/programs/$id/'
-      preLoaderRoute: typeof HomeProgramsIdIndexRouteImport
+    '/home/auth/verify/': {
+      id: '/home/auth/verify/'
+      path: '/auth/verify'
+      fullPath: '/home/auth/verify/'
+      preLoaderRoute: typeof HomeAuthVerifyIndexRouteImport
       parentRoute: typeof HomeRouteRoute
-    }
-    '/user/courses/$id/': {
-      id: '/user/courses/$id/'
-      path: '/'
-      fullPath: '/user/courses/$id/'
-      preLoaderRoute: typeof UserCoursesIdIndexRouteImport
-      parentRoute: typeof UserCoursesIdRouteRoute
     }
   }
 }

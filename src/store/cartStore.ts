@@ -18,6 +18,8 @@ export interface CartOrder {
   authorizationUrl: string;
   subAmount: number;
   taxAmount: number;
+  taxRate: number;
+  total: number;
 }
 
 interface CartState {
