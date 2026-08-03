@@ -27,7 +27,7 @@ const highlights = [
 export default function SimpleHero({
   title,
   description,
-  image = "/new_hero_bg.png",
+  image = "/programs.png",
   imageAlt,
   features = default_features,
   cardEyebrow = "Learn with purpose",
