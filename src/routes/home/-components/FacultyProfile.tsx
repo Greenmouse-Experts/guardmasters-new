@@ -55,7 +55,7 @@ const stats: { icon: LucideIcon; value: string; label: string }[] = [
   },
   {
     icon: IdCard,
-    value: "CPD UK Accredited",
+    value: "CPD GROUP UK Accredited",
     label: "Accredited trainer by the CPD Group United Kingdom",
   },
   {
