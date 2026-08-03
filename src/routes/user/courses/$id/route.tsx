@@ -36,12 +36,32 @@ interface CertificateResponse {
   student?: { firstName: string; lastName: string };
 }
 
-// The generate endpoint returns either the finished certificate, or — while a
-// job is still running — a 202 with just a jobId. We poll until the cert lands.
-interface GenerateResponse {
+interface GenerateJobResponse {
   statusCode: number;
   message?: string;
-  data: CertificateResponse & { jobId?: string };
+  data?: {
+    jobId?: string;
+    certificateId?: string;
+    certificateNumber?: string;
+    certificateUrl?: string;
+    issuedAt?: string;
+  };
+}
+
+interface JobStatusResponse {
+  statusCode: number;
+  message?: string;
+  data?: {
+    status: "completed" | "processing" | "failed";
+    progress?: number;
+    error?: string;
+    certificate?: {
+      certificateId: string;
+      certificateNumber: string;
+      certificateUrl: string;
+      issuedAt: string;
+    };
+  };
 }
 
 const POLL_INTERVAL_MS = 5000;
@@ -84,39 +104,106 @@ function RouteComponent() {
   const isCompleted = progressQuery.data?.data?.isCompleted ?? false;
 
   const [isGenerating, setIsGenerating] = useState(false);
+  const [generationError, setGenerationError] = useState<string | null>(null);
+  const [generationProgress, setGenerationProgress] = useState<number | null>(
+    null,
+  );
   const pollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pollCount = useRef(0);
 
-  // Poll the generate endpoint: it returns the certificate once ready, or a
-  // 202 with a jobId while the job is still running — in which case retry.
+  const pollJobStatus = useCallback(async (jobId: string) => {
+    try {
+      const { data } = await apiClient.get<JobStatusResponse>(
+        `certificates/generate/${jobId}/status`,
+      );
+      const statusData = data.data;
+
+      if (statusData?.status === "completed" && statusData.certificate) {
+        const cert = statusData.certificate;
+        setCertificate({
+          id: cert.certificateId,
+          certificateNumber: cert.certificateNumber,
+          certificateUrl: cert.certificateUrl,
+          issuedAt: cert.issuedAt,
+          createdDate: cert.issuedAt,
+        });
+        setIsGenerating(false);
+        setGenerationError(null);
+        toast.success(data.message ?? "Certificate ready!");
+        return;
+      }
+
+      if (statusData?.status === "failed") {
+        setIsGenerating(false);
+        setGenerationError(statusData.error ?? "Certificate generation failed.");
+        return;
+      }
+
+      pollCount.current += 1;
+      setGenerationProgress(statusData?.progress ?? null);
+      pollTimer.current = setTimeout(
+        () => pollJobStatus(jobId),
+        POLL_INTERVAL_MS,
+      );
+    } catch (err) {
+      setIsGenerating(false);
+      setGenerationError(extract_message(err));
+    }
+  }, []);
+
   const runGenerate = useCallback(async () => {
     try {
-      const { data } = await apiClient.post<GenerateResponse>(
+      const { data } = await apiClient.post<GenerateJobResponse>(
         "certificates/generate",
         { courseId: id },
       );
-      const cert = data.data;
-      if (cert?.certificateUrl) {
-        setCertificate(cert);
+
+      const certData = data.data;
+
+      if (certData?.certificateUrl) {
+        setCertificate({
+          id: certData.certificateId ?? "",
+          certificateNumber: certData.certificateNumber ?? "",
+          certificateUrl: certData.certificateUrl,
+          issuedAt: certData.issuedAt ?? "",
+          createdDate: certData.issuedAt ?? "",
+        });
         setIsGenerating(false);
+        setGenerationError(null);
         toast.success(data.message ?? "Certificate ready.");
-        modalRef.current?.open();
         return;
       }
-      // Still in progress (jobId only) — check again shortly.
-      pollTimer.current = setTimeout(runGenerate, POLL_INTERVAL_MS);
+
+      if (certData?.jobId) {
+        pollJobStatus(certData.jobId);
+        return;
+      }
+
+      setIsGenerating(false);
+      setGenerationError(data.message ?? "Unexpected response from server.");
     } catch (err) {
       setIsGenerating(false);
-      toast.error(extract_message(err));
+      setGenerationError(extract_message(err));
     }
-  }, [id]);
+  }, [id, pollJobStatus]);
 
   const startGenerate = useCallback(() => {
     if (isGenerating) return;
     setIsGenerating(true);
+    setGenerationError(null);
+    setGenerationProgress(null);
+    pollCount.current = 0;
+    setCertificate(null);
+    modalRef.current?.open();
     runGenerate();
   }, [isGenerating, runGenerate]);
 
-  // Stop polling if the user navigates away mid-generation.
+  useEffect(() => {
+    if (certificate) {
+      modalRef.current?.open();
+    }
+  }, [certificate]);
+
   useEffect(
     () => () => {
       if (pollTimer.current) clearTimeout(pollTimer.current);
@@ -157,10 +244,114 @@ function RouteComponent() {
         <Outlet />
       </main>
 
-      <Modal ref={modalRef} title="Your Certificate">
+      <Modal
+        ref={modalRef}
+        title={
+          certificate
+            ? "Your Certificate"
+            : generationError
+              ? "Generation Failed"
+              : "Generating Certificate"
+        }
+      >
+        {isGenerating && !certificate && !generationError && (
+          <GeneratingView
+            progress={generationProgress}
+            pollCount={pollCount.current}
+          />
+        )}
+        {generationError && (
+          <ErrorView
+            message={generationError}
+            onRetry={startGenerate}
+            onClose={() => {
+              setGenerationError(null);
+              modalRef.current?.close();
+            }}
+          />
+        )}
         {certificate && <CertificateView certificate={certificate} />}
       </Modal>
     </section>
+  );
+}
+
+function GeneratingView({
+  progress,
+  pollCount,
+}: {
+  progress: number | null;
+  pollCount: number;
+}) {
+  const message =
+    pollCount <= 1
+      ? "Preparing your certificate..."
+      : pollCount <= 3
+        ? "Still working on it..."
+        : "Almost done, thanks for your patience!";
+
+  return (
+    <div className="space-y-5">
+      <div className="flex flex-col items-center gap-2 text-center">
+        <Loader2 className="h-14 w-14 animate-spin text-secondary" />
+        <h3 className="text-lg font-semibold text-accent">
+          Generating Your Certificate
+        </h3>
+        <p className="text-base-content/60">{message}</p>
+      </div>
+      {progress != null ? (
+        <progress
+          className="progress progress-secondary w-full"
+          value={progress}
+          max={100}
+        />
+      ) : (
+        <progress className="progress progress-secondary w-full" />
+      )}
+      <p className="text-center text-sm text-base-content/40">
+        This may take a moment. Please don't close this page.
+      </p>
+    </div>
+  );
+}
+
+function ErrorView({
+  message,
+  onRetry,
+  onClose,
+}: {
+  message: string;
+  onRetry: () => void;
+  onClose: () => void;
+}) {
+  return (
+    <div className="space-y-5">
+      <div className="flex flex-col items-center gap-2 text-center">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-error/10 text-error">
+          <Award className="h-7 w-7" />
+        </span>
+        <h3 className="text-lg font-semibold text-accent">
+          Certificate generation failed
+        </h3>
+        <p className="text-base-content/60">{message}</p>
+      </div>
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={onClose}
+          className="btn flex-1 gap-2 rounded-md border-none bg-base-200 py-3 font-medium text-base-content hover:bg-base-300"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          onClick={onRetry}
+          className="btn flex-1 gap-2 rounded-md border-none bg-secondary py-3 font-medium text-secondary-content hover:bg-secondary/90"
+        >
+          Try Again
+        </button>
+      </div>
+    </div>
   );
 }
 

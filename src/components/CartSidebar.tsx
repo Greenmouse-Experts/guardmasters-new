@@ -31,6 +31,16 @@ interface CreateOrderResponse {
   };
 }
 
+interface PreviewOrderResponse {
+  message?: string;
+  data?: {
+    subAmount?: number;
+    taxAmount?: number;
+    taxRate?: number;
+    total?: number;
+  };
+}
+
 function money(n: number) {
   return `$${n.toLocaleString(undefined, {
     minimumFractionDigits: 2,
@@ -73,6 +83,8 @@ export default function CartSidebar() {
         authorizationUrl: d.authorization_url ?? "",
         subAmount: d.subAmount ?? subtotal,
         taxAmount: d.taxAmount ?? 0,
+        taxRate: 0,
+        total: (d.subAmount ?? subtotal) + (d.taxAmount ?? 0),
       };
       setOrder(next);
     },
@@ -83,13 +95,42 @@ export default function CartSidebar() {
     },
   });
 
-  const { mutate: refreshOrder } = createOrder;
+  const previewOrder = useMutation({
+    mutationFn: async () => {
+      const { data } = await apiClient.post<PreviewOrderResponse>(
+        "orders/preview",
+        {
+          courses: items.map(({ id, price }) => ({ id, price })),
+          amount: subtotal,
+        },
+      );
+      return data;
+    },
+    onSuccess: (data) => {
+      const d = data?.data;
+      if (!d) return;
+      setOrder({
+        reference: "",
+        status: "",
+        authorizationUrl: "",
+        subAmount: d.subAmount ?? subtotal,
+        taxAmount: d.taxAmount ?? 0,
+        taxRate: d.taxRate ?? 0,
+        total: d.total ?? (d.subAmount ?? subtotal) + (d.taxAmount ?? 0),
+      });
+    },
+    onError: (err: any) => {
+      toast.error(
+        err?.response?.data?.message ?? "Could not calculate your order.",
+      );
+    },
+  });
 
-  // Recompute the order when the cart contents change (only when logged in).
+  // Recompute preview when cart changes. Only calls orders/create at checkout.
   useEffect(() => {
     if (!token || items.length === 0) return;
-    refreshOrder();
-  }, [items, token, refreshOrder]);
+    previewOrder.mutate();
+  }, [items, token, previewOrder.mutate]);
 
   function handleCheckout() {
     // Keep the cart drawer open — the auth modal is nested inside it, so
@@ -215,26 +256,27 @@ export default function CartSidebar() {
               <div className="flex items-center justify-between text-base-content/60">
                 <span>Tax</span>
                 <span className="font-medium text-accent">
-                  {token && createOrder.isPending && !order ? (
+                  {previewOrder.isPending && !order ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
                   ) : (
-                    money(order?.taxAmount ?? 0)
+                    <>
+                      {money(order?.taxAmount ?? 0)}
+                      {order?.taxRate ? ` (${order.taxRate}%)` : null}
+                    </>
                   )}
                 </span>
               </div>
               <div className="flex items-center justify-between border-t border-base-300 pt-2">
                 <span className="text-base-content/60">Total</span>
                 <span className="text-xl font-bold text-accent">
-                  {money(
-                    (order?.subAmount ?? subtotal) + (order?.taxAmount ?? 0),
-                  )}
+                  {money(order?.total ?? subtotal)}
                 </span>
               </div>
             </div>
             <button
               type="button"
               onClick={handleCheckout}
-              disabled={createOrder.isPending}
+              disabled={previewOrder.isPending || createOrder.isPending}
               className="flex w-full items-center justify-center gap-2 rounded-md bg-primary py-3.5 font-semibold text-primary-content transition-colors hover:bg-primary/90 disabled:opacity-60"
             >
               {createOrder.isPending && (

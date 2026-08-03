@@ -43,6 +43,8 @@ jobs:
           tags: |
             ${{ steps.meta.outputs.image }}:latest
             ${{ steps.meta.outputs.image }}:${{ github.sha }}
+          build-args: |
+            VITE_API_URL=${{ secrets.VITE_API_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 

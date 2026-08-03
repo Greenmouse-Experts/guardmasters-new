@@ -45,6 +45,7 @@ export default function CoursePlayer({ courseId }: { courseId: string }) {
     onSuccess: () => {
       toast.success("Lesson completed.");
       queryClient.invalidateQueries({ queryKey: ["my-course", courseId] });
+      queryClient.invalidateQueries({ queryKey: ["course-progress", courseId] });
     },
   });
 

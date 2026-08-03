@@ -6,6 +6,7 @@ import { toast } from "sonner";
 
 // export const new_url = "https://safeethix-crm-backend.onrender.com";
 export const new_url =
+  import.meta.env.VITE_API_URL ??
   "https://guardmaster-institute-backend-mrty.onrender.com/v1/";
 const apiClient = axios.create({
   baseURL: new_url,
