@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Clock, Users, GraduationCap } from "lucide-react";
 
 const stats = [
-  { icon: Clock, value: "1536+", lines: ["HOURS OF CONTENT"] },
+  { icon: Clock, value: "2536+", lines: ["HOURS OF CONTENT"] },
   { icon: Users, value: "250+", lines: ["ACTIVE LEARNERS"] },
   { icon: GraduationCap, value: "40+", lines: ["CPE CREDITS"] },
 ];

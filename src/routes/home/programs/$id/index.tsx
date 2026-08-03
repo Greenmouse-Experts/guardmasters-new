@@ -145,11 +145,13 @@ function RouteComponent() {
                 imageAlt="Students learning together"
               />
               <Comments
-                badge="Reviews"
+                badge="Course Reviews"
                 title={
                   <>
-                    What our graduates{" "}
-                    <em className="text-primary italic">are saying.</em>
+                    <span className="font-medium">
+                      What our graduates{" "}
+                      <em className="text-primary italic">are saying.</em>
+                    </span>
                   </>
                 }
                 description="Real Feedback from learners and professionals who have completed the program and applied the lessons learnt in their fields."
@@ -263,8 +265,8 @@ function RouteComponent() {
                   price={price}
                   priceNote="per enrollment"
                   includes={includes}
-                  relatedBadge="More courses"
-                  relatedTitle={`Continue your <span class='text-primary'>lesson</span>.`}
+                  relatedBadge="EXPLORE OTHER COURSES AND PROGRAMS"
+                  relatedTitle={`Continue your <span class='text-primary'>Learning Journey</span>.`}
                 />
               </section>
             </>
