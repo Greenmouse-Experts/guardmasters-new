@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, BadgeCheck } from "lucide-react";
-import ImageHeader from "../-components/headers/ImageHeader";
+import ImageHeader from "../home/-components/headers/ImageHeader";
 
-export const Route = createFileRoute("/home/accreditations/")({
+export const Route = createFileRoute("/accreditations/")({
   component: RouteComponent,
 });
 

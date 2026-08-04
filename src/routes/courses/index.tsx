@@ -8,7 +8,7 @@ import type { CourseProgram } from "#/types/courses.ts";
 import SimpleHero from "./-components/SimpleHero";
 import { useEffect } from "react";
 
-export const Route = createFileRoute("/home/programs/")({
+export const Route = createFileRoute("/courses/")({
   validateSearch: (search: Record<string, unknown>) => ({
     search: typeof search.search === "string" ? search.search : "",
     programId: typeof search.programId === "string" ? search.programId : "",
