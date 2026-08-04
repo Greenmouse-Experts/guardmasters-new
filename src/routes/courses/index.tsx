@@ -10,14 +10,14 @@ import { useEffect } from "react";
 
 export const Route = createFileRoute("/courses/")({
   validateSearch: (search: Record<string, unknown>) => ({
-    search: typeof search.search === "string" ? search.search : "",
-    programId: typeof search.programId === "string" ? search.programId : "",
+    ...(typeof search.search === "string" && search.search ? { search: search.search } : {}),
+    ...(typeof search.programId === "string" && search.programId ? { programId: search.programId } : {}),
   }),
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const { search, programId } = Route.useSearch();
+  const { search = "", programId = "" } = Route.useSearch();
 
   const query = useQuery<ApiResponseV2<CourseProgram[]>>({
     queryKey: ["programs", search],
