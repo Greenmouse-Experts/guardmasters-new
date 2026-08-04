@@ -14,7 +14,7 @@ import type { CourseProgramSingle } from "#/types/courses.ts";
 import { ArrowUpRight, Check, ChevronRight, Lock } from "lucide-react";
 import { useCartStore, useIsInCart } from "#/store/cartStore.ts";
 
-export const Route = createFileRoute("/home/programs/$id/")({
+export const Route = createFileRoute("/courses/$id/")({
   component: RouteComponent,
 });
 

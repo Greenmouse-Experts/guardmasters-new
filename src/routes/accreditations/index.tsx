@@ -114,7 +114,7 @@ function RouteComponent() {
           </h2>
 
           <Link
-            to="/home/programs"
+            to="/courses"
             search={{ search: "", programId: "" }}
             className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-6 py-3 font-medium text-accent-content transition-colors hover:bg-accent/90"
           >

@@ -62,7 +62,7 @@ export default function ProgramHero({
             <ChevronRight className="h-3 w-3" />
             <Link
               search={{ search: "", programId: "" }}
-              to="/home/programs"
+              to="/courses"
               className="hover:text-white"
             >
               Programs

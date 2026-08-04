@@ -11,14 +11,14 @@ interface FooterLink {
 const quickLinks: FooterLink[] = [
   { name: "Home", path: "/home" },
   { name: "About Us", path: "/home/about" },
-  { name: "Training Programs", path: "/home/programs" },
+  { name: "Training Programs", path: "/courses" },
   { name: "News & Blogs", path: "/home/blog" },
   { name: "FAQ", path: "/home/faq" },
   { name: "Contact Us", path: "/home/contact" },
 ];
 
 const resourceLinks: FooterLink[] = [
-  { name: "Our Accreditations", path: "/home/accreditations" },
+  { name: "Our Accreditations", path: "/accreditations" },
   { name: "Terms & Conditions", path: "/home/terms", search: { tab: "terms" } },
   { name: "Privacy Policy", path: "/home/terms", search: { tab: "privacy" } },
   { name: "Cookie Policy", path: "/home/terms", search: { tab: "cookie" } },

@@ -170,7 +170,7 @@ function RouteComponent() {
 
           <div className="flex mt-8">
             <Link
-              to="/home/accreditations"
+              to="/accreditations"
               className="btn btn-xl btn-primary  mx-auto text-accent font-bold rounded-xl "
             >
               Learn More{" "}

@@ -1,14 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import {
-  Loader2,
-  LogIn,
-  ShoppingBag,
-  Trash2,
-  UserPlus,
-  X,
-} from "lucide-react";
+import { Loader2, LogIn, ShoppingBag, Trash2, UserPlus, X } from "lucide-react";
 import { toast } from "sonner";
 import apiClient from "#/client/api.ts";
 import Modal, { type ModalHandle } from "#/components/modals/DialogModal.tsx";
@@ -200,7 +193,7 @@ export default function CartSidebar() {
               onClick={() => {
                 closeCart();
                 navigate({
-                  to: "/home/programs",
+                  to: "/courses",
                   search: { search: "", programId: "" },
                 });
               }}

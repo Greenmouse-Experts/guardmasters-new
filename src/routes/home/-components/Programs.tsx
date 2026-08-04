@@ -92,7 +92,7 @@ export default function Programs() {
             return (
               <Link
                 key={title}
-                to="/home/programs"
+                to="/courses"
                 search={{ search: "", programId }}
                 className="relative rounded-2xl bg-accent p-6 shadow-lg ring ring-primary/50 h-full block"
               >

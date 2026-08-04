@@ -94,7 +94,7 @@ export default function EnrollMore({
             </div>
 
             <Link
-              to="/home/programs"
+              to="/courses"
               search={{
                 search: "",
                 programId: "",

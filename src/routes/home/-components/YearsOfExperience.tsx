@@ -26,7 +26,7 @@ export default function YearsOfExperience() {
             Equipping security professionals with practical training,
             certification readiness, and leadership-focused learning.
           </p>
-          <Link to="/home/programs" className="btn btn-primary text-accent">
+          <Link to="/courses" className="btn btn-primary text-accent">
             Train With Us
           </Link>
         </div>

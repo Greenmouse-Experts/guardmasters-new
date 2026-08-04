@@ -47,7 +47,7 @@ export default function ForeFront() {
           </ul>
 
           <Link
-            to="/home/programs"
+            to="/courses"
             className="btn btn-primary md:btn-xl w-fit text-accent font-bold rounded-xl "
           >
             Explore Our Training Programs

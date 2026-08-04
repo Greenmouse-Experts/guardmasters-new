@@ -14,8 +14,8 @@ import { useEffect, useState } from "react";
 const navLinks = [
   { name: "Home", path: "/home" },
   { name: "About", path: "/home/about" },
-  { name: "Training Programs", path: "/home/programs" },
-  { name: "Accreditations", path: "/home/accreditations" },
+  { name: "Training Programs", path: "/courses" },
+  { name: "Accreditations", path: "/accreditations" },
   // { name: "Contact", path: "/home/contact" },
 ] as const;
 
@@ -203,7 +203,7 @@ export default function HomeNav() {
               onKeyDown={(e) => {
                 if (e.key === "Enter" && searchValue.trim()) {
                   navigate({
-                    to: "/home/programs",
+                    to: "/courses",
                     search: { search: searchValue.trim(), programId: "" },
                   });
                 }

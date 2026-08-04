@@ -49,7 +49,7 @@ function RouteComponent() {
                   Browse the catalogue and enroll to start your training.
                 </p>
                 <Link
-                  to="/home/programs"
+                  to="/courses"
                   className="mt-2 rounded-sm bg-accent px-6 py-3  font-medium text-accent-content hover:bg-accent/90"
                 >
                   Explore programs

@@ -4,7 +4,7 @@ import type { ApiResponseV2 } from "#/types/api.js";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import ProgramCard from "#/routes/home/programs/-components/ProgramCard.tsx";
+import ProgramCard from "#/routes/courses/-components/ProgramCard.tsx";
 
 interface FeaturedCourse {
   id: string;
@@ -69,7 +69,7 @@ export default function Featured() {
 
                   <div className="mt-10 flex justify-center">
                     <Link
-                      to="/home/programs"
+                      to="/courses"
                       className="btn btn-primary btn-xl gap-2 rounded-lg px-8 font-semibold text-accent items-center flex"
                     >
                       Browse More Courses

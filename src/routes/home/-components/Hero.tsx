@@ -32,7 +32,7 @@ export default function Hero() {
         {/* Buttons */}
         <div className="flex flex-wrap items-center gap-3">
           <Link
-            to="/home/programs"
+            to="/courses"
             className="btn btn-primary gap-2 rounded-lg px-6 font-semibold"
           >
             Explore Programs

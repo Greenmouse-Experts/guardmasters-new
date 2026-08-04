@@ -8,7 +8,7 @@ import HomeNav from "./-components/HomeNav";
 const navLinks = [
   { name: "Home", path: "/home" },
   { name: "About", path: "/home/about" },
-  { name: "Training Programs", path: "/home/programs" },
+  { name: "Training Programs", path: "/courses" },
   { name: "Accreditations", path: "/accreditations" },
   { name: "Contact", path: "/contact" },
 ] as const;

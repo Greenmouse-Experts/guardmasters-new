@@ -23,7 +23,7 @@ export default function ProgramCard({
 }: ProgramCardProps) {
   return (
     <Link
-      to="/home/programs/$id"
+      to="/courses/$id"
       params={{ id: course.id }}
       className={`group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow hover:shadow-xl ${outline ? "border border-gray-200" : ""}`}
     >
@@ -75,7 +75,7 @@ export default function ProgramCard({
         )}
 
         <Link
-          to="/home/programs/$id"
+          to="/courses/$id"
           params={{ id: course.id }}
           className="btn btn-block mt-auto h-auto justify-center rounded-xl border-none bg-primary py-3.5 text-base font-semibold text-primary-content hover:bg-primary/90"
         >

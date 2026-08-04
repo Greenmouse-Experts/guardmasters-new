@@ -10,23 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccreditationsRouteRouteImport } from './routes/accreditations/route'
 import { Route as AdminRouteRouteImport } from './routes/admin/route'
+import { Route as CoursesRouteRouteImport } from './routes/courses/route'
 import { Route as HomeRouteRouteImport } from './routes/home/route'
 import { Route as UserRouteRouteImport } from './routes/user/route'
+import { Route as AccreditationsIndexRouteImport } from './routes/accreditations/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as CertificateIdRouteImport } from './routes/certificate/$id'
+import { Route as CoursesIndexRouteImport } from './routes/courses/index'
 import { Route as HomeIndexRouteImport } from './routes/home/index'
 import { Route as PaymentCallbackRouteImport } from './routes/payment/callback'
 import { Route as TestIndexRouteImport } from './routes/test/index'
 import { Route as UserIndexRouteImport } from './routes/user/index'
+import { Route as CoursesIdIndexRouteImport } from './routes/courses/$id/index'
 import { Route as HomeAboutIndexRouteImport } from './routes/home/about/index'
-import { Route as HomeAccreditationsIndexRouteImport } from './routes/home/accreditations/index'
 import { Route as HomeAuthLoginRouteImport } from './routes/home/auth/login'
 import { Route as HomeAuthSignupRouteImport } from './routes/home/auth/signup'
 import { Route as HomeBlogIndexRouteImport } from './routes/home/blog/index'
 import { Route as HomeContactIndexRouteImport } from './routes/home/contact/index'
 import { Route as HomeFaqIndexRouteImport } from './routes/home/faq/index'
-import { Route as HomeProgramsIndexRouteImport } from './routes/home/programs/index'
 import { Route as HomeTermsIndexRouteImport } from './routes/home/terms/index'
 import { Route as UserCoursesIndexRouteImport } from './routes/user/courses/index'
 import { Route as UserCoursesIdRouteRouteImport } from './routes/user/courses/$id/route'
@@ -38,7 +41,6 @@ import { Route as UserSupportIndexRouteImport } from './routes/user/support/inde
 import { Route as VerifyIdIndexRouteImport } from './routes/verify/$id.index'
 import { Route as HomeAuthVerifyIndexRouteImport } from './routes/home/auth/verify/index'
 import { Route as HomeBlogIdIndexRouteImport } from './routes/home/blog/$id/index'
-import { Route as HomeProgramsIdIndexRouteImport } from './routes/home/programs/$id/index'
 import { Route as UserCoursesIdIndexRouteImport } from './routes/user/courses/$id/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -46,9 +48,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccreditationsRouteRoute = AccreditationsRouteRouteImport.update({
+  id: '/accreditations',
+  path: '/accreditations',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminRouteRoute = AdminRouteRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesRouteRoute = CoursesRouteRouteImport.update({
+  id: '/courses',
+  path: '/courses',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRouteRoute = HomeRouteRouteImport.update({
@@ -61,6 +73,11 @@ const UserRouteRoute = UserRouteRouteImport.update({
   path: '/user',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccreditationsIndexRoute = AccreditationsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AccreditationsRouteRoute,
+} as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -70,6 +87,11 @@ const CertificateIdRoute = CertificateIdRouteImport.update({
   id: '/certificate/$id',
   path: '/certificate/$id',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CoursesRouteRoute,
 } as any)
 const HomeIndexRoute = HomeIndexRouteImport.update({
   id: '/',
@@ -91,14 +113,14 @@ const UserIndexRoute = UserIndexRouteImport.update({
   path: '/',
   getParentRoute: () => UserRouteRoute,
 } as any)
+const CoursesIdIndexRoute = CoursesIdIndexRouteImport.update({
+  id: '/$id/',
+  path: '/$id/',
+  getParentRoute: () => CoursesRouteRoute,
+} as any)
 const HomeAboutIndexRoute = HomeAboutIndexRouteImport.update({
   id: '/about/',
   path: '/about/',
-  getParentRoute: () => HomeRouteRoute,
-} as any)
-const HomeAccreditationsIndexRoute = HomeAccreditationsIndexRouteImport.update({
-  id: '/accreditations/',
-  path: '/accreditations/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
 const HomeAuthLoginRoute = HomeAuthLoginRouteImport.update({
@@ -124,11 +146,6 @@ const HomeContactIndexRoute = HomeContactIndexRouteImport.update({
 const HomeFaqIndexRoute = HomeFaqIndexRouteImport.update({
   id: '/faq/',
   path: '/faq/',
-  getParentRoute: () => HomeRouteRoute,
-} as any)
-const HomeProgramsIndexRoute = HomeProgramsIndexRouteImport.update({
-  id: '/programs/',
-  path: '/programs/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
 const HomeTermsIndexRoute = HomeTermsIndexRouteImport.update({
@@ -187,11 +204,6 @@ const HomeBlogIdIndexRoute = HomeBlogIdIndexRouteImport.update({
   path: '/blog/$id/',
   getParentRoute: () => HomeRouteRoute,
 } as any)
-const HomeProgramsIdIndexRoute = HomeProgramsIdIndexRouteImport.update({
-  id: '/programs/$id/',
-  path: '/programs/$id/',
-  getParentRoute: () => HomeRouteRoute,
-} as any)
 const UserCoursesIdIndexRoute = UserCoursesIdIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -200,24 +212,27 @@ const UserCoursesIdIndexRoute = UserCoursesIdIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accreditations': typeof AccreditationsRouteRouteWithChildren
   '/admin': typeof AdminRouteRouteWithChildren
+  '/courses': typeof CoursesRouteRouteWithChildren
   '/home': typeof HomeRouteRouteWithChildren
   '/user': typeof UserRouteRouteWithChildren
   '/certificate/$id': typeof CertificateIdRoute
   '/payment/callback': typeof PaymentCallbackRoute
+  '/accreditations/': typeof AccreditationsIndexRoute
   '/admin/': typeof AdminIndexRoute
+  '/courses/': typeof CoursesIndexRoute
   '/home/': typeof HomeIndexRoute
   '/test/': typeof TestIndexRoute
   '/user/': typeof UserIndexRoute
   '/user/courses/$id': typeof UserCoursesIdRouteRouteWithChildren
   '/home/auth/login': typeof HomeAuthLoginRoute
   '/home/auth/signup': typeof HomeAuthSignupRoute
+  '/courses/$id/': typeof CoursesIdIndexRoute
   '/home/about/': typeof HomeAboutIndexRoute
-  '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/blog/': typeof HomeBlogIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
   '/home/faq/': typeof HomeFaqIndexRoute
-  '/home/programs/': typeof HomeProgramsIndexRoute
   '/home/terms/': typeof HomeTermsIndexRoute
   '/user/courses/': typeof UserCoursesIndexRoute
   '/user/notifications/': typeof UserNotificationsIndexRoute
@@ -228,25 +243,25 @@ export interface FileRoutesByFullPath {
   '/verify/$id/': typeof VerifyIdIndexRoute
   '/home/auth/verify/': typeof HomeAuthVerifyIndexRoute
   '/home/blog/$id/': typeof HomeBlogIdIndexRoute
-  '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
   '/user/courses/$id/': typeof UserCoursesIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/certificate/$id': typeof CertificateIdRoute
   '/payment/callback': typeof PaymentCallbackRoute
+  '/accreditations': typeof AccreditationsIndexRoute
   '/admin': typeof AdminIndexRoute
+  '/courses': typeof CoursesIndexRoute
   '/home': typeof HomeIndexRoute
   '/test': typeof TestIndexRoute
   '/user': typeof UserIndexRoute
   '/home/auth/login': typeof HomeAuthLoginRoute
   '/home/auth/signup': typeof HomeAuthSignupRoute
+  '/courses/$id': typeof CoursesIdIndexRoute
   '/home/about': typeof HomeAboutIndexRoute
-  '/home/accreditations': typeof HomeAccreditationsIndexRoute
   '/home/blog': typeof HomeBlogIndexRoute
   '/home/contact': typeof HomeContactIndexRoute
   '/home/faq': typeof HomeFaqIndexRoute
-  '/home/programs': typeof HomeProgramsIndexRoute
   '/home/terms': typeof HomeTermsIndexRoute
   '/user/courses': typeof UserCoursesIndexRoute
   '/user/notifications': typeof UserNotificationsIndexRoute
@@ -257,30 +272,32 @@ export interface FileRoutesByTo {
   '/verify/$id': typeof VerifyIdIndexRoute
   '/home/auth/verify': typeof HomeAuthVerifyIndexRoute
   '/home/blog/$id': typeof HomeBlogIdIndexRoute
-  '/home/programs/$id': typeof HomeProgramsIdIndexRoute
   '/user/courses/$id': typeof UserCoursesIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accreditations': typeof AccreditationsRouteRouteWithChildren
   '/admin': typeof AdminRouteRouteWithChildren
+  '/courses': typeof CoursesRouteRouteWithChildren
   '/home': typeof HomeRouteRouteWithChildren
   '/user': typeof UserRouteRouteWithChildren
   '/certificate/$id': typeof CertificateIdRoute
   '/payment/callback': typeof PaymentCallbackRoute
+  '/accreditations/': typeof AccreditationsIndexRoute
   '/admin/': typeof AdminIndexRoute
+  '/courses/': typeof CoursesIndexRoute
   '/home/': typeof HomeIndexRoute
   '/test/': typeof TestIndexRoute
   '/user/': typeof UserIndexRoute
   '/user/courses/$id': typeof UserCoursesIdRouteRouteWithChildren
   '/home/auth/login': typeof HomeAuthLoginRoute
   '/home/auth/signup': typeof HomeAuthSignupRoute
+  '/courses/$id/': typeof CoursesIdIndexRoute
   '/home/about/': typeof HomeAboutIndexRoute
-  '/home/accreditations/': typeof HomeAccreditationsIndexRoute
   '/home/blog/': typeof HomeBlogIndexRoute
   '/home/contact/': typeof HomeContactIndexRoute
   '/home/faq/': typeof HomeFaqIndexRoute
-  '/home/programs/': typeof HomeProgramsIndexRoute
   '/home/terms/': typeof HomeTermsIndexRoute
   '/user/courses/': typeof UserCoursesIndexRoute
   '/user/notifications/': typeof UserNotificationsIndexRoute
@@ -291,31 +308,33 @@ export interface FileRoutesById {
   '/verify/$id/': typeof VerifyIdIndexRoute
   '/home/auth/verify/': typeof HomeAuthVerifyIndexRoute
   '/home/blog/$id/': typeof HomeBlogIdIndexRoute
-  '/home/programs/$id/': typeof HomeProgramsIdIndexRoute
   '/user/courses/$id/': typeof UserCoursesIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/accreditations'
     | '/admin'
+    | '/courses'
     | '/home'
     | '/user'
     | '/certificate/$id'
     | '/payment/callback'
+    | '/accreditations/'
     | '/admin/'
+    | '/courses/'
     | '/home/'
     | '/test/'
     | '/user/'
     | '/user/courses/$id'
     | '/home/auth/login'
     | '/home/auth/signup'
+    | '/courses/$id/'
     | '/home/about/'
-    | '/home/accreditations/'
     | '/home/blog/'
     | '/home/contact/'
     | '/home/faq/'
-    | '/home/programs/'
     | '/home/terms/'
     | '/user/courses/'
     | '/user/notifications/'
@@ -326,25 +345,25 @@ export interface FileRouteTypes {
     | '/verify/$id/'
     | '/home/auth/verify/'
     | '/home/blog/$id/'
-    | '/home/programs/$id/'
     | '/user/courses/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/certificate/$id'
     | '/payment/callback'
+    | '/accreditations'
     | '/admin'
+    | '/courses'
     | '/home'
     | '/test'
     | '/user'
     | '/home/auth/login'
     | '/home/auth/signup'
+    | '/courses/$id'
     | '/home/about'
-    | '/home/accreditations'
     | '/home/blog'
     | '/home/contact'
     | '/home/faq'
-    | '/home/programs'
     | '/home/terms'
     | '/user/courses'
     | '/user/notifications'
@@ -355,29 +374,31 @@ export interface FileRouteTypes {
     | '/verify/$id'
     | '/home/auth/verify'
     | '/home/blog/$id'
-    | '/home/programs/$id'
     | '/user/courses/$id'
   id:
     | '__root__'
     | '/'
+    | '/accreditations'
     | '/admin'
+    | '/courses'
     | '/home'
     | '/user'
     | '/certificate/$id'
     | '/payment/callback'
+    | '/accreditations/'
     | '/admin/'
+    | '/courses/'
     | '/home/'
     | '/test/'
     | '/user/'
     | '/user/courses/$id'
     | '/home/auth/login'
     | '/home/auth/signup'
+    | '/courses/$id/'
     | '/home/about/'
-    | '/home/accreditations/'
     | '/home/blog/'
     | '/home/contact/'
     | '/home/faq/'
-    | '/home/programs/'
     | '/home/terms/'
     | '/user/courses/'
     | '/user/notifications/'
@@ -388,13 +409,14 @@ export interface FileRouteTypes {
     | '/verify/$id/'
     | '/home/auth/verify/'
     | '/home/blog/$id/'
-    | '/home/programs/$id/'
     | '/user/courses/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccreditationsRouteRoute: typeof AccreditationsRouteRouteWithChildren
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
+  CoursesRouteRoute: typeof CoursesRouteRouteWithChildren
   HomeRouteRoute: typeof HomeRouteRouteWithChildren
   UserRouteRoute: typeof UserRouteRouteWithChildren
   CertificateIdRoute: typeof CertificateIdRoute
@@ -412,11 +434,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accreditations': {
+      id: '/accreditations'
+      path: '/accreditations'
+      fullPath: '/accreditations'
+      preLoaderRoute: typeof AccreditationsRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin': {
       id: '/admin'
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses': {
+      id: '/courses'
+      path: '/courses'
+      fullPath: '/courses'
+      preLoaderRoute: typeof CoursesRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -433,6 +469,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UserRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accreditations/': {
+      id: '/accreditations/'
+      path: '/'
+      fullPath: '/accreditations/'
+      preLoaderRoute: typeof AccreditationsIndexRouteImport
+      parentRoute: typeof AccreditationsRouteRoute
+    }
     '/admin/': {
       id: '/admin/'
       path: '/'
@@ -446,6 +489,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/certificate/$id'
       preLoaderRoute: typeof CertificateIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/courses/': {
+      id: '/courses/'
+      path: '/'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof CoursesRouteRoute
     }
     '/home/': {
       id: '/home/'
@@ -475,18 +525,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UserIndexRouteImport
       parentRoute: typeof UserRouteRoute
     }
+    '/courses/$id/': {
+      id: '/courses/$id/'
+      path: '/$id'
+      fullPath: '/courses/$id/'
+      preLoaderRoute: typeof CoursesIdIndexRouteImport
+      parentRoute: typeof CoursesRouteRoute
+    }
     '/home/about/': {
       id: '/home/about/'
       path: '/about'
       fullPath: '/home/about/'
       preLoaderRoute: typeof HomeAboutIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
-    }
-    '/home/accreditations/': {
-      id: '/home/accreditations/'
-      path: '/accreditations'
-      fullPath: '/home/accreditations/'
-      preLoaderRoute: typeof HomeAccreditationsIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
     '/home/auth/login': {
@@ -522,13 +572,6 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/home/faq/'
       preLoaderRoute: typeof HomeFaqIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
-    }
-    '/home/programs/': {
-      id: '/home/programs/'
-      path: '/programs'
-      fullPath: '/home/programs/'
-      preLoaderRoute: typeof HomeProgramsIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
     '/home/terms/': {
@@ -608,13 +651,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeBlogIdIndexRouteImport
       parentRoute: typeof HomeRouteRoute
     }
-    '/home/programs/$id/': {
-      id: '/home/programs/$id/'
-      path: '/programs/$id'
-      fullPath: '/home/programs/$id/'
-      preLoaderRoute: typeof HomeProgramsIdIndexRouteImport
-      parentRoute: typeof HomeRouteRoute
-    }
     '/user/courses/$id/': {
       id: '/user/courses/$id/'
       path: '/'
@@ -624,6 +660,17 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AccreditationsRouteRouteChildren {
+  AccreditationsIndexRoute: typeof AccreditationsIndexRoute
+}
+
+const AccreditationsRouteRouteChildren: AccreditationsRouteRouteChildren = {
+  AccreditationsIndexRoute: AccreditationsIndexRoute,
+}
+
+const AccreditationsRouteRouteWithChildren =
+  AccreditationsRouteRoute._addFileChildren(AccreditationsRouteRouteChildren)
 
 interface AdminRouteRouteChildren {
   AdminIndexRoute: typeof AdminIndexRoute
@@ -637,20 +684,31 @@ const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
   AdminRouteRouteChildren,
 )
 
+interface CoursesRouteRouteChildren {
+  CoursesIndexRoute: typeof CoursesIndexRoute
+  CoursesIdIndexRoute: typeof CoursesIdIndexRoute
+}
+
+const CoursesRouteRouteChildren: CoursesRouteRouteChildren = {
+  CoursesIndexRoute: CoursesIndexRoute,
+  CoursesIdIndexRoute: CoursesIdIndexRoute,
+}
+
+const CoursesRouteRouteWithChildren = CoursesRouteRoute._addFileChildren(
+  CoursesRouteRouteChildren,
+)
+
 interface HomeRouteRouteChildren {
   HomeIndexRoute: typeof HomeIndexRoute
   HomeAuthLoginRoute: typeof HomeAuthLoginRoute
   HomeAuthSignupRoute: typeof HomeAuthSignupRoute
   HomeAboutIndexRoute: typeof HomeAboutIndexRoute
-  HomeAccreditationsIndexRoute: typeof HomeAccreditationsIndexRoute
   HomeBlogIndexRoute: typeof HomeBlogIndexRoute
   HomeContactIndexRoute: typeof HomeContactIndexRoute
   HomeFaqIndexRoute: typeof HomeFaqIndexRoute
-  HomeProgramsIndexRoute: typeof HomeProgramsIndexRoute
   HomeTermsIndexRoute: typeof HomeTermsIndexRoute
   HomeAuthVerifyIndexRoute: typeof HomeAuthVerifyIndexRoute
   HomeBlogIdIndexRoute: typeof HomeBlogIdIndexRoute
-  HomeProgramsIdIndexRoute: typeof HomeProgramsIdIndexRoute
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
@@ -658,15 +716,12 @@ const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeAuthLoginRoute: HomeAuthLoginRoute,
   HomeAuthSignupRoute: HomeAuthSignupRoute,
   HomeAboutIndexRoute: HomeAboutIndexRoute,
-  HomeAccreditationsIndexRoute: HomeAccreditationsIndexRoute,
   HomeBlogIndexRoute: HomeBlogIndexRoute,
   HomeContactIndexRoute: HomeContactIndexRoute,
   HomeFaqIndexRoute: HomeFaqIndexRoute,
-  HomeProgramsIndexRoute: HomeProgramsIndexRoute,
   HomeTermsIndexRoute: HomeTermsIndexRoute,
   HomeAuthVerifyIndexRoute: HomeAuthVerifyIndexRoute,
   HomeBlogIdIndexRoute: HomeBlogIdIndexRoute,
-  HomeProgramsIdIndexRoute: HomeProgramsIdIndexRoute,
 }
 
 const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(
@@ -712,7 +767,9 @@ const UserRouteRouteWithChildren = UserRouteRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccreditationsRouteRoute: AccreditationsRouteRouteWithChildren,
   AdminRouteRoute: AdminRouteRouteWithChildren,
+  CoursesRouteRoute: CoursesRouteRouteWithChildren,
   HomeRouteRoute: HomeRouteRouteWithChildren,
   UserRouteRoute: UserRouteRouteWithChildren,
   CertificateIdRoute: CertificateIdRoute,

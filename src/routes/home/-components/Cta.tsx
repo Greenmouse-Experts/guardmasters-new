@@ -12,7 +12,7 @@ export default function Cta() {
         </h2>
 
         <Link
-          to="/home/programs"
+          to="/courses"
           className="btn h-auto gap-2 rounded-md border-none bg-secondary px-8 py-4 font-medium text-secondary-content hover:bg-secondary/90"
         >
           Explore programs
