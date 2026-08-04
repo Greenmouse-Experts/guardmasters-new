@@ -7,7 +7,7 @@ import rehypeRaw from "rehype-raw";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
 import { formatBlogDate, readingTime, type BlogPost } from "#/types/blog.ts";
-import ImagelessHeader from "../../-components/headers/ImagelessHeader";
+import ImagelessHeader from "#/routes/home/-components/headers/ImagelessHeader.tsx";
 
 export const Route = createFileRoute("/blog/$id/")({
   component: RouteComponent,

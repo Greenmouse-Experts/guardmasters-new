@@ -13,7 +13,7 @@ import {
 } from "#/types/blog.ts";
 import BlogItem from "./-components/BlogItem";
 import type { ApiResponseV2 } from "#/types/api.js";
-import ImagelessHeader from "../-components/headers/ImagelessHeader";
+import ImagelessHeader from "../home/-components/headers/ImagelessHeader";
 
 const PAGE_SIZE = 9;
 
