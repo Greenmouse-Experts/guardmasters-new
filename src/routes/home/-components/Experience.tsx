@@ -78,6 +78,7 @@ export default function Experience() {
           {/* Right: image + dots */}
           <div className="relative min-h-72">
             <img
+              loading="lazy"
               src={active.image}
               alt={active.name}
               className="h-full w-full object-cover"

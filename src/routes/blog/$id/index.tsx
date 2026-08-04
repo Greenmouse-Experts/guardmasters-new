@@ -106,7 +106,8 @@ function Article({ post }: { post: BlogPost }) {
       {/* Cover */}
       {post.coverImage && (
         <div className="mb-12 overflow-hidden rounded-2xl bg-base-200 shadow-sm">
-          <img
+                  <img
+                    loading="lazy"
             src={post.coverImage}
             alt={post.title}
             className="max-h-[520px] w-full object-cover"

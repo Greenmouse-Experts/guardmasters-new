@@ -60,6 +60,7 @@ function RouteComponent() {
           <div className="mb-10 flex justify-center">
             <div className="flex items-center justify-center bg-accent px-8 py-5">
               <img
+                loading="lazy"
                 src="/logo.png"
                 alt="Guardmaster Institute"
                 className="h-12 w-auto object-contain"

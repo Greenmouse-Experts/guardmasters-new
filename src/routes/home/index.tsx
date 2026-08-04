@@ -154,7 +154,8 @@ function RouteComponent() {
                 className="flex flex-col items-center rounded-2xl bg-base-100 px-5 py-8 text-center shadow-lg"
               >
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white ring-2 ring-primary overflow-hidden p-1">
-                  <img
+                          <img
+                    loading="lazy"
                     src={item.logo}
                     alt={item.name}
                     className="h-full w-full object-contain"

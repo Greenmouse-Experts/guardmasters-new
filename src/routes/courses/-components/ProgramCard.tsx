@@ -29,7 +29,8 @@ export default function ProgramCard({
     >
       {/* ── Header: white bg + yellow angled band + circle image ── */}
       <div className="relative h-52 overflow-hidden bg-white">
-        <img src={course.coverImage}></img>
+                <img
+                    loading="lazy" src={course.coverImage}></img>
         {/* Angled yellow shape covering the lower portion */}
         {/*<div
           className="absolute  inset-x-0 bottom-0 h-3/5 bg-linear-0 from-primary via-primary/10 to-transparent"
@@ -49,7 +50,8 @@ export default function ProgramCard({
         {/* Circle: course image or placeholder */}
         {/*<div className="absolute right-6 top-5 z-10 h-20 w-20 overflow-hidden rounded-full bg-base-300 shadow-md ring-4 ring-white transition-transform duration-500 group-hover:scale-105">
           {course.coverImage ? (
-            <img
+                    <img
+                    loading="lazy"
               src={"/favicon.png"}
               alt={course.title}
               className="h-full w-full object-cover"

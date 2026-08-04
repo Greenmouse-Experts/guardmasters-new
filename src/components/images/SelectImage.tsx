@@ -48,7 +48,8 @@ export default function SelectImage(props: ImageProps) {
         >
           {props.image_link ? (
             <div className="size-full relative group">
-              <img
+                      <img
+                    loading="lazy"
                 className="size-full object-cover rounded-lg shadow-md"
                 src={props.image_link}
                 alt={`Selected image`}

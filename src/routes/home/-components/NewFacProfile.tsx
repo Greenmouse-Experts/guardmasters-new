@@ -161,7 +161,8 @@ export default function NewFacProf() {
         {/* Photo + areas of expertise */}
         <div className="bg-accent p-5 pb-8 lg:pb-48">
           <div className="overflow-hidden rounded-xl border-2 border-primary/60">
-            <img
+                    <img
+                    loading="lazy"
               src="/femi_2.png"
               alt="Femi Awosedo"
               className="h-full w-full object-cover"
@@ -189,7 +190,8 @@ export default function NewFacProf() {
         <div className="lg:col-span-2 ">
           {/* Eyebrow with rule */}
           <div className=" flex items-center gap-2">
-            <img src="/user_icon.png" className=" m-1 size-6 rounded-full" />
+                    <img
+                    loading="lazy" src="/user_icon.png" className=" m-1 size-6 rounded-full" />
             <span className="font-pop text-sm font-bold tracking-[0.18em] text-accent uppercase md:text-base">
               Lead ISO Consultant & Trainer
             </span>

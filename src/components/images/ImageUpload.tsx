@@ -71,6 +71,7 @@ export default function ImageUpload({
         {prevImage && (
           <div key={prevImage.path} className="relative h-40 w-full group">
             <img
+              loading="lazy"
               className="size-full object-cover rounded-lg shadow-md"
               src={prevImage.url}
               alt={`Existing image`}
@@ -92,6 +93,7 @@ export default function ImageUpload({
         {newImage && (
           <div key={newImage.name} className="relative h-40 w-full group">
             <img
+              loading="lazy"
               className="size-full object-cover rounded-lg shadow-md"
               src={URL.createObjectURL(newImage)}
               alt={`New image`}

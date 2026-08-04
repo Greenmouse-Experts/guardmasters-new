@@ -209,6 +209,7 @@ export default function CartSidebar() {
                 <div className="h-16 w-20 shrink-0 overflow-hidden rounded-md bg-base-200">
                   {item.coverImg && (
                     <img
+                      loading="lazy"
                       src={item.coverImg}
                       alt={item.title}
                       className="h-full w-full object-cover"

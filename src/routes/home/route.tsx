@@ -78,6 +78,7 @@ function RouteComponent() {
         <div className="flex min-h-full w-72 flex-col bg-accent p-6 text-secondary-content">
           <div className="mb-10 flex items-center justify-between">
             <img
+              loading="lazy"
               src="/logo.png"
               alt="Guardmaster Institute"
               className="h-14 w-auto object-contain"

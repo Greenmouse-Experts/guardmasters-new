@@ -90,7 +90,8 @@ function RouteComponent() {
         <div className="mx-auto max-w-2xl border border-base-300 bg-white p-8 md:p-14">
           <div className="mb-12 flex flex-col items-center">
             <div className="flex items-center justify-center bg-accent px-8 py-5">
-              <img
+                      <img
+                    loading="lazy"
                 src="/logo.png"
                 alt="Guardmaster Institute"
                 className="h-12 w-auto object-contain"

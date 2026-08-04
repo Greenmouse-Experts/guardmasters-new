@@ -119,7 +119,8 @@ function Media({
   }
 
   if (mediaType === "image") {
-    return <img src={media} alt="" className="h-full w-full object-contain" />;
+    return         <img
+                    loading="lazy" src={media} alt="" className="h-full w-full object-contain" />;
   }
 
   if (mediaType === "document") {

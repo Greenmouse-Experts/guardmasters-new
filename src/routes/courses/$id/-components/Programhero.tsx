@@ -153,12 +153,14 @@ export default function ProgramHero({
               <div className="relative isolate overflow-hidden rounded-lg">
                 <div className="absolute left-[10%] right-[9%] top-[9%] bottom-[15%] z-10 overflow-hidden rounded-sm bg-black">
                   <img
+                    loading="lazy"
                     src={image}
                     alt={imageAlt ?? ""}
                     className="h-full w-full object-stretch"
                   />
                 </div>
                 <img
+                  loading="lazy"
                   src="/laptop.png"
                   alt="MacBook frame"
                   className="w-full object-cover"

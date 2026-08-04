@@ -20,6 +20,7 @@ export default function ImageHeader({
   return (
     <section className="relative overflow-hidden bg-black px-6 pt-32 pb-40 md:px-16 md:pt-40 md:pb-22">
       <img
+        loading="lazy"
         src={image}
         alt=""
         className={

@@ -125,7 +125,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             {/* GI badge */}
-            <img src={"/logo.png"} className="mb-4 h-12" />
+            <img loading="lazy" src={"/logo.png"} className="mb-4 h-12" />
 
             <p className="text-lg leading-relaxed ">
               Guardmaster Institute Canada is an accredited professional

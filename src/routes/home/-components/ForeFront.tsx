@@ -59,6 +59,7 @@ export default function ForeFront() {
         <div className="order-1 flex items-center justify-center  lg:order-2  relative isolate md:pl-4">
           <div className="relative h-full w-full overflow-hidden  rounded-3xl">
             <img
+              loading="lazy"
               src="/new_image.png"
               alt="Faculty leading a strategy session"
               className="h-full w-full object-cover"

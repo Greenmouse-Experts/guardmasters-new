@@ -223,6 +223,7 @@ function Featured({ post }: { post: BlogPost }) {
       >
         {post.coverImage && (
           <img
+            loading="lazy"
             src={post.coverImage}
             alt={post.title}
             className="h-full w-full object-cover"

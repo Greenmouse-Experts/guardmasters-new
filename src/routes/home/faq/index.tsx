@@ -152,6 +152,7 @@ function RouteComponent() {
                   ></iframe>
                 </div>
                 <img
+                  loading="lazy"
                   src="/laptop.png"
                   alt="Guardmaster Institute Canada on YouTube"
                   className="w-full object-cover"

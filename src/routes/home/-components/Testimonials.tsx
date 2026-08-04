@@ -117,6 +117,7 @@ export default function Testimonials() {
                     {/* Image side */}
                     <div className="h-60 w-full bg-secondary/20 md:h-140 md:w-2/5">
                       <img
+                        loading="lazy"
                         src={t.image ?? "/experience/experience.png"}
                         alt={t.name}
                         className="h-full w-full object-cover"

@@ -13,6 +13,7 @@ export default function BlogItem({ post }: { post: BlogPost }) {
       <div className="aspect-square w-full overflow-hidden rounded-lg bg-base-200">
         {post.coverImage && (
           <img
+            loading="lazy"
             src={post.coverImage}
             alt={post.title}
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"

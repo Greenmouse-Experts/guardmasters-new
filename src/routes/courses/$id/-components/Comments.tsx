@@ -201,6 +201,7 @@ function ReviewsCarousel({
                     <figcaption className="mt-auto flex items-center gap-3 border-t border-base-300 pt-5">
                       {review.user?.picture ? (
                         <img
+                          loading="lazy"
                           src={review.user.picture}
                           alt={name}
                           className="h-11 w-11 shrink-0 rounded-full object-cover"

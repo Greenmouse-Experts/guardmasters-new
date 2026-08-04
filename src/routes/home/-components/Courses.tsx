@@ -74,6 +74,7 @@ export default function Courses() {
                     >
                       <div className="overflow-hidden w-full   bg-base-300/80">
                         <img
+                          loading="lazy"
                           //@ts-ignore
                           src={course.coverImage}
                           alt={course.title}

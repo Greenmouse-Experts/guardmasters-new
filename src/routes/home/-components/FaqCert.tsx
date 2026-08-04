@@ -172,7 +172,8 @@ export default function FaqCert() {
                 ></iframe>
               </div>
 
-              <img
+                      <img
+                    loading="lazy"
                 src="/laptop.png"
                 alt="Guardmaster Institute Canada on YouTube"
                 className="w-full object-cover"

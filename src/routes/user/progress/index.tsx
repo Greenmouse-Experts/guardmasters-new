@@ -96,7 +96,8 @@ function ProgressCard({ item }: { item: Assesmnt }) {
       {/* Cover */}
       <div className="h-48 w-full shrink-0 bg-base-200 sm:h-auto sm:w-56">
         {course.coverImage && (
-          <img
+                  <img
+                    loading="lazy"
             src={course.coverImage}
             alt={course.title}
             className="h-full w-full object-cover"

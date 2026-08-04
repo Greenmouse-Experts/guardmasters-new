@@ -62,6 +62,7 @@ export default function ProfilePhoto() {
       <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border border-base-300 bg-base-200">
         {profile?.picture ? (
           <img
+            loading="lazy"
             src={profile.picture}
             alt={name}
             className="h-full w-full object-cover"

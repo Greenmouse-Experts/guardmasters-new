@@ -22,12 +22,24 @@ export default function PreviewMedia({ sub }: { sub: CourseContentSub }) {
   if (!src) return null;
 
   if (sub.mediaType === "video") {
-    return <video src={src} controls controlsList="nodownload" autoPlay className="w-full rounded" />;
+    return (
+      <video
+        src={src}
+        controls
+        controlsList="nodownload"
+        autoPlay
+        className="w-full rounded"
+      />
+    );
   }
 
   if (sub.mediaType === "image") {
     return (
-      <img src={src} alt={sub.title} className="w-full rounded object-contain" />
+              <img
+                    loading="lazy"src={src}
+        alt={sub.title}
+        className="w-full rounded object-contain"
+      />
     );
   }
 

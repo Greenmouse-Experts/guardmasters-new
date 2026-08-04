@@ -55,6 +55,7 @@ export default function Accredition() {
             className="flex shrink-0 items-center justify-center "
           >
             <img
+              loading="lazy"
               src={item.image}
               alt={item.name}
               className="size-42 object-contain"

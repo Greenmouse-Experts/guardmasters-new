@@ -143,7 +143,8 @@ function RouteComponent() {
                     </h2>
                     <div className="flex items-center gap-4">
                       {student.picture ? (
-                        <img
+                                <img
+                    loading="lazy"
                           src={student.picture}
                           alt={`${student.firstName} ${student.lastName}`}
                           className="h-16 w-16 rounded-full object-cover"

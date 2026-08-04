@@ -88,6 +88,7 @@ function RouteComponent() {
             >
               {picture ? (
                 <img
+                  loading="lazy"
                   src={picture}
                   alt={name}
                   className="h-9 w-9 rounded-full border border-base-300 object-cover"
@@ -170,6 +171,7 @@ function SidebarNav({
     <>
       <Link to="/" onClick={onNavigate} className="flex h-20 items-center px-6">
         <img
+          loading="lazy"
           src="/logo.png"
           alt="Guardmaster Institute"
           className="h-10 w-auto object-contain"

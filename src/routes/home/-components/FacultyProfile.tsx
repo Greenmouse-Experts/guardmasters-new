@@ -169,6 +169,7 @@ export default function FacultyProfile() {
         <div className="bg-accent p-5 pb-8 lg:pb-48">
           <div className="overflow-hidden rounded-xl border-2 border-primary/60">
             <img
+              loading="lazy"
               src="/dr.png"
               alt="Dr. Adegbenga William Koko"
               className="h-full w-full object-cover"
@@ -197,7 +198,11 @@ export default function FacultyProfile() {
           {/* Eyebrow with rule */}
           <div className=" flex items-center gap-2">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full  text-accent">
-              <img src="/user_icon.png" className=" m-1 size-6 rounded-full" />
+              <img
+                loading="lazy"
+                src="/user_icon.png"
+                className=" m-1 size-6 rounded-full"
+              />
             </span>
             <span className="font-pop text-sm font-bold tracking-[0.18em] text-accent uppercase md:text-base">
               Lead Faculty and Programs Director

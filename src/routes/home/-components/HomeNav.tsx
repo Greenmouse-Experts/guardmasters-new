@@ -167,6 +167,7 @@ export default function HomeNav() {
         <div className="navbar-start">
           <Link to="/" className="shrink-0 cursor-pointer">
             <img
+              loading="lazy"
               src="/logo.png"
               alt="Guardmaster Institute"
               className="h-10 w-auto shrink-0 object-contain md:h-18"

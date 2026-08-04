@@ -42,6 +42,7 @@ export default function SimpleHero({
       <section className="relative overflow-hidden bg-base-100">
         {/* Full-bleed background image */}
         <img
+          loading="lazy"
           src={image}
           alt={imageAlt ?? ""}
           className="absolute inset-0 h-full w-full object-cover"

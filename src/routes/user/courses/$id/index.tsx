@@ -1,7 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { Clock, ListChecks, PanelRightClose, PanelRightOpen } from "lucide-react";
+import {
+  Clock,
+  ListChecks,
+  PanelRightClose,
+  PanelRightOpen,
+} from "lucide-react";
 import apiClient from "#/client/api.ts";
 import PageLoader from "#/components/layout/PageLoader.tsx";
 import { useCurrentLesson } from "#/store/playerStore.ts";
@@ -38,12 +43,22 @@ function Learn({ data }: { data: CourseLearnResponse }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const readIds = useMemo(
-    () => new Set((data.reads ?? []).flatMap((r) => (r?.contentSub?.id ? [r.contentSub.id] : []))),
+    () =>
+      new Set(
+        (data.reads ?? []).flatMap((r) =>
+          r?.contentSub?.id ? [r.contentSub.id] : [],
+        ),
+      ),
     [data.reads],
   );
 
   const doneIds = useMemo(
-    () => new Set((data.assessmentResults ?? []).flatMap((r) => (r?.courseContentSub?.id ? [r.courseContentSub.id] : []))),
+    () =>
+      new Set(
+        (data.assessmentResults ?? []).flatMap((r) =>
+          r?.courseContentSub?.id ? [r.courseContentSub.id] : [],
+        ),
+      ),
     [data.assessmentResults],
   );
 
@@ -147,6 +162,7 @@ function CourseTabs({ data }: { data: CourseLearnResponse }) {
         {tab === "about" ? (
           <div className="flex gap-5">
             <img
+              loading="lazy"
               src={course.coverImage}
               alt={course.title}
               className="hidden h-20 w-28 shrink-0 rounded-md object-cover sm:block"

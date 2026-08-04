@@ -94,6 +94,7 @@ export default function UpdateImages({
           prevImages?.map((image, index) => (
             <div key={image.path} className="relative h-40 w-full group">
               <img
+                loading="lazy"
                 className="size-full object-cover rounded-lg shadow-md"
                 src={image.url}
                 alt={`Existing image ${index + 1}`}
@@ -123,6 +124,7 @@ export default function UpdateImages({
               className="relative h-40 w-full group"
             >
               <img
+                loading="lazy"
                 className="size-full object-cover rounded-lg shadow-md"
                 src={URL.createObjectURL(image)}
                 alt={`New image ${index + 1}`}

@@ -102,6 +102,7 @@ function CourseCard({ item }: { item: PurchaseItem }) {
       <div className="relative h-52 overflow-hidden bg-white">
         {item.course.coverImage && (
           <img
+            loading="lazy"
             src={item.course.coverImage}
             alt={item.course.title}
             className="h-full w-full object-contain"

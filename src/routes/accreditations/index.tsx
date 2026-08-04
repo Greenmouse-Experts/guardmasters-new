@@ -79,7 +79,8 @@ function RouteComponent() {
               className="grid grid-cols-1 items-start gap-6  p-8 last:border-b-0 md:grid-cols-[120px_1fr_1.4fr_auto] md:gap-10 md:p-10"
             >
               <div className="flex h-full items-center justify-center">
-                <img
+                        <img
+                    loading="lazy"
                   src={item.logo}
                   alt={item.name}
                   className="h-full w-full object-contain"

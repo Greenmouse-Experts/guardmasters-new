@@ -7,7 +7,8 @@ export default function AboutIntro() {
   return (
     <>
       <section className="relative overflow-hidden  px-6 py-16 md:px-16 ">
-        <img
+                <img
+                    loading="lazy"
           src="/about_bg.jpeg"
           alt=""
           aria-hidden

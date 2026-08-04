@@ -47,6 +47,7 @@ export default function ProgramCertificate({
         </div>
         <div className="h-fit bg-white p-4">
           <img
+            loading="lazy"
             src={"/certificate.png"}
             alt={imageAlt ?? "/certificate.png"}
             className="h-full w-full object-contain"

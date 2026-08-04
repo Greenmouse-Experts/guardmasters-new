@@ -12,7 +12,8 @@ export default function Hero() {
     <section className="relative min-h-[480px] overflow-hidden md:min-h-[560px] py-22">
       {/* Full-bleed background image */}
       <div className="absolute inset-0 bg-black" />
-      <img
+              <img
+                    loading="lazy"
         src="/new_hero.jpeg"
         alt=""
         aria-hidden
