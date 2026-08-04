@@ -27,7 +27,7 @@ function RouteComponent() {
             Specialized. <em className="text-primary italic">Future-ready</em>
           </>
         }
-        description="A federally incorporated Canadian professional certification, training, and consulting organization — setting new benchmarks for excellence in corporate security education."
+        description=" Guardmaster Institute Canada™ is a Canadian federally incorporated professional certification, corporate training, and consulting organization."
       />
       {/*<FlexSkeleton></FlexSkeleton>*/}
       <AboutIntro />
