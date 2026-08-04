@@ -38,12 +38,12 @@ function Learn({ data }: { data: CourseLearnResponse }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const readIds = useMemo(
-    () => new Set(data.reads.map((r) => r.contentSub.id)),
+    () => new Set((data.reads ?? []).flatMap((r) => (r?.contentSub?.id ? [r.contentSub.id] : []))),
     [data.reads],
   );
 
   const doneIds = useMemo(
-    () => new Set(data.assessmentResults.map((r) => r.courseContentSub.id)),
+    () => new Set((data.assessmentResults ?? []).flatMap((r) => (r?.courseContentSub?.id ? [r.courseContentSub.id] : []))),
     [data.assessmentResults],
   );
 
