@@ -162,7 +162,7 @@ function RouteComponent() {
                   {/* Left: copy */}
                   <div>
                     <span className="mb-8 inline-block rounded-full border border-base-content/25  px-5 py-1.5  font-bold tracking-[0.2em] text-accent uppercase bg-base-200/70">
-                      Enroll
+                      Enroll For This Course
                     </span>
 
                     <h2 className="mb-8 font-pop text-5xl leading-tight text-accent md:text-6xl lg:text-7xl">
@@ -244,7 +244,7 @@ function RouteComponent() {
               </div>
               <section className="">
                 <EnrollMore
-                  badge="Enroll"
+                  badge="Enroll For This Course"
                   programId={resp.course.program.id}
                   currentCourseId={String(resp.course.id)}
                   cartItem={{
