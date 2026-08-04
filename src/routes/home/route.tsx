@@ -9,8 +9,8 @@ const navLinks = [
   { name: "Home", path: "/home" },
   { name: "About", path: "/home/about" },
   { name: "Training Programs", path: "/home/programs" },
-  { name: "Accreditations", path: "/home/accreditations" },
-  { name: "Contact", path: "/home/contact" },
+  { name: "Accreditations", path: "/accreditations" },
+  { name: "Contact", path: "/contact" },
 ] as const;
 
 export const Route = createFileRoute("/home")({
