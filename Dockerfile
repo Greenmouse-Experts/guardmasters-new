@@ -5,7 +5,7 @@ WORKDIR /app
 COPY bun.lock package.json ./
 RUN bun install --frozen-lockfile
 COPY . .
-RUN bun build
+RUN bun run build
 
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
