@@ -74,13 +74,9 @@ export default function ProgramCard({
           </p>
         )}
 
-        <Link
-          to="/courses/$id"
-          params={{ id: course.id }}
-          className="btn btn-block mt-auto h-auto justify-center rounded-xl border-none bg-primary py-3.5 text-base font-semibold text-primary-content hover:bg-primary/90"
-        >
+        <span className="btn btn-block mt-auto h-auto justify-center rounded-xl border-none bg-primary py-3.5 text-base font-semibold text-primary-content hover:bg-primary/90">
           Enroll
-        </Link>
+        </span>
       </div>
     </Link>
   );
