@@ -10,9 +10,9 @@ interface FooterLink {
 
 const quickLinks: FooterLink[] = [
   { name: "Home", path: "/home" },
-  { name: "About Us", path: "/home/about" },
+  { name: "About Us", path: "/about" },
   { name: "Training Programs", path: "/courses" },
-  { name: "News & Blogs", path: "/home/blog" },
+  { name: "News & Blogs", path: "/blog" },
   { name: "FAQ", path: "/home/faq" },
   { name: "Contact Us", path: "/home/contact" },
 ];

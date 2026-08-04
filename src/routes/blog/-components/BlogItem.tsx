@@ -6,7 +6,7 @@ export default function BlogItem({ post }: { post: BlogPost }) {
 
   return (
     <Link
-      to="/home/blog/$id"
+      to="/blog/$id"
       params={{ id: post.id }}
       className="group flex flex-col"
     >

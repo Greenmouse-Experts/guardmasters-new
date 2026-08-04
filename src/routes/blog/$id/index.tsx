@@ -9,7 +9,7 @@ import PageLoader from "#/components/layout/PageLoader.tsx";
 import { formatBlogDate, readingTime, type BlogPost } from "#/types/blog.ts";
 import ImagelessHeader from "../../-components/headers/ImagelessHeader";
 
-export const Route = createFileRoute("/home/blog/$id/")({
+export const Route = createFileRoute("/blog/$id/")({
   component: RouteComponent,
 });
 
@@ -46,7 +46,7 @@ function RouteComponent() {
                   <div className="py-20 text-center">
                     <p className="text-base-content/55">Article not found.</p>
                     <Link
-                      to="/home/blog"
+                      to="/blog"
                       search={{ page: 1 }}
                       className="mt-4 inline-flex items-center gap-1.5  font-medium text-secondary hover:underline"
                     >
@@ -73,7 +73,7 @@ function Article({ post }: { post: BlogPost }) {
     <article>
       {/* Back */}
       <Link
-        to="/home/blog"
+        to="/blog"
         search={{ page: 1 }}
         className="group mb-8 inline-flex items-center gap-1.5  font-semibold text-base-content/55 transition-colors hover:text-base-content"
       >
@@ -233,7 +233,7 @@ function NewsletterCard() {
       </p>
       <button
         type="button"
-        onClick={() => navigate({ to: "/home/blog", search: { page: 1 } })}
+        onClick={() => navigate({ to: "/blog", search: { page: 1 } })}
         className="w-full rounded-xl bg-base-100 py-3  font-semibold text-accent transition-colors hover:bg-base-200"
       >
         View All Articles

@@ -13,7 +13,7 @@ const navLinks = [
   { name: "Contact", path: "/home/contact" },
 ] as const;
 
-export const Route = createFileRoute("/accreditations")({
+export const Route = createFileRoute("/about")({
   component: RouteComponent,
 });
 

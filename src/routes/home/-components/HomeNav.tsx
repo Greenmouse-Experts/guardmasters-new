@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { name: "Home", path: "/home" },
-  { name: "About", path: "/home/about" },
+  { name: "About", path: "/about" },
   { name: "Training Programs", path: "/courses" },
   { name: "Accreditations", path: "/accreditations" },
   // { name: "Contact", path: "/home/contact" },

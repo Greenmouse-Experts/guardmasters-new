@@ -17,7 +17,7 @@ import ImagelessHeader from "../-components/headers/ImagelessHeader";
 
 const PAGE_SIZE = 9;
 
-export const Route = createFileRoute("/home/blog/")({
+export const Route = createFileRoute("/blog/")({
   component: RouteComponent,
   validateSearch: (search: Record<string, unknown>): { page: number } => ({
     page: Number(search.page) || 1,
@@ -207,7 +207,7 @@ function Featured({ post }: { post: BlogPost }) {
         </div>
 
         <Link
-          to="/home/blog/$id"
+          to="/blog/$id"
           params={{ id: post.id }}
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3  font-medium text-accent-content transition-colors hover:bg-accent/90"
         >
@@ -217,7 +217,7 @@ function Featured({ post }: { post: BlogPost }) {
       </div>
 
       <Link
-        to="/home/blog/$id"
+        to="/blog/$id"
         params={{ id: post.id }}
         className="relative block aspect-[3/2] overflow-hidden rounded-2xl bg-base-200"
       >

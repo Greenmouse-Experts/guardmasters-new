@@ -7,7 +7,7 @@ import Footer from "../home/-components/Footer";
 
 const navLinks = [
   { name: "Home", path: "/home" },
-  { name: "About", path: "/home/about" },
+  { name: "About", path: "/about" },
   { name: "Training Programs", path: "/home/courses" },
   { name: "Accreditations", path: "/accreditations" },
   { name: "Contact", path: "/home/contact" },
