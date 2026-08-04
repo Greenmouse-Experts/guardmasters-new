@@ -10,8 +10,12 @@ import { useEffect } from "react";
 
 export const Route = createFileRoute("/courses/")({
   validateSearch: (search: Record<string, unknown>) => ({
-    ...(typeof search.search === "string" && search.search ? { search: search.search } : {}),
-    ...(typeof search.programId === "string" && search.programId ? { programId: search.programId } : {}),
+    ...(typeof search.search === "string" && search.search
+      ? { search: search.search }
+      : {}),
+    ...(typeof search.programId === "string" && search.programId
+      ? { programId: search.programId }
+      : {}),
   }),
   component: RouteComponent,
 });
@@ -43,7 +47,7 @@ function RouteComponent() {
       <SimpleHero
         title={
           <>
-            Training Programs{" "}
+            <span className="text-primary">Training Programs</span>{" "}
             <span className="text-white">and Certification Courses.</span>
           </>
         }
