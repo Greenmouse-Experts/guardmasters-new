@@ -100,7 +100,7 @@ function RouteComponent() {
                     <div className="text-lg  text-accent uppercase  w-fit  bg-white py-2 ring-current/40 px-7 rounded-full  ring self-start shadow font-bold">
                       Program Objectives{" "}
                     </div>{" "}
-                    <em className="text-primary italic">
+                    <em className="text-primary italic uppercase">
                       {" "}
                       & Learning Outcomes.
                     </em>
