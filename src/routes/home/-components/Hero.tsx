@@ -12,8 +12,8 @@ export default function Hero() {
     <section className="relative min-h-[480px] overflow-hidden md:min-h-[560px] py-22">
       {/* Full-bleed background image */}
       <div className="absolute inset-0 bg-black" />
-              <img
-                    loading="lazy"
+      <img
+        loading="lazy"
         src="/new_hero.jpeg"
         alt=""
         aria-hidden
@@ -25,9 +25,10 @@ export default function Hero() {
         {/* Heading */}
         <h1 className="mb-8 max-w-2xl text-4xl leading-[1.1]  text-white md:text-5xl font-pop">
           {" "}
-          Professional Training for the{" "}
-          <span className="text-primary italic">Certifications</span> you need
-          and the <span className="text-primary italic">Career</span> you want
+          Advance <span className="text-primary">Your Career</span> In Corporate
+          Security, Loss Prevention, Asset Protection, and Business Continuity
+          {/*<span className="text-primary italic">Certifications</span> you need
+          and the <span className="text-primary italic">Career</span> you want*/}
         </h1>
 
         {/* Buttons */}
