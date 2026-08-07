@@ -20,14 +20,16 @@ export const Route = createFileRoute("/courses/$id/")({
 
 function RouteComponent() {
   const { id } = Route.useParams();
-  const program = programs[id] ?? programs[defaultProgramId];
-  // const query = useQuery({
-  //   queryKey: ["course"],
-  // });
   const query = useQuery<CourseProgramSingle>({
     queryFn: async () => {
-      let resp = await apiClient.get(`course-content/public/${id}`);
-      return resp.data;
+      const resp = await apiClient.get(`courses/public/slug/${id}`);
+      const d = resp.data;
+      // API may return { course, contents } or the flat course object directly.
+      if (d?.course) return d;
+      return {
+        course: d,
+        contents: d?.contents ?? { data: [], total: 0, totalDuration: 0 },
+      };
     },
     queryKey: ["course-content", id],
   });
@@ -35,49 +37,53 @@ function RouteComponent() {
   return (
     <>
       {(query.isLoading || query.isError) && (
-        <>
-          <div className="from-black bg-linear-180 via-black/80 to-black/80 h-30"></div>
-        </>
+        <div className="from-black bg-linear-180 via-black/80 to-black/80 h-30" />
       )}
       <PageLoader query={query}>
-        {(resp) => {
-          const course = resp.course;
-          const cartItem = {
-            id: String(course.id),
-            coverImg: course.coverImage,
-            title: course.title,
-            price: course.price,
-            fmprice: course.originalPriceFormat,
-          };
-          const addItem = useCartStore((s) => s.addItem);
-          const openCart = useCartStore((s) => s.openCart);
-          const inCart = useIsInCart(cartItem?.id ?? "");
+        {(resp) => <CourseDetail resp={resp} id={id} />}
+      </PageLoader>
+    </>
+  );
+}
 
-          function handleEnroll() {
-            if (!cartItem) return;
-            if (inCart) {
-              openCart();
-              return;
-            }
-            addItem(cartItem);
-          }
-          const price =
-            course.discountPriceFormat ?? course.originalPriceFormat;
-          const totalDuration = resp.contents.totalDuration;
-          const durationLabel =
-            totalDuration >= 60
-              ? `${(totalDuration / 60).toFixed(1)} hours of on-demand content`
-              : `${totalDuration} minutes of on-demand content`;
-          const includes = [
-            durationLabel,
-            "Certificate of completion",
-            "Full lifetime access",
-            "Access on mobile and desktop",
-          ];
-          return (
+function CourseDetail({ resp, id }: { resp: CourseProgramSingle; id: string }) {
+  const program = programs[id] ?? programs[defaultProgramId];
+  const course = resp.course;
+  const addItem = useCartStore((s) => s.addItem);
+  const openCart = useCartStore((s) => s.openCart);
+  const courseId = String(course.id);
+  const inCart = useIsInCart(courseId);
+
+  const cartItem = {
+    id: courseId,
+    coverImg: course.coverImage,
+    title: course.title,
+    price: course.price,
+    fmprice: course.originalPriceFormat,
+  };
+
+  function handleEnroll() {
+    if (inCart) { openCart(); return; }
+    addItem(cartItem);
+  }
+
+  const price = course.discountPriceFormat ?? course.originalPriceFormat;
+  const totalDuration = resp.contents?.totalDuration ?? 0;
+  const durationLabel =
+    totalDuration >= 60
+      ? `${(totalDuration / 60).toFixed(1)} hours of on-demand content`
+      : `${totalDuration} minutes of on-demand content`;
+  const includes = [
+    durationLabel,
+    "Certificate of completion",
+    "Full lifetime access",
+    "Access on mobile and desktop",
+  ];
+
+  return (
             <>
               <ProgramHero
-                badge={course.program.title}
+                badge={course.program?.title ?? ""}
                 title={course.title}
                 description={course.shortDesc}
                 price={price}
@@ -111,7 +117,7 @@ function RouteComponent() {
                   .sort((a, b) => a.order - b.order)
                   .map((o) => o.description)}
               />
-              <Curriculum sections={resp.contents.data} />
+              <Curriculum sections={resp.contents?.data ?? []} />
               {/*<Modules modules={modules} />*/}
               <ProgramCertificate
                 badge="Certificate of Completion"
@@ -247,8 +253,8 @@ function RouteComponent() {
               <section className="">
                 <EnrollMore
                   badge="Enroll For This Course"
-                  programId={resp.course.program.id}
-                  currentCourseId={String(resp.course.id)}
+                  programId={course.program?.id ?? ""}
+                  currentCourseId={courseId}
                   cartItem={{
                     id: String(course.id),
                     coverImg: course.coverImage,
@@ -272,9 +278,5 @@ function RouteComponent() {
                 />
               </section>
             </>
-          );
-        }}
-      </PageLoader>
-    </>
   );
 }

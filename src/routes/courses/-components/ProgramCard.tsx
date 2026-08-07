@@ -6,6 +6,7 @@ export interface CardCourse {
   shortDesc: string;
   coverImage?: string;
   price?: number;
+  slug?: string;
 }
 
 interface ProgramCardProps {
@@ -24,13 +25,12 @@ export default function ProgramCard({
   return (
     <Link
       to="/courses/$id"
-      params={{ id: course.id }}
+      params={{ id: course.slug }}
       className={`group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow hover:shadow-xl ${outline ? "border border-gray-200" : ""}`}
     >
       {/* ── Header: white bg + yellow angled band + circle image ── */}
       <div className="relative h-52 overflow-hidden bg-white">
-                <img
-                    loading="lazy" src={course.coverImage}></img>
+        <img loading="lazy" src={course.coverImage}></img>
         {/* Angled yellow shape covering the lower portion */}
         {/*<div
           className="absolute  inset-x-0 bottom-0 h-3/5 bg-linear-0 from-primary via-primary/10 to-transparent"
